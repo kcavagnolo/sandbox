@@ -1,0 +1,632 @@
+---
+openapi: 3.0.0
+info:
+  title: MapAnything Routing Engine API
+  description: API for optimizing the Location of Things (LoT)
+  termsOfService: https://mapanything.com/trust/terms-of-service
+  contact:
+    name: MapAnything API Support
+    url: https://mapanything.force.com/support
+  version: 1.0-oas3
+externalDocs:
+  description: Visit the MapAnything Developer Portal
+  url: https://developer.mapanything.com/
+servers:
+- url: '{protocol}://api.{environment}mare.com/v1'
+  description: Server addresses
+  variables:
+    protocol:
+      default: https
+      enum:
+      - http
+      - https
+    environment:
+      default: prod
+      enum:
+      - prod
+      - dev
+      - staging
+paths:
+  /matrix/health:
+    get:
+      tags:
+      - /matrix/health
+      summary: Returns the health of the distance matrix service
+      operationId: get_health_check
+      responses:
+        200:
+          description: Success
+  /matrix/async:
+    post:
+      tags:
+      - /matrix/async
+      summary: Accepts a Matrix Job and Returns Job Status (May include payload?)
+      operationId: post_routing_job_request
+      requestBody:
+        $ref: '#/components/requestBodies/Routing_Job_JSON'
+      responses:
+        201:
+          description: Matrix Async Job submitted successfully.
+  /matrix/async/{jobId}:
+    get:
+      tags:
+      - /matrix/async
+      summary: Returns the status of the job
+      operationId: get_routing_job_ops
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        style: SIMPLE
+        explode: false
+        schema:
+          type: string
+      responses:
+        404:
+          description: Job not found.
+    delete:
+      tags:
+      - /matrix/async
+      summary: Abort or Cancel a Job
+      operationId: delete_routing_job_ops
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        style: SIMPLE
+        explode: false
+        schema:
+          type: string
+      responses:
+        204:
+          description: Job successfully deleted.
+        404:
+          description: Job not found.
+  /matrix/sync:
+    post:
+      tags:
+      - /matrix/sync
+      summary: Accepts a Routing Job and Returns Job Status (May include payload?)
+      operationId: post_routing_job_request
+      requestBody:
+        $ref: '#/components/requestBodies/Routing_Job_JSON'
+      responses:
+        201:
+          description: Matrix Job submitted successfully.
+  /matrix/sync/{jobId}:
+    get:
+      tags:
+      - /matrix/sync
+      summary: Returns the status of the job
+      operationId: get_routing_job_ops
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        style: SIMPLE
+        explode: false
+        schema:
+          type: string
+      responses:
+        404:
+          description: Job not found.
+    delete:
+      tags:
+      - /matrix/sync
+      summary: Abort or Cancel a Job
+      operationId: delete_routing_job_ops
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        style: SIMPLE
+        explode: false
+        schema:
+          type: string
+      responses:
+        204:
+          description: Job successfully deleted.
+        404:
+          description: Job not found.
+  /matrix/job:
+    post:
+      tags:
+      - /matrix/job
+      summary: Accepts an async matrix JobID and returns the job status
+      operationId: post_routing_job_request
+      requestBody:
+        $ref: '#/components/requestBodies/Routing_Job_JSON'
+      responses:
+        201:
+          description: Matrix Job submitted successfully.
+  /matrix/job/{jobId}:
+    get:
+      tags:
+      - /matrix/job
+      summary: Returns the status of a job
+      operationId: get_routing_job_ops
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        style: SIMPLE
+        explode: false
+        schema:
+          type: string
+      responses:
+        404:
+          description: Job not found.
+    delete:
+      tags:
+      - /matrix/job
+      summary: Abort or Cancel a Job
+      operationId: delete_routing_job_ops
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        style: SIMPLE
+        explode: false
+        schema:
+          type: string
+      responses:
+        204:
+          description: Job successfully deleted.
+        404:
+          description: Job not found.
+  /routing/health:
+    get:
+      tags:
+      - /routing/health
+      summary: Returns the health of the routing service
+      operationId: get_health_check
+      responses:
+        200:
+          description: Success
+  /routing/async:
+    post:
+      tags:
+      - /routing/async
+      summary: Accepts a Routing Job and Returns Job Status (May include payload?)
+      operationId: post_routing_job_request
+      requestBody:
+        $ref: '#/components/requestBodies/Routing_Job_JSON'
+      responses:
+        201:
+          description: Routing Async Job submitted successfully.
+  /routing/async/{jobId}:
+    get:
+      tags:
+      - /routing/async
+      summary: Returns the status of the job
+      operationId: get_routing_job_ops
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        style: SIMPLE
+        explode: false
+        schema:
+          type: string
+      responses:
+        404:
+          description: Job not found.
+    delete:
+      tags:
+      - /routing/async
+      summary: Abort or Cancel a Job
+      operationId: delete_routing_job_ops
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        style: SIMPLE
+        explode: false
+        schema:
+          type: string
+      responses:
+        204:
+          description: Job successfully deleted.
+        404:
+          description: Job not found.
+  /routing/sync:
+    post:
+      tags:
+      - /routing/sync
+      summary: Accepts a Routing Job and Returns Job Status (May include payload?)
+      operationId: post_routing_job_request
+      requestBody:
+        $ref: '#/components/requestBodies/Routing_Job_JSON'
+      responses:
+        201:
+          description: Routing Job submitted successfully.
+  /routing/sync/{jobId}:
+    get:
+      tags:
+      - /routing/sync
+      summary: Returns the status of the job
+      operationId: get_routing_job_ops
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        style: SIMPLE
+        explode: false
+        schema:
+          type: string
+      responses:
+        404:
+          description: Job not found.
+    delete:
+      tags:
+      - /routing/sync
+      summary: Abort or Cancel a Job
+      operationId: delete_routing_job_ops
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        style: SIMPLE
+        explode: false
+        schema:
+          type: string
+      responses:
+        204:
+          description: Job successfully deleted.
+        404:
+          description: Job not found.
+  /routing/input:
+    post:
+      tags:
+      - /routing/input
+      summary: Post the input json to the system and receive path from s3
+      operationId: post_post_input
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Input_JSON'
+        required: true
+      responses:
+        200:
+          description: Success
+  /routing/input/{id}:
+    get:
+      tags:
+      - /routing/input
+      summary: Returns the input json
+      operationId: get_get_input
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: SIMPLE
+        explode: false
+        schema:
+          type: string
+      responses:
+        404:
+          description: Input file not found.
+  /routing/output:
+    post:
+      tags:
+      - /routing/output
+      summary: Post the output json to the system and receive path from s3
+      operationId: post_posts_collection
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Output_JSON'
+        required: true
+      responses:
+        200:
+          description: Success
+  /routing/output/{id}:
+    get:
+      tags:
+      - /routing/output
+      summary: Returns the input json
+      operationId: get_post_item
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: SIMPLE
+        explode: false
+        schema:
+          type: string
+      responses:
+        404:
+          description: Post not found.
+  /routing/job:
+    post:
+      tags:
+      - /routing/job
+      summary: Accepts a Routing Job and Returns Job Status (May include payload?)
+      operationId: post_routing_job_request
+      requestBody:
+        $ref: '#/components/requestBodies/Routing_Job_JSON'
+      responses:
+        201:
+          description: Routing Job submitted successfully.
+  /routing/job/{jobId}:
+    get:
+      tags:
+      - /routing/job
+      summary: Returns the status of the job
+      operationId: get_routing_job_ops
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        style: SIMPLE
+        explode: false
+        schema:
+          type: string
+      responses:
+        404:
+          description: Job not found.
+    delete:
+      tags:
+      - /routing/job
+      summary: Abort or Cancel a Job
+      operationId: delete_routing_job_ops
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        style: SIMPLE
+        explode: false
+        schema:
+          type: string
+      responses:
+        204:
+          description: Job successfully deleted.
+        404:
+          description: Job not found.
+  /repair/async:
+    post:
+      tags:
+      - /repair/async
+      summary: Accepts a Repair Job and Returns Job Status (May include payload?)
+      operationId: post_repair_job_request
+      requestBody:
+        $ref: '#/components/requestBodies/Repair_Job_JSON'
+      responses:
+        201:
+          description: Repair Async Job submitted successfully.
+  /repair/async/{jobId}:
+    get:
+      tags:
+      - /repair/async
+      summary: Returns the status of the job
+      operationId: get_repair_job_ops
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        style: SIMPLE
+        explode: false
+        schema:
+          type: string
+      responses:
+        404:
+          description: Job not found.
+    delete:
+      tags:
+      - /repair/async
+      summary: Abort or Cancel a Job
+      operationId: delete_repair_job_ops
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        style: SIMPLE
+        explode: false
+        schema:
+          type: string
+      responses:
+        204:
+          description: Job successfully deleted.
+        404:
+          description: Job not found.
+  /repair/sync:
+    post:
+      tags:
+      - /repair/sync
+      summary: Accepts a Routing Job and Returns Job Status (May include payload?)
+      operationId: post_repair_job_request
+      requestBody:
+        $ref: '#/components/requestBodies/Repair_Job_JSON'
+      responses:
+        201:
+          description: Repair Job submitted successfully.
+  /repair/sync/{jobId}:
+    get:
+      tags:
+      - /repair/sync
+      summary: Returns the status of the job
+      operationId: get_routing_job_ops
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        style: SIMPLE
+        explode: false
+        schema:
+          type: string
+      responses:
+        404:
+          description: Job not found.
+    delete:
+      tags:
+      - /repair/sync
+      summary: Abort or Cancel a Job
+      operationId: delete_routing_job_ops
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        style: SIMPLE
+        explode: false
+        schema:
+          type: string
+      responses:
+        204:
+          description: Job successfully deleted.
+        404:
+          description: Job not found.
+components:
+  schemas:
+    Input_JSON:
+      required:
+      - body
+      type: object
+      properties:
+        body:
+          type: string
+          description: JSON content of the input
+        id:
+          type: integer
+          description: The unique identifier of the input
+          format: int32
+    Locations_JSON:
+      required:
+      - latitude
+      - location_id
+      - longitude
+      type: object
+      properties:
+        location_id:
+          type: string
+          description: Unique Locations of the problem
+        location_class:
+          type: array
+          items:
+            type: integer
+            format: int32
+        longitude:
+          type: number
+          description: Lon of the  Location
+        latitude:
+          type: number
+          description: Lat of the  Location
+    vehicle_JSON:
+      required:
+      - type
+      type: object
+      properties:
+        hazmat:
+          type: boolean
+        height:
+          type: number
+        num_axles:
+          type: integer
+          format: int32
+        length:
+          type: number
+        width:
+          type: number
+        type:
+          type: string
+        weight:
+          type: number
+    Repair_Job_JSON:
+      type: object
+      properties:
+        new_order:
+          type: string
+        force_containment:
+          type: boolean
+    Output_JSON:
+      required:
+      - body
+      type: object
+      properties:
+        body:
+          type: string
+          description: Json content of the output
+        id:
+          type: integer
+          description: The unique identifier of the output
+          format: int32
+    Routing_Job_JSON:
+      required:
+      - locations
+      type: object
+      properties:
+        sources:
+          type: array
+          items:
+            type: integer
+            format: int32
+        force_containment:
+          type: boolean
+        locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Locations_JSON'
+        destinations:
+          type: array
+          items:
+            type: integer
+            format: int32
+        end_local_time:
+          type: string
+        vehicle:
+          $ref: '#/components/schemas/vehicle_JSON'
+        num_neighbors:
+          type: integer
+          format: int32
+        start_local_time:
+          type: string
+        max_travel_time:
+          type: number
+        weekend:
+          type: boolean
+  responses:
+    ParseError:
+      description: When a mask can't be parsed
+    MaskError:
+      description: When any error occurs on mask
+  parameters:
+    skipParam:
+      name: skip
+      in: query
+      description: number of items to skip
+      required: true
+      style: FORM
+      explode: true
+      schema:
+        type: integer
+        format: int32
+    limitParam:
+      name: limit
+      in: query
+      description: max records to return
+      required: true
+      style: FORM
+      explode: true
+      schema:
+        type: integer
+        format: int32
+  requestBodies:
+    Repair_Job_JSON:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Repair_Job_JSON'
+      required: true
+    Routing_Job_JSON:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Routing_Job_JSON'
+      required: true
+  securitySchemes:
+    api_key:
+      type: APIKEY
+      name: api_key
+      in: HEADER
+  extensions: {}
