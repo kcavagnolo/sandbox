@@ -1,603 +1,707 @@
----
+# spec version
 openapi: 3.0.0
+
+# server URL definitions
+servers:
+  - url: https://public-api.mapanything.io/mare/v1
+    description: Production server
+  - url: http://api.devmare.com/v1
+    description: Development server
+  - url: http://api.devmare.com/sandbox
+    description: Sandbox server
+
+# general info about the API
 info:
-  title: MapAnything Routing Engine API
+  version: "1.0.0"
+  title: MapAnything Optimization API's
   description: API for optimizing the Location of Things (LoT)
   termsOfService: https://mapanything.com/trust/terms-of-service
   contact:
     name: MapAnything API Support
+    email: support@mapanything.com
     url: https://mapanything.force.com/support
-  version: 1.0-oas3
+  x-logo:
+    url: https://mapanything.com/application/themes/mapanything/img/ma-logo-blue.svg
+    altText: MapAnything Logo
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+# relative URLs to external documentation
 externalDocs:
-  description: Visit the MapAnything Developer Portal
   url: https://developer.mapanything.com/
-servers:
-- url: '{protocol}://api.{environment}mare.com/v1'
-  description: Server addresses
-  variables:
-    protocol:
-      default: https
-      enum:
-      - http
-      - https
-    environment:
-      default: prod
-      enum:
-      - prod
-      - dev
-      - staging
+  description: Visit the MapAnything Developer Portal
+
+# paths in the API
 paths:
+
+  #############################
+  # distance matrix endpoints #
+  #############################
+
   /matrix/health:
     get:
-      tags:
-      - /matrix/health
-      summary: Returns the health of the distance matrix service
+      summary: Health Check
+      description: |
+        The healthcheck endpoint provides detailed information about the health of the service.
+        If each of the components required by the service are healthy, then the service is considered
+        healthy and will return a 200 OK response. If any of the components needed by the service
+        are unhealthy, then a 503 Service Unavailable response will be provided.
       operationId: get_health_check
       responses:
         200:
-          description: Success
+          description: healthy service
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Health'
+        503:
+          description: unhealthy service
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Error'
+      tags:
+        - /matrix/health
   /matrix/async:
     post:
-      tags:
-      - /matrix/async
-      summary: Accepts a Matrix Job and Returns Job Status (May include payload?)
+      summary: Creates a new distance matrix job
       operationId: post_routing_job_request
       requestBody:
-        $ref: '#/components/requestBodies/Routing_Job_JSON'
+        description: Locations to create distance matrix
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MatrixJob'
       responses:
         201:
-          description: Matrix Async Job submitted successfully.
-  /matrix/async/{jobId}:
-    get:
+          description: Async job submitted successfully
+          #content:
+          #  application/json:
+          #    schema:
+          #      ref: '#/components/schemas/NewMatrixJob'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       tags:
-      - /matrix/async
-      summary: Returns the status of the job
-      operationId: get_routing_job_ops
-      parameters:
+        - /matrix/async
+  '/matrix/async/{jobId}':
+    parameters:
       - name: jobId
         in: path
         required: true
-        style: SIMPLE
-        explode: false
         schema:
           type: string
-      responses:
-        404:
-          description: Job not found.
     delete:
-      tags:
-      - /matrix/async
       summary: Abort or Cancel a Job
       operationId: delete_routing_job_ops
-      parameters:
-      - name: jobId
-        in: path
-        required: true
-        style: SIMPLE
-        explode: false
-        schema:
-          type: string
       responses:
-        204:
+        '204':
           description: Job successfully deleted.
-        404:
+        '404':
           description: Job not found.
+      tags:
+        - /matrix/async
+    get:
+      summary: Returns the status of the job
+      operationId: get_routing_job_ops
+      responses:
+        '404':
+          description: Job not found.
+      tags:
+        - /matrix/async
   /matrix/sync:
     post:
-      tags:
-      - /matrix/sync
       summary: Accepts a Routing Job and Returns Job Status (May include payload?)
       operationId: post_routing_job_request
+      responses:
+        '201':
+          description: Matrix Job submitted successfully.
+      tags:
+        - /matrix/sync
       requestBody:
         $ref: '#/components/requestBodies/Routing_Job_JSON'
-      responses:
-        201:
-          description: Matrix Job submitted successfully.
-  /matrix/sync/{jobId}:
-    get:
-      tags:
-      - /matrix/sync
-      summary: Returns the status of the job
-      operationId: get_routing_job_ops
-      parameters:
+  '/matrix/sync/{jobId}':
+    parameters:
       - name: jobId
         in: path
         required: true
-        style: SIMPLE
-        explode: false
         schema:
           type: string
-      responses:
-        404:
-          description: Job not found.
     delete:
-      tags:
-      - /matrix/sync
       summary: Abort or Cancel a Job
       operationId: delete_routing_job_ops
-      parameters:
-      - name: jobId
-        in: path
-        required: true
-        style: SIMPLE
-        explode: false
-        schema:
-          type: string
       responses:
-        204:
+        '204':
           description: Job successfully deleted.
-        404:
+        '404':
           description: Job not found.
+      tags:
+        - /matrix/sync
+    get:
+      summary: Returns the status of the job
+      operationId: get_routing_job_ops
+      responses:
+        '404':
+          description: Job not found.
+      tags:
+        - /matrix/sync
   /matrix/job:
     post:
-      tags:
-      - /matrix/job
       summary: Accepts an async matrix JobID and returns the job status
       operationId: post_routing_job_request
+      responses:
+        '201':
+          description: Matrix Job submitted successfully.
+      tags:
+        - /matrix/job
       requestBody:
         $ref: '#/components/requestBodies/Routing_Job_JSON'
+  '/matrix/job/{jobId}':
+    parameters:
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+    delete:
+      summary: Abort or Cancel a Job
+      operationId: delete_routing_job_ops
       responses:
-        201:
-          description: Matrix Job submitted successfully.
-  /matrix/job/{jobId}:
-    get:
+        '204':
+          description: Job successfully deleted.
+        '404':
+          description: Job not found.
       tags:
-      - /matrix/job
+        - /matrix/job
+    get:
       summary: Returns the status of a job
       operationId: get_routing_job_ops
-      parameters:
-      - name: jobId
-        in: path
-        required: true
-        style: SIMPLE
-        explode: false
-        schema:
-          type: string
       responses:
-        404:
+        '404':
           description: Job not found.
-    delete:
       tags:
-      - /matrix/job
-      summary: Abort or Cancel a Job
-      operationId: delete_routing_job_ops
-      parameters:
-      - name: jobId
-        in: path
-        required: true
-        style: SIMPLE
-        explode: false
-        schema:
-          type: string
-      responses:
-        204:
-          description: Job successfully deleted.
-        404:
-          description: Job not found.
+        - /matrix/job
+
+  #####################
+  # routing endpoints #
+  #####################
+
   /routing/health:
     get:
-      tags:
-      - /routing/health
-      summary: Returns the health of the routing service
+      summary: 'Returns the health of the routing service'
       operationId: get_health_check
       responses:
-        200:
+        '200':
           description: Success
+      tags:
+        - /routing/health
   /routing/async:
     post:
-      tags:
-      - /routing/async
       summary: Accepts a Routing Job and Returns Job Status (May include payload?)
       operationId: post_routing_job_request
+      responses:
+        '201':
+          description: Routing Async Job submitted successfully.
+      tags:
+        - /routing/async
       requestBody:
         $ref: '#/components/requestBodies/Routing_Job_JSON'
-      responses:
-        201:
-          description: Routing Async Job submitted successfully.
-  /routing/async/{jobId}:
-    get:
-      tags:
-      - /routing/async
-      summary: Returns the status of the job
-      operationId: get_routing_job_ops
-      parameters:
+  '/routing/async/{jobId}':
+    parameters:
       - name: jobId
         in: path
         required: true
-        style: SIMPLE
-        explode: false
         schema:
           type: string
-      responses:
-        404:
-          description: Job not found.
     delete:
-      tags:
-      - /routing/async
       summary: Abort or Cancel a Job
       operationId: delete_routing_job_ops
-      parameters:
-      - name: jobId
-        in: path
-        required: true
-        style: SIMPLE
-        explode: false
-        schema:
-          type: string
       responses:
-        204:
+        '204':
           description: Job successfully deleted.
-        404:
+        '404':
           description: Job not found.
+      tags:
+        - /routing/async
+    get:
+      summary: Returns the status of the job
+      operationId: get_routing_job_ops
+      responses:
+        '404':
+          description: Job not found.
+      tags:
+        - /routing/async
   /routing/sync:
     post:
-      tags:
-      - /routing/sync
       summary: Accepts a Routing Job and Returns Job Status (May include payload?)
       operationId: post_routing_job_request
+      responses:
+        '201':
+          description: Routing Job submitted successfully.
+      tags:
+        - /routing/sync
       requestBody:
         $ref: '#/components/requestBodies/Routing_Job_JSON'
-      responses:
-        201:
-          description: Routing Job submitted successfully.
-  /routing/sync/{jobId}:
-    get:
-      tags:
-      - /routing/sync
-      summary: Returns the status of the job
-      operationId: get_routing_job_ops
-      parameters:
+  '/routing/sync/{jobId}':
+    parameters:
       - name: jobId
         in: path
         required: true
-        style: SIMPLE
-        explode: false
         schema:
           type: string
-      responses:
-        404:
-          description: Job not found.
     delete:
-      tags:
-      - /routing/sync
       summary: Abort or Cancel a Job
       operationId: delete_routing_job_ops
-      parameters:
-      - name: jobId
-        in: path
-        required: true
-        style: SIMPLE
-        explode: false
-        schema:
-          type: string
       responses:
-        204:
+        '204':
           description: Job successfully deleted.
-        404:
+        '404':
           description: Job not found.
+      tags:
+        - /routing/sync
+    get:
+      summary: Returns the status of the job
+      operationId: get_routing_job_ops
+      responses:
+        '404':
+          description: Job not found.
+      tags:
+        - /routing/sync
   /routing/input:
     post:
-      tags:
-      - /routing/input
       summary: Post the input json to the system and receive path from s3
       operationId: post_post_input
+      responses:
+        '200':
+          description: Success
+      tags:
+        - /routing/input
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Input_JSON'
         required: true
-      responses:
-        200:
-          description: Success
-  /routing/input/{id}:
-    get:
-      tags:
-      - /routing/input
-      summary: Returns the input json
-      operationId: get_get_input
-      parameters:
+  '/routing/input/{id}':
+    parameters:
       - name: id
         in: path
         required: true
-        style: SIMPLE
-        explode: false
         schema:
           type: string
+    get:
+      summary: Returns the input json
+      operationId: get_get_input
       responses:
-        404:
+        '404':
           description: Input file not found.
+      tags:
+        - /routing/input
   /routing/output:
     post:
-      tags:
-      - /routing/output
       summary: Post the output json to the system and receive path from s3
       operationId: post_posts_collection
+      responses:
+        '200':
+          description: Success
+      tags:
+        - /routing/output
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Output_JSON'
         required: true
-      responses:
-        200:
-          description: Success
-  /routing/output/{id}:
-    get:
-      tags:
-      - /routing/output
-      summary: Returns the input json
-      operationId: get_post_item
-      parameters:
+  '/routing/output/{id}':
+    parameters:
       - name: id
         in: path
         required: true
-        style: SIMPLE
-        explode: false
         schema:
           type: string
+    get:
+      summary: Returns the input json
+      operationId: get_post_item
       responses:
-        404:
+        '404':
           description: Post not found.
+      tags:
+        - /routing/output
   /routing/job:
     post:
-      tags:
-      - /routing/job
       summary: Accepts a Routing Job and Returns Job Status (May include payload?)
       operationId: post_routing_job_request
+      responses:
+        '201':
+          description: Routing Job submitted successfully.
+      tags:
+        - /routing/job
       requestBody:
         $ref: '#/components/requestBodies/Routing_Job_JSON'
-      responses:
-        201:
-          description: Routing Job submitted successfully.
-  /routing/job/{jobId}:
-    get:
-      tags:
-      - /routing/job
-      summary: Returns the status of the job
-      operationId: get_routing_job_ops
-      parameters:
+  '/routing/job/{jobId}':
+    parameters:
       - name: jobId
         in: path
         required: true
-        style: SIMPLE
-        explode: false
         schema:
           type: string
-      responses:
-        404:
-          description: Job not found.
     delete:
-      tags:
-      - /routing/job
       summary: Abort or Cancel a Job
       operationId: delete_routing_job_ops
-      parameters:
-      - name: jobId
-        in: path
-        required: true
-        style: SIMPLE
-        explode: false
-        schema:
-          type: string
       responses:
-        204:
+        '204':
           description: Job successfully deleted.
-        404:
+        '404':
           description: Job not found.
+      tags:
+        - /routing/job
+    get:
+      summary: Returns the status of the job
+      operationId: get_routing_job_ops
+      responses:
+        '404':
+          description: Job not found.
+      tags:
+        - /routing/job
+
+  ####################
+  # repair endpoints #
+  ####################
+
   /repair/async:
     post:
-      tags:
-      - /repair/async
       summary: Accepts a Repair Job and Returns Job Status (May include payload?)
       operationId: post_repair_job_request
+      responses:
+        '201':
+          description: Repair Async Job submitted successfully.
+      tags:
+        - /repair/async
       requestBody:
         $ref: '#/components/requestBodies/Repair_Job_JSON'
-      responses:
-        201:
-          description: Repair Async Job submitted successfully.
-  /repair/async/{jobId}:
-    get:
-      tags:
-      - /repair/async
-      summary: Returns the status of the job
-      operationId: get_repair_job_ops
-      parameters:
+  '/repair/async/{jobId}':
+    parameters:
       - name: jobId
         in: path
         required: true
-        style: SIMPLE
-        explode: false
         schema:
           type: string
-      responses:
-        404:
-          description: Job not found.
     delete:
-      tags:
-      - /repair/async
       summary: Abort or Cancel a Job
       operationId: delete_repair_job_ops
-      parameters:
-      - name: jobId
-        in: path
-        required: true
-        style: SIMPLE
-        explode: false
-        schema:
-          type: string
       responses:
-        204:
+        '204':
           description: Job successfully deleted.
-        404:
+        '404':
           description: Job not found.
+      tags:
+        - /repair/async
+    get:
+      summary: Returns the status of the job
+      operationId: get_repair_job_ops
+      responses:
+        '404':
+          description: Job not found.
+      tags:
+        - /repair/async
   /repair/sync:
     post:
-      tags:
-      - /repair/sync
       summary: Accepts a Routing Job and Returns Job Status (May include payload?)
       operationId: post_repair_job_request
+      responses:
+        '201':
+          description: Repair Job submitted successfully.
+      tags:
+        - /repair/sync
       requestBody:
         $ref: '#/components/requestBodies/Repair_Job_JSON'
-      responses:
-        201:
-          description: Repair Job submitted successfully.
-  /repair/sync/{jobId}:
-    get:
-      tags:
-      - /repair/sync
-      summary: Returns the status of the job
-      operationId: get_routing_job_ops
-      parameters:
+  '/repair/sync/{jobId}':
+    parameters:
       - name: jobId
         in: path
         required: true
-        style: SIMPLE
-        explode: false
         schema:
           type: string
-      responses:
-        404:
-          description: Job not found.
     delete:
-      tags:
-      - /repair/sync
       summary: Abort or Cancel a Job
       operationId: delete_routing_job_ops
-      parameters:
-      - name: jobId
-        in: path
-        required: true
-        style: SIMPLE
-        explode: false
-        schema:
-          type: string
       responses:
-        204:
+        '204':
           description: Job successfully deleted.
-        404:
+        '404':
           description: Job not found.
+      tags:
+        - /repair/sync
+    get:
+      summary: Returns the status of the job
+      operationId: get_routing_job_ops
+      responses:
+        '404':
+          description: Job not found.
+      tags:
+        - /repair/sync
+
+# components
 components:
+  
+  # schemas
   schemas:
     Input_JSON:
+      type: object
       required:
       - body
-      type: object
       properties:
         body:
-          type: string
           description: JSON content of the input
+          type: string
         id:
-          type: integer
           description: The unique identifier of the input
-          format: int32
-    Locations_JSON:
-      required:
-      - latitude
-      - location_id
-      - longitude
-      type: object
-      properties:
-        location_id:
-          type: string
-          description: Unique Locations of the problem
-        location_class:
-          type: array
-          items:
-            type: integer
-            format: int32
-        longitude:
-          type: number
-          description: Lon of the  Location
-        latitude:
-          type: number
-          description: Lat of the  Location
-    vehicle_JSON:
-      required:
-      - type
-      type: object
-      properties:
-        hazmat:
-          type: boolean
-        height:
-          type: number
-        num_axles:
           type: integer
-          format: int32
-        length:
-          type: number
-        width:
-          type: number
-        type:
-          type: string
-        weight:
-          type: number
     Repair_Job_JSON:
-      type: object
       properties:
         new_order:
           type: string
         force_containment:
           type: boolean
+      type: object
     Output_JSON:
       required:
-      - body
-      type: object
+        - body
       properties:
         body:
-          type: string
           description: Json content of the output
+          type: string
         id:
-          type: integer
           description: The unique identifier of the output
-          format: int32
-    Routing_Job_JSON:
-      required:
-      - locations
+          type: integer
       type: object
+    RoutingJob:
+      required:
+        - locations
       properties:
         sources:
-          type: array
           items:
             type: integer
-            format: int32
+          type: array
         force_containment:
           type: boolean
         locations:
-          type: array
           items:
             $ref: '#/components/schemas/Locations_JSON'
-        destinations:
           type: array
+        destinations:
           items:
             type: integer
-            format: int32
+          type: array
         end_local_time:
           type: string
         vehicle:
-          $ref: '#/components/schemas/vehicle_JSON'
+          $ref: '#/components/schemas/Vehicle'
         num_neighbors:
           type: integer
-          format: int32
         start_local_time:
           type: string
         max_travel_time:
           type: number
         weekend:
           type: boolean
+      type: object
+    Health:
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    Error:
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    
+    # matrix job template
+    MatrixJob:
+      type: object
+      description: |
+        Complex object containing information about locations to build distance matrix for.
+      required:
+          - locations
+          - vehicle
+      properties:
+        locations:
+          $ref: '#/components/schemas/Locations'
+        vehicle:
+          $ref: '#/components/schemas/Vehicle'
+        sources:
+          type: array
+          items:
+            type: integer
+            format: int64
+          minItems: 1
+          maxItems: 10
+          uniqueItems: true
+          description: |
+            If the full n x n matrix is not desired, sources and destinations arrays can be used to provide the indices of the locations that are sources/destinations. All indices must be in {0,1,2,...,n-1} and only paths from a source to a destination will be provided. Note that both sources and destinations, should both be used or not at all.
+        destinations:
+          type: array
+          items:
+            type: integer
+            format: int64
+          minItems: 1
+          maxItems: 10
+          uniqueItems: true
+          description: |
+            If the full n x n matrix is not desired, sources and destinations arrays can be used to provide the indices of the locations that are sources/destinations. All indices must be in {0,1,2,...,n-1} and only paths from a source to a destination will be provided. Note that both sources and destinations, should both be used or not at all.
+        force_containment:
+          type: boolean
+          description: |
+            If provided along with `location_classes` for `sources` and `destinations`, then MARE only returns information for source-destination pairs where the source location classes completely contain the destination location classes.
+        start_local_time:
+          type: string
+          format: byte
+          description: |
+            Start local time in hh:mm:ss format. Used in conjunction with `end_local_time` parameter.
+        end_local_time:
+          type: string
+          format: byte
+          description: |
+            End local time in hh:mm:ss format. In this case, we only return info on the traffic windows that are touched by this interval. User must supply both `start_local_time` and `end_local_time`.
+        num_neighbors:
+          type: integer
+          format: int64
+          description: |
+            If provided, the response will only contain information about paths from any location to its nearest `num_neighbors` destinations.
+        max_travel_time:
+          type: number
+          format: double
+          description: |
+            Returns only those travel times that are less than `max_travel_time` across all traffic windows.
+        radius:
+          type: integer
+          format: int64
+          description: |
+            By default, MARE looks for the nearest street segment within 1500 meters of `latitude` and `longitude` within the `locations` object. This can be changed to a different value if desired by specifying a new value in meters. Can be useful in rural and other areas where not all streets are included in the map data.
+        weekend:
+          type: boolean
+          description: |
+            If `true`, MARE defaults to the fastest available traffic window corresponding to weekend/free flow traffic patterns. If unspecified, MARE defaults to `false` and returns the travel time for multiple traffic windows, depending on whether `start_local_time` and `end_local_time` are provided.
+    
+    # location template
+    Locations:
+      type: object
+      description: |
+        Represents the points of interest to be used for the matrix. Currently, latitude and longitude must be specified meaning addresses must first be geocoded.
+      required:
+        - latitude
+        - longitude
+        - location_id
+      properties:
+        latitude:
+          type: number
+          format: float
+          description: |
+            The latitude value for the location object.
+        longitude:
+          type: number
+          format: float
+          description: |
+            The longitude value for the location object.
+        location_id:
+          type: string
+          format: byte
+          description: |
+            A unique string identifier for each location object.
+        location_class:
+          type: array
+          items:
+            type: integer
+            format: int64
+          minItems: 1
+          maxItems: 10
+          uniqueItems: true
+          description: |
+            If provided, then MARE associates a set of classes with this location. This can be used to reduce the
+            size of the response. If a location_class array is provided for both a source and destination
+            location, then we only include the travel costs if the intersection of the source location_class and
+            destination location_class is non-empty. This behavior can be further modified by using the
+            force_containment boolean parameter. For example, a source might be a plumber or an electrician, and
+            a destination would be a job that requires a plumber or electrician. So the location_class allows one
+            to filter the matrix so that only relevant paths are returned based on attributes of the locations.
+    
+    # vehicle template
+    Vehicle:
+      type: object
+      description: |
+        Describes the vehicle and its attributes for estimating travel times. The fastest response times will be with vehicle type car.
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          format: byte
+          description: |
+            Must be one of car, truck, bicycle, pedestrian.
+        hazmat:
+          type: boolean
+          description: |
+            True if this vehicle is subject to hazmat restrictions (**TRUCK ONLY**).
+        height:
+          type: number
+          format: float
+          description: |
+            Vehicle height in meters (**TRUCK ONLY**).
+        length:
+          type: number
+          format: float
+          description: |
+            Vehicle length in meters (**TRUCK ONLY**).
+        num_axles:
+          type: integer
+          format: int64
+          description: |
+            Describes vehicle properties in order to restrict routing to allowable roads (**TRUCK ONLY**).
+        weight:
+          type: number
+          format: float
+          description: |
+            Vehicle weight in kilograms (**TRUCK ONLY**).
+        width:
+          type: number
+          format: float
+          description: |
+            Vehicle width in meters (**TRUCK ONLY**).
+
+  # responses
   responses:
     ParseError:
       description: When a mask can't be parsed
     MaskError:
       description: When any error occurs on mask
+  
+  # parameters
   parameters:
     skipParam:
       name: skip
       in: query
       description: number of items to skip
       required: true
-      style: FORM
-      explode: true
       schema:
         type: integer
         format: int32
@@ -606,11 +710,11 @@ components:
       in: query
       description: max records to return
       required: true
-      style: FORM
-      explode: true
       schema:
         type: integer
         format: int32
+  
+  # examples
   requestBodies:
     Repair_Job_JSON:
       content:
@@ -622,11 +726,19 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Routing_Job_JSON'
+            $ref: '#/components/schemas/RoutingJob'
       required: true
+  
+  #headers:
   securitySchemes:
     api_key:
-      type: APIKEY
+      type: apiKey
       name: api_key
-      in: HEADER
-  extensions: {}
+      in: header
+  
+  #links:
+  
+  #callbacks:
+  
+# security
+#security:
