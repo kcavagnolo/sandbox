@@ -803,19 +803,12 @@ components:
             example: ['order-abc123', 'order-xyz789']
 
     # match attributes template
-    # TODO: doesn't appear to take any params? Add t/f flag?
     Match_Attributes:
       description: |
         Match the attributes of an order with the attributes of a vehicle
         servicing the order.
       allOf:
       - $ref: '#/components/schemas/Constraint'
-      - type: boolean
-        enum:
-          - true
-          - false
-        default: false
-        example: true
 
     # travel time template
     Max_Distance:
@@ -840,18 +833,11 @@ components:
             example: 10
 
     # order priority
-    # TODO: doesn't appear to take any params? Add t/f flag?
     Order_Priority:
       description: |
         Favor visiting high priority orders.
       allOf:
       - $ref: '#/components/schemas/Constraint'
-      - type: boolean
-        enum:
-          - true
-          - false
-        default: false
-        example: true
 
     # scheduled appointment template
     # TODO: example online repeats `constraint` object params; only order_ids?
@@ -934,12 +920,6 @@ components:
         case, the violation increment is in percentage points.
       allOf:
       - $ref: '#/components/schemas/Constraint'
-      - type: boolean
-        enum:
-          - true
-          - false
-        default: false
-        example: true
 
     # visit gap template
     # TODO: check how OAS3.0 handles array of arrays; online example looks wrong
