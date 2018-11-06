@@ -809,6 +809,7 @@ components:
         servicing the order.
       allOf:
       - $ref: '#/components/schemas/Constraint'
+      - type: object
 
     # travel time template
     Max_Distance:
@@ -838,6 +839,7 @@ components:
         Favor visiting high priority orders.
       allOf:
       - $ref: '#/components/schemas/Constraint'
+      - type: object
 
     # scheduled appointment template
     # TODO: example online repeats `constraint` object params; only order_ids?
@@ -920,6 +922,7 @@ components:
         case, the violation increment is in percentage points.
       allOf:
       - $ref: '#/components/schemas/Constraint'
+      - type: object
 
     # visit gap template
     # TODO: check how OAS3.0 handles array of arrays; online example looks wrong
