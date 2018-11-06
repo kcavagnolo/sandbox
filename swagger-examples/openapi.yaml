@@ -359,7 +359,6 @@ components:
               example: 'v2822-11-gf4b52cc'
 
     # appointment template
-    # TODO: Should times here be in ISO TIME OR HH:MM:SS LIKE OTHER TIMES?
     Appointment:
       type: object
       description: |
@@ -1393,7 +1392,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Constraint'
-          # you are HERE!!!!
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Item'
 
     ##############
     # deprecated #
