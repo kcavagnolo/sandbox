@@ -20,9 +20,6 @@ info:
     name: MapAnything API Support
     email: support@mapanything.com
     url: https://mapanything.force.com/support
-  x-logo:
-    url: https://mapanything.com/application/themes/mapanything/img/ma-logo-blue.svg
-    altText: MapAnything Logo
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
@@ -39,52 +36,50 @@ paths:
   # distance matrix endpoints #
   #############################
 
-  /matrix/health:
+  # service health
+  /health:
     get:
-      summary: Health Check
-      description: |
-        The healthcheck endpoint provides detailed information about the health of the service.
-        If each of the components required by the service are healthy, then the service is considered
-        healthy and will return a 200 OK response. If any of the components needed by the service
-        are unhealthy, then a 503 Service Unavailable response will be provided.
+      summary: Service health check
+      description: Some general information on the API and state of the service
       operationId: get_health_check
       responses:
         200:
-          description: healthy service
+          description: Service health
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Health'
-        503:
-          description: unhealthy service
+                $ref: '#/components/schemas/HealthCheck'
+        default:
+          description: Unexpected error
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/Error'
       tags:
-        - /matrix/health
-  /matrix/async:
+        - /health
+  
+  # async job submission
+  /matrix:
     post:
-      summary: Creates a new distance matrix job
+      summary: Submit distance matrix request
+      description: Takes a set of locations and provides estimates for the travel distance and time between each.
       operationId: post_routing_job_request
       requestBody:
-        description: Locations to create distance matrix
         required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/MatrixJob'
       responses:
-        201:
-          description: Async job submitted successfully
-          #content:
-          #  application/json:
-          #    schema:
-          #      ref: '#/components/schemas/NewMatrixJob'
+        200:
+          description: Job submitted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncSuccess'
+          links:
+            GetJobByJobId:
+              $ref: '#/components/links/GetJobByJobId'
         default:
           description: unexpected error
           content:
@@ -92,262 +87,73 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       tags:
-        - /matrix/async
-  '/matrix/async/{jobId}':
+        - /matrix
+  
+  # async job request
+  /matrix/{jobId}:
     parameters:
       - name: jobId
         in: path
+        description: JobId supplied in the response of the original submitted request
         required: true
         schema:
           type: string
-    delete:
-      summary: Abort or Cancel a Job
-      operationId: delete_routing_job_ops
-      responses:
-        '204':
-          description: Job successfully deleted.
-        '404':
-          description: Job not found.
-      tags:
-        - /matrix/async
+          format: byte
+          example: 'mare-us-east-1-matrix-1525975072.20048'
     get:
-      summary: Returns the status of the job
+      summary: Access distance matrix request
+      description: Returns the status of a single job based on the ID supplied
       operationId: get_routing_job_ops
       responses:
-        '404':
-          description: Job not found.
+        200:
+          description: Job status and, if the job is complete, URL of JSON result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobStatus'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       tags:
-        - /matrix/async
-  /matrix/sync:
-    post:
-      summary: Accepts a Routing Job and Returns Job Status (May include payload?)
-      operationId: post_routing_job_request
-      responses:
-        '201':
-          description: Matrix Job submitted successfully.
-      tags:
-        - /matrix/sync
-      requestBody:
-        $ref: '#/components/requestBodies/Routing_Job_JSON'
-  '/matrix/sync/{jobId}':
-    parameters:
-      - name: jobId
-        in: path
-        required: true
-        schema:
-          type: string
-    delete:
-      summary: Abort or Cancel a Job
-      operationId: delete_routing_job_ops
-      responses:
-        '204':
-          description: Job successfully deleted.
-        '404':
-          description: Job not found.
-      tags:
-        - /matrix/sync
-    get:
-      summary: Returns the status of the job
-      operationId: get_routing_job_ops
-      responses:
-        '404':
-          description: Job not found.
-      tags:
-        - /matrix/sync
-  /matrix/job:
-    post:
-      summary: Accepts an async matrix JobID and returns the job status
-      operationId: post_routing_job_request
-      responses:
-        '201':
-          description: Matrix Job submitted successfully.
-      tags:
-        - /matrix/job
-      requestBody:
-        $ref: '#/components/requestBodies/Routing_Job_JSON'
-  '/matrix/job/{jobId}':
-    parameters:
-      - name: jobId
-        in: path
-        required: true
-        schema:
-          type: string
-    delete:
-      summary: Abort or Cancel a Job
-      operationId: delete_routing_job_ops
-      responses:
-        '204':
-          description: Job successfully deleted.
-        '404':
-          description: Job not found.
-      tags:
-        - /matrix/job
-    get:
-      summary: Returns the status of a job
-      operationId: get_routing_job_ops
-      responses:
-        '404':
-          description: Job not found.
-      tags:
-        - /matrix/job
-
+        - /matrix
+  
   #####################
   # routing endpoints #
   #####################
 
-  /routing/health:
-    get:
-      summary: 'Returns the health of the routing service'
-      operationId: get_health_check
-      responses:
-        '200':
-          description: Success
-      tags:
-        - /routing/health
-  /routing/async:
+  /routing:
     post:
-      summary: Accepts a Routing Job and Returns Job Status (May include payload?)
+      summary: Submit vehicle routing request
+      description: Provides a very powerful and flexible way of solving your largest and most complex routing and scheduling problems.
       operationId: post_routing_job_request
-      responses:
-        '201':
-          description: Routing Async Job submitted successfully.
-      tags:
-        - /routing/async
       requestBody:
-        $ref: '#/components/requestBodies/Routing_Job_JSON'
-  '/routing/async/{jobId}':
-    parameters:
-      - name: jobId
-        in: path
         required: true
-        schema:
-          type: string
-    delete:
-      summary: Abort or Cancel a Job
-      operationId: delete_routing_job_ops
-      responses:
-        '204':
-          description: Job successfully deleted.
-        '404':
-          description: Job not found.
-      tags:
-        - /routing/async
-    get:
-      summary: Returns the status of the job
-      operationId: get_routing_job_ops
-      responses:
-        '404':
-          description: Job not found.
-      tags:
-        - /routing/async
-  /routing/sync:
-    post:
-      summary: Accepts a Routing Job and Returns Job Status (May include payload?)
-      operationId: post_routing_job_request
-      responses:
-        '201':
-          description: Routing Job submitted successfully.
-      tags:
-        - /routing/sync
-      requestBody:
-        $ref: '#/components/requestBodies/Routing_Job_JSON'
-  '/routing/sync/{jobId}':
-    parameters:
-      - name: jobId
-        in: path
-        required: true
-        schema:
-          type: string
-    delete:
-      summary: Abort or Cancel a Job
-      operationId: delete_routing_job_ops
-      responses:
-        '204':
-          description: Job successfully deleted.
-        '404':
-          description: Job not found.
-      tags:
-        - /routing/sync
-    get:
-      summary: Returns the status of the job
-      operationId: get_routing_job_ops
-      responses:
-        '404':
-          description: Job not found.
-      tags:
-        - /routing/sync
-  /routing/input:
-    post:
-      summary: Post the input json to the system and receive path from s3
-      operationId: post_post_input
-      responses:
-        '200':
-          description: Success
-      tags:
-        - /routing/input
-      requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Input_JSON'
-        required: true
-  '/routing/input/{id}':
-    parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-    get:
-      summary: Returns the input json
-      operationId: get_get_input
+              $ref: '#/components/schemas/RoutingJob'
       responses:
-        '404':
-          description: Input file not found.
+        200:
+          description: Job submitted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncSuccess'
+          links:
+            GetJobByJobId:
+              $ref: '#/components/links/GetJobByJobId'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       tags:
-        - /routing/input
-  /routing/output:
-    post:
-      summary: Post the output json to the system and receive path from s3
-      operationId: post_posts_collection
-      responses:
-        '200':
-          description: Success
-      tags:
-        - /routing/output
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Output_JSON'
-        required: true
-  '/routing/output/{id}':
-    parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-    get:
-      summary: Returns the input json
-      operationId: get_post_item
-      responses:
-        '404':
-          description: Post not found.
-      tags:
-        - /routing/output
-  /routing/job:
-    post:
-      summary: Accepts a Routing Job and Returns Job Status (May include payload?)
-      operationId: post_routing_job_request
-      responses:
-        '201':
-          description: Routing Job submitted successfully.
-      tags:
-        - /routing/job
-      requestBody:
-        $ref: '#/components/requestBodies/Routing_Job_JSON'
-  '/routing/job/{jobId}':
+        - /routing
+  /routing/{jobId}:
     parameters:
       - name: jobId
         in: path
@@ -363,7 +169,7 @@ paths:
         '404':
           description: Job not found.
       tags:
-        - /routing/job
+        - /routing
     get:
       summary: Returns the status of the job
       operationId: get_routing_job_ops
@@ -371,13 +177,13 @@ paths:
         '404':
           description: Job not found.
       tags:
-        - /routing/job
+        - /routing
 
   ####################
   # repair endpoints #
   ####################
 
-  /repair/async:
+  /repair:
     post:
       summary: Accepts a Repair Job and Returns Job Status (May include payload?)
       operationId: post_repair_job_request
@@ -385,10 +191,10 @@ paths:
         '201':
           description: Repair Async Job submitted successfully.
       tags:
-        - /repair/async
+        - /repair
       requestBody:
         $ref: '#/components/requestBodies/Repair_Job_JSON'
-  '/repair/async/{jobId}':
+  /repair/{jobId}:
     parameters:
       - name: jobId
         in: path
@@ -404,7 +210,7 @@ paths:
         '404':
           description: Job not found.
       tags:
-        - /repair/async
+        - /repair
     get:
       summary: Returns the status of the job
       operationId: get_repair_job_ops
@@ -412,202 +218,358 @@ paths:
         '404':
           description: Job not found.
       tags:
-        - /repair/async
-  /repair/sync:
-    post:
-      summary: Accepts a Routing Job and Returns Job Status (May include payload?)
-      operationId: post_repair_job_request
-      responses:
-        '201':
-          description: Repair Job submitted successfully.
-      tags:
-        - /repair/sync
-      requestBody:
-        $ref: '#/components/requestBodies/Repair_Job_JSON'
-  '/repair/sync/{jobId}':
-    parameters:
-      - name: jobId
-        in: path
-        required: true
-        schema:
-          type: string
-    delete:
-      summary: Abort or Cancel a Job
-      operationId: delete_routing_job_ops
-      responses:
-        '204':
-          description: Job successfully deleted.
-        '404':
-          description: Job not found.
-      tags:
-        - /repair/sync
-    get:
-      summary: Returns the status of the job
-      operationId: get_routing_job_ops
-      responses:
-        '404':
-          description: Job not found.
-      tags:
-        - /repair/sync
+        - /repair
 
 # components
 components:
   
   # schemas
   schemas:
-    Input_JSON:
-      type: object
-      required:
-      - body
-      properties:
-        body:
-          description: JSON content of the input
-          type: string
-        id:
-          description: The unique identifier of the input
-          type: integer
-    Repair_Job_JSON:
-      properties:
-        new_order:
-          type: string
-        force_containment:
-          type: boolean
-      type: object
-    Output_JSON:
-      required:
-        - body
-      properties:
-        body:
-          description: Json content of the output
-          type: string
-        id:
-          description: The unique identifier of the output
-          type: integer
-      type: object
-    RoutingJob:
-      required:
-        - locations
-      properties:
-        sources:
-          items:
-            type: integer
-          type: array
-        force_containment:
-          type: boolean
-        locations:
-          items:
-            $ref: '#/components/schemas/Locations_JSON'
-          type: array
-        destinations:
-          items:
-            type: integer
-          type: array
-        end_local_time:
-          type: string
-        vehicle:
-          $ref: '#/components/schemas/Vehicle'
-        num_neighbors:
-          type: integer
-        start_local_time:
-          type: string
-        max_travel_time:
-          type: number
-        weekend:
-          type: boolean
-      type: object
-    Health:
-      required:
-        - code
-        - message
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-    Error:
-      required:
-        - code
-        - message
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
     
-    # matrix job template
-    MatrixJob:
+    # health check template
+    HealthCheck:
+      type: object
+      required:
+        - status
+        - servicename
+        - message
+        - api_version
+      properties:
+        status:
+          type: integer
+          format: int64
+          example: 200
+        message:
+          type: string
+          format: byte
+          example: 'service is healthy'
+        servicename:
+          type: string
+          format: byte
+          example: 'distance matrix service'
+        api_version:
+          type: string
+          format: byte
+          example: 1.0.0-prod
+    
+    # generic error template
+    Error:
+      type: object
+      required:
+        - status
+        - message
+        - errors
+      properties:
+        status:
+          type: integer
+          format: int64
+          example: 503
+        message:
+          description: Error messages
+          type: string
+          format: byte
+          example: 'service experiencing errors'
+        servicename:
+          type: string
+          format: byte
+          example: 'distance matrix service'
+        api_version:
+          type: string
+          format: byte
+          example: 1.0.0-prod
+        errors:
+          type: array
+          minItems: 1
+          uniqueItems: true
+          items:
+            properties:
+              code:
+                type: string
+                description: Server Exception
+                example: [ServiceNotFoundError,
+                          ServiceCorruptedError,
+                          ZombieApocalypseError]
+
+    # async job template
+    AsyncSuccess:
+      type: object
+      required:
+        - jobid
+        - status
+        - message
+      properties:
+        jobid:
+          description: UUID for the submitted job
+          type: string
+          format: byte
+          example: 'mare-us-east-1-matrix-1525975072.20048'
+        message:
+          description: Status message associated with submitted job
+          type: string
+          format: byte
+          example: 'Check submitted job status using GET method and jobid'
+        status:
+          description: Status of the submitted job
+          type: string
+          format: byte
+          example: 'Accepted'
+    
+    # sync job template
+    #SyncSuccess:
+    
+    # matrix job status template
+    JobStatus:
+      type: object
+      required:
+        - status
+      description: |
+        Status of a job submitted to the async queues for distance matrix or routing services
+      properties:
+        status:
+          type: string
+          format: byte
+          description: Status of the job
+          example: 'Completed'
+        url:
+          type: string
+          format: byte
+          description: The AWS S3 bucket location of the JSON containing the solution
+          example: 'https://dev2-us-west-2-mare-output-da...'
+        jobid:
+          type: string
+          format: byte
+          description: Echo back of the submitted `jobid`
+          example: 'mare-us-west-2-routing-32-1541083494.372838-606'
+        messages:
+          type: object
+          description: Messages related to API status; useful for debugging
+          properties:
+            comment:
+              type: string
+              format: byte
+              description: Information about the API or job
+              example: 'MARE job succeeded'
+            mare_version:
+              type: string
+              format: byte
+              description: Version number of the underlying routing engine
+              example: 'v2822-11-gf4b52cc'
+
+    # appointment template
+    Appointment:
       type: object
       description: |
-        Complex object containing information about locations to build distance matrix for.
+        A generalized object describing appointments to satisfy in the routing problem.
       required:
-          - locations
-          - vehicle
+        - appointment_start
+        - appointment_end
       properties:
-        locations:
-          $ref: '#/components/schemas/Locations'
-        vehicle:
-          $ref: '#/components/schemas/Vehicle'
-        sources:
-          type: array
-          items:
-            type: integer
-            format: int64
-          minItems: 1
-          maxItems: 10
-          uniqueItems: true
-          description: |
-            If the full n x n matrix is not desired, sources and destinations arrays can be used to provide the indices of the locations that are sources/destinations. All indices must be in {0,1,2,...,n-1} and only paths from a source to a destination will be provided. Note that both sources and destinations, should both be used or not at all.
-        destinations:
-          type: array
-          items:
-            type: integer
-            format: int64
-          minItems: 1
-          maxItems: 10
-          uniqueItems: true
-          description: |
-            If the full n x n matrix is not desired, sources and destinations arrays can be used to provide the indices of the locations that are sources/destinations. All indices must be in {0,1,2,...,n-1} and only paths from a source to a destination will be provided. Note that both sources and destinations, should both be used or not at all.
-        force_containment:
-          type: boolean
-          description: |
-            If provided along with `location_classes` for `sources` and `destinations`, then MARE only returns information for source-destination pairs where the source location classes completely contain the destination location classes.
-        start_local_time:
+        appointment_start:
           type: string
           format: byte
           description: |
-            Start local time in hh:mm:ss format. Used in conjunction with `end_local_time` parameter.
-        end_local_time:
+            **ISO TIME OR HH:MM:SS LIKE OTHER TIMES?**
+            Start local time given as an ISO 8601 time format. Used in conjunction with `appointment_end` parameter.
+          example: '2018-10-02T12:30:00-04:00'
+        appointment_end:
           type: string
           format: byte
           description: |
-            End local time in hh:mm:ss format. In this case, we only return info on the traffic windows that are touched by this interval. User must supply both `start_local_time` and `end_local_time`.
-        num_neighbors:
+            **ISO TIME OR HH:MM:SS LIKE OTHER TIMES?**
+            End local time given as an ISO 8601 time format. Used in conjunction with `appointment_start` parameter.
+          example: '2018-10-02T14:30:00-04:00'
+
+    # order template
+    Order:
+      type: object
+      description: Describes the orders and their attributes for creating routes.
+      required:
+        - order_id
+        - location_id
+      properties:
+        order_id:
+          type: string
+          format: byte
+          description: Unique identifier for the order
+          example: 'OrderABC123'
+        location_id:
+          type: string
+          format: byte
+          description: Identifier for the location of this order
+          example: 'DistributionCenter-A1'
+        pickup_item_quantities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Item'
+          minItems: 1
+          uniqueItems: true
+          description: |
+            **CANNOT FIND THIS IN EXAMPLES. KEYWORD CORRECT?**
+            Array of items that specify an `item_id` and `quantity`. The `item_id` must be contained in the upper level `items` object. If this keyword is not provided, MARE will not account for any pickups.
+          example: ---
+        delivery_item_quantities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Item'
+          minItems: 1
+          uniqueItems: true
+          description: |
+            **CANNOT FIND THIS IN EXAMPLES. KEYWORD CORRECT?**
+            Array of items that specify an `item_id` and `quantity`. The `item_id` must be contained in the upper level `items` object. If this keyword is not provided, MARE will not account for any deliveries.
+          example: ---
+        duration:
           type: integer
           format: int64
           description: |
-            If provided, the response will only contain information about paths from any location to its nearest `num_neighbors` destinations.
-        max_travel_time:
+            The duration in seconds of the time required to service this order. If this keyword is not provided, MARE assumes the order is unrealistically satisfied instantaneously.
+          default: 0
+          example: 3600
+        appointments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Appointment'
+          minItems: 1
+          uniqueItems: false
+          description: |
+            The start and end times for fixed appointments. Note that when an appointment is provided, the `duration` parameter of the order (if given) is ignored when MARE schedules the appointment(s).
+          example: [
+            {
+              "appointment_start": "2018-10-02T12:30:00-04:00", 
+              "appointment_end": "2018-10-02T14:30:00-04:00"
+            }
+          ]
+        time_windows:
+          type: object
+          description: |
+            **IS THIS REDUNDANT WITH APPOINTMENTS?**
+            If not given, MARE assumes this order can be visited during any shift of the problem. If given, then this tells us the range of allowable arrival times at this order. Note that MARE may decide that a vehicle will idle before visiting this order depending on the Time_Window constraint and penalty.
+          required:
+            - start_time_window
+            - end_time_window
+          properties:
+            start_time_window:
+              type: string
+              format: byte
+              description: The start time, given as an ISO 8601 time format.
+              example: '2018-10-01T14:00:00-04:00'
+            end_time_window:
+              type: string
+              format: byte
+              description: The end time, given as an ISO 8601 time format.
+              example: '2018-10-01T16:30:00-04:00'
+        attributes:
+          type: array
+          items:
+            type: string
+            format: byte
+          minItems: 1
+          uniqueItems: true
+          description: |
+            List of arbitrary attributes associated with the order to create an affinity between vehicles and orders. These strings must exactly match with the vehicle `attribute` parameters and are enforced via the `match_attributes` constraint.
+          example: ["only likes Jim",
+                    "needs anesthesia car",
+                    "Spanish only"]
+        min_visits:
+          type: integer
+          format: int64
+          description: |
+            Minimum number of visits this order must receive over the planning period. Enforced via the `Visit_Range` constraint.
+          minimum: 1
+          default: 1
+          example: 3
+        max_visits:
+          type: integer
+          format: int64
+          description: |
+            Maximum number of visits this order must receive over the planning period. Enforced via the `Visit_Range` constraint.
+          minimum: 1
+          default: 1
+          example: 10
+        min_gap:
+          type: integer
+          format: int64
+          description: |
+            Minimum number of days between visits. Enforced via the `Visit_Gap` constraint.
+          example: 11
+        urgency:
+          type: integer
+          format: int64
+          minimum: 1
+          maximum: 99
+          description: |
+            When coupled with the Urgency constraint, a penalty is incurred when the order is not visited early enough in the planning period.
+          example:
+        priority:
+          type: integer
+          format: int64
+          description: |
+            Some positive integer representing the importance of this order relative to others. To be enforced, must also specify Order_Priority constraint. If some orders have priorities and others do not, then orders without a priority will default to 1. To encourage an order to be visited, set a priority greater than 1 and use the `Priority` constraint.
+          default: 1
+          example: 5
+
+    # item template
+    Item:
+      type: object
+      description: |
+        A generalized object describing a unit to be picked-up or delivered in the routing problem.
+      required:
+        - item_type
+      properties:
+        item_type:
+          type: string
+          format: byte
+          description: |
+            String that identifies the type of item. For example, 'lumber' or 'frozen meat.' Refer to the example to get started quickly.
+          example: 'lumber'
+        volume:
           type: number
           format: double
+          description: Volume of item in cubic centimeters
+          example: 1000.2
+        weight:
+          type: number
+          format: double
+          description: Weight of item in kilograms
+          example: 10.2
+        attributes:
+          type: array
+          items:
+            type: string
+            format: byte
+          minItems: 1
+          uniqueItems: true
           description: |
-            Returns only those travel times that are less than `max_travel_time` across all traffic windows.
-        radius:
+            List of attributes that may be used to describe an affinity between items and orders or vehicles.
+          example: ['pine', 'treated', '20ft']
+
+    # item-qty template
+    ItemQty:
+      type: object
+      description: |
+        Describes a generalized (item_type, value) pair that a vehicle can carry. Each key must be an item_type given in the `items` object.
+      required:
+        - item_type
+        - quantity
+      properties:
+        item_type:
+          type: string
+          format: byte
+          description: Type of item; must be an `item_type` given in the `items` object.
+          example: 'lumber'
+        quantity:
           type: integer
           format: int64
           description: |
-            By default, MARE looks for the nearest street segment within 1500 meters of `latitude` and `longitude` within the `locations` object. This can be changed to a different value if desired by specifying a new value in meters. Can be useful in rural and other areas where not all streets are included in the map data.
-        weekend:
-          type: boolean
-          description: |
-            If `true`, MARE defaults to the fastest available traffic window corresponding to weekend/free flow traffic patterns. If unspecified, MARE defaults to `false` and returns the travel time for multiple traffic windows, depending on whether `start_local_time` and `end_local_time` are provided.
-    
+            A value representing the **NUMBER** of items this vehicle can carry. Recall, properties of the `item_type` are specified in the `items` object, but not the quantity, which is specified at the `vehicle` level.
+          default: 1
+          minimum: 1
+          example: 5
+
     # location template
-    Locations:
+    Location:
       type: object
       description: |
-        Represents the points of interest to be used for the matrix. Currently, latitude and longitude must be specified meaning addresses must first be geocoded.
+        Represents the points of interest to be used for the matrix. Currently, `latitude` and `longitude` must be specified meaning addresses must first be geocoded.
       required:
         - latitude
         - longitude
@@ -617,17 +579,20 @@ components:
           type: number
           format: float
           description: |
-            The latitude value for the location object.
+            Location's latitude value in the WGS84 reference coordinate system.
+          example: 33.8730743
         longitude:
           type: number
           format: float
           description: |
-            The longitude value for the location object.
+            Location's longitude value in the WGS84 reference coordinate system.
+          example: -84.3951042
         location_id:
           type: string
           format: byte
           description: |
-            A unique string identifier for each location object.
+            A unique string identifier for each location.
+          example: 'Depot-A123'
         location_class:
           type: array
           items:
@@ -637,15 +602,54 @@ components:
           maxItems: 10
           uniqueItems: true
           description: |
-            If provided, then MARE associates a set of classes with this location. This can be used to reduce the
-            size of the response. If a location_class array is provided for both a source and destination
-            location, then we only include the travel costs if the intersection of the source location_class and
-            destination location_class is non-empty. This behavior can be further modified by using the
-            force_containment boolean parameter. For example, a source might be a plumber or an electrician, and
-            a destination would be a job that requires a plumber or electrician. So the location_class allows one
-            to filter the matrix so that only relevant paths are returned based on attributes of the locations.
+            If provided, then MARE associates a set of classes with the location. This can be used to reduce the size of the response. For example, if a `location_class array` is provided for both a `source` and `destination` location, then MARE only includes the travel costs if the intersection of the `source` `location_class` and `destination` `location_class` is non-empty. This behavior can be further modified by using the `force_containment` parameter. For example, a `source` might be a plumber or an electrician, and a `destination` would be a job that requires a plumber or electrician. Thus, the `location_class` allows one to filter the matrix so that only relevant paths are returned based on attributes of the locations.
+          example: [0, 2, 3, 6]
     
-    # vehicle template
+    # shift template
+    Shift:
+      type: object
+      description: |
+        A generalized object describing a shift to be applied to a vehicle used in the routing problem.
+      required:
+        - shift_id
+        - shift_start
+        - shift_end
+        - start_location_id
+        - end_location_id
+      properties:
+        shift_id:
+          type: string
+          format: byte
+          description: Unique identifier for the shift
+          example: 'Tuesday Polishing or Painting'
+        shift_start:
+          type: string
+          format: byte
+          description: |
+            **ISO TIME OR HH:MM:SS LIKE OTHER TIMES?**
+            Start local time given as an ISO 8601 time format. Used in conjunction with `shift_end` parameter.
+          example: '2018-10-02T12:30:00-04:00'
+        shift_end:
+          type: string
+          format: byte
+          description: |
+            **ISO TIME OR HH:MM:SS LIKE OTHER TIMES?**
+            End local time given as an ISO 8601 time format. Used in conjunction with `shift_start` parameter.
+          example: '2018-10-02T12:30:00-04:00'
+        start_location_id:
+          type: string
+          format: byte
+          description: |
+            Unique identifier for the starting location of the vehicle; must be identical to one of a location in the `locations` keyword.
+          example: 'location-a'
+        end_location_id:
+          type: string
+          format: byte
+          description: |
+            Unique identifier for the ending location of the vehicle; must be identical to one of a location in the `locations` keyword.
+          example: 'location-b'
+    
+    # matrix vehicle template
     Vehicle:
       type: object
       description: |
@@ -656,37 +660,318 @@ components:
         type:
           type: string
           format: byte
-          description: |
-            Must be one of car, truck, bicycle, pedestrian.
+          description: Must be one of car, truck, bicycle, pedestrian.
+          example: truck
         hazmat:
           type: boolean
-          description: |
-            True if this vehicle is subject to hazmat restrictions (**TRUCK ONLY**).
+          description: True if this vehicle is subject to hazmat restrictions (**TRUCK ONLY**).
+          example: True
         height:
           type: number
           format: float
-          description: |
-            Vehicle height in meters (**TRUCK ONLY**).
+          description: Vehicle height in meters (**TRUCK ONLY**).
+          example: 4.27
         length:
           type: number
           format: float
+          description: Vehicle length in meters (**TRUCK ONLY**).
+          example: 14.63
+        num_axles:
+          type: integer
+          format: int64
+          description: Describes vehicle properties in order to restrict routing to allowable roads (**TRUCK ONLY**).
+          example: 5
+        weight:
+          type: number
+          format: float
+          description: Vehicle weight in kilograms (**TRUCK ONLY**).
+          example: 36287
+        width:
+          type: number
+          format: float
+          description: Vehicle width in meters (**TRUCK ONLY**).
+          example: 2.44
+
+    # vehicle template
+    RoutingVehicle:
+      type: object
+      description: |
+        Describes the complex vehicle used in routing. **NOT IDENTICAL to `vehicle` USED IN DISTANCE MATRIX.**
+      required:
+        - shifts
+        - vehicle_id
+      properties:
+        shifts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Shift'
+          minItems: 1
+          uniqueItems: true
           description: |
-            Vehicle length in meters (**TRUCK ONLY**).
+            Each entry describes the start and end location, shifts and breaks of the vehicle during the problem. A vehicle is allowed to be traveling and servicing orders only during some shift. Shifts cannot overlap for a given vehicle. Currently `start_location_id` and `end_location_id` are required, but we understand the need for "open" routes where either or both are not specified.
+          example: [
+            {
+              "shift_id": "Tuesday_Polishing_Or_Painting",
+              "shift_start": "2018-10-02T09:00:00-04:00",
+              "shift_end": "2018-10-02T18:00:00-04:00",
+              "start_location_id": "location-a",
+              "end_location_id": "location-b"
+            }
+          ]
+        vehicle_id:
+          type: string
+          format: byte
+          description: String identifier of the vehicle
+          example: 'truck-abc123'
+        volume_capacity:
+          type: number
+          format: double
+          description: Maximum volumetric capacity of the vehicle in cubic centimeters.
+          example: 534422.1
+        weight_capacity:
+          type: number
+          format: double
+          description: Maximum weight capacity of the vehicle in kilograms
+          example: 42331.2
+        capacity_by_item:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemQty'
+          minItems: 1
+          uniqueItems: true
+          description: |
+            Describes a set of (`item_type`, `quantity`) pairs that the vehicle can carry. Each key must be an `item_type` given in the `items` object. If this is not given, MARE assumes the vehicle has an infinite capacity on a per-item basis. Mixing different items is handled by `volume_capacity`, in cubic meters or `weight_capacity` in kg. By default, if this keyword is not given, MARE will not take into account any capacities by item.
+        type:
+          type: string
+          format: byte
+          description: Must be one of car, truck, bicycle, pedestrian.
+          example: truck
+        hazmat:
+          type: boolean
+          description: True if this vehicle is subject to hazmat restrictions (**TRUCK ONLY**).
+          example: True
+        height:
+          type: number
+          format: float
+          description: Vehicle height in meters (**TRUCK ONLY**).
+          example: 4.27
+        length:
+          type: number
+          format: float
+          description: Vehicle length in meters (**TRUCK ONLY**).
+          example: 14.63
+        width:
+          type: number
+          format: float
+          description: Vehicle width in meters (**TRUCK ONLY**).
+          example: 2.44
+        weight:
+          type: number
+          format: float
+          description: Vehicle weight in kilograms (**TRUCK ONLY**).
+          example: 36287
         num_axles:
           type: integer
           format: int64
           description: |
+            **NOT USED IN THIS CASE?**
             Describes vehicle properties in order to restrict routing to allowable roads (**TRUCK ONLY**).
-        weight:
-          type: number
-          format: float
+          example: 5
+        attributes:
+          type: array
+          items:
+            type: string
+            format: byte
+          minItems: 1
+          uniqueItems: true
           description: |
-            Vehicle weight in kilograms (**TRUCK ONLY**).
-        width:
-          type: number
-          format: float
+            List of arbitrary attributes associated with the a vehicle in the `vehicles` object to create an affinity between vehicles and orders. These strings must exactly match with the order `attribute` parameters and are enforced via the `match_attributes` constraint.
+          example: ["does not like Jim",
+                    "bucket truck",
+                    "Tamil only"]
+          
+    # matrix job template
+    MatrixJob:
+      type: object
+      description: |
+        Complex object containing information about locations and a vehicle needed to build distance matrix.
+      required:
+          - locations
+          - vehicle
+      properties:
+        locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Location'
+          minItems: 1
+          maxItems: 7500
+          uniqueItems: true
+          example: [
+        		{
+        			"location_id": "example-a",
+        			"latitude": 33.937244,
+        			"longitude": -84.36947
+        		},
+        		{
+        			"location_id": "example-b",
+        			"latitude": 33.887576,
+        			"longitude": -84.261385
+        		},
+        		{
+              "location_id": "example-c",
+              "latitude": 33.896810,
+              "longitude": -84.327653
+            }]
+        vehicle:
+          $ref: '#/components/schemas/Vehicle'
+        sources:
+          type: array
+          items:
+            type: integer
+            format: int64
+          minItems: 1
+          maxItems: 10
+          uniqueItems: true
           description: |
-            Vehicle width in meters (**TRUCK ONLY**).
+            If the full n x n matrix is not desired, sources and destinations arrays can be used to provide the indices of the locations that are sources/destinations. All indices must be in {0,1,2,...,n-1} and only paths from a source to a destination will be provided. Note that both sources and destinations, should both be used or not at all.
+          example: [0, 2]
+        destinations:
+          type: array
+          items:
+            type: integer
+            format: int64
+          minItems: 1
+          maxItems: 10
+          uniqueItems: true
+          description: |
+            If the full n x n matrix is not desired, `sources` and `destinations` arrays can be used to provide the indices of the locations that are desired source/destination pairs. All indices must be in {0,1,2,...,n-1} and only paths from a source to a destination will be provided. Note that both sources and destinations, should both be used or not at all.
+          example: [1]
+        force_containment:
+          type: boolean
+          description: |
+            If provided along with `location_classes` for `sources` and `destinations`, then MARE only returns information for `source`-`destination` pairs where the `source` location classes completely contain the `destination` location classes.
+          example: False
+        start_local_time:
+          type: string
+          format: byte
+          description: |
+            Start local time in 24-hour _hh:mm:ss_ format. Used in conjunction with `end_local_time` parameter.
+          example: '09:00:00'
+        end_local_time:
+          type: string
+          format: byte
+          description: |
+            End local time in 24-hour _hh:mm:ss_ format. Used in conjunction with `start_local_time` parameter.
+          example: '17:00:00'
+        num_neighbors:
+          type: integer
+          format: int64
+          description: |
+            If provided, the response will only contain information about paths from any location to its nearest `num_neighbors` destinations.
+          example: 5
+        max_travel_time:
+          type: number
+          format: double
+          description: |
+            Return only those travel times in seconds that are less than `max_travel_time` across all traffic windows.
+          example: 3600
+        radius:
+          type: integer
+          format: int64
+          description: |
+            MARE looks for the nearest street segment within `radius` meters of `latitude` and `longitude` within the `locations` object. Can be useful in rural and other areas where not all streets are included in the map data.
+          default: 1500
+          example: 3000
+        weekend:
+          type: boolean
+          description: |
+            If `true`, MARE defaults to the fastest available traffic window corresponding to weekend/free flow traffic patterns, otherwise MARE defaults to returning travel times for multiple traffic windows, depending on whether `start_local_time` and `end_local_time` are provided.
+          default: False
+          example: False
+
+    # vehicle routing template
+    RoutingJob:
+      type: object
+      description: |
+        Complex object containing information about locations, orders, vehicles, and constraints needed to build optimal routing solution.
+      required:
+        - locations
+        - orders
+        - vehicles
+        - constraints
+      properties:
+        locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Location'
+          minItems: 1
+          maxItems: 7500
+          uniqueItems: true
+          example: [
+        		{
+        			"location_id": "location-a",
+        			"latitude": 33.937244,
+        			"longitude": -84.36947
+        		},
+        		{
+        			"location_id": "location-b",
+        			"latitude": 33.887576,
+        			"longitude": -84.261385
+        		},
+        		{
+              "location_id": "location-c",
+              "latitude": 33.896810,
+              "longitude": -84.327653
+            }]
+        orders:
+          type: array
+          items:
+            $ref: '#/components/schemas/Order'
+          minItems: 1
+          maxItems: 7500
+          uniqueItems: true
+          example: [
+            {
+              "location_id": "loc1",
+              "order_name": "Service Washington Monument",
+              "order_id": "DC-1",
+              "duration": 3600,
+              "priority" : 3,
+              "min_visits": 2
+            },
+            {
+              "location_id": "loc2",
+              "order_name": "Service Ford's Theatre",
+              "order_id": "DC-2",
+              "duration": 3600,
+              "priority": 2,
+              "min_visits": 2
+            }
+          ]
+        vehicles:
+          type: array
+          items:
+            $ref: '#/components/schemas/RoutingVehicle'
+          minItems: 1
+          maxItems: 7500
+          uniqueItems: true
+          example: 'abc'
+        #constraints:
+          #type: array
+          #items:
+            #$ref: '#/components/schemas/Constraint'
+          # you are HERE!!!!
+        
+    ##############
+    # deprecated #
+    ##############
+    Repair_Job_JSON:
+      properties:
+        new_order:
+          type: string
+        force_containment:
+          type: boolean
+      type: object
 
   # responses
   responses:
@@ -736,7 +1021,13 @@ components:
       name: api_key
       in: header
   
-  #links:
+  links:
+    GetJobByJobId:
+      description: |
+        The `jobid` value returned in the response can be used as the the `jobid` parameter in other `GET` paths.
+      operationId: post_routing_job_request
+      parameters:
+        jobId: $response.body#/jobid
   
   #callbacks:
   
