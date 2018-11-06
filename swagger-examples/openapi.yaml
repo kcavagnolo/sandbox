@@ -76,7 +76,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AsyncSuccess'
+                oneOf:
+                  - $ref: '#/components/schemas/AsyncResponse'
+                  - $ref: '#/components/schemas/SyncResponse'
+                discriminator:
+                  propertyName: objectType
           links:
             GetJobByJobId:
               $ref: '#/components/links/GetJobByJobId'
@@ -144,7 +148,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AsyncSuccess'
+                oneOf:
+                  - $ref: '#/components/schemas/AsyncResponse'
+                  - $ref: '#/components/schemas/SyncResponse'
+                discriminator:
+                  propertyName: jobType
           links:
             GetJobByJobId:
               $ref: '#/components/links/GetJobByJobId'
@@ -304,13 +312,18 @@ components:
                           ZombieApocalypseError]
 
     # async job template
-    AsyncSuccess:
+    AsyncResponse:
       type: object
       required:
+        - jobType
         - jobid
         - status
         - message
       properties:
+        jobType:
+          description: Type of job submitted
+          type: string
+          format: byte
         jobid:
           description: UUID for the submitted job
           type: string
@@ -328,7 +341,33 @@ components:
           example: 'Accepted'
 
     # sync job template
-    #SyncSuccess:
+    SyncResponse:
+      type: object
+      required:
+        - jobType
+        - jobid
+        - status
+        - message
+      properties:
+        jobType:
+          description: Type of job submitted
+          type: string
+          format: byte
+        jobid:
+          description: UUID for the submitted job
+          type: string
+          format: byte
+          example: 'mare-us-east-1-matrix-1525975072.20048'
+        message:
+          description: Status message associated with submitted job
+          type: string
+          format: byte
+          example: 'Check submitted job status using GET method and jobid'
+        status:
+          description: Status of the submitted job
+          type: string
+          format: byte
+          example: 'Accepted'
 
     # matrix job status template
     JobStatus:
@@ -739,7 +778,7 @@ components:
             identical to one of a location in the `locations` keyword.
           example: 'location-b'
 
-    # matrix vehicle template
+    # vehicle template
     Vehicle:
       type: object
       description: |
@@ -799,9 +838,7 @@ components:
             **TRUCK ONLY** Vehicle width in meters.
           example: 2.44
 
-    # vehicle template
-    # TODO: make routing vehicle a subclass of vehicle to inherit top-level
-    # `num_axles` is not included
+    # routing vehicle template
     RoutingVehicle:
       allOf:
         - $ref: '#/components/schemas/Vehicle'
