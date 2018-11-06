@@ -403,12 +403,12 @@ components:
           example: 'DistributionCenter-A1'
         pickup_item_quantities:
           type: array
-          items:
-            type: object
-            description: |
+          description: |
               Array of items that specify an `item_type` and `quantity`. The
               `item_type` must be contained in the upper level `items` object. If
               this keyword is not provided, MARE will not account for any pickups.
+          items:
+            type: object
             required:
               - item_type
               - quantity
