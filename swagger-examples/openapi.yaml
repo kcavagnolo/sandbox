@@ -421,6 +421,7 @@ components:
                 description: |
                   The quantity of the `item_type` to pickup.
                 example: 10.5
+          # TODO: specify > 0 minimum
           #minimum: > 0
           uniqueItems: true
           description: |
@@ -482,7 +483,7 @@ components:
           minItems: 1
           uniqueItems: false
           description: |
-            The start and end times for fixed appointments. Note that when an
+            Rigidly fixed start and end times for an appointment. Note that when an
             appointment is provided, the `duration` parameter of the order
             (if given) is ignored when MARE schedules the appointment(s).
           example: [
@@ -491,15 +492,14 @@ components:
               "appointment_end": "2018-10-02T14:30:00-04:00"
             }
           ]
-        # TODO: Below keyword looks redundant with `appointments`, is it?
         time_windows:
           type: object
           description: |
-            If not given, MARE assumes this order can be visited during any
-            shift of the problem. If given, then this tells us the range of
-            allowable arrival times at this order. Note that MARE may decide
-            that a vehicle will idle before visiting this order depending on
-            the `Time_Window` constraint and penalty.
+            Flexible range of service start times for an order. Note that MARE may decide
+            that a vehicle will arrive early and idle before starting service at this
+            order depending on the `Time_Window` constraint and penalty. **NOTE: if the
+            `Time_Window` constraint is not provided, then this `time_windows` are ignored
+            because MARE does not know the relative importance of meeting `time_windows`.**
           required:
             - start_time_window
             - end_time_window
