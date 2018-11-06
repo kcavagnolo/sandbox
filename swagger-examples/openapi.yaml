@@ -41,7 +41,7 @@ paths:
     get:
       summary: Service health check
       description: Some general information on the API and state of the service
-      operationId: get_health_check
+      operationId: getHealth
       responses:
         200:
           description: Service health
@@ -63,7 +63,7 @@ paths:
     post:
       summary: Submit distance matrix request
       description: Takes a set of locations and provides estimates for the travel distance and time between each.
-      operationId: post_matrix_job_request
+      operationId: postMatrix
       requestBody:
         required: true
         content:
@@ -103,7 +103,7 @@ paths:
     get:
       summary: Access distance matrix request
       description: Returns the status of a single job based on the ID supplied
-      operationId: get_routing_job_ops
+      operationId: getMatrixById
       responses:
         200:
           description: Job status and, if the job is complete, URL of JSON result
@@ -131,7 +131,7 @@ paths:
       description: >
         Provides a very powerful and flexible way of solving your largest and
         most complex routing and scheduling problems.
-      operationId: post_routing_job_request
+      operationId: postRouting
       requestBody:
         required: true
         content:
@@ -168,7 +168,7 @@ paths:
           format: byte
     delete:
       summary: Abort or Cancel a Job
-      operationId: delete_routing_job_ops
+      operationId: deleteRoutingById
       responses:
         '204':
           description: Job successfully deleted.
@@ -178,7 +178,7 @@ paths:
         - Routing
     get:
       summary: Returns the status of the job
-      operationId: get_routing_job_ops
+      operationId: getRoutingById
       responses:
         '404':
           description: Job not found.
@@ -189,10 +189,11 @@ paths:
   # repair endpoints #
   ####################
 
+  # routing repair job submission endpoint
   /repair:
     post:
       summary: Accepts a Repair Job and Returns Job Status (May include payload?)
-      operationId: post_repair_job_request
+      operationId: postRepair
       responses:
         '201':
           description: Repair Async Job submitted successfully.
@@ -200,6 +201,8 @@ paths:
         - Repair
       requestBody:
         $ref: '#/components/requestBodies/Repair_Job_JSON'
+  
+  # routing repair job request endpoint
   /repair/{jobId}:
     parameters:
       - name: jobId
@@ -209,7 +212,7 @@ paths:
           type: string
     delete:
       summary: Abort or Cancel a Job
-      operationId: delete_repair_job_ops
+      operationId: deleteRepairById
       responses:
         '204':
           description: Job successfully deleted.
@@ -219,7 +222,7 @@ paths:
         - Repair
     get:
       summary: Returns the status of the job
-      operationId: get_repair_job_ops
+      operationId: getRepairById
       responses:
         '404':
           description: Job not found.
@@ -231,6 +234,10 @@ components:
 
   # schemas
   schemas:
+
+    ##########
+    # admin  #
+    ##########
 
     # health check template
     HealthCheck:
@@ -360,6 +367,10 @@ components:
               format: byte
               description: Version number of the underlying routing engine
               example: 'v2822-11-gf4b52cc'
+
+    ###################
+    # routing objects #
+    ###################
 
     # appointment template
     Appointment:
@@ -788,6 +799,84 @@ components:
             **TRUCK ONLY** Vehicle width in meters.
           example: 2.44
 
+    # vehicle template
+    # TODO: make routing vehicle a subclass of vehicle to inherit top-level
+    # `num_axles` is not included
+    RoutingVehicle:
+      allOf:
+        - $ref: '#/components/schemas/Vehicle'
+        - type: object
+          required:
+            - shifts
+            - vehicle_id
+          properties:
+            shifts:
+              type: array
+              items:
+                $ref: '#/components/schemas/Shift'
+              minItems: 1
+              uniqueItems: true
+              description: |
+                Each entry describes the start and end location, shifts and breaks
+                of the vehicle during the problem. A vehicle is allowed to be
+                traveling and servicing orders only during some shift. Shifts cannot
+                overlap for a given vehicle. Currently `start_location_id` and
+                `end_location_id` are required, but we understand the need for
+                "open" routes where either or both are not specified.
+              example: [
+                {
+                  "shift_id": "Tuesday_Polishing_Or_Painting",
+                  "shift_start": "2018-10-02T09:00:00-04:00",
+                  "shift_end": "2018-10-02T18:00:00-04:00",
+                  "start_location_id": "location-a",
+                  "end_location_id": "location-b"
+                }
+              ]
+            vehicle_id:
+              type: string
+              format: byte
+              description: Unique identifier of the vehicle.
+              example: 'truck-abc123'
+            volume_capacity:
+              type: number
+              format: double
+              description: Maximum vehicle volumetric capacity in cubic centimeters.
+              example: 534422.1
+            weight_capacity:
+              type: number
+              format: double
+              description: Maximum vehicle weight capacity in kilograms
+              example: 42331.2
+            capacity_by_item:
+              type: array
+              items:
+                $ref: '#/components/schemas/ItemQty'
+              minItems: 1
+              uniqueItems: true
+              description: |
+                Describes a set of (`item_type`, `quantity`) pairs that the vehicle
+                can carry. Each key must be an `item_type` given in the `items`
+                object. If this is not given, MARE assumes the vehicle has an
+                infinite capacity on a per-item basis. Mixing different items is
+                handled by `volume_capacity`, in cubic meters or `weight_capacity`
+                in kg. By default, if this keyword is not given, MARE will not take
+                into account any capacities by item.
+            attributes:
+              type: array
+              items:
+                type: string
+                format: byte
+              minItems: 1
+              uniqueItems: true
+              description: |
+                List of arbitrary attributes associated with a vehicle in the
+                `vehicles` object to create an affinity between vehicles and orders.
+                These strings must exactly match with the order `attribute`
+                parameters and are enforced via the `match_attributes` constraint.
+              example: ["does not like Jim",
+                        "bucket truck",
+                        "Tamil only"]
+
     ###############
     # constraints #
     ###############
@@ -1063,6 +1152,10 @@ components:
             default: false
             example: true
 
+    ######################
+    # end of constraints #
+    ######################
+
     # constraint template
     Constraint:
       type: object
@@ -1131,129 +1224,6 @@ components:
             - false
           default: false
           example: true
-
-    # vehicle template
-    # TODO: make routing vehicle a subclass of vehicle to inherit top-level
-    # `num_axles` is not included
-    RoutingVehicle:
-      type: object
-      description: |
-        Describes the complex vehicle used in routing.
-      required:
-        - shifts
-        - vehicle_id
-      properties:
-        shifts:
-          type: array
-          items:
-            $ref: '#/components/schemas/Shift'
-          minItems: 1
-          uniqueItems: true
-          description: |
-            Each entry describes the start and end location, shifts and breaks
-            of the vehicle during the problem. A vehicle is allowed to be
-            traveling and servicing orders only during some shift. Shifts cannot
-            overlap for a given vehicle. Currently `start_location_id` and
-            `end_location_id` are required, but we understand the need for
-            "open" routes where either or both are not specified.
-          example: [
-            {
-              "shift_id": "Tuesday_Polishing_Or_Painting",
-              "shift_start": "2018-10-02T09:00:00-04:00",
-              "shift_end": "2018-10-02T18:00:00-04:00",
-              "start_location_id": "location-a",
-              "end_location_id": "location-b"
-            }
-          ]
-        vehicle_id:
-          type: string
-          format: byte
-          description: Unique identifier of the vehicle.
-          example: 'truck-abc123'
-        volume_capacity:
-          type: number
-          format: double
-          description: Maximum vehicle volumetric capacity in cubic centimeters.
-          example: 534422.1
-        weight_capacity:
-          type: number
-          format: double
-          description: Maximum vehicle weight capacity in kilograms
-          example: 42331.2
-        capacity_by_item:
-          type: array
-          items:
-            $ref: '#/components/schemas/ItemQty'
-          minItems: 1
-          uniqueItems: true
-          description: |
-            Describes a set of (`item_type`, `quantity`) pairs that the vehicle
-            can carry. Each key must be an `item_type` given in the `items`
-            object. If this is not given, MARE assumes the vehicle has an
-            infinite capacity on a per-item basis. Mixing different items is
-            handled by `volume_capacity`, in cubic meters or `weight_capacity`
-            in kg. By default, if this keyword is not given, MARE will not take
-            into account any capacities by item.
-        type:
-          type: string
-          format: byte
-          description: The mode of transport.
-          enum:
-            - car
-            - truck
-            - bicycle
-            - pedestrian
-          default: car
-          example: truck
-        hazmat:
-          type: boolean
-          description: |
-            **TRUCK ONLY** True if this vehicle is subject to hazmat.
-            restrictions.
-          enum:
-            - true
-            - false
-          default: false
-          example: true
-        height:
-          type: number
-          format: float
-          description: |
-            **TRUCK ONLY** Vehicle height in meters.
-          example: 4.27
-        length:
-          type: number
-          format: float
-          description: |
-            **TRUCK ONLY** Vehicle length in meters.
-          example: 14.63
-        width:
-          type: number
-          format: float
-          description: |
-            **TRUCK ONLY** Vehicle width in meters.
-          example: 2.44
-        weight:
-          type: number
-          format: float
-          description: |
-            **TRUCK ONLY** Vehicle weight in kilograms.
-          example: 36287
-        attributes:
-          type: array
-          items:
-            type: string
-            format: byte
-          minItems: 1
-          uniqueItems: true
-          description: |
-            List of arbitrary attributes associated with a vehicle in the
-            `vehicles` object to create an affinity between vehicles and orders.
-            These strings must exactly match with the order `attribute`
-            parameters and are enforced via the `match_attributes` constraint.
-          example: ["does not like Jim",
-                    "bucket truck",
-                    "Tamil only"]
 
     # matrix job template
     MatrixJob:
@@ -1448,32 +1418,6 @@ components:
           type: boolean
       type: object
 
-  # responses
-  responses:
-    ParseError:
-      description: When a mask can't be parsed
-    MaskError:
-      description: When any error occurs on mask
-
-  # parameters
-  parameters:
-    skipParam:
-      name: skip
-      in: query
-      description: number of items to skip
-      required: true
-      schema:
-        type: integer
-        format: int32
-    limitParam:
-      name: limit
-      in: query
-      description: max records to return
-      required: true
-      schema:
-        type: integer
-        format: int32
-
   # examples
   requestBodies:
     Repair_Job_JSON:
@@ -1481,12 +1425,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Repair_Job_JSON'
-      required: true
-    Routing_Job_JSON:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/RoutingJob'
       required: true
 
   #headers:
@@ -1501,7 +1439,7 @@ components:
     GetJobByJobId:
       description: |
         The `jobid` value returned in the response can be used as the the `jobid` parameter in other `GET` paths.
-      operationId: post_routing_job_request
+      operationId: postRouting
       parameters:
         jobId: $response.body#/jobid
 
