@@ -87,7 +87,7 @@ paths:
                   propertyName: jobType
                   mapping:
                     async: '#/components/schemas/AsyncResponse'
-                    test: '#/components/schemas/SyncResponse'
+                    sync: '#/components/schemas/SyncResponse'
           links:
             GetJobByJobId:
               $ref: '#/components/links/GetJobByJobId'
@@ -353,36 +353,25 @@ components:
 
     # sync job template
     SyncResponse:
-      description: |
-        Test
-      type: object
-      required:
-        - jobType
-        - jobid
-      properties:
-        jobType:
-          description: Test
-          type: string
-          format: byte
-          example: 'test'
-        jobid:
-          description: UUID for the submitted job
-          type: string
-          format: byte
-          example: 'mare-us-east-1-matrix-1525975072.20048'
-        test:
-          type: object
-          description: |
-            Testing polymorphism
+      allOf:
+        - $ref: '#/components/schemas/AsyncResponse'
+        - type: object
           required:
-            - test1
-            - test2
+            - data
           properties:
-            test1:
-              type: string
-            test2:
-              type: string
-          example: 'Check submitted job status using GET method and jobid'
+            data:
+              type: object
+              description: |
+                Testing polymorphism
+              required:
+                - test1
+                - test2
+              properties:
+                test1:
+                  type: string
+                test2:
+                  type: string
+              example: 'Check submitted job status using GET method and jobid'
     
     # matrix job status template
     JobStatus:
