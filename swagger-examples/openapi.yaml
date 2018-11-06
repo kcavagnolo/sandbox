@@ -40,7 +40,8 @@ paths:
   /health:
     get:
       summary: Service health check
-      description: Some general information on the API and state of the service
+      description: |
+        Some general information on the API and state of the service
       operationId: getHealth
       responses:
         200:
@@ -62,7 +63,9 @@ paths:
   /matrix:
     post:
       summary: Submit distance matrix request
-      description: Takes a set of locations and provides estimates for the travel distance and time between each.
+      description: |
+        Takes a set of locations and provides estimates for the travel distance
+        and time between each.
       operationId: postMatrix
       requestBody:
         required: true
@@ -72,7 +75,8 @@ paths:
               $ref: '#/components/schemas/MatrixJob'
       responses:
         200:
-          description: Job submitted successfully
+          description: |
+            Job submitted successfully
           content:
             application/json:
               schema:
@@ -85,7 +89,8 @@ paths:
             GetJobByJobId:
               $ref: '#/components/links/GetJobByJobId'
         default:
-          description: unexpected error
+          description: |
+            Unexpected error(s)
           content:
             application/json:
               schema:
@@ -324,6 +329,7 @@ components:
           description: Type of job submitted
           type: string
           format: byte
+          example: 'async'
         jobid:
           description: UUID for the submitted job
           type: string
@@ -346,29 +352,31 @@ components:
       required:
         - jobType
         - jobid
-        - status
-        - message
       properties:
         jobType:
           description: Type of job submitted
           type: string
           format: byte
+          example: 'sync'
         jobid:
           description: UUID for the submitted job
           type: string
           format: byte
           example: 'mare-us-east-1-matrix-1525975072.20048'
-        message:
-          description: Status message associated with submitted job
-          type: string
-          format: byte
+        data:
+          type: object
+          description: |
+            Testing polymorphism
+          required:
+            - test1
+            - test2
+          properties:
+            test1:
+              type: string
+            test2:
+              type: string
           example: 'Check submitted job status using GET method and jobid'
-        status:
-          description: Status of the submitted job
-          type: string
-          format: byte
-          example: 'Accepted'
-
+    
     # matrix job status template
     JobStatus:
       type: object
