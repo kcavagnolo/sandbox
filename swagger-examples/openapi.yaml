@@ -753,160 +753,177 @@ components:
 
     # first visit template
     First_Visit:
-      type: object
-      description: Ensure that order A is the first order serviced on the route.
-      required:
-        - order_ids
-      properties:
-        order_ids:
-          type: array
-          items:
+      description: |
+        Ensure that order A is the first order serviced on the route.
+      allOf:
+      - $ref: '#/components/schemas/Constraint'
+      - type: object
+        required:
+          - order_ids
+        properties:
+          order_ids:
+            type: array
+            items:
+              type: string
+              format: byte
+            minItems: 1
+            uniqueItems: true
+            description: IDs of the order to be visited first in their route.
+            example: ["order-abc123", "order-qrs456"]
+          vehicle_id:
             type: string
             format: byte
-          minItems: 1
-          uniqueItems: true
-          description: IDs of the order to be visited first in their route.
-          example: ["order-abc123", "order-qrs456"]
-        vehicle_id:
-          type: string
-          format: byte
-          description: The order that must be visited by the provided vehicle.
-          example: "vehicle-A1Z9"
+            description: The order that must be visited by the provided vehicle.
+            example: "vehicle-A1Z9"
 
     # last visit template
     Last_Visit:
-      type: object
-      description: Ensure that order A is the last order serviced on the route.
-      required:
-        - vehicle_id
-        - order_ids
-      properties:
-        vehicle_id:
-          type: string
-          format: byte
-          description: Order must be visited by the provided vehicle.
-          example: 'vehicle-A1Z9'
-        order_ids:
-          type: array
-          items:
+      description: |
+        Ensure that order A is the last order serviced on the route.
+      allOf:
+      - $ref: '#/components/schemas/Constraint'
+      - type: object
+        required:
+          - vehicle_id
+          - order_ids
+        properties:
+          vehicle_id:
             type: string
             format: byte
-          minItems: 1
-          uniqueItems: true
-          description: IDs fo the order to be visited in their route.
-          example: ['order-abc123', 'order-xyz789']
+            description: Order must be visited by the provided vehicle.
+            example: 'vehicle-A1Z9'
+          order_ids:
+            type: array
+            items:
+              type: string
+              format: byte
+            minItems: 1
+            uniqueItems: true
+            description: IDs fo the order to be visited in their route.
+            example: ['order-abc123', 'order-xyz789']
 
     # match attributes template
     # TODO: doesn't appear to take any params? Add t/f flag?
     Match_Attributes:
-      type: boolean
       description: |
         Match the attributes of an order with the attributes of a vehicle
         servicing the order.
-      enum:
-        - true
-        - false
-      default: false
-      example: true
+      allOf:
+      - $ref: '#/components/schemas/Constraint'
+      - type: boolean
+        enum:
+          - true
+          - false
+        default: false
+        example: true
 
     # travel time template
     Max_Distance:
-      type: object
       description: |
         Ensure that the route for a vehicle does not exceed a maximum distance.
         Applies to all routes if specifics not provided.
-      required:
-        - max_km
-      properties:
-        max_km:
-          type: integer
-          format: int64
-          description: |
-            This will penalize 1 unit if a route exceeds `max_km`. For
-            example, if the `max_km` is set to 10 and the `violation_increment`
-            is set to 10, then there would be a penalty of 2 for a route 30 km
-            in length. If this constraint is not given, MARE will not account
-            for travel distance at all.
-          example: 10
+      allOf:
+      - $ref: '#/components/schemas/Constraint'
+      - type: object
+        required:
+          - max_km
+        properties:
+          max_km:
+            type: integer
+            format: int64
+            description: |
+              This will penalize 1 unit if a route exceeds `max_km`. For
+              example, if the `max_km` is set to 10 and the `violation_increment`
+              is set to 10, then there would be a penalty of 2 for a route 30 km
+              in length. If this constraint is not given, MARE will not account
+              for travel distance at all.
+            example: 10
 
     # order priority
     # TODO: doesn't appear to take any params? Add t/f flag?
     Order_Priority:
-      type: boolean
       description: |
         Favor visiting high priority orders.
-      enum:
-        - true
-        - false
-      default: false
-      example: true
+      allOf:
+      - $ref: '#/components/schemas/Constraint'
+      - type: boolean
+        enum:
+          - true
+          - false
+        default: false
+        example: true
 
     # scheduled appointment template
     # TODO: example online repeats `constraint` object params; only order_ids?
     Scheduled_Appointment:
-      type: object
       description: |
         Ensure an order is serviced during an appointment window.
-      required:
-        - order_ids
-      properties:
-        order_ids:
-          type: array
-          items:
-            type: string
-            format: byte
-          minItems: 1
-          uniqueItems: true
-          description: |
-            The orders that have scheduled appointments.
-          example: ["order-abc123", "order-qrs456"]
+      allOf:
+      - $ref: '#/components/schemas/Constraint'
+      - type: object
+        required:
+          - order_ids
+        properties:
+          order_ids:
+            type: array
+            items:
+              type: string
+              format: byte
+            minItems: 1
+            uniqueItems: true
+            description: |
+              The orders that have scheduled appointments.
+            example: ["order-abc123", "order-qrs456"]
 
     # time window template
     Time_Window:
-      type: object
       description: |
         Ensure that the arrival time at order A is between two times.
-      required:
-        - order_ids
-      properties:
-        order_ids:
-          type: array
-          items:
-            type: string
-            format: byte
-          minItems: 1
-          uniqueItems: true
-          description: |
-            ID of the orders whose time window we want to respect. Applies to all
-            orders if not given.
-          example: ["order-abc123", "order-xyz789"]
+      allOf:
+      - $ref: '#/components/schemas/Constraint'
+      - type: object
+        required:
+          - order_ids
+        properties:
+          order_ids:
+            type: array
+            items:
+              type: string
+              format: byte
+            minItems: 1
+            uniqueItems: true
+            description: |
+              ID of the orders whose time window we want to respect. Applies to all
+              orders if not given.
+            example: ["order-abc123", "order-xyz789"]
 
     # travel time template
     Travel_Time:
-      type: object
       description: |
         Ensure that the route for a vehicle does not exceed a maximum duration.
         Applies to all routes if specifics not provided.
-      required:
-        - max_travel_time_seconds
-      properties:
-        max_travel_time_seconds:
-          type: integer
-          format: int64
-          description: |
-            This will penalize 1 unit if a route exceeds
-            `max_travel_time_seconds`. For example, if the
-            `max_travel_time_seconds` is set to 3600 (one hour in seconds) and
-            the `violation_increment` is set to 600 (ten minutes in seconds),
-            then there would be a penalty of 2 for a route 4800 seconds
-            in duration. If this constraint is not given, MARE will not account
-            for travel distance at all.
-          example: 3600
+      allOf:
+      - $ref: '#/components/schemas/Constraint'
+      - type: object
+        required:
+          - max_travel_time_seconds
+        properties:
+          max_travel_time_seconds:
+            type: integer
+            format: int64
+            description: |
+              This will penalize 1 unit if a route exceeds
+              `max_travel_time_seconds`. For example, if the
+              `max_travel_time_seconds` is set to 3600 (one hour in seconds) and
+              the `violation_increment` is set to 600 (ten minutes in seconds),
+              then there would be a penalty of 2 for a route 4800 seconds
+              in duration. If this constraint is not given, MARE will not account
+              for travel distance at all.
+            example: 3600
 
     # urgency template
     # TODO: how is this different from the order `urgency` param? boolean?
     Urgency:
-      type: boolean
       description: |
         Try to visit some orders earlier in the planning period than others.
         Each order can have an optional `urgency` attribute which is a double
@@ -915,43 +932,47 @@ components:
         an order has urgency 89, then we will penalize a solution that has us
         visiting this order after ((100-89)/100)*10,000 = 1100 seconds. In this
         case, the violation increment is in percentage points.
-      enum:
-        - true
-        - false
-      default: false
-      example: true
+      allOf:
+      - $ref: '#/components/schemas/Constraint'
+      - type: boolean
+        enum:
+          - true
+          - false
+        default: false
+        example: true
 
     # visit gap template
     # TODO: check how OAS3.0 handles array of arrays; online example looks wrong
     Visit_Gap:
-      type: object
       description: Ensure the spacing of visits at an order meet requirements.
-      required:
-        - order_sets
-      properties:
-        order_sets:
-          type: array
-          items:
+      allOf:
+      - $ref: '#/components/schemas/Constraint'
+      - type: object
+        required:
+          - order_sets
+        properties:
+          order_sets:
             type: array
             items:
-              type: string
-              format: byte
-          description: |
-            This can be used to specify order sets, in which case the gap is
-            checked between all visits occurring for any order in each set.
-            Otherwise, you can specify specific orders for this constraint. If no
-            orders are specified, it defaults to all orders. The time between two
-            consecutive visits at an order is the difference in the arrival times
-            at the orders. This constraint is evaluated in terms of the order’s
-            `min_days` and `max_days` properties over entire planning period, as
-            well as those within each period object in the order over that period.
-            A day is converted to seconds behind the scenes.
-          example: [["order1", "order2", "order5"], ["order3", "order4"]]
+              type: array
+              items:
+                type: string
+                format: byte
+            description: |
+              This can be used to specify order sets, in which case the gap is
+              checked between all visits occurring for any order in each set.
+              Otherwise, you can specify specific orders for this constraint. If no
+              orders are specified, it defaults to all orders. The time between two
+              consecutive visits at an order is the difference in the arrival times
+              at the orders. This constraint is evaluated in terms of the order’s
+              `min_days` and `max_days` properties over entire planning period, as
+              well as those within each period object in the order over that period.
+              A day is converted to seconds behind the scenes.
+            example: [["order1", "order2", "order5"], ["order3", "order4"]]
 
     # visit range template
     # TODO: check how OAS3.0 handles array of arrays
     Visit_Range:
-      type: object
       description: |
         Ensure an order receives a specified minimum and/or maximum number of
         visits over the planning period. You can specify order sets, in which
@@ -960,27 +981,30 @@ components:
         using the min_visits and max_visits values specified in order object
         over entire planning period, as well as parameters specified in each
         period object in the order for each subset of the planning period.
-      required:
-        - order_sets
-      properties:
-        order_sets:
-          type: array
-          items:
+      allOf:
+      - $ref: '#/components/schemas/Constraint'
+      - type: object
+        required:
+          - order_sets
+        properties:
+          order_sets:
             type: array
             items:
-              type: string
-              format: byte
-          description: |
-            Can be used to specify order sets, in which case each set is checked
-            by summing visits across all orders in that set. Otherwise orders are
-            checked individually. These are checked using `min_visits` and
-            `max_visits` values specified in the `order` object over the entire
-            planning period, as well as parameters specified in each `period`
-            object in the order for each subset of the planning period. MARE uses
-            the arrival time at the order when evaluating this constraint. Users
-            can also specify specific orders for this constraint – otherwise
-            applied to all orders by default.
-          example: [["order1", "order2", "order5"], ["order3", "order4"]]
+              type: array
+              items:
+                type: string
+                format: byte
+            description: |
+              Can be used to specify order sets, in which case each set is checked
+              by summing visits across all orders in that set. Otherwise orders are
+              checked individually. These are checked using `min_visits` and
+              `max_visits` values specified in the `order` object over the entire
+              planning period, as well as parameters specified in each `period`
+              object in the order for each subset of the planning period. MARE uses
+              the arrival time at the order when evaluating this constraint. Users
+              can also specify specific orders for this constraint – otherwise
+              applied to all orders by default.
+            example: [["order1", "order2", "order5"], ["order3", "order4"]]
 
     # visit sequence template
     Visit_Sequence:
@@ -1017,27 +1041,6 @@ components:
             default: false
             example: true
 
-    # list of constraints
-    ConstraintTypes:
-      type: string
-      format: byte
-      description: List of constraints available in MARE.
-      enum:
-        - $ref: '#/components/schemas/First_Visit'
-        - $ref: '#/components/schemas/Last_Visit'
-        - $ref: '#/components/schemas/Match_Attributes'
-        - $ref: '#/components/schemas/Max_Distance'
-        - $ref: '#/components/schemas/Order_Priority'
-        - $ref: '#/components/schemas/Scheduled_Appointment'
-        - $ref: '#/components/schemas/Time_Window'
-        - $ref: '#/components/schemas/Travel_Time'
-        - $ref: '#/components/schemas/Urgency'
-        - $ref: '#/components/schemas/Visit_Gap'
-        - $ref: '#/components/schemas/Visit_Range'
-        - $ref: '#/components/schemas/Visit_Sequence'
-      default: None
-      example: "Max_Distance"
-
     # constraint template
     Constraint:
       type: object
@@ -1054,12 +1057,16 @@ components:
         constraint_name:
           type: string
           format: byte
-          description: Arbitrary, human-readable name of the constraint.
+          description: |
+            Arbitrary, human-readable name of the constraint.
           example: 'Visit Sequence Constraint: order3 before order7'
         constraint_type:
           type: string
           format: byte
-          #$ref: '#/components/schemas/ConstraintTypes'
+          description: |
+            A type of constraint that can be applied in solving the
+            routing problem.
+          example: 'Max_Distance'
         penalty_per_violation:
           type: number
           format: double
@@ -1102,11 +1109,6 @@ components:
             - false
           default: false
           example: true
-        # TODO: is there an 'optional' property to inherit child object params?
-        #constrain-specifics:
-          #type: TBD
-          #description: |
-            #Optional arguments associated with specific constraints.
 
     # vehicle template
     # TODO: this vehicle is not identical to the `vehicle` object in routing
