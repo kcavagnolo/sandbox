@@ -57,8 +57,8 @@ paths:
                 $ref: '#/components/schemas/Error'
       tags:
         - /health
-  
-  # async job submission
+
+  # matrix job submission endpoint
   /matrix:
     post:
       summary: Submit distance matrix request
@@ -88,8 +88,8 @@ paths:
                 $ref: '#/components/schemas/Error'
       tags:
         - /matrix
-  
-  # async job request
+
+  # matrix job request endpoint
   /matrix/{jobId}:
     parameters:
       - name: jobId
@@ -119,11 +119,12 @@ paths:
                 $ref: '#/components/schemas/Error'
       tags:
         - /matrix
-  
+
   #####################
   # routing endpoints #
   #####################
 
+  # routing job submission endpoint
   /routing:
     post:
       summary: Submit vehicle routing request
@@ -153,6 +154,8 @@ paths:
                 $ref: '#/components/schemas/Error'
       tags:
         - /routing
+  
+  # routing job request endpoint
   /routing/{jobId}:
     parameters:
       - name: jobId
@@ -222,10 +225,10 @@ paths:
 
 # components
 components:
-  
+
   # schemas
   schemas:
-    
+
     # health check template
     HealthCheck:
       type: object
@@ -251,7 +254,7 @@ components:
           type: string
           format: byte
           example: 1.0.0-prod
-    
+
     # generic error template
     Error:
       type: object
@@ -313,10 +316,10 @@ components:
           type: string
           format: byte
           example: 'Accepted'
-    
+
     # sync job template
     #SyncSuccess:
-    
+
     # matrix job status template
     JobStatus:
       type: object
@@ -356,10 +359,12 @@ components:
               example: 'v2822-11-gf4b52cc'
 
     # appointment template
+    # TODO: Should times here be in ISO TIME OR HH:MM:SS LIKE OTHER TIMES?
     Appointment:
       type: object
       description: |
-        A generalized object describing appointments to satisfy in the routing problem.
+        A generalized object describing appointments to satisfy in the routing
+        problem.
       required:
         - appointment_start
         - appointment_end
@@ -368,15 +373,15 @@ components:
           type: string
           format: byte
           description: |
-            **ISO TIME OR HH:MM:SS LIKE OTHER TIMES?**
-            Start local time given as an ISO 8601 time format. Used in conjunction with `appointment_end` parameter.
+            Start local time given as an ISO 8601 time format. Used in
+            conjunction with `appointment_end` parameter.
           example: '2018-10-02T12:30:00-04:00'
         appointment_end:
           type: string
           format: byte
           description: |
-            **ISO TIME OR HH:MM:SS LIKE OTHER TIMES?**
-            End local time given as an ISO 8601 time format. Used in conjunction with `appointment_start` parameter.
+            End local time given as an ISO 8601 time format. Used in conjunction
+            with `appointment_start` parameter.
           example: '2018-10-02T14:30:00-04:00'
 
     # order template
@@ -397,6 +402,7 @@ components:
           format: byte
           description: Identifier for the location of this order
           example: 'DistributionCenter-A1'
+        # TODO: Cannot find this keyword in examples. Correct? Unused?
         pickup_item_quantities:
           type: array
           items:
@@ -404,9 +410,11 @@ components:
           minItems: 1
           uniqueItems: true
           description: |
-            **CANNOT FIND THIS IN EXAMPLES. KEYWORD CORRECT?**
-            Array of items that specify an `item_id` and `quantity`. The `item_id` must be contained in the upper level `items` object. If this keyword is not provided, MARE will not account for any pickups.
+            Array of items that specify an `item_id` and `quantity`. The
+            `item_id` must be contained in the upper level `items` object. If
+            this keyword is not provided, MARE will not account for any pickups.
           example: ---
+        # TODO: Cannot find this keyword in examples. Correct? Unused?
         delivery_item_quantities:
           type: array
           items:
@@ -414,14 +422,18 @@ components:
           minItems: 1
           uniqueItems: true
           description: |
-            **CANNOT FIND THIS IN EXAMPLES. KEYWORD CORRECT?**
-            Array of items that specify an `item_id` and `quantity`. The `item_id` must be contained in the upper level `items` object. If this keyword is not provided, MARE will not account for any deliveries.
+            Array of items that specify an `item_id` and `quantity`. The
+            `item_id` must be contained in the upper level `items` object. If
+            this keyword is not provided, MARE will not account for any
+            deliveries.
           example: ---
         duration:
           type: integer
           format: int64
           description: |
-            The duration in seconds of the time required to service this order. If this keyword is not provided, MARE assumes the order is unrealistically satisfied instantaneously.
+            The duration in seconds of the time required to service this order.
+            If this keyword is not provided, MARE assumes the order is
+            unrealistically satisfied instantaneously.
           default: 0
           example: 3600
         appointments:
@@ -431,18 +443,24 @@ components:
           minItems: 1
           uniqueItems: false
           description: |
-            The start and end times for fixed appointments. Note that when an appointment is provided, the `duration` parameter of the order (if given) is ignored when MARE schedules the appointment(s).
+            The start and end times for fixed appointments. Note that when an
+            appointment is provided, the `duration` parameter of the order
+            (if given) is ignored when MARE schedules the appointment(s).
           example: [
             {
-              "appointment_start": "2018-10-02T12:30:00-04:00", 
+              "appointment_start": "2018-10-02T12:30:00-04:00",
               "appointment_end": "2018-10-02T14:30:00-04:00"
             }
           ]
+        # TODO: Below keyword looks redundant with `appointments`, is it?
         time_windows:
           type: object
           description: |
-            **IS THIS REDUNDANT WITH APPOINTMENTS?**
-            If not given, MARE assumes this order can be visited during any shift of the problem. If given, then this tells us the range of allowable arrival times at this order. Note that MARE may decide that a vehicle will idle before visiting this order depending on the Time_Window constraint and penalty.
+            If not given, MARE assumes this order can be visited during any
+            shift of the problem. If given, then this tells us the range of
+            allowable arrival times at this order. Note that MARE may decide
+            that a vehicle will idle before visiting this order depending on
+            the `Time_Window` constraint and penalty.
           required:
             - start_time_window
             - end_time_window
@@ -465,7 +483,10 @@ components:
           minItems: 1
           uniqueItems: true
           description: |
-            List of arbitrary attributes associated with the order to create an affinity between vehicles and orders. These strings must exactly match with the vehicle `attribute` parameters and are enforced via the `match_attributes` constraint.
+            List of arbitrary attributes associated with the order to create an
+            affinity between vehicles and orders. These strings must exactly
+            match with the vehicle `attribute` parameters and are enforced via
+            the `match_attributes` constraint.
           example: ["only likes Jim",
                     "needs anesthesia car",
                     "Spanish only"]
@@ -473,7 +494,8 @@ components:
           type: integer
           format: int64
           description: |
-            Minimum number of visits this order must receive over the planning period. Enforced via the `Visit_Range` constraint.
+            Minimum number of visits this order must receive over the planning
+            period. Enforced via the `Visit_Range` constraint.
           minimum: 1
           default: 1
           example: 3
@@ -481,7 +503,8 @@ components:
           type: integer
           format: int64
           description: |
-            Maximum number of visits this order must receive over the planning period. Enforced via the `Visit_Range` constraint.
+            Maximum number of visits this order must receive over the planning
+            period. Enforced via the `Visit_Range` constraint.
           minimum: 1
           default: 1
           example: 10
@@ -489,7 +512,8 @@ components:
           type: integer
           format: int64
           description: |
-            Minimum number of days between visits. Enforced via the `Visit_Gap` constraint.
+            Minimum number of days between visits. Enforced via the `Visit_Gap`
+            constraint.
           example: 11
         urgency:
           type: integer
@@ -497,13 +521,19 @@ components:
           minimum: 1
           maximum: 99
           description: |
-            When coupled with the Urgency constraint, a penalty is incurred when the order is not visited early enough in the planning period.
-          example:
+            When coupled with the Urgency constraint, a penalty is incurred when
+            the order is not visited early enough in the planning period.
+          example: 42
         priority:
           type: integer
           format: int64
           description: |
-            Some positive integer representing the importance of this order relative to others. To be enforced, must also specify Order_Priority constraint. If some orders have priorities and others do not, then orders without a priority will default to 1. To encourage an order to be visited, set a priority greater than 1 and use the `Priority` constraint.
+            Some positive integer representing the importance of this order
+            relative to others. To be enforced, must also specify `Order_Priority`
+            constraint. If some orders have priorities and others do not, then
+            orders without a priority will default to 1. To encourage an order
+            to be visited, set a priority greater than 1 and use the `Priority`
+            constraint.
           default: 1
           example: 5
 
@@ -546,7 +576,8 @@ components:
     ItemQty:
       type: object
       description: |
-        Describes a generalized (item_type, value) pair that a vehicle can carry. Each key must be an item_type given in the `items` object.
+        Describes a generalized (item_type, value) pair that a vehicle can
+        carry. Each key must be an item_type given in the `items` object.
       required:
         - item_type
         - quantity
@@ -554,13 +585,17 @@ components:
         item_type:
           type: string
           format: byte
-          description: Type of item; must be an `item_type` given in the `items` object.
+          description: |
+            Type of item; must be an `item_type` given in the `items` object.
           example: 'lumber'
         quantity:
           type: integer
           format: int64
           description: |
-            A value representing the **NUMBER** of items this vehicle can carry. Recall, properties of the `item_type` are specified in the `items` object, but not the quantity, which is specified at the `vehicle` level.
+            A value representing the _number_ of items this vehicle can carry.
+            Recall, properties of the `item_type` are specified in the `items`
+            object, but not the quantity, which is specified at the `vehicle`
+            level.
           default: 1
           minimum: 1
           example: 5
@@ -604,8 +639,9 @@ components:
           description: |
             If provided, then MARE associates a set of classes with the location. This can be used to reduce the size of the response. For example, if a `location_class array` is provided for both a `source` and `destination` location, then MARE only includes the travel costs if the intersection of the `source` `location_class` and `destination` `location_class` is non-empty. This behavior can be further modified by using the `force_containment` parameter. For example, a `source` might be a plumber or an electrician, and a `destination` would be a job that requires a plumber or electrician. Thus, the `location_class` allows one to filter the matrix so that only relevant paths are returned based on attributes of the locations.
           example: [0, 2, 3, 6]
-    
+
     # shift template
+    # TODO: Should times in this object be ISO format or HH:MM like others?
     Shift:
       type: object
       description: |
@@ -626,29 +662,31 @@ components:
           type: string
           format: byte
           description: |
-            **ISO TIME OR HH:MM:SS LIKE OTHER TIMES?**
-            Start local time given as an ISO 8601 time format. Used in conjunction with `shift_end` parameter.
+            Start local time given as an ISO 8601 time format. Used in
+            conjunction with `shift_end` parameter.
           example: '2018-10-02T12:30:00-04:00'
         shift_end:
           type: string
           format: byte
           description: |
-            **ISO TIME OR HH:MM:SS LIKE OTHER TIMES?**
-            End local time given as an ISO 8601 time format. Used in conjunction with `shift_start` parameter.
+            End local time given as an ISO 8601 time format. Used in conjunction
+            with `shift_start` parameter.
           example: '2018-10-02T12:30:00-04:00'
         start_location_id:
           type: string
           format: byte
           description: |
-            Unique identifier for the starting location of the vehicle; must be identical to one of a location in the `locations` keyword.
+            Unique identifier for the starting location of the vehicle; must be
+            identical to one of a location in the `locations` keyword.
           example: 'location-a'
         end_location_id:
           type: string
           format: byte
           description: |
-            Unique identifier for the ending location of the vehicle; must be identical to one of a location in the `locations` keyword.
+            Unique identifier for the ending location of the vehicle; must be
+            identical to one of a location in the `locations` keyword.
           example: 'location-b'
-    
+
     # matrix vehicle template
     Vehicle:
       type: object
@@ -660,43 +698,417 @@ components:
         type:
           type: string
           format: byte
-          description: Must be one of car, truck, bicycle, pedestrian.
+          description: The mode of transport.
+          enum:
+            - car
+            - truck
+            - bicycle
+            - pedestrian
           example: truck
         hazmat:
           type: boolean
-          description: True if this vehicle is subject to hazmat restrictions (**TRUCK ONLY**).
-          example: True
+          description: |
+            **TRUCK ONLY** True if this vehicle is subject to hazmat
+            restrictions.
+          enum:
+            - true
+            - false
+          default: false
+          example: true
         height:
           type: number
           format: float
-          description: Vehicle height in meters (**TRUCK ONLY**).
+          description: |
+            **TRUCK ONLY** Vehicle height in meters.
           example: 4.27
         length:
           type: number
           format: float
-          description: Vehicle length in meters (**TRUCK ONLY**).
+          description: |
+            **TRUCK ONLY** Vehicle length in meters.
           example: 14.63
         num_axles:
           type: integer
           format: int64
-          description: Describes vehicle properties in order to restrict routing to allowable roads (**TRUCK ONLY**).
+          description: |
+            **TRUCK ONLY** Describes vehicle properties in order to
+            restrict routing to allowable roads.
           example: 5
         weight:
           type: number
           format: float
-          description: Vehicle weight in kilograms (**TRUCK ONLY**).
+          description: |
+            **TRUCK ONLY** Vehicle weight in kilograms.
           example: 36287
         width:
           type: number
           format: float
-          description: Vehicle width in meters (**TRUCK ONLY**).
+          description: |
+            **TRUCK ONLY** Vehicle width in meters.
           example: 2.44
 
+    ###############
+    # constraints #
+    ###############
+
+    # first visit template
+    First_Visit:
+      type: object
+      description: Ensure that order A is the first order serviced on the route.
+      required:
+        - order_ids
+      properties:
+        order_ids:
+          type: array
+          items:
+            type: string
+            format: byte
+          minItems: 1
+          uniqueItems: true
+          description: IDs of the order to be visited first in their route.
+          example: ["order-abc123", "order-qrs456"]
+        vehicle_id:
+          type: string
+          format: byte
+          description: The order that must be visited by the provided vehicle.
+          example: "vehicle-A1Z9"
+
+    # last visit template
+    Last_Visit:
+      type: object
+      description: Ensure that order A is the last order serviced on the route.
+      required:
+        - vehicle_id
+        - order_ids
+      properties:
+        vehicle_id:
+          type: string
+          format: byte
+          description: Order must be visited by the provided vehicle.
+          example: 'vehicle-A1Z9'
+        order_ids:
+          type: array
+          items:
+            type: string
+            format: byte
+          minItems: 1
+          uniqueItems: true
+          description: IDs fo the order to be visited in their route.
+          example: ['order-abc123', 'order-xyz789']
+
+    # match attributes template
+    # TODO: doesn't appear to take any params? Add t/f flag?
+    Match_Attributes:
+      type: boolean
+      description: |
+        Match the attributes of an order with the attributes of a vehicle
+        servicing the order.
+      enum:
+        - true
+        - false
+      default: false
+      example: true
+
+    # travel time template
+    Max_Distance:
+      type: object
+      description: |
+        Ensure that the route for a vehicle does not exceed a maximum distance.
+        Applies to all routes if specifics not provided.
+      required:
+        - max_km
+      properties:
+        max_km:
+          type: integer
+          format: int64
+          description: |
+            This will penalize 1 unit if a route exceeds `max_km`. For
+            example, if the `max_km` is set to 10 and the `violation_increment`
+            is set to 10, then there would be a penalty of 2 for a route 30 km
+            in length. If this constraint is not given, MARE will not account
+            for travel distance at all.
+          example: 10
+
+    # order priority
+    # TODO: doesn't appear to take any params? Add t/f flag?
+    Order_Priority:
+      type: boolean
+      description: |
+        Favor visiting high priority orders.
+      enum:
+        - true
+        - false
+      default: false
+      example: true
+
+    # scheduled appointment template
+    # TODO: example online repeats `constraint` object params; only order_ids?
+    Scheduled_Appointment:
+      type: object
+      description: |
+        Ensure an order is serviced during an appointment window.
+      required:
+        - order_ids
+      properties:
+        order_ids:
+          type: array
+          items:
+            type: string
+            format: byte
+          minItems: 1
+          uniqueItems: true
+          description: |
+            The orders that have scheduled appointments.
+          example: ["order-abc123", "order-qrs456"]
+
+    # time window template
+    Time_Window:
+      type: object
+      description: |
+        Ensure that the arrival time at order A is between two times.
+      required:
+        - order_ids
+      properties:
+        order_ids:
+          type: array
+          items:
+            type: string
+            format: byte
+          minItems: 1
+          uniqueItems: true
+          description: |
+            ID of the orders whose time window we want to respect. Applies to all
+            orders if not given.
+          example: ["order-abc123", "order-xyz789"]
+
+    # travel time template
+    Travel_Time:
+      type: object
+      description: |
+        Ensure that the route for a vehicle does not exceed a maximum duration.
+        Applies to all routes if specifics not provided.
+      required:
+        - max_travel_time_seconds
+      properties:
+        max_travel_time_seconds:
+          type: integer
+          format: int64
+          description: |
+            This will penalize 1 unit if a route exceeds
+            `max_travel_time_seconds`. For example, if the
+            `max_travel_time_seconds` is set to 3600 (one hour in seconds) and
+            the `violation_increment` is set to 600 (ten minutes in seconds),
+            then there would be a penalty of 2 for a route 4800 seconds
+            in duration. If this constraint is not given, MARE will not account
+            for travel distance at all.
+          example: 3600
+
+    # urgency template
+    # TODO: how is this different from the order `urgency` param? boolean?
+    Urgency:
+      type: boolean
+      description: |
+        Try to visit some orders earlier in the planning period than others.
+        Each order can have an optional `urgency` attribute which is a double
+        in the range (1, 99). The higher the urgency value, the earlier MARE
+        will try to visit it. So if the planning period is 10,000 seconds and
+        an order has urgency 89, then we will penalize a solution that has us
+        visiting this order after ((100-89)/100)*10,000 = 1100 seconds. In this
+        case, the violation increment is in percentage points.
+      enum:
+        - true
+        - false
+      default: false
+      example: true
+
+    # visit gap template
+    # TODO: check how OAS3.0 handles array of arrays; online example looks wrong
+    Visit_Gap:
+      type: object
+      description: Ensure the spacing of visits at an order meet requirements.
+      required:
+        - order_sets
+      properties:
+        order_sets:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+              format: byte
+          description: |
+            This can be used to specify order sets, in which case the gap is
+            checked between all visits occurring for any order in each set.
+            Otherwise, you can specify specific orders for this constraint. If no
+            orders are specified, it defaults to all orders. The time between two
+            consecutive visits at an order is the difference in the arrival times
+            at the orders. This constraint is evaluated in terms of the order’s
+            `min_days` and `max_days` properties over entire planning period, as
+            well as those within each period object in the order over that period.
+            A day is converted to seconds behind the scenes.
+          example: [["order1", "order2", "order5"], ["order3", "order4"]]
+
+    # visit range template
+    # TODO: check how OAS3.0 handles array of arrays
+    Visit_Range:
+      type: object
+      description: |
+        Ensure an order receives a specified minimum and/or maximum number of
+        visits over the planning period. You can specify order sets, in which
+        case each set is checked by summing visits across all orders in that
+        set. Otherwise orders are checked individually. This constraint checks
+        using the min_visits and max_visits values specified in order object
+        over entire planning period, as well as parameters specified in each
+        period object in the order for each subset of the planning period.
+      required:
+        - order_sets
+      properties:
+        order_sets:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+              format: byte
+          description: |
+            Can be used to specify order sets, in which case each set is checked
+            by summing visits across all orders in that set. Otherwise orders are
+            checked individually. These are checked using `min_visits` and
+            `max_visits` values specified in the `order` object over the entire
+            planning period, as well as parameters specified in each `period`
+            object in the order for each subset of the planning period. MARE uses
+            the arrival time at the order when evaluating this constraint. Users
+            can also specify specific orders for this constraint – otherwise
+            applied to all orders by default.
+          example: [["order1", "order2", "order5"], ["order3", "order4"]]
+
+    # visit sequence template
+    Visit_Sequence:
+      type: object
+      description: |
+        Ensure that order A and order B are visited on the same day by the same
+        vehicle, and that A is serviced before B.
+      required:
+        - first_order_id
+        - second_order_id
+      properties:
+        first_order_id:
+          type: string
+          format: byte
+          description: Unique ID of the order to be visited first.
+          example: 'order-abc123'
+        second_order_id:
+          type: string
+          format: byte
+          description: Unique ID of the order to be visited second.
+          example: 'order-xyz789'
+        same_route:
+          type: boolean
+          description: |
+            If true, then the two orders must be visited on the same route. If
+            false, then no violation if they are on different routes as long as
+            arrival time at first order is earlier than arrival time at second
+            order.
+          enum:
+            - true
+            - false
+          default: false
+          example: true
+
+    # list of constraints
+    ConstraintTypes:
+      type: string
+      format: byte
+      description: List of constraints available in MARE.
+      enum:
+        - $ref: '#/components/schemas/First_Visit'
+        - $ref: '#/components/schemas/Last_Visit'
+        - $ref: '#/components/schemas/Match_Attributes'
+        - $ref: '#/components/schemas/Max_Distance'
+        - $ref: '#/components/schemas/Order_Priority'
+        - $ref: '#/components/schemas/Scheduled_Appointment'
+        - $ref: '#/components/schemas/Time_Window'
+        - $ref: '#/components/schemas/Travel_Time'
+        - $ref: '#/components/schemas/Urgency'
+        - $ref: '#/components/schemas/Visit_Gap'
+        - $ref: '#/components/schemas/Visit_Range'
+        - $ref: '#/components/schemas/Visit_Sequence'
+      default: None
+      example: "Max_Distance"
+
+    # constraint template
+    Constraint:
+      type: object
+      description: |
+        A generalized object describing a constraint to be applied in the
+        routing problem. Constraint options are provided in the Examples.
+      required:
+        - constraint_name
+        - constraint_type
+        - penalty_per_violation
+      properties:
+        constraint_name:
+          type: string
+          format: byte
+          description: Arbitrary, human-readable name of the constraint.
+          example: 'Visit Sequence Constraint: order3 before order7'
+        constraint_type:
+          $ref: '#/components/schemas/ConstraintTypes'
+        penalty_per_violation:
+          type: number
+          format: double
+          description: |
+            Numeric value that quantifies the amount of penalty assigned to each
+            violation of the constraint. Values should be made specific to the
+            `constraint_type` and the routing problem.
+          example: 10000
+        constraint_id:
+          type: string
+          format: byte
+          description: |
+            Unique identifier for the constraint for user reference. This could
+            refer to an internal database key or some other identifier of use to
+            the requestor. If unspecified, no value is used.
+          example: 'Non-negotiable Constraint1'
+        violation_increment:
+          type: integer
+          format: int64
+          description: |
+            For constraints that involve a numerical threshold, an additional
+            `penalty_per_violation` is assessed for every `violation_increment`
+            units over the threshold. For example, if a constraint specifies
+            that no route should last more than 500 minutes of total time with a
+            penalty of 100, and you specify a `violation_increment` of 10, then
+            a route of 523 minutes would receive a penalty of 300. 100 is for
+            the initial violation, and then 2 x 100 more for exceeding the
+            threshold by 23.
+          example: 10
+        hard_constraint:
+          type: boolean
+          description: |
+            **WARNING! This parameter has the potential to return no results
+            frequently. Use at your own risk.** If set to `true`, then the
+            constraint is treated as a truly hard constraint, i.e. no
+            violations with no exceptions; thus guaranteeing no solutions will
+            be returned that violate it.
+          enum:
+            - true
+            - false
+          default: false
+          example: true
+        # TODO: is there an 'optional' property to inherit child object params?
+        #constrain-specifics:
+          #type: TBD
+          #description: |
+            #Optional arguments associated with specific constraints.
+
     # vehicle template
+    # TODO: this vehicle is not identical to the `vehicle` object in routing
+    # `num_axles` is not included
     RoutingVehicle:
       type: object
       description: |
-        Describes the complex vehicle used in routing. **NOT IDENTICAL to `vehicle` USED IN DISTANCE MATRIX.**
+        Describes the complex vehicle used in routing.
       required:
         - shifts
         - vehicle_id
@@ -708,7 +1120,12 @@ components:
           minItems: 1
           uniqueItems: true
           description: |
-            Each entry describes the start and end location, shifts and breaks of the vehicle during the problem. A vehicle is allowed to be traveling and servicing orders only during some shift. Shifts cannot overlap for a given vehicle. Currently `start_location_id` and `end_location_id` are required, but we understand the need for "open" routes where either or both are not specified.
+            Each entry describes the start and end location, shifts and breaks
+            of the vehicle during the problem. A vehicle is allowed to be
+            traveling and servicing orders only during some shift. Shifts cannot
+            overlap for a given vehicle. Currently `start_location_id` and
+            `end_location_id` are required, but we understand the need for
+            "open" routes where either or both are not specified.
           example: [
             {
               "shift_id": "Tuesday_Polishing_Or_Painting",
@@ -721,17 +1138,17 @@ components:
         vehicle_id:
           type: string
           format: byte
-          description: String identifier of the vehicle
+          description: Unique identifier of the vehicle.
           example: 'truck-abc123'
         volume_capacity:
           type: number
           format: double
-          description: Maximum volumetric capacity of the vehicle in cubic centimeters.
+          description: Maximum vehicle volumetric capacity in cubic centimeters.
           example: 534422.1
         weight_capacity:
           type: number
           format: double
-          description: Maximum weight capacity of the vehicle in kilograms
+          description: Maximum vehicle weight capacity in kilograms
           example: 42331.2
         capacity_by_item:
           type: array
@@ -740,43 +1157,58 @@ components:
           minItems: 1
           uniqueItems: true
           description: |
-            Describes a set of (`item_type`, `quantity`) pairs that the vehicle can carry. Each key must be an `item_type` given in the `items` object. If this is not given, MARE assumes the vehicle has an infinite capacity on a per-item basis. Mixing different items is handled by `volume_capacity`, in cubic meters or `weight_capacity` in kg. By default, if this keyword is not given, MARE will not take into account any capacities by item.
+            Describes a set of (`item_type`, `quantity`) pairs that the vehicle
+            can carry. Each key must be an `item_type` given in the `items`
+            object. If this is not given, MARE assumes the vehicle has an
+            infinite capacity on a per-item basis. Mixing different items is
+            handled by `volume_capacity`, in cubic meters or `weight_capacity`
+            in kg. By default, if this keyword is not given, MARE will not take
+            into account any capacities by item.
         type:
           type: string
           format: byte
-          description: Must be one of car, truck, bicycle, pedestrian.
+          description: The mode of transport.
+          enum:
+            - car
+            - truck
+            - bicycle
+            - pedestrian
+          default: car
           example: truck
         hazmat:
           type: boolean
-          description: True if this vehicle is subject to hazmat restrictions (**TRUCK ONLY**).
-          example: True
+          description: |
+            **TRUCK ONLY** True if this vehicle is subject to hazmat.
+            restrictions.
+          enum:
+            - true
+            - false
+          default: false
+          example: true
         height:
           type: number
           format: float
-          description: Vehicle height in meters (**TRUCK ONLY**).
+          description: |
+            **TRUCK ONLY** Vehicle height in meters.
           example: 4.27
         length:
           type: number
           format: float
-          description: Vehicle length in meters (**TRUCK ONLY**).
+          description: |
+            **TRUCK ONLY** Vehicle length in meters.
           example: 14.63
         width:
           type: number
           format: float
-          description: Vehicle width in meters (**TRUCK ONLY**).
+          description: |
+            **TRUCK ONLY** Vehicle width in meters.
           example: 2.44
         weight:
           type: number
           format: float
-          description: Vehicle weight in kilograms (**TRUCK ONLY**).
-          example: 36287
-        num_axles:
-          type: integer
-          format: int64
           description: |
-            **NOT USED IN THIS CASE?**
-            Describes vehicle properties in order to restrict routing to allowable roads (**TRUCK ONLY**).
-          example: 5
+            **TRUCK ONLY** Vehicle weight in kilograms.
+          example: 36287
         attributes:
           type: array
           items:
@@ -785,11 +1217,14 @@ components:
           minItems: 1
           uniqueItems: true
           description: |
-            List of arbitrary attributes associated with the a vehicle in the `vehicles` object to create an affinity between vehicles and orders. These strings must exactly match with the order `attribute` parameters and are enforced via the `match_attributes` constraint.
+            List of arbitrary attributes associated with a vehicle in the
+            `vehicles` object to create an affinity between vehicles and orders.
+            These strings must exactly match with the order `attribute`
+            parameters and are enforced via the `match_attributes` constraint.
           example: ["does not like Jim",
                     "bucket truck",
                     "Tamil only"]
-          
+
     # matrix job template
     MatrixJob:
       type: object
@@ -807,17 +1242,17 @@ components:
           maxItems: 7500
           uniqueItems: true
           example: [
-        		{
-        			"location_id": "example-a",
-        			"latitude": 33.937244,
-        			"longitude": -84.36947
-        		},
-        		{
-        			"location_id": "example-b",
-        			"latitude": 33.887576,
-        			"longitude": -84.261385
-        		},
-        		{
+            {
+              "location_id": "example-a",
+              "latitude": 33.937244,
+              "longitude": -84.36947
+            },
+            {
+              "location_id": "example-b",
+              "latitude": 33.887576,
+              "longitude": -84.261385
+            },
+            {
               "location_id": "example-c",
               "latitude": 33.896810,
               "longitude": -84.327653
@@ -850,7 +1285,10 @@ components:
           type: boolean
           description: |
             If provided along with `location_classes` for `sources` and `destinations`, then MARE only returns information for `source`-`destination` pairs where the `source` location classes completely contain the `destination` location classes.
-          example: False
+          enum:
+            - true
+            - false
+          example: false
         start_local_time:
           type: string
           format: byte
@@ -886,14 +1324,18 @@ components:
           type: boolean
           description: |
             If `true`, MARE defaults to the fastest available traffic window corresponding to weekend/free flow traffic patterns, otherwise MARE defaults to returning travel times for multiple traffic windows, depending on whether `start_local_time` and `end_local_time` are provided.
-          default: False
+          enum:
+            - true
+            - false
+          default: false
           example: False
 
     # vehicle routing template
     RoutingJob:
       type: object
       description: |
-        Complex object containing information about locations, orders, vehicles, and constraints needed to build optimal routing solution.
+        Complex object containing information about locations, orders, vehicles,
+        and constraints needed to build optimal routing solution.
       required:
         - locations
         - orders
@@ -908,17 +1350,17 @@ components:
           maxItems: 7500
           uniqueItems: true
           example: [
-        		{
-        			"location_id": "location-a",
-        			"latitude": 33.937244,
-        			"longitude": -84.36947
-        		},
-        		{
-        			"location_id": "location-b",
-        			"latitude": 33.887576,
-        			"longitude": -84.261385
-        		},
-        		{
+            {
+              "location_id": "location-a",
+              "latitude": 33.937244,
+              "longitude": -84.36947
+            },
+            {
+              "location_id": "location-b",
+              "latitude": 33.887576,
+              "longitude": -84.261385
+            },
+            {
               "location_id": "location-c",
               "latitude": 33.896810,
               "longitude": -84.327653
@@ -956,12 +1398,12 @@ components:
           maxItems: 7500
           uniqueItems: true
           example: 'abc'
-        #constraints:
-          #type: array
-          #items:
-            #$ref: '#/components/schemas/Constraint'
+        constraints:
+          type: array
+          items:
+            $ref: '#/components/schemas/Constraint'
           # you are HERE!!!!
-        
+
     ##############
     # deprecated #
     ##############
@@ -979,7 +1421,7 @@ components:
       description: When a mask can't be parsed
     MaskError:
       description: When any error occurs on mask
-  
+
   # parameters
   parameters:
     skipParam:
@@ -998,7 +1440,7 @@ components:
       schema:
         type: integer
         format: int32
-  
+
   # examples
   requestBodies:
     Repair_Job_JSON:
@@ -1013,14 +1455,15 @@ components:
           schema:
             $ref: '#/components/schemas/RoutingJob'
       required: true
-  
+
   #headers:
   securitySchemes:
     api_key:
       type: apiKey
       name: api_key
       in: header
-  
+
+  # links to reusable response contents
   links:
     GetJobByJobId:
       description: |
@@ -1028,8 +1471,8 @@ components:
       operationId: post_routing_job_request
       parameters:
         jobId: $response.body#/jobid
-  
+
   #callbacks:
-  
+
 # security
 #security:
