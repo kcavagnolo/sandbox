@@ -84,7 +84,7 @@ paths:
                   - $ref: '#/components/schemas/AsyncResponse'
                   - $ref: '#/components/schemas/SyncResponse'
                 discriminator:
-                  propertyName: objectType
+                  propertyName: jobType
           links:
             GetJobByJobId:
               $ref: '#/components/links/GetJobByJobId'
@@ -318,6 +318,8 @@ components:
 
     # async job template
     AsyncResponse:
+      description: |
+        Asynchronous response
       type: object
       required:
         - jobType
@@ -348,6 +350,8 @@ components:
 
     # sync job template
     SyncResponse:
+      description: |
+        Synchronous response
       type: object
       required:
         - jobType
@@ -363,7 +367,7 @@ components:
           type: string
           format: byte
           example: 'mare-us-east-1-matrix-1525975072.20048'
-        data:
+        test:
           type: object
           description: |
             Testing polymorphism
