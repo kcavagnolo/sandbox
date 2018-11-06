@@ -87,7 +87,7 @@ paths:
                   propertyName: jobType
                   mapping:
                     async: '#/components/schemas/AsyncResponse'
-                    sync: '#/components/schemas/AsyncResponse'
+                    test: '#/components/schemas/SyncResponse'
           links:
             GetJobByJobId:
               $ref: '#/components/links/GetJobByJobId'
@@ -354,17 +354,17 @@ components:
     # sync job template
     SyncResponse:
       description: |
-        Synchronous response
+        Test
       type: object
       required:
         - jobType
         - jobid
       properties:
         jobType:
-          description: Type of job submitted
+          description: Test
           type: string
           format: byte
-          example: 'sync'
+          example: 'test'
         jobid:
           description: UUID for the submitted job
           type: string
