@@ -85,6 +85,9 @@ paths:
                   - $ref: '#/components/schemas/SyncResponse'
                 discriminator:
                   propertyName: jobType
+                  mapping:
+                    async: '#/components/schemas/AsyncResponse'
+                    sync: '#/components/schemas/AsyncResponse'
           links:
             GetJobByJobId:
               $ref: '#/components/links/GetJobByJobId'
