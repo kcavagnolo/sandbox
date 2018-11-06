@@ -403,10 +403,6 @@ components:
           example: 'DistributionCenter-A1'
         pickup_item_quantities:
           type: array
-          description: |
-              Array of items that specify an `item_type` and `quantity`. The
-              `item_type` must be contained in the upper level `items` object. If
-              this keyword is not provided, MARE will not account for any pickups.
           items:
             type: object
             required:
@@ -425,25 +421,51 @@ components:
                 description: |
                   The quantity of the `item_type` to pickup.
                 example: 10.5
+          #minimum: > 0
+          uniqueItems: true
+          description: |
+              Array of items that specify an `item_type` and `quantity`. The
+              `item_type` must be contained in the upper level `items` object. If
+              this keyword is not provided, MARE will not account for any pickups.
           example: [
             {
               "item_type": "bricks",
               "quantity": 200
             }
           ]
-        # TODO: Cannot find this keyword in examples. Correct? Unused?
         delivery_item_quantities:
           type: array
           items:
-            $ref: '#/components/schemas/Item'
-          minItems: 1
+            type: object
+            required:
+              - item_type
+              - quantity
+            properties:
+              item_type:
+                type: string
+                format: byte
+                description: |
+                  An item type defined in the top-level `item` object
+                example: 'lumber'
+              quantity:
+                type: number
+                format: double
+                description: |
+                  The quantity of the `item_type` to pickup.
+                example: 10.5
+          # TODO: specify > 0 minimum
+          #minimum: > 0
           uniqueItems: true
           description: |
-            Array of items that specify an `item_id` and `quantity`. The
-            `item_id` must be contained in the upper level `items` object. If
-            this keyword is not provided, MARE will not account for any
-            deliveries.
-          example: ---
+              Array of items that specify an `item_type` and `quantity`. The
+              `item_type` must be contained in the upper level `items` object. If
+              this keyword is not provided, MARE will not account for any deliveries.
+          example: [
+            {
+              "item_type": "bricks",
+              "quantity": 200
+            }
+          ]
         duration:
           type: integer
           format: int64
