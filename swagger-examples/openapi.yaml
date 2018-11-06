@@ -56,7 +56,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       tags:
-        - /health
+        - Health
 
   # matrix job submission endpoint
   /matrix:
@@ -87,7 +87,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       tags:
-        - /matrix
+        - Matrix
 
   # matrix job request endpoint
   /matrix/{jobId}:
@@ -118,7 +118,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       tags:
-        - /matrix
+        - Matrix
 
   #####################
   # routing endpoints #
@@ -128,7 +128,9 @@ paths:
   /routing:
     post:
       summary: Submit vehicle routing request
-      description: Provides a very powerful and flexible way of solving your largest and most complex routing and scheduling problems.
+      description: >
+        Provides a very powerful and flexible way of solving your largest and
+        most complex routing and scheduling problems.
       operationId: post_routing_job_request
       requestBody:
         required: true
@@ -153,7 +155,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       tags:
-        - /routing
+        - Routing
   
   # routing job request endpoint
   /routing/{jobId}:
@@ -163,6 +165,7 @@ paths:
         required: true
         schema:
           type: string
+          format: byte
     delete:
       summary: Abort or Cancel a Job
       operationId: delete_routing_job_ops
@@ -172,7 +175,7 @@ paths:
         '404':
           description: Job not found.
       tags:
-        - /routing
+        - Routing
     get:
       summary: Returns the status of the job
       operationId: get_routing_job_ops
@@ -180,7 +183,7 @@ paths:
         '404':
           description: Job not found.
       tags:
-        - /routing
+        - Routing
 
   ####################
   # repair endpoints #
@@ -194,7 +197,7 @@ paths:
         '201':
           description: Repair Async Job submitted successfully.
       tags:
-        - /repair
+        - Repair
       requestBody:
         $ref: '#/components/requestBodies/Repair_Job_JSON'
   /repair/{jobId}:
@@ -213,7 +216,7 @@ paths:
         '404':
           description: Job not found.
       tags:
-        - /repair
+        - Repair
     get:
       summary: Returns the status of the job
       operationId: get_repair_job_ops
@@ -221,7 +224,7 @@ paths:
         '404':
           description: Job not found.
       tags:
-        - /repair
+        - Repair
 
 # components
 components:
@@ -495,10 +498,10 @@ components:
         time_windows:
           type: object
           description: |
-            Flexible range of service start times for an order. Note that MARE may decide
+            Flexible range of service start times for an order. MARE may decide
             that a vehicle will arrive early and idle before starting service at this
             order depending on the `Time_Window` constraint and penalty. **NOTE: if the
-            `Time_Window` constraint is not provided, then this `time_windows` are ignored
+            `Time_Window` constraint is not provided, then these `time_windows` are ignored
             because MARE does not know the relative importance of meeting `time_windows`.**
           required:
             - start_time_window
@@ -680,7 +683,6 @@ components:
           example: [0, 2, 3, 6]
 
     # shift template
-    # TODO: Should times in this object be ISO format or HH:MM like others?
     Shift:
       type: object
       description: |
@@ -881,7 +883,6 @@ components:
     #  - type: object
 
     # scheduled appointment template
-    # TODO: example online repeats `constraint` object params; only order_ids?
     Scheduled_Appointment:
       description: |
         Ensure an order is serviced during an appointment window.
@@ -949,7 +950,6 @@ components:
             example: 3600
 
     # urgency template
-    # TODO: how is this different from the order `urgency` param? boolean?
     #Urgency:
     #  description: |
     #    Try to visit some orders earlier in the planning period than others.
@@ -1133,7 +1133,7 @@ components:
           example: true
 
     # vehicle template
-    # TODO: this vehicle is not identical to the `vehicle` object in routing
+    # TODO: make routing vehicle a subclass of vehicle to inherit top-level
     # `num_axles` is not included
     RoutingVehicle:
       type: object
@@ -1491,9 +1491,9 @@ components:
 
   #headers:
   securitySchemes:
-    api_key:
+    ApiKeyAuth:
       type: apiKey
-      name: api_key
+      name: X-API-KEY
       in: header
 
   # links to reusable response contents
@@ -1508,4 +1508,5 @@ components:
   #callbacks:
 
 # security
-#security:
+security:
+  - ApiKeyAuth: []
