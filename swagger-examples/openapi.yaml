@@ -80,14 +80,7 @@ paths:
           content:
             application/json:
               schema:
-                oneOf:
-                  - $ref: '#/components/schemas/AsyncResponse'
-                  - $ref: '#/components/schemas/SyncResponse'
-                discriminator:
-                  propertyName: jobType
-                  mapping:
-                    async: '#/components/schemas/AsyncResponse'
-                    sync: '#/components/schemas/SyncResponse'
+                $ref: '#/components/schemas/JobResponse'
           links:
             GetJobByJobId:
               $ref: '#/components/links/GetJobByJobId'
@@ -156,11 +149,7 @@ paths:
           content:
             application/json:
               schema:
-                oneOf:
-                  - $ref: '#/components/schemas/AsyncResponse'
-                  - $ref: '#/components/schemas/SyncResponse'
-                discriminator:
-                  propertyName: jobType
+                $ref: '#/components/schemas/JobResponse'
           links:
             GetJobByJobId:
               $ref: '#/components/links/GetJobByJobId'
@@ -320,7 +309,7 @@ components:
                           ZombieApocalypseError]
 
     # async job template
-    AsyncResponse:
+    JobResponse:
       description: |
         Asynchronous response
       type: object
@@ -329,6 +318,8 @@ components:
         - jobid
         - status
         - message
+        - url
+        - solution
       properties:
         jobType:
           description: Type of job submitted
@@ -340,38 +331,18 @@ components:
           type: string
           format: byte
           example: 'mare-us-east-1-matrix-1525975072.20048'
-        message:
-          description: Status message associated with submitted job
-          type: string
-          format: byte
-          example: 'Check submitted job status using GET method and jobid'
         status:
           description: Status of the submitted job
           type: string
           format: byte
           example: 'Accepted'
-
-    # sync job template
-    SyncResponse:
-      allOf:
-        - $ref: '#/components/schemas/AsyncResponse'
-        - type: object
-          required:
-            - data
-          properties:
-            data:
-              type: object
-              description: |
-                Testing polymorphism
-              required:
-                - test1
-                - test2
-              properties:
-                test1:
-                  type: string
-                test2:
-                  type: string
-              example: 'Check submitted job status using GET method and jobid'
+        message:
+          description: Status message associated with submitted job
+          type: string
+          format: byte
+          example: 'Check submitted job status using GET method and jobid'
+        #url:
+        #solution:
     
     # matrix job status template
     JobStatus:
