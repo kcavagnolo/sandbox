@@ -63,7 +63,7 @@ paths:
     post:
       summary: Submit distance matrix request
       description: Takes a set of locations and provides estimates for the travel distance and time between each.
-      operationId: post_routing_job_request
+      operationId: post_matrix_job_request
       requestBody:
         required: true
         content:
