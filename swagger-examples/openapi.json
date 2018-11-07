@@ -596,15 +596,15 @@
       "Vehicle" : {
         "type" : "object",
         "description" : "Describes the vehicle and its attributes for estimating travel times. The fastest response times will be with vehicle type car.\n",
+        "discriminator" : {
+          "propertyName" : "type"
+        },
         "required" : [ "type" ],
         "properties" : {
           "type" : {
             "type" : "string",
             "description" : "The type of \"vehicle\" mode of transport.\n"
           }
-        },
-        "discriminator" : {
-          "propertyName" : "type"
         }
       },
       "Car" : {
@@ -613,7 +613,6 @@
         }, {
           "type" : "object",
           "description" : "Describes the vehicle and its attributes for estimating travel times. The fastest response times will be with vehicle type car.\n",
-          "required" : [ "junk" ],
           "properties" : {
             "junk" : {
               "type" : "boolean",

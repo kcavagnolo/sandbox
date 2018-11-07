@@ -669,6 +669,8 @@ components:
       description: >
         Describes the vehicle and its attributes for estimating travel
         times. The fastest response times will be with vehicle type car.
+      discriminator:
+        propertyName: type
       required:
         - type
       properties:
@@ -676,8 +678,6 @@ components:
           type: string
           description: >
             The type of "vehicle" mode of transport.
-      discriminator:
-        propertyName: type
 
     # car template
     Car:
@@ -687,8 +687,6 @@ components:
           description: >
             Describes the vehicle and its attributes for estimating travel
             times. The fastest response times will be with vehicle type car.
-          required:
-            - junk
           properties:
             junk:
               type: boolean
