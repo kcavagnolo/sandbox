@@ -316,6 +316,7 @@ components:
       properties:
         appointment_start:
           type: string
+          format: date-time
           description: >
             Local start time given as an
             [ISO 8601](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)
@@ -326,13 +327,14 @@ components:
           example: '2018-10-02T12:30:00-04:00'
         appointment_end:
           type: string
+          format: date-time
           description: >
             Local end time given as an
             [ISO 8601](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)
             time format. The format is critical to ensure that time zone
             transformations (handled automatically by MARE backend) are done
             properly. The `appointment_end` parameter is used in
-            conjunction with `appointment_end` parameter.
+            conjunction with `appointment_start` parameter.
           example: '2018-10-02T14:30:00-04:00'
 
     # order template
