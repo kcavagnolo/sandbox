@@ -12,7 +12,7 @@ servers:
 
 # general info about the API
 info:
-  version: "1.0.0"
+  version: 1.0.0
   title: MapAnything Optimization API's
   description: API for optimizing the Location of Things (LoT)
   termsOfService: https://mapanything.com/trust/terms-of-service
@@ -103,7 +103,8 @@ paths:
     parameters:
       - name: jobId
         in: path
-        description: JobId supplied in the response of the original submitted request
+        description: >
+          JobId supplied in the response of the original submitted request
         required: true
         schema:
           type: string
@@ -111,7 +112,8 @@ paths:
           example: 'mare-us-east-1-matrix-1525975072.20048'
     get:
       summary: Access distance matrix request
-      description: Returns the status of a single job based on the ID supplied
+      description: >
+        Returns the status of a single job based on the ID supplied
       operationId: getMatrixById
       responses:
         200:
@@ -628,10 +630,12 @@ components:
           type: string
           format: byte
           description: >
-            The mode of transport:
-              * `car` - A car
-              * `truck` - A truck
-              * ``
+            | Name       | Description |
+            | --------:  | ----------- |
+            | car        | A car            |
+            | truck      | A truck          |
+            | bicycle    | A bike           |
+            | pedestrian | A walking person |
           enum:
             - car
             - truck
