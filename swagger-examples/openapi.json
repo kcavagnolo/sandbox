@@ -594,7 +594,7 @@
           "type" : {
             "type" : "string",
             "format" : "byte",
-            "description" : "| Name       | Description | | --------:  | ----------- | | car        | A car            | | truck      | A truck          | | bicycle    | A bike           | | pedestrian | A walking person |\n",
+            "description" : "The mode of transport\n  * `car` - A car\n  * `truck` - A truck\n  * `bicycle` - A bike\n  * `pedestrian` - A walking human\n",
             "enum" : [ "car", "truck", "bicycle", "pedestrian" ],
             "default" : "car",
             "example" : "truck"
