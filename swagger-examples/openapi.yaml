@@ -1191,7 +1191,9 @@ components:
               "longitude": -84.327653
             }]
         vehicle:
-          $ref: '#/components/schemas/Vehicle'
+          oneOf:
+            - $ref: '#/components/schemas/Car'
+            - $ref: '#/components/schemas/Truck'
         sources:
           type: array
           items:

@@ -1022,7 +1022,11 @@
             } ]
           },
           "vehicle" : {
-            "$ref" : "#/components/schemas/Vehicle"
+            "oneOf" : [ {
+              "$ref" : "#/components/schemas/Car"
+            }, {
+              "$ref" : "#/components/schemas/Truck"
+            } ]
           },
           "sources" : {
             "type" : "array",
