@@ -668,7 +668,7 @@ components:
       type: object
       description: >
         Describes the vehicle and its attributes for estimating travel
-        times. The fastest response times will be with vehicle type car.
+        times.
       discriminator:
         propertyName: type
       required:
@@ -688,43 +688,11 @@ components:
     Bicycle:
       allOf:
         - $ref: '#/components/schemas/Vehicle'
-        - type: object
-          description: >
-            Describes the vehicle and its attributes for estimating travel
-            times. The fastest response times will be with vehicle type car.
-          required:
-            - junk
-          properties:
-            junk:
-              type: boolean
-              description: >
-                junk param for testing
-              enum:
-                - true
-                - false
-              default: false
-              example: true
               
     # pedestrian template
     Pedestrian:
       allOf:
         - $ref: '#/components/schemas/Vehicle'
-        - type: object
-          description: >
-            Describes the vehicle and its attributes for estimating travel
-            times. The fastest response times will be with vehicle type car.
-          required:
-            - junk
-          properties:
-            junk:
-              type: boolean
-              description: >
-                junk param for testing
-              enum:
-                - true
-                - false
-              default: false
-              example: true
     
     # truck template
     Truck:
@@ -1226,7 +1194,9 @@ components:
               "longitude": -84.327653
             }]
         vehicle:
-          $ref: '#/components/schemas/Vehicle'
+          oneOf:
+            - $ref: '#/components/schemas/Car'
+            - $ref: '#/components/schemas/Truck'
         sources:
           type: array
           items:

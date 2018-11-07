@@ -595,7 +595,7 @@
       },
       "Vehicle" : {
         "type" : "object",
-        "description" : "Describes the vehicle and its attributes for estimating travel times. The fastest response times will be with vehicle type car.\n",
+        "description" : "Describes the vehicle and its attributes for estimating travel times.\n",
         "discriminator" : {
           "propertyName" : "type"
         },
@@ -615,37 +615,11 @@
       "Bicycle" : {
         "allOf" : [ {
           "$ref" : "#/components/schemas/Vehicle"
-        }, {
-          "type" : "object",
-          "description" : "Describes the vehicle and its attributes for estimating travel times. The fastest response times will be with vehicle type car.\n",
-          "required" : [ "junk" ],
-          "properties" : {
-            "junk" : {
-              "type" : "boolean",
-              "description" : "junk param for testing\n",
-              "enum" : [ true, false ],
-              "default" : false,
-              "example" : true
-            }
-          }
         } ]
       },
       "Pedestrian" : {
         "allOf" : [ {
           "$ref" : "#/components/schemas/Vehicle"
-        }, {
-          "type" : "object",
-          "description" : "Describes the vehicle and its attributes for estimating travel times. The fastest response times will be with vehicle type car.\n",
-          "required" : [ "junk" ],
-          "properties" : {
-            "junk" : {
-              "type" : "boolean",
-              "description" : "junk param for testing\n",
-              "enum" : [ true, false ],
-              "default" : false,
-              "example" : true
-            }
-          }
         } ]
       },
       "Truck" : {
@@ -1030,7 +1004,11 @@
             } ]
           },
           "vehicle" : {
-            "$ref" : "#/components/schemas/Vehicle"
+            "oneOf" : [ {
+              "$ref" : "#/components/schemas/Car"
+            }, {
+              "$ref" : "#/components/schemas/Truck"
+            } ]
           },
           "sources" : {
             "type" : "array",
