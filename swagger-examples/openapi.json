@@ -828,6 +828,12 @@
           }
         } ]
       },
+      "Match_Attributes" : {
+        "description" : "Match the attributes of an order with the attributes of a vehicle servicing the order.\n",
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Constraint"
+        } ]
+      },
       "Max_Distance" : {
         "description" : "Ensure that the route for a vehicle does not exceed a maximum distance. Applies to all routes if specifics not provided.\n",
         "allOf" : [ {
@@ -843,6 +849,12 @@
               "example" : 10
             }
           }
+        } ]
+      },
+      "Order_Priority" : {
+        "description" : "Favor visiting high priority orders.\n",
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Constraint"
         } ]
       },
       "Scheduled_Appointment" : {
@@ -902,6 +914,12 @@
               "example" : 3600
             }
           }
+        } ]
+      },
+      "Urgency" : {
+        "description" : "Try to visit some orders earlier in the planning period than others. Each order can have an optional `urgency` attribute which is a double in the range (1, 99). The higher the urgency value, the earlier MARE will try to visit it. So if the planning period is 10,000 seconds and an order has urgency 89, then we will penalize a solution that has us visiting this order after ((100-89)/100)*10,000 = 1100 seconds. In this case, the violation increment is in percentage points.\n",
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Constraint"
         } ]
       },
       "Visit_Gap" : {
@@ -1004,9 +1022,7 @@
             } ]
           },
           "vehicle" : {
-            "oneOf" : [ {
-              "$ref" : "#/components/schemas/Vehicle"
-            } ]
+            "$ref" : "#/components/schemas/Vehicle"
           },
           "sources" : {
             "type" : "array",
