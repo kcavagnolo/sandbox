@@ -63,7 +63,7 @@
     "/matrix" : {
       "post" : {
         "summary" : "Submit distance matrix request",
-        "description" : "Takes a set of locations and provides estimates for the travel distance\nand time between each.\n",
+        "description" : "Takes a set of locations and provides estimates for the travel distance and time between each.\n",
         "operationId" : "postMatrix",
         "requestBody" : {
           "required" : true,
@@ -278,19 +278,19 @@
     "schemas" : {
       "Appointment" : {
         "type" : "object",
-        "description" : "A generalized object describing appointments to satisfy in the routing\nproblem.\n",
+        "description" : "A generalized object describing appointments to satisfy in the routing problem.\n",
         "required" : [ "appointment_start", "appointment_end" ],
         "properties" : {
           "appointment_start" : {
             "type" : "string",
             "format" : "byte",
-            "description" : "Start local time given as an ISO 8601 time format. Used in\nconjunction with `appointment_end` parameter.\n",
+            "description" : "Start local time given as an ISO 8601 time format. Used in conjunction with `appointment_end` parameter.\n",
             "example" : "2018-10-02T12:30:00-04:00"
           },
           "appointment_end" : {
             "type" : "string",
             "format" : "byte",
-            "description" : "End local time given as an ISO 8601 time format. Used in conjunction\nwith `appointment_start` parameter.\n",
+            "description" : "End local time given as an ISO 8601 time format. Used in conjunction with `appointment_start` parameter.\n",
             "example" : "2018-10-02T14:30:00-04:00"
           }
         }
@@ -333,7 +333,7 @@
               }
             },
             "uniqueItems" : true,
-            "description" : "Array of items that specify an `item_type` and `quantity`. The\n`item_type` must be contained in the upper level `items` object. If\nthis keyword is not provided, MARE will not account for any pickups.\n",
+            "description" : "Array of items that specify an `item_type` and `quantity`. The `item_type` must be contained in the upper level `items` object. If this keyword is not provided, MARE will not account for any pickups.\n",
             "example" : [ {
               "item_type" : "bricks",
               "quantity" : 200
@@ -360,7 +360,7 @@
               }
             },
             "uniqueItems" : true,
-            "description" : "Array of items that specify an `item_type` and `quantity`. The\n`item_type` must be contained in the upper level `items` object. If\nthis keyword is not provided, MARE will not account for any deliveries.\n",
+            "description" : "Array of items that specify an `item_type` and `quantity`. The `item_type` must be contained in the upper level `items` object. If this keyword is not provided, MARE will not account for any deliveries.\n",
             "example" : [ {
               "item_type" : "bricks",
               "quantity" : 200
@@ -369,7 +369,7 @@
           "duration" : {
             "type" : "integer",
             "format" : "int64",
-            "description" : "The duration in seconds of the time required to service this order.\nIf this keyword is not provided, MARE assumes the order is\nunrealistically satisfied instantaneously.\n",
+            "description" : "The duration in seconds of the time required to service this order. If this keyword is not provided, MARE assumes the order is unrealistically satisfied instantaneously.\n",
             "default" : 0,
             "example" : 3600
           },
@@ -380,7 +380,7 @@
             },
             "minItems" : 1,
             "uniqueItems" : false,
-            "description" : "Rigidly fixed start and end times for an appointment. Note that when an\nappointment is provided, the `duration` parameter of the order\n(if given) is ignored when MARE schedules the appointment(s).\n",
+            "description" : "Rigidly fixed start and end times for an appointment. Note that when an appointment is provided, the `duration` parameter of the order (if given) is ignored when MARE schedules the appointment(s).\n",
             "example" : [ {
               "appointment_start" : "2018-10-02T12:30:00-04:00",
               "appointment_end" : "2018-10-02T14:30:00-04:00"
@@ -388,7 +388,7 @@
           },
           "time_windows" : {
             "type" : "object",
-            "description" : "Flexible range of service start times for an order. MARE may decide\nthat a vehicle will arrive early and idle before starting service at this\norder depending on the `Time_Window` constraint and penalty. **NOTE: if the\n`Time_Window` constraint is not provided, then these `time_windows` are ignored\nbecause MARE does not know the relative importance of meeting `time_windows`.**\n",
+            "description" : "Flexible range of service start times for an order. MARE may decide that a vehicle will arrive early and idle before starting service at this order depending on the `Time_Window` constraint and penalty. **NOTE: if the `Time_Window` constraint is not provided, then these `time_windows` are ignored because MARE does not know the relative importance of meeting `time_windows`.**\n",
             "required" : [ "start_time_window", "end_time_window" ],
             "properties" : {
               "start_time_window" : {
@@ -413,13 +413,13 @@
             },
             "minItems" : 1,
             "uniqueItems" : true,
-            "description" : "List of arbitrary attributes associated with the order to create an\naffinity between vehicles and orders. These strings must exactly\nmatch with the vehicle `attribute` parameters and are enforced via\nthe `match_attributes` constraint.\n",
+            "description" : "List of arbitrary attributes associated with the order to create an affinity between vehicles and orders. These strings must exactly match with the vehicle `attribute` parameters and are enforced via the `match_attributes` constraint.\n",
             "example" : [ "only likes Jim", "needs anesthesia car", "Spanish only" ]
           },
           "min_visits" : {
             "type" : "integer",
             "format" : "int64",
-            "description" : "Minimum number of visits this order must receive over the planning\nperiod. Enforced via the `Visit_Range` constraint.\n",
+            "description" : "Minimum number of visits this order must receive over the planning period. Enforced via the `Visit_Range` constraint.\n",
             "minimum" : 1,
             "default" : 1,
             "example" : 3
@@ -427,7 +427,7 @@
           "max_visits" : {
             "type" : "integer",
             "format" : "int64",
-            "description" : "Maximum number of visits this order must receive over the planning\nperiod. Enforced via the `Visit_Range` constraint.\n",
+            "description" : "Maximum number of visits this order must receive over the planning period. Enforced via the `Visit_Range` constraint.\n",
             "minimum" : 1,
             "default" : 1,
             "example" : 10
@@ -435,7 +435,7 @@
           "min_gap" : {
             "type" : "integer",
             "format" : "int64",
-            "description" : "Minimum number of days between visits. Enforced via the `Visit_Gap`\nconstraint.\n",
+            "description" : "Minimum number of days between visits. Enforced via the `Visit_Gap` constraint.\n",
             "example" : 11
           },
           "urgency" : {
@@ -443,13 +443,13 @@
             "format" : "int64",
             "minimum" : 1,
             "maximum" : 99,
-            "description" : "When coupled with the Urgency constraint, a penalty is incurred when\nthe order is not visited early enough in the planning period.\n",
+            "description" : "When coupled with the Urgency constraint, a penalty is incurred when the order is not visited early enough in the planning period.\n",
             "example" : 42
           },
           "priority" : {
             "type" : "integer",
             "format" : "int64",
-            "description" : "Some positive integer representing the importance of this order\nrelative to others. To be enforced, must also specify `Order_Priority`\nconstraint. If some orders have priorities and others do not, then\norders without a priority will default to 1. To encourage an order\nto be visited, set a priority greater than 1 and use the `Priority`\nconstraint.\n",
+            "description" : "Some positive integer representing the importance of this order relative to others. To be enforced, must also specify `Order_Priority` constraint. If some orders have priorities and others do not, then orders without a priority will default to 1. To encourage an order to be visited, set a priority greater than 1 and use the `Priority` constraint.\n",
             "default" : 1,
             "example" : 5
           }
@@ -493,7 +493,7 @@
       },
       "ItemQty" : {
         "type" : "object",
-        "description" : "Describes a generalized (item_type, value) pair that a vehicle can\ncarry. Each key must be an item_type given in the `items` object.\n",
+        "description" : "Describes a generalized (item_type, value) pair that a vehicle can carry. Each key must be an item_type given in the `items` object.\n",
         "required" : [ "item_type", "quantity" ],
         "properties" : {
           "item_type" : {
@@ -505,7 +505,7 @@
           "quantity" : {
             "type" : "integer",
             "format" : "int64",
-            "description" : "A value representing the _number_ of items this vehicle can carry.\nRecall, properties of the `item_type` are specified in the `items`\nobject, but not the quantity, which is specified at the `vehicle`\nlevel.\n",
+            "description" : "A value representing the _number_ of items this vehicle can carry. Recall, properties of the `item_type` are specified in the `items` object, but not the quantity, which is specified at the `vehicle` level.\n",
             "default" : 1,
             "minimum" : 1,
             "example" : 5
@@ -563,45 +563,45 @@
           "shift_start" : {
             "type" : "string",
             "format" : "byte",
-            "description" : "Start local time given as an ISO 8601 time format. Used in\nconjunction with `shift_end` parameter.\n",
+            "description" : "Start local time given as an ISO 8601 time format. Used in conjunction with `shift_end` parameter.\n",
             "example" : "2018-10-02T12:30:00-04:00"
           },
           "shift_end" : {
             "type" : "string",
             "format" : "byte",
-            "description" : "End local time given as an ISO 8601 time format. Used in conjunction\nwith `shift_start` parameter.\n",
+            "description" : "End local time given as an ISO 8601 time format. Used in conjunction with `shift_start` parameter.\n",
             "example" : "2018-10-02T12:30:00-04:00"
           },
           "start_location_id" : {
             "type" : "string",
             "format" : "byte",
-            "description" : "Unique identifier for the starting location of the vehicle; must be\nidentical to one of a location in the `locations` keyword.\n",
+            "description" : "Unique identifier for the starting location of the vehicle; must be identical to one of a location in the `locations` keyword.\n",
             "example" : "location-a"
           },
           "end_location_id" : {
             "type" : "string",
             "format" : "byte",
-            "description" : "Unique identifier for the ending location of the vehicle; must be\nidentical to one of a location in the `locations` keyword.\n",
+            "description" : "Unique identifier for the ending location of the vehicle; must be identical to one of a location in the `locations` keyword.\n",
             "example" : "location-b"
           }
         }
       },
       "Vehicle" : {
         "type" : "object",
-        "description" : "Describes the vehicle and its attributes for estimating travel\ntimes. The fastest response times will be with vehicle type car.\n",
+        "description" : "Describes the vehicle and its attributes for estimating travel times. The fastest response times will be with vehicle type car.\n",
         "required" : [ "type" ],
         "properties" : {
           "type" : {
             "type" : "string",
             "format" : "byte",
-            "description" : "The mode of transport.",
+            "description" : "The mode of transport.\n",
             "enum" : [ "car", "truck", "bicycle", "pedestrian" ],
             "default" : "car",
             "example" : "truck"
           },
           "hazmat" : {
             "type" : "boolean",
-            "description" : "**TRUCK ONLY** True if this vehicle is subject to hazmat\nrestrictions.\n",
+            "description" : "**TRUCK ONLY** True if this vehicle is subject to hazmat restrictions.\n",
             "enum" : [ true, false ],
             "default" : false,
             "example" : true
@@ -621,7 +621,7 @@
           "num_axles" : {
             "type" : "integer",
             "format" : "int64",
-            "description" : "**TRUCK ONLY** Describes vehicle properties in order to\nrestrict routing to allowable roads.\n",
+            "description" : "**TRUCK ONLY** Describes vehicle properties in order to restrict routing to allowable roads.\n",
             "example" : 5
           },
           "weight" : {
@@ -652,7 +652,7 @@
               },
               "minItems" : 1,
               "uniqueItems" : true,
-              "description" : "Each entry describes the start and end location, shifts and breaks\nof the vehicle during the problem. A vehicle is allowed to be\ntraveling and servicing orders only during some shift. Shifts cannot\noverlap for a given vehicle. Currently `start_location_id` and\n`end_location_id` are required, but we understand the need for\n\"open\" routes where either or both are not specified.\n",
+              "description" : "Each entry describes the start and end location, shifts and breaks of the vehicle during the problem. A vehicle is allowed to be traveling and servicing orders only during some shift. Shifts cannot overlap for a given vehicle. Currently `start_location_id` and `end_location_id` are required, but we understand the need for \"open\" routes where either or both are not specified.\n",
               "example" : [ {
                 "shift_id" : "Tuesday_Polishing_Or_Painting",
                 "shift_start" : "2018-10-02T09:00:00-04:00",
@@ -686,7 +686,7 @@
               },
               "minItems" : 1,
               "uniqueItems" : true,
-              "description" : "Describes a set of (`item_type`, `quantity`) pairs that the vehicle\ncan carry. Each key must be an `item_type` given in the `items`\nobject. If this is not given, MARE assumes the vehicle has an\ninfinite capacity on a per-item basis. Mixing different items is\nhandled by `volume_capacity`, in cubic meters or `weight_capacity`\nin kg. By default, if this keyword is not given, MARE will not take\ninto account any capacities by item.\n"
+              "description" : "Describes a set of (`item_type`, `quantity`) pairs that the vehicle can carry. Each key must be an `item_type` given in the `items` object. If this is not given, MARE assumes the vehicle has an infinite capacity on a per-item basis. Mixing different items is handled by `volume_capacity`, in cubic meters or `weight_capacity` in kg. By default, if this keyword is not given, MARE will not take into account any capacities by item.\n"
             },
             "attributes" : {
               "type" : "array",
@@ -696,7 +696,7 @@
               },
               "minItems" : 1,
               "uniqueItems" : true,
-              "description" : "List of arbitrary attributes associated with a vehicle in the\n`vehicles` object to create an affinity between vehicles and orders.\nThese strings must exactly match with the order `attribute`\nparameters and are enforced via the `match_attributes` constraint.\n",
+              "description" : "List of arbitrary attributes associated with a vehicle in the `vehicles` object to create an affinity between vehicles and orders. These strings must exactly match with the order `attribute` parameters and are enforced via the `match_attributes` constraint.\n",
               "example" : [ "does not like Jim", "bucket truck", "Tamil only" ]
             }
           }
@@ -707,7 +707,7 @@
         "discriminator" : {
           "propertyName" : "constraint_type"
         },
-        "description" : "A generalized object describing a constraint to be applied in the\nrouting problem. Constraint options are provided in the Examples.\n",
+        "description" : "A generalized object describing a constraint to be applied in the routing problem. Constraint options are provided in the Examples.\n",
         "required" : [ "constraint_name", "constraint_type", "penalty_per_violation" ],
         "properties" : {
           "constraint_name" : {
@@ -719,30 +719,30 @@
           "constraint_type" : {
             "type" : "string",
             "format" : "byte",
-            "description" : "A type of constraint that can be applied in solving the\nrouting problem.\n",
+            "description" : "A type of constraint that can be applied in solving the routing problem.\n",
             "example" : "Max_Distance"
           },
           "penalty_per_violation" : {
             "type" : "number",
             "format" : "double",
-            "description" : "Numeric value that quantifies the amount of penalty assigned to each\nviolation of the constraint. Values should be made specific to the\n`constraint_type` and the routing problem.\n",
+            "description" : "Numeric value that quantifies the amount of penalty assigned to each violation of the constraint. Values should be made specific to the `constraint_type` and the routing problem.\n",
             "example" : 10000
           },
           "constraint_id" : {
             "type" : "string",
             "format" : "byte",
-            "description" : "Unique identifier for the constraint for user reference. This could\nrefer to an internal database key or some other identifier of use to\nthe requestor. If unspecified, no value is used.\n",
+            "description" : "Unique identifier for the constraint for user reference. This could refer to an internal database key or some other identifier of use to the requestor. If unspecified, no value is used.\n",
             "example" : "Non-negotiable Constraint1"
           },
           "violation_increment" : {
             "type" : "integer",
             "format" : "int64",
-            "description" : "For constraints that involve a numerical threshold, an additional\n`penalty_per_violation` is assessed for every `violation_increment`\nunits over the threshold. For example, if a constraint specifies\nthat no route should last more than 500 minutes of total time with a\npenalty of 100, and you specify a `violation_increment` of 10, then\na route of 523 minutes would receive a penalty of 300. 100 is for\nthe initial violation, and then 2 x 100 more for exceeding the\nthreshold by 23.\n",
+            "description" : "For constraints that involve a numerical threshold, an additional `penalty_per_violation` is assessed for every `violation_increment` units over the threshold. For example, if a constraint specifies that no route should last more than 500 minutes of total time with a penalty of 100, and you specify a `violation_increment` of 10, then a route of 523 minutes would receive a penalty of 300. 100 is for the initial violation, and then 2 x 100 more for exceeding the threshold by 23.\n",
             "example" : 10
           },
           "hard_constraint" : {
             "type" : "boolean",
-            "description" : "**WARNING! This parameter has the potential to return no results\nfrequently. Use at your own risk.** If set to `true`, then the\nconstraint is treated as a truly hard constraint, i.e. no\nviolations with no exceptions; thus guaranteeing no solutions will\nbe returned that violate it.\n",
+            "description" : "**WARNING! This parameter has the potential to return no results frequently. Use at your own risk.** If set to `true`, then the constraint is treated as a truly hard constraint, i.e. no violations with no exceptions; thus guaranteeing no solutions will be returned that violate it.\n",
             "enum" : [ true, false ],
             "default" : false,
             "example" : true
@@ -806,7 +806,7 @@
         } ]
       },
       "Max_Distance" : {
-        "description" : "Ensure that the route for a vehicle does not exceed a maximum distance.\nApplies to all routes if specifics not provided.\n",
+        "description" : "Ensure that the route for a vehicle does not exceed a maximum distance. Applies to all routes if specifics not provided.\n",
         "allOf" : [ {
           "$ref" : "#/components/schemas/Constraint"
         }, {
@@ -816,7 +816,7 @@
             "max_km" : {
               "type" : "integer",
               "format" : "int64",
-              "description" : "This will penalize 1 unit if a route exceeds `max_km`. For\nexample, if the `max_km` is set to 10 and the `violation_increment`\nis set to 10, then there would be a penalty of 2 for a route 30 km\nin length. If this constraint is not given, MARE will not account\nfor travel distance at all.\n",
+              "description" : "This will penalize 1 unit if a route exceeds `max_km`. For example, if the `max_km` is set to 10 and the `violation_increment` is set to 10, then there would be a penalty of 2 for a route 30 km in length. If this constraint is not given, MARE will not account for travel distance at all.\n",
               "example" : 10
             }
           }
@@ -860,14 +860,14 @@
               },
               "minItems" : 1,
               "uniqueItems" : true,
-              "description" : "ID of the orders whose time window we want to respect. Applies to all\norders if not given.\n",
+              "description" : "ID of the orders whose time window we want to respect. Applies to all orders if not given.\n",
               "example" : [ "order-abc123", "order-xyz789" ]
             }
           }
         } ]
       },
       "Travel_Time" : {
-        "description" : "Ensure that the route for a vehicle does not exceed a maximum duration.\nApplies to all routes if specifics not provided.\n",
+        "description" : "Ensure that the route for a vehicle does not exceed a maximum duration. Applies to all routes if specifics not provided.\n",
         "allOf" : [ {
           "$ref" : "#/components/schemas/Constraint"
         }, {
@@ -877,7 +877,7 @@
             "max_travel_time_seconds" : {
               "type" : "integer",
               "format" : "int64",
-              "description" : "This will penalize 1 unit if a route exceeds\n`max_travel_time_seconds`. For example, if the\n`max_travel_time_seconds` is set to 3600 (one hour in seconds) and\nthe `violation_increment` is set to 600 (ten minutes in seconds),\nthen there would be a penalty of 2 for a route 4800 seconds\nin duration. If this constraint is not given, MARE will not account\nfor travel distance at all.\n",
+              "description" : "This will penalize 1 unit if a route exceeds `max_travel_time_seconds`. For example, if the `max_travel_time_seconds` is set to 3600 (one hour in seconds) and the `violation_increment` is set to 600 (ten minutes in seconds), then there would be a penalty of 2 for a route 4800 seconds in duration. If this constraint is not given, MARE will not account for travel distance at all.\n",
               "example" : 3600
             }
           }
@@ -900,14 +900,14 @@
                   "format" : "byte"
                 }
               },
-              "description" : "This can be used to specify order sets, in which case the gap is\nchecked between all visits occurring for any order in each set.\nOtherwise, you can specify specific orders for this constraint. If no\norders are specified, it defaults to all orders. The time between two\nconsecutive visits at an order is the difference in the arrival times\nat the orders. This constraint is evaluated in terms of the order’s\n`min_days` and `max_days` properties over entire planning period, as\nwell as those within each period object in the order over that period.\nA day is converted to seconds behind the scenes.\n",
+              "description" : "This can be used to specify order sets, in which case the gap is checked between all visits occurring for any order in each set. Otherwise, you can specify specific orders for this constraint. If no orders are specified, it defaults to all orders. The time between two consecutive visits at an order is the difference in the arrival times at the orders. This constraint is evaluated in terms of the order’s `min_days` and `max_days` properties over entire planning period, as well as those within each period object in the order over that period. A day is converted to seconds behind the scenes.\n",
               "example" : [ [ "order1", "order2", "order5" ], [ "order3", "order4" ] ]
             }
           }
         } ]
       },
       "Visit_Range" : {
-        "description" : "Ensure an order receives a specified minimum and/or maximum number of\nvisits over the planning period. You can specify order sets, in which\ncase each set is checked by summing visits across all orders in that\nset. Otherwise orders are checked individually. This constraint checks\nusing the min_visits and max_visits values specified in order object\nover entire planning period, as well as parameters specified in each\nperiod object in the order for each subset of the planning period.\n",
+        "description" : "Ensure an order receives a specified minimum and/or maximum number of visits over the planning period. You can specify order sets, in which case each set is checked by summing visits across all orders in that set. Otherwise orders are checked individually. This constraint checks using the min_visits and max_visits values specified in order object over entire planning period, as well as parameters specified in each period object in the order for each subset of the planning period.\n",
         "allOf" : [ {
           "$ref" : "#/components/schemas/Constraint"
         }, {
@@ -923,14 +923,14 @@
                   "format" : "byte"
                 }
               },
-              "description" : "Can be used to specify order sets, in which case each set is checked\nby summing visits across all orders in that set. Otherwise orders are\nchecked individually. These are checked using `min_visits` and\n`max_visits` values specified in the `order` object over the entire\nplanning period, as well as parameters specified in each `period`\nobject in the order for each subset of the planning period. MARE uses\nthe arrival time at the order when evaluating this constraint. Users\ncan also specify specific orders for this constraint – otherwise\napplied to all orders by default.\n",
+              "description" : "Can be used to specify order sets, in which case each set is checked by summing visits across all orders in that set. Otherwise orders are checked individually. These are checked using `min_visits` and `max_visits` values specified in the `order` object over the entire planning period, as well as parameters specified in each `period` object in the order for each subset of the planning period. MARE uses the arrival time at the order when evaluating this constraint. Users can also specify specific orders for this constraint – otherwise applied to all orders by default.\n",
               "example" : [ [ "order1", "order2", "order5" ], [ "order3", "order4" ] ]
             }
           }
         } ]
       },
       "Visit_Sequence" : {
-        "description" : "Ensure that order A and order B are visited on the same day by the same\nvehicle, and that A is serviced before B.\n",
+        "description" : "Ensure that order A and order B are visited on the same day by the same vehicle, and that A is serviced before B.\n",
         "allOf" : [ {
           "$ref" : "#/components/schemas/Constraint"
         }, {
@@ -951,7 +951,7 @@
             },
             "same_route" : {
               "type" : "boolean",
-              "description" : "If true, then the two orders must be visited on the same route. If\nfalse, then no violation if they are on different routes as long as\narrival time at first order is earlier than arrival time at second\norder.\n",
+              "description" : "If true, then the two orders must be visited on the same route. If false, then no violation if they are on different routes as long as arrival time at first order is earlier than arrival time at second order.\n",
               "enum" : [ true, false ],
               "default" : false,
               "example" : true
@@ -1061,7 +1061,7 @@
       },
       "RoutingJob" : {
         "type" : "object",
-        "description" : "Complex object containing information about locations, orders, vehicles,\nand constraints needed to build optimal routing solution.\n",
+        "description" : "Complex object containing information about locations, orders, vehicles, and constraints needed to build optimal routing solution.\n",
         "required" : [ "locations", "orders", "vehicles", "constraints" ],
         "properties" : {
           "locations" : {
