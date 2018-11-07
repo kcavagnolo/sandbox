@@ -675,19 +675,73 @@ components:
         type:
           type: string
           description: >
-            The mode of transport
-              * `car` - A car
-              * `truck` - A truck
-              * `bicycle` - A bike
-              * `pedestrian` - A walking human
-          enum:
-            - car
-            - truck
-            - bicycle
-            - pedestrian
-          default: car
-          example: truck
+            The type of "vehicle" mode of transport.
+      discriminator:
+        propertyName: vehicle_type
 
+    # car template
+    Car:
+      allOf:
+        - $ref: '#/components/schemas/Vehicle'
+        - type: object
+          description: >
+            Describes the vehicle and its attributes for estimating travel
+            times. The fastest response times will be with vehicle type car.
+          required:
+            - junk
+          properties:
+            junk:
+              type: boolean
+              description: >
+                junk param for testing
+              enum:
+                - true
+                - false
+              default: false
+              example: true
+    
+    # bicycle template
+    Bicycle:
+      allOf:
+        - $ref: '#/components/schemas/Vehicle'
+        - type: object
+          description: >
+            Describes the vehicle and its attributes for estimating travel
+            times. The fastest response times will be with vehicle type car.
+          required:
+            - junk
+          properties:
+            junk:
+              type: boolean
+              description: >
+                junk param for testing
+              enum:
+                - true
+                - false
+              default: false
+              example: true
+              
+    # pedestrian template
+    Pedestrian:
+      allOf:
+        - $ref: '#/components/schemas/Vehicle'
+        - type: object
+          description: >
+            Describes the vehicle and its attributes for estimating travel
+            times. The fastest response times will be with vehicle type car.
+          required:
+            - junk
+          properties:
+            junk:
+              type: boolean
+              description: >
+                junk param for testing
+              enum:
+                - true
+                - false
+              default: false
+              example: true
+    
     # truck template
     Truck:
       allOf:
@@ -697,27 +751,17 @@ components:
             Describes the vehicle and its attributes for estimating travel
             times. The fastest response times will be with vehicle type car.
           required:
-            - type
+            - hazmat
+            - height
+            - length
+            - width
+            - weight
+            - num_axles
           properties:
-            type:
-              type: string
-              description: >
-                The mode of transport
-                  * `car` - A car
-                  * `truck` - A truck
-                  * `bicycle` - A bike
-                  * `pedestrian` - A walking human
-              enum:
-                - car
-                - truck
-                - bicycle
-                - pedestrian
-              default: car
-              example: truck
             hazmat:
               type: boolean
               description: >
-                **TRUCK ONLY** True if this vehicle is subject to hazmat
+                True if this vehicle is subject to hazmat
                 restrictions.
               enum:
                 - true
@@ -728,39 +772,38 @@ components:
               type: number
               format: float
               description: >
-                **TRUCK ONLY** Vehicle height in meters.
+                Vehicle height in meters.
               example: 4.27
             length:
               type: number
               format: float
               description: >
-                **TRUCK ONLY** Vehicle length in meters.
+                Vehicle length in meters.
               example: 14.63
-            num_axles:
-              type: integer
-              format: int64
-              description: >
-                **TRUCK ONLY** Describes vehicle properties in order to
-                restrict routing to allowable roads.
-              example: 5
-            weight:
-              type: number
-              format: float
-              description: >
-                **TRUCK ONLY** Vehicle weight in kilograms.
-              example: 36287
             width:
               type: number
               format: float
               description: >
-                **TRUCK ONLY** Vehicle width in meters.
+                Vehicle width in meters.
               example: 2.44
+            weight:
+              type: number
+              format: float
+              description: >
+                Vehicle weight in kilograms.
+              example: 36287
+            num_axles:
+              type: integer
+              format: int64
+              description: >
+                Describes vehicle properties in order to
+                restrict routing to allowable roads.
+              example: 5
 
     # routing vehicle template
     RoutingVehicle:
-      oneOf:
+      allOf:
         - $ref: '#/components/schemas/Vehicle'
-        - $ref: '#/components/schemas/Truck'
         - type: object
           required:
             - shifts
