@@ -755,7 +755,7 @@ components:
     # routing vehicle template
     RoutingVehicle:
       allOf:
-        - $ref: '#/components/schemas/Truck'
+        - $ref: '#/components/schemas/Vehicle'
         - type: object
           required:
             - shifts

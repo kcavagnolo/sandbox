@@ -672,7 +672,7 @@
       },
       "RoutingVehicle" : {
         "allOf" : [ {
-          "$ref" : "#/components/schemas/Truck"
+          "$ref" : "#/components/schemas/Vehicle"
         }, {
           "type" : "object",
           "required" : [ "shifts", "vehicle_id" ],
