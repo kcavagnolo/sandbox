@@ -48,12 +48,12 @@ info:
     
     Petstore offers two forms of authentication:
       - API Key
-      - OAuth2
+      - OAuth2 (**Coming soon**)
+    
     OAuth2 - an open protocol to allow secure authorization in a simple
     and standard method from web, mobile and desktop applications.
-    <!-- ReDoc-Inject: <security-definitions> -->
     
-    # Helpful Links
+    <!-- ReDoc-Inject: <security-definitions> -->
     
   termsOfService: https://mapanything.com/trust/terms-of-service
   contact:
@@ -63,6 +63,10 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
+  x-logo:
+    url: 'https://mapanything.com/application/themes/mapanything/img/ma-logo-blue.svg'
+    altText: MapAnything Logo
+    
 
 # relative URLs to external documentation
 externalDocs:
