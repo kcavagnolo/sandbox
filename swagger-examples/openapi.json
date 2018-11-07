@@ -33,6 +33,26 @@
     "url" : "https://developer.mapanything.com/",
     "description" : "Visit the MapAnything Developer Portal"
   },
+  "tags" : [ {
+    "name" : "Health",
+    "description" : "Service Health and Status"
+  }, {
+    "name" : "Matrix",
+    "description" : "Distance Matrix Enpoints"
+  }, {
+    "name" : "Routing",
+    "description" : "Vehicle Routing Endpoints"
+  }, {
+    "name" : "Repair",
+    "description" : "Route Repair Endpoints"
+  } ],
+  "x-tagGroups" : [ {
+    "name" : "Optimization",
+    "tags" : [ "Matrix", "Routing", "Repair" ]
+  }, {
+    "name" : "Admin",
+    "tags" : [ "Health" ]
+  } ],
   "paths" : {
     "/health" : {
       "get" : {
