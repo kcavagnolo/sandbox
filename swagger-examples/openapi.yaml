@@ -14,7 +14,7 @@ servers:
 info:
   version: 1.0.0
   title: MapAnything Optimization API's
-  description: >
+  description: |
     This is a sample server Petstore server.
     You can find out more about Swagger at
     [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).
@@ -47,10 +47,10 @@ info:
     Petstore offers two forms of authentication:
       - API Key
       - OAuth2
+    
     OAuth2 - an open protocol to allow secure authorization in a simple
     and standard method from web, mobile and desktop applications.
-    <security-definitions /> 
-    
+
   termsOfService: https://mapanything.com/trust/terms-of-service
   contact:
     name: MapAnything API Support
