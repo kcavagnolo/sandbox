@@ -588,7 +588,7 @@
       },
       "Vehicle" : {
         "type" : "object",
-        "description" : "Describes the vehicle and its attributes for estimating travel times. The fastest response times will be with vehicle type car.\n",
+        "description" : "Describes the vehicle and its attributes for estimating travel\ntimes. The fastest response times will be with vehicle type car.\n",
         "required" : [ "type" ],
         "properties" : {
           "type" : {
@@ -596,6 +596,7 @@
             "format" : "byte",
             "description" : "The mode of transport.",
             "enum" : [ "car", "truck", "bicycle", "pedestrian" ],
+            "default" : "car",
             "example" : "truck"
           },
           "hazmat" : {

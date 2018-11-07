@@ -32,9 +32,9 @@ externalDocs:
 # paths in the API
 paths:
 
-  #############################
-  # distance matrix endpoints #
-  #############################
+  ###################
+  # admin endpoints #
+  ###################
 
   # service health
   /health:
@@ -49,15 +49,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HealthCheck'
+                $ref: '#/components/schemas/HealthResponse'
         default:
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
         - Health
+
+  #############################
+  # distance matrix endpoints #
+  #############################
 
   # matrix job submission endpoint
   /matrix:
@@ -90,7 +94,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
         - Matrix
 
@@ -121,7 +125,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
         - Matrix
 
@@ -158,7 +162,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
         - Routing
   
@@ -239,148 +243,6 @@ components:
 
   # schemas
   schemas:
-
-    ##########
-    # admin  #
-    ##########
-
-    # health check template
-    HealthCheck:
-      type: object
-      required:
-        - status
-        - servicename
-        - message
-        - api_version
-      properties:
-        status:
-          type: integer
-          format: int64
-          example: 200
-        message:
-          type: string
-          format: byte
-          example: 'service is healthy'
-        servicename:
-          type: string
-          format: byte
-          example: 'distance matrix service'
-        api_version:
-          type: string
-          format: byte
-          example: 1.0.0-prod
-
-    # generic error template
-    Error:
-      type: object
-      required:
-        - status
-        - message
-        - errors
-      properties:
-        status:
-          type: integer
-          format: int64
-          example: 503
-        message:
-          description: Error messages
-          type: string
-          format: byte
-          example: 'service experiencing errors'
-        servicename:
-          type: string
-          format: byte
-          example: 'distance matrix service'
-        api_version:
-          type: string
-          format: byte
-          example: 1.0.0-prod
-        errors:
-          type: array
-          minItems: 1
-          uniqueItems: true
-          items:
-            properties:
-              code:
-                type: string
-                description: Server Exception
-                example: [ServiceNotFoundError,
-                          ServiceCorruptedError,
-                          ZombieApocalypseError]
-
-    # async job template
-    JobResponse:
-      description: |
-        Asynchronous response
-      type: object
-      required:
-        - jobType
-        - jobid
-        - status
-        - message
-        - url
-        - solution
-      properties:
-        jobType:
-          description: Type of job submitted
-          type: string
-          format: byte
-          example: 'async'
-        jobid:
-          description: UUID for the submitted job
-          type: string
-          format: byte
-          example: 'mare-us-east-1-matrix-1525975072.20048'
-        status:
-          description: Status of the submitted job
-          type: string
-          format: byte
-          example: 'Accepted'
-        message:
-          description: Status message associated with submitted job
-          type: string
-          format: byte
-          example: 'Check submitted job status using GET method and jobid'
-        #url:
-        #solution:
-    
-    # matrix job status template
-    JobStatus:
-      type: object
-      required:
-        - status
-      description: |
-        Status of a job submitted to the async queues for distance matrix or routing services
-      properties:
-        status:
-          type: string
-          format: byte
-          description: Status of the job
-          example: 'Completed'
-        url:
-          type: string
-          format: byte
-          description: The AWS S3 bucket location of the JSON containing the solution
-          example: 'https://dev2-us-west-2-mare-output-da...'
-        jobid:
-          type: string
-          format: byte
-          description: Echo back of the submitted `jobid`
-          example: 'mare-us-west-2-routing-32-1541083494.372838-606'
-        messages:
-          type: object
-          description: Messages related to API status; useful for debugging
-          properties:
-            comment:
-              type: string
-              format: byte
-              description: Information about the API or job
-              example: 'MARE job succeeded'
-            mare_version:
-              type: string
-              format: byte
-              description: Version number of the underlying routing engine
-              example: 'v2822-11-gf4b52cc'
 
     ###################
     # routing objects #
@@ -757,7 +619,8 @@ components:
     Vehicle:
       type: object
       description: |
-        Describes the vehicle and its attributes for estimating travel times. The fastest response times will be with vehicle type car.
+        Describes the vehicle and its attributes for estimating travel
+        times. The fastest response times will be with vehicle type car.
       required:
         - type
       properties:
@@ -770,6 +633,7 @@ components:
             - truck
             - bicycle
             - pedestrian
+          default: car
           example: truck
         hazmat:
           type: boolean
@@ -888,6 +752,75 @@ components:
               example: ["does not like Jim",
                         "bucket truck",
                         "Tamil only"]
+
+    # constraint template
+    Constraint:
+      type: object
+      discriminator:
+        propertyName: constraint_type
+      description: |
+        A generalized object describing a constraint to be applied in the
+        routing problem. Constraint options are provided in the Examples.
+      required:
+        - constraint_name
+        - constraint_type
+        - penalty_per_violation
+      properties:
+        constraint_name:
+          type: string
+          format: byte
+          description: |
+            Arbitrary, human-readable name of the constraint.
+          example: 'Visit Sequence Constraint: order3 before order7'
+        constraint_type:
+          type: string
+          format: byte
+          description: |
+            A type of constraint that can be applied in solving the
+            routing problem.
+          example: 'Max_Distance'
+        penalty_per_violation:
+          type: number
+          format: double
+          description: |
+            Numeric value that quantifies the amount of penalty assigned to each
+            violation of the constraint. Values should be made specific to the
+            `constraint_type` and the routing problem.
+          example: 10000
+        constraint_id:
+          type: string
+          format: byte
+          description: |
+            Unique identifier for the constraint for user reference. This could
+            refer to an internal database key or some other identifier of use to
+            the requestor. If unspecified, no value is used.
+          example: 'Non-negotiable Constraint1'
+        violation_increment:
+          type: integer
+          format: int64
+          description: |
+            For constraints that involve a numerical threshold, an additional
+            `penalty_per_violation` is assessed for every `violation_increment`
+            units over the threshold. For example, if a constraint specifies
+            that no route should last more than 500 minutes of total time with a
+            penalty of 100, and you specify a `violation_increment` of 10, then
+            a route of 523 minutes would receive a penalty of 300. 100 is for
+            the initial violation, and then 2 x 100 more for exceeding the
+            threshold by 23.
+          example: 10
+        hard_constraint:
+          type: boolean
+          description: |
+            **WARNING! This parameter has the potential to return no results
+            frequently. Use at your own risk.** If set to `true`, then the
+            constraint is treated as a truly hard constraint, i.e. no
+            violations with no exceptions; thus guaranteeing no solutions will
+            be returned that violate it.
+          enum:
+            - true
+            - false
+          default: false
+          example: true
 
     ###############
     # constraints #
@@ -1164,78 +1097,9 @@ components:
             default: false
             example: true
 
-    ######################
-    # end of constraints #
-    ######################
-
-    # constraint template
-    Constraint:
-      type: object
-      discriminator:
-        propertyName: constraint_type
-      description: |
-        A generalized object describing a constraint to be applied in the
-        routing problem. Constraint options are provided in the Examples.
-      required:
-        - constraint_name
-        - constraint_type
-        - penalty_per_violation
-      properties:
-        constraint_name:
-          type: string
-          format: byte
-          description: |
-            Arbitrary, human-readable name of the constraint.
-          example: 'Visit Sequence Constraint: order3 before order7'
-        constraint_type:
-          type: string
-          format: byte
-          description: |
-            A type of constraint that can be applied in solving the
-            routing problem.
-          example: 'Max_Distance'
-        penalty_per_violation:
-          type: number
-          format: double
-          description: |
-            Numeric value that quantifies the amount of penalty assigned to each
-            violation of the constraint. Values should be made specific to the
-            `constraint_type` and the routing problem.
-          example: 10000
-        constraint_id:
-          type: string
-          format: byte
-          description: |
-            Unique identifier for the constraint for user reference. This could
-            refer to an internal database key or some other identifier of use to
-            the requestor. If unspecified, no value is used.
-          example: 'Non-negotiable Constraint1'
-        violation_increment:
-          type: integer
-          format: int64
-          description: |
-            For constraints that involve a numerical threshold, an additional
-            `penalty_per_violation` is assessed for every `violation_increment`
-            units over the threshold. For example, if a constraint specifies
-            that no route should last more than 500 minutes of total time with a
-            penalty of 100, and you specify a `violation_increment` of 10, then
-            a route of 523 minutes would receive a penalty of 300. 100 is for
-            the initial violation, and then 2 x 100 more for exceeding the
-            threshold by 23.
-          example: 10
-        hard_constraint:
-          type: boolean
-          description: |
-            **WARNING! This parameter has the potential to return no results
-            frequently. Use at your own risk.** If set to `true`, then the
-            constraint is treated as a truly hard constraint, i.e. no
-            violations with no exceptions; thus guaranteeing no solutions will
-            be returned that violate it.
-          enum:
-            - true
-            - false
-          default: false
-          example: true
+    ############
+    # requests #
+    ############
 
     # matrix job template
     MatrixJob:
@@ -1418,6 +1282,158 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Item'
+
+    #############
+    # responses #
+    #############
+
+    # health check template
+    HealthResponse:
+      type: object
+      required:
+        - status
+        - servicename
+        - message
+        - api_version
+      properties:
+        status:
+          type: integer
+          format: int64
+          example: 200
+        message:
+          type: string
+          format: byte
+          example: 'service is healthy'
+        servicename:
+          type: string
+          format: byte
+          example: 'distance matrix service'
+        api_version:
+          type: string
+          format: byte
+          example: 1.0.0-prod
+
+    # generic error template
+    ErrorResponse:
+      type: object
+      required:
+        - status
+        - message
+        - errors
+      properties:
+        status:
+          type: integer
+          format: int64
+          example: 503
+        message:
+          description: Error messages
+          type: string
+          format: byte
+          example: 'service experiencing errors'
+        servicename:
+          type: string
+          format: byte
+          example: 'distance matrix service'
+        api_version:
+          type: string
+          format: byte
+          example: 1.0.0-prod
+        errors:
+          type: array
+          minItems: 1
+          uniqueItems: true
+          items:
+            properties:
+              code:
+                type: string
+                description: Server Exception
+                example: [ServiceNotFoundError,
+                          ServiceCorruptedError,
+                          ZombieApocalypseError]
+
+    # async job template
+    JobResponse:
+      description: |
+        Response to a submitted job
+      type: object
+      required:
+        - jobid
+        - job_type
+        - status
+        - message
+        #- url
+        #- solution
+      properties:
+        jobid:
+          description: UUID for the job
+          type: string
+          format: byte
+          example: 'mare-us-east-1-matrix-1525975072.20048'
+        job_type:
+          description: Type of job executed
+          type: string
+          format: byte
+          enum:
+            - sync
+            - async
+          example: 'async'
+        status:
+          description: Status of the submitted job
+          type: string
+          format: byte
+          example: 'Accepted'
+        message:
+          description: Status message associated with submitted job
+          type: string
+          format: byte
+          example: 'Check submitted job status using GET method and jobid'
+        url:
+          description: URL for solution JSON file
+          type: string
+          format: byte
+          example: 'https://sdfghjk.com'
+        solution:
+          description: Solution JSON object
+          #type: object
+          #  $ref: '#/components/schemas/MatrixResponse'
+    
+    # matrix job status template
+    JobStatus:
+      type: object
+      required:
+        - status
+      description: |
+        Status of a job submitted to the async queues for distance matrix or routing services
+      properties:
+        status:
+          type: string
+          format: byte
+          description: Status of the job
+          example: 'Completed'
+        url:
+          type: string
+          format: byte
+          description: The AWS S3 bucket location of the JSON containing the solution
+          example: 'https://dev2-us-west-2-mare-output-da...'
+        jobid:
+          type: string
+          format: byte
+          description: Echo back of the submitted `jobid`
+          example: 'mare-us-west-2-routing-32-1541083494.372838-606'
+        messages:
+          type: object
+          description: Messages related to API status; useful for debugging
+          properties:
+            comment:
+              type: string
+              format: byte
+              description: Information about the API or job
+              example: 'MARE job succeeded'
+            mare_version:
+              type: string
+              format: byte
+              description: Version number of the underlying routing engine
+              example: 'v2822-11-gf4b52cc'
 
     ##############
     # deprecated #
