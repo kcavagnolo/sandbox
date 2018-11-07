@@ -628,7 +628,10 @@ components:
           type: string
           format: byte
           description: >
-            The mode of transport.
+            The mode of transport:
+              * `car` - A car
+              * `truck` - A truck
+              * ``
           enum:
             - car
             - truck
