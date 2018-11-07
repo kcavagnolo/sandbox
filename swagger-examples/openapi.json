@@ -1005,9 +1005,7 @@
           },
           "vehicle" : {
             "oneOf" : [ {
-              "$ref" : "#/components/schemas/Car"
-            }, {
-              "$ref" : "#/components/schemas/Truck"
+              "$ref" : "#/components/schemas/Vehicle"
             } ]
           },
           "sources" : {
