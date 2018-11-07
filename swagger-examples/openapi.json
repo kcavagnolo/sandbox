@@ -610,18 +610,6 @@
       "Car" : {
         "allOf" : [ {
           "$ref" : "#/components/schemas/Vehicle"
-        }, {
-          "type" : "object",
-          "description" : "Describes the vehicle and its attributes for estimating travel times. The fastest response times will be with vehicle type car.\n",
-          "properties" : {
-            "junk" : {
-              "type" : "boolean",
-              "description" : "junk param for testing\n",
-              "enum" : [ true, false ],
-              "default" : false,
-              "example" : true
-            }
-          }
         } ]
       },
       "Bicycle" : {

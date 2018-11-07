@@ -683,20 +683,6 @@ components:
     Car:
       allOf:
         - $ref: '#/components/schemas/Vehicle'
-        - type: object
-          description: >
-            Describes the vehicle and its attributes for estimating travel
-            times. The fastest response times will be with vehicle type car.
-          properties:
-            junk:
-              type: boolean
-              description: >
-                junk param for testing
-              enum:
-                - true
-                - false
-              default: false
-              example: true
     
     # bicycle template
     Bicycle:
