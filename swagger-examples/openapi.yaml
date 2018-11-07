@@ -677,7 +677,7 @@ components:
           description: >
             The type of "vehicle" mode of transport.
       discriminator:
-        propertyName: vehicle_type
+        propertyName: type
 
     # car template
     Car:
