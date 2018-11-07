@@ -135,9 +135,9 @@
         "in" : "path",
         "description" : "JobId supplied in the response of the original submitted request\n",
         "required" : true,
+        "deprecated" : false,
         "schema" : {
           "type" : "string",
-          "format" : "byte",
           "example" : "mare-us-east-1-matrix-1525975072.20048"
         }
       } ],
@@ -221,8 +221,7 @@
         "in" : "path",
         "required" : true,
         "schema" : {
-          "type" : "string",
-          "format" : "byte"
+          "type" : "string"
         }
       } ],
       "delete" : {
@@ -307,13 +306,11 @@
         "properties" : {
           "appointment_start" : {
             "type" : "string",
-            "format" : "byte",
             "description" : "Start local time given as an ISO 8601 time format. Used in conjunction with `appointment_end` parameter.\n",
             "example" : "2018-10-02T12:30:00-04:00"
           },
           "appointment_end" : {
             "type" : "string",
-            "format" : "byte",
             "description" : "End local time given as an ISO 8601 time format. Used in conjunction with `appointment_start` parameter.\n",
             "example" : "2018-10-02T14:30:00-04:00"
           }
@@ -326,13 +323,11 @@
         "properties" : {
           "order_id" : {
             "type" : "string",
-            "format" : "byte",
             "description" : "Unique identifier for the order",
             "example" : "OrderABC123"
           },
           "location_id" : {
             "type" : "string",
-            "format" : "byte",
             "description" : "Identifier for the location of this order",
             "example" : "DistributionCenter-A1"
           },
@@ -344,7 +339,6 @@
               "properties" : {
                 "item_type" : {
                   "type" : "string",
-                  "format" : "byte",
                   "description" : "An item type defined in the top-level `item` object\n",
                   "example" : "lumber"
                 },
@@ -371,7 +365,6 @@
               "properties" : {
                 "item_type" : {
                   "type" : "string",
-                  "format" : "byte",
                   "description" : "An item type defined in the top-level `item` object\n",
                   "example" : "lumber"
                 },
@@ -417,13 +410,11 @@
             "properties" : {
               "start_time_window" : {
                 "type" : "string",
-                "format" : "byte",
                 "description" : "The start time, given as an ISO 8601 time format.",
                 "example" : "2018-10-01T14:00:00-04:00"
               },
               "end_time_window" : {
                 "type" : "string",
-                "format" : "byte",
                 "description" : "The end time, given as an ISO 8601 time format.",
                 "example" : "2018-10-01T16:30:00-04:00"
               }
@@ -432,8 +423,7 @@
           "attributes" : {
             "type" : "array",
             "items" : {
-              "type" : "string",
-              "format" : "byte"
+              "type" : "string"
             },
             "minItems" : 1,
             "uniqueItems" : true,
@@ -486,7 +476,6 @@
         "properties" : {
           "item_type" : {
             "type" : "string",
-            "format" : "byte",
             "description" : "String that identifies the type of item. For example, 'lumber' or 'frozen meat.' Refer to the example to get started quickly.\n",
             "example" : "lumber"
           },
@@ -505,8 +494,7 @@
           "attributes" : {
             "type" : "array",
             "items" : {
-              "type" : "string",
-              "format" : "byte"
+              "type" : "string"
             },
             "minItems" : 1,
             "uniqueItems" : true,
@@ -522,7 +510,6 @@
         "properties" : {
           "item_type" : {
             "type" : "string",
-            "format" : "byte",
             "description" : "Type of item; must be an `item_type` given in the `items` object.\n",
             "example" : "lumber"
           },
@@ -555,7 +542,6 @@
           },
           "location_id" : {
             "type" : "string",
-            "format" : "byte",
             "description" : "A unique string identifier for each location.\n",
             "example" : "Depot-A123"
           },
@@ -580,31 +566,26 @@
         "properties" : {
           "shift_id" : {
             "type" : "string",
-            "format" : "byte",
             "description" : "Unique identifier for the shift",
             "example" : "Tuesday Polishing or Painting"
           },
           "shift_start" : {
             "type" : "string",
-            "format" : "byte",
             "description" : "Start local time given as an ISO 8601 time format. Used in conjunction with `shift_end` parameter.\n",
             "example" : "2018-10-02T12:30:00-04:00"
           },
           "shift_end" : {
             "type" : "string",
-            "format" : "byte",
             "description" : "End local time given as an ISO 8601 time format. Used in conjunction with `shift_start` parameter.\n",
             "example" : "2018-10-02T12:30:00-04:00"
           },
           "start_location_id" : {
             "type" : "string",
-            "format" : "byte",
             "description" : "Unique identifier for the starting location of the vehicle; must be identical to one of a location in the `locations` keyword.\n",
             "example" : "location-a"
           },
           "end_location_id" : {
             "type" : "string",
-            "format" : "byte",
             "description" : "Unique identifier for the ending location of the vehicle; must be identical to one of a location in the `locations` keyword.\n",
             "example" : "location-b"
           }
@@ -617,7 +598,6 @@
         "properties" : {
           "type" : {
             "type" : "string",
-            "format" : "byte",
             "description" : "The mode of transport\n  * `car` - A car\n  * `truck` - A truck\n  * `bicycle` - A bike\n  * `pedestrian` - A walking human\n",
             "enum" : [ "car", "truck", "bicycle", "pedestrian" ],
             "default" : "car",
@@ -687,7 +667,6 @@
             },
             "vehicle_id" : {
               "type" : "string",
-              "format" : "byte",
               "description" : "Unique identifier of the vehicle.",
               "example" : "truck-abc123"
             },
@@ -715,8 +694,7 @@
             "attributes" : {
               "type" : "array",
               "items" : {
-                "type" : "string",
-                "format" : "byte"
+                "type" : "string"
               },
               "minItems" : 1,
               "uniqueItems" : true,
@@ -736,13 +714,11 @@
         "properties" : {
           "constraint_name" : {
             "type" : "string",
-            "format" : "byte",
             "description" : "Arbitrary, human-readable name of the constraint.\n",
             "example" : "Visit Sequence Constraint: order3 before order7"
           },
           "constraint_type" : {
             "type" : "string",
-            "format" : "byte",
             "description" : "A type of constraint that can be applied in solving the routing problem.\n",
             "example" : "Max_Distance"
           },
@@ -754,7 +730,6 @@
           },
           "constraint_id" : {
             "type" : "string",
-            "format" : "byte",
             "description" : "Unique identifier for the constraint for user reference. This could refer to an internal database key or some other identifier of use to the requestor. If unspecified, no value is used.\n",
             "example" : "Non-negotiable Constraint1"
           },
@@ -784,8 +759,7 @@
             "order_ids" : {
               "type" : "array",
               "items" : {
-                "type" : "string",
-                "format" : "byte"
+                "type" : "string"
               },
               "minItems" : 1,
               "uniqueItems" : true,
@@ -794,7 +768,6 @@
             },
             "vehicle_id" : {
               "type" : "string",
-              "format" : "byte",
               "description" : "The order that must be visited by the provided vehicle.",
               "example" : "vehicle-A1Z9"
             }
@@ -811,15 +784,13 @@
           "properties" : {
             "vehicle_id" : {
               "type" : "string",
-              "format" : "byte",
               "description" : "Order must be visited by the provided vehicle.",
               "example" : "vehicle-A1Z9"
             },
             "order_ids" : {
               "type" : "array",
               "items" : {
-                "type" : "string",
-                "format" : "byte"
+                "type" : "string"
               },
               "minItems" : 1,
               "uniqueItems" : true,
@@ -857,8 +828,7 @@
             "order_ids" : {
               "type" : "array",
               "items" : {
-                "type" : "string",
-                "format" : "byte"
+                "type" : "string"
               },
               "minItems" : 1,
               "uniqueItems" : true,
@@ -879,8 +849,7 @@
             "order_ids" : {
               "type" : "array",
               "items" : {
-                "type" : "string",
-                "format" : "byte"
+                "type" : "string"
               },
               "minItems" : 1,
               "uniqueItems" : true,
@@ -920,8 +889,7 @@
               "items" : {
                 "type" : "array",
                 "items" : {
-                  "type" : "string",
-                  "format" : "byte"
+                  "type" : "string"
                 }
               },
               "description" : "This can be used to specify order sets, in which case the gap is checked between all visits occurring for any order in each set. Otherwise, you can specify specific orders for this constraint. If no orders are specified, it defaults to all orders. The time between two consecutive visits at an order is the difference in the arrival times at the orders. This constraint is evaluated in terms of the order’s `min_days` and `max_days` properties over entire planning period, as well as those within each period object in the order over that period. A day is converted to seconds behind the scenes.\n",
@@ -943,8 +911,7 @@
               "items" : {
                 "type" : "array",
                 "items" : {
-                  "type" : "string",
-                  "format" : "byte"
+                  "type" : "string"
                 }
               },
               "description" : "Can be used to specify order sets, in which case each set is checked by summing visits across all orders in that set. Otherwise orders are checked individually. These are checked using `min_visits` and `max_visits` values specified in the `order` object over the entire planning period, as well as parameters specified in each `period` object in the order for each subset of the planning period. MARE uses the arrival time at the order when evaluating this constraint. Users can also specify specific orders for this constraint – otherwise applied to all orders by default.\n",
@@ -963,13 +930,11 @@
           "properties" : {
             "first_order_id" : {
               "type" : "string",
-              "format" : "byte",
               "description" : "Unique ID of the order to be visited first.",
               "example" : "order-abc123"
             },
             "second_order_id" : {
               "type" : "string",
-              "format" : "byte",
               "description" : "Unique ID of the order to be visited second.",
               "example" : "order-xyz789"
             },
@@ -1045,13 +1010,11 @@
           },
           "start_local_time" : {
             "type" : "string",
-            "format" : "byte",
             "description" : "Start local time in 24-hour _hh:mm:ss_ format. Used in conjunction with `end_local_time` parameter.\n",
             "example" : "09:00:00"
           },
           "end_local_time" : {
             "type" : "string",
-            "format" : "byte",
             "description" : "End local time in 24-hour _hh:mm:ss_ format. Used in conjunction with `start_local_time` parameter.\n",
             "example" : "17:00:00"
           },
@@ -1169,17 +1132,14 @@
           },
           "message" : {
             "type" : "string",
-            "format" : "byte",
             "example" : "service is healthy"
           },
           "servicename" : {
             "type" : "string",
-            "format" : "byte",
             "example" : "distance matrix service"
           },
           "api_version" : {
             "type" : "string",
-            "format" : "byte",
             "example" : "1.0.0-prod"
           }
         }
@@ -1196,17 +1156,14 @@
           "message" : {
             "description" : "Error messages",
             "type" : "string",
-            "format" : "byte",
             "example" : "service experiencing errors"
           },
           "servicename" : {
             "type" : "string",
-            "format" : "byte",
             "example" : "distance matrix service"
           },
           "api_version" : {
             "type" : "string",
-            "format" : "byte",
             "example" : "1.0.0-prod"
           },
           "errors" : {
@@ -1233,32 +1190,27 @@
           "jobid" : {
             "description" : "UUID for the job",
             "type" : "string",
-            "format" : "byte",
             "example" : "mare-us-east-1-matrix-1525975072.20048"
           },
           "job_type" : {
             "description" : "Type of job executed",
             "type" : "string",
-            "format" : "byte",
             "enum" : [ "sync", "async" ],
             "example" : "async"
           },
           "status" : {
             "description" : "Status of the submitted job",
             "type" : "string",
-            "format" : "byte",
             "example" : "Accepted"
           },
           "message" : {
             "description" : "Status message associated with submitted job",
             "type" : "string",
-            "format" : "byte",
             "example" : "Check submitted job status using GET method and jobid"
           },
           "url" : {
             "description" : "URL for solution JSON file",
             "type" : "string",
-            "format" : "byte",
             "example" : "https://sdfghjk.com"
           },
           "solution" : {
@@ -1273,19 +1225,16 @@
         "properties" : {
           "status" : {
             "type" : "string",
-            "format" : "byte",
             "description" : "Status of the job",
             "example" : "Completed"
           },
           "url" : {
             "type" : "string",
-            "format" : "byte",
             "description" : "The AWS S3 bucket location of the JSON containing the solution",
             "example" : "https://dev2-us-west-2-mare-output-da..."
           },
           "jobid" : {
             "type" : "string",
-            "format" : "byte",
             "description" : "Echo back of the submitted `jobid`",
             "example" : "mare-us-west-2-routing-32-1541083494.372838-606"
           },
@@ -1295,13 +1244,11 @@
             "properties" : {
               "comment" : {
                 "type" : "string",
-                "format" : "byte",
                 "description" : "Information about the API or job",
                 "example" : "MARE job succeeded"
               },
               "mare_version" : {
                 "type" : "string",
-                "format" : "byte",
                 "description" : "Version number of the underlying routing engine",
                 "example" : "v2822-11-gf4b52cc"
               }
