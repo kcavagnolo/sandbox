@@ -20,12 +20,9 @@ info:
     
     Welcome to the documentation for the MapAnything API.
     
-    Our API provides access to our services in a simple, programmatic way using conventional HTTP requests. The endpoints are powerful, allowing you to easily make calls to retrieve information or to execute actions (**TODO: add link to marketing collateral**). All of the functionality that you are familiar with in the Core, Guide, and Live products is also available through the API, allowing you to script actions that your situation requires. The API documentation is split into two parts:
+    Our API provides access to our services in a simple, programmatic way using conventional HTTP requests. The endpoints are powerful, allowing you to easily make calls to retrieve information or to execute actions (**TODO: add link to marketing collateral**). All of the functionality that you are familiar with in the Core, Guide, and Live products is also available through the API, allowing you to script actions that your situation requires. 
     
-    * [Functionality Overview](#overview) (a.k.a. "the 40,000 foot view")
-    * [Specifics and Details](#specifics) (a.k.a. "the nitty-gritty")
-    
-    # <a name="overview"></a>Functionality Overview
+    # Functionality Overview
     
     ## Authentication
     
@@ -116,8 +113,7 @@ info:
     [link-dockersecrets]: https://docs.docker.com/engine/swarm/secrets
     [link-json]: https://www.json.org/
     
-    # <a name="overview"></a>Specifics
-
+    # Specifics and Details
 
   termsOfService: https://mapanything.com/trust/terms-of-service
   contact:
