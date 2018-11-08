@@ -603,7 +603,7 @@
         "properties" : {
           "type" : {
             "type" : "string",
-            "description" : "The type of \"vehicle\" mode of transport.\n"
+            "description" : "The type of vehicle mode of transport.\n"
           }
         }
       },
@@ -670,67 +670,64 @@
           }
         } ]
       },
-      "RoutingVehicle" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/Vehicle"
-        }, {
-          "type" : "object",
-          "required" : [ "shifts", "vehicle_id" ],
-          "properties" : {
-            "shifts" : {
-              "type" : "array",
-              "items" : {
-                "$ref" : "#/components/schemas/Shift"
-              },
-              "minItems" : 1,
-              "uniqueItems" : true,
-              "description" : "Each entry describes the start and end location, shifts and breaks of the vehicle during the problem. A vehicle is allowed to be traveling and servicing orders only during some shift. Shifts cannot overlap for a given vehicle. Currently `start_location_id` and `end_location_id` are required, but we understand the need for \"open\" routes where either or both are not specified.\n",
-              "example" : [ {
-                "shift_id" : "Tuesday_Polishing_Or_Painting",
-                "shift_start" : "2018-10-02T09:00:00-04:00",
-                "shift_end" : "2018-10-02T18:00:00-04:00",
-                "start_location_id" : "location-a",
-                "end_location_id" : "location-b"
-              } ]
+      "RoutingParameters" : {
+        "type" : "object",
+        "description" : "Additional parameters specific to a vehicle to be used in finding a solution to a routing problem.\n",
+        "required" : [ "shifts", "vehicle_id" ],
+        "properties" : {
+          "shifts" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Shift"
             },
-            "vehicle_id" : {
-              "type" : "string",
-              "description" : "Unique identifier of the vehicle.",
-              "example" : "truck-abc123"
+            "minItems" : 1,
+            "uniqueItems" : true,
+            "description" : "Each entry describes the start and end location, shifts and breaks of the vehicle during the problem. A vehicle is allowed to be traveling and servicing orders only during some shift. Shifts cannot overlap for a given vehicle. Currently `start_location_id` and `end_location_id` are required, but we understand the need for \"open\" routes where either or both are not specified.\n",
+            "example" : [ {
+              "shift_id" : "Tuesday_Polishing_Or_Painting",
+              "shift_start" : "2018-10-02T09:00:00-04:00",
+              "shift_end" : "2018-10-02T18:00:00-04:00",
+              "start_location_id" : "location-a",
+              "end_location_id" : "location-b"
+            } ]
+          },
+          "vehicle_id" : {
+            "type" : "string",
+            "description" : "Unique identifier of the vehicle.",
+            "example" : "truck-abc123"
+          },
+          "volume_capacity" : {
+            "type" : "number",
+            "format" : "double",
+            "description" : "Maximum vehicle volumetric capacity in cubic centimeters.",
+            "example" : 534422.1
+          },
+          "weight_capacity" : {
+            "type" : "number",
+            "format" : "double",
+            "description" : "Maximum vehicle weight capacity in kilograms",
+            "example" : 42331.2
+          },
+          "capacity_by_item" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ItemQty"
             },
-            "volume_capacity" : {
-              "type" : "number",
-              "format" : "double",
-              "description" : "Maximum vehicle volumetric capacity in cubic centimeters.",
-              "example" : 534422.1
+            "minItems" : 1,
+            "uniqueItems" : true,
+            "description" : "Describes a set of (`item_type`, `quantity`) pairs that the vehicle can carry. Each key must be an `item_type` given in the `items` object. If this is not given, MARE assumes the vehicle has an infinite capacity on a per-item basis. Mixing different items is handled by `volume_capacity`, in cubic meters or `weight_capacity` in kg. By default, if this keyword is not given, MARE will not take into account any capacities by item.\n"
+          },
+          "attributes" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
             },
-            "weight_capacity" : {
-              "type" : "number",
-              "format" : "double",
-              "description" : "Maximum vehicle weight capacity in kilograms",
-              "example" : 42331.2
-            },
-            "capacity_by_item" : {
-              "type" : "array",
-              "items" : {
-                "$ref" : "#/components/schemas/ItemQty"
-              },
-              "minItems" : 1,
-              "uniqueItems" : true,
-              "description" : "Describes a set of (`item_type`, `quantity`) pairs that the vehicle can carry. Each key must be an `item_type` given in the `items` object. If this is not given, MARE assumes the vehicle has an infinite capacity on a per-item basis. Mixing different items is handled by `volume_capacity`, in cubic meters or `weight_capacity` in kg. By default, if this keyword is not given, MARE will not take into account any capacities by item.\n"
-            },
-            "attributes" : {
-              "type" : "array",
-              "items" : {
-                "type" : "string"
-              },
-              "minItems" : 1,
-              "uniqueItems" : true,
-              "description" : "List of arbitrary attributes associated with a vehicle in the `vehicles` object to create an affinity between vehicles and orders. These strings must exactly match with the order `attribute` parameters and are enforced via the `match_attributes` constraint.\n",
-              "example" : [ "does not like Jim", "bucket truck", "Tamil only" ]
-            }
+            "minItems" : 1,
+            "uniqueItems" : true,
+            "description" : "List of arbitrary attributes associated with a vehicle in the `vehicles` object to create an affinity between vehicles and orders. These strings must exactly match with the order `attribute` parameters and are enforced via the `match_attributes` constraint.\n",
+            "example" : [ "does not like Jim", "bucket truck", "Tamil only" ]
           }
-        } ]
+        }
       },
       "Constraint" : {
         "type" : "object",
@@ -1150,7 +1147,11 @@
           "vehicles" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/RoutingVehicle"
+              "allOf" : [ {
+                "$ref" : "#/components/schemas/Vehicle"
+              }, {
+                "$ref" : "#/components/schemas/RoutingParameters"
+              } ]
             },
             "minItems" : 1,
             "maxItems" : 7500,
