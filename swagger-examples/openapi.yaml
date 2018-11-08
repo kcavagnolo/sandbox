@@ -57,13 +57,13 @@ info:
     * Adding enumeration values
     * Softening a parameter constraint
     
-    When a legacy version of the API reaches its end-of-life, all users will be notified 30 days in-advance to ensure that applications can be updated to a newer API version (**TODO: is this in ToS?).
+    When a legacy version of the API reaches its end-of-life, all users will be notified 30 days in-advance to ensure that applications can be updated to a newer API version (**TODO: is this in ToS?**).
     
     ## Requests
     
-    All requests to the MapAnything API need to be made in standard [JSON format](link-json) based on the specifications detailed in [Specifics and Details](#specifics).
+    ### Methods
     
-    Any tool or language that has HTTP communication abilities can interact with our API simply by requesting the correct Uniform Resource Identifier (URI). All requests need to be made using the HTTPS protocol to ensure encryption and an extra layer of security. Our API supports the standard methods:
+    All requests to the MapAnything API need to be made in standard [JSON format](link-json) based on the specifications detailed in [Specifics and Details](#specifics). Any tool or language that has HTTP communication abilities can interact with our API simply by requesting the correct Uniform Resource Identifier (URI). All requests need to be made using the HTTPS protocol to ensure encryption and an extra layer of security. Our API supports the standard methods:
     
     | Method 	| Usage |
     |--------	|-------|
@@ -75,31 +75,15 @@ info:
     
     ### Encoding
     
-    We're UTF-8
-    
-    ## Statuses
-    
-    Describe the codes we return and the error object.
+    All API resources require that the contents of request objects be encoded using UTF-8. To represent special characters in strings, use the `%FF` hexadecimal representation. For example, in German, the word "airports" is "Flughäfen" and converts to "Flugh%C3%A4fen." If you are unsure of the conversion, there are numerous online encoder/decoder tools and automated encoding/decoding in language specific libraries.
     
     ## Responses
     
-    Describe the response formats.
+    When a request is processed successfully, a response will be returned with a JSON object as the body. The JSON object contents will be specific to the endpoint and are described in detail below.
     
-    ### Customization
+    ### Status Codes
     
-    We support `additionalAttributes`... kind of.
-    
-    ## Metadata
-    
-    TBD
-    
-    ## Links
-    
-    Place to hold URL's to results.
-    
-    ## Usage Limits
-    
-    Account specific, bother including them here?
+    All responses include standard HTTP statuses consistent with [IETF standards](link-ietf). In the event an error occurs, the response will be a JSON with a top-level error code, error message, and other identifying information (details in the endpoint documentation).
     
     ## Parameters
     
@@ -111,9 +95,7 @@ info:
     
     ## Cross-Origin Resource Sharing
         
-    This API features Cross-Origin Resource Sharing (CORS) implemented in compliance with  [W3C spec](https://www.w3.org/TR/cors/).
-    And that allows cross-domain communication from the browser.
-    All responses have a wildcard same-origin which makes them completely public and accessible to everyone, including any code on any site.
+    The API features Cross-Origin Resource Sharing (CORS) implemented in compliance with  [W3C spec](https://www.w3.org/TR/cors/) that allows cross-domain communication from the browser. All responses have a wildcard same-origin which makes them completely public and accessible to everyone, including any code on any site.
           
     ## Documentation
     
@@ -128,10 +110,21 @@ info:
     [link-gitsecrets]: https://github.com/awslabs/git-secrets
     [link-dockersecrets]: https://docs.docker.com/engine/swarm/secrets
     [link-json]: https://www.json.org/
+    [link-ietf]: https://tools.ietf.org/html/rfc2616#section-10
     
-    # Specifics and Details
+    ## Coming Soon
+    
+    New features that are on the product road map are listed below. Users will be notified when this feature becomes available and we will post updates to the developer portal in our blog (**TODO** create blog).
+    
+    * **Ad Hoc Attributes**: Support for arbitrary attributes in the request via an `additionalAttributes` object.
+    
+    * **Metadata**: Support for metadata describing the response in a `meta` object.
+    
+    * **Links**: Support for a `links` object in responses providing full URLs to responses and data.
+     
+    * **Usage Data**: Support for usage statistics in the response header.
 
-  
+
   termsOfService: https://mapanything.com/trust/terms-of-service
   contact:
     name: MapAnything API Support
