@@ -300,6 +300,99 @@ components:
   # schemas
   schemas:
 
+    ####################
+    # regular vehicles #
+    ####################
+
+    # vehicle template
+    Vehicle:
+      type: object
+      description: >
+        Describes the vehicle and its attributes for estimating travel
+        times.
+      discriminator:
+        propertyName: type
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          description: >
+            The type of "vehicle" mode of transport.
+
+    # car template
+    Car:
+      allOf:
+        - $ref: '#/components/schemas/Vehicle'
+    
+    # bicycle template
+    Bicycle:
+      allOf:
+        - $ref: '#/components/schemas/Vehicle'
+              
+    # pedestrian template
+    Pedestrian:
+      allOf:
+        - $ref: '#/components/schemas/Vehicle'
+    
+    # truck template
+    Truck:
+      allOf:
+        - $ref: '#/components/schemas/Vehicle'
+        - type: object
+          description: >
+            Describes the vehicle and its attributes for estimating travel
+            times. The fastest response times will be with vehicle type car.
+          required:
+            - hazmat
+            - height
+            - length
+            - width
+            - weight
+            - num_axles
+          properties:
+            hazmat:
+              type: boolean
+              description: >
+                True if this vehicle is subject to hazmat
+                restrictions.
+              enum:
+                - true
+                - false
+              default: false
+              example: true
+            height:
+              type: number
+              format: float
+              description: >
+                Vehicle height in meters.
+              example: 4.27
+            length:
+              type: number
+              format: float
+              description: >
+                Vehicle length in meters.
+              example: 14.63
+            width:
+              type: number
+              format: float
+              description: >
+                Vehicle width in meters.
+              example: 2.44
+            weight:
+              type: number
+              format: float
+              description: >
+                Vehicle weight in kilograms.
+              example: 36287
+            num_axles:
+              type: integer
+              format: int64
+              description: >
+                Describes vehicle properties in order to
+                restrict routing to allowable roads.
+              example: 5
+
     ###################
     # routing objects #
     ###################
@@ -640,12 +733,14 @@ components:
           example: 'Tuesday Polishing or Painting'
         shift_start:
           type: string
+          format: date-time
           description: >
             Start local time given as an ISO 8601 time format. Used in
             conjunction with `shift_end` parameter.
           example: '2018-10-02T12:30:00-04:00'
         shift_end:
           type: string
+          format: date-time
           description: >
             End local time given as an ISO 8601 time format. Used in conjunction
             with `shift_start` parameter.
@@ -663,105 +758,27 @@ components:
             identical to one of a location in the `locations` keyword.
           example: 'location-b'
 
-    # vehicle template
-    Vehicle:
+    ####################
+    # routing vehicles #
+    ####################
+
+    # routing vehicle template
+    RoutingVehicle:
       type: object
       description: >
-        Describes the vehicle and its attributes for estimating travel
-        times.
+        Describes the vehicles used in a routing problem and
+        their attributes required for calculating optimal solutions.
       discriminator:
         propertyName: type
       required:
         - type
+        - shifts
+        - vehicle_id
       properties:
         type:
           type: string
           description: >
-            The type of vehicle mode of transport.
-
-    # car template
-    Car:
-      allOf:
-        - $ref: '#/components/schemas/Vehicle'
-    
-    # bicycle template
-    Bicycle:
-      allOf:
-        - $ref: '#/components/schemas/Vehicle'
-              
-    # pedestrian template
-    Pedestrian:
-      allOf:
-        - $ref: '#/components/schemas/Vehicle'
-    
-    # truck template
-    Truck:
-      allOf:
-        - $ref: '#/components/schemas/Vehicle'
-        - type: object
-          description: >
-            Describes the vehicle and its attributes for estimating travel
-            times. The fastest response times will be with vehicle type car.
-          required:
-            - hazmat
-            - height
-            - length
-            - width
-            - weight
-            - num_axles
-          properties:
-            hazmat:
-              type: boolean
-              description: >
-                True if this vehicle is subject to hazmat
-                restrictions.
-              enum:
-                - true
-                - false
-              default: false
-              example: true
-            height:
-              type: number
-              format: float
-              description: >
-                Vehicle height in meters.
-              example: 4.27
-            length:
-              type: number
-              format: float
-              description: >
-                Vehicle length in meters.
-              example: 14.63
-            width:
-              type: number
-              format: float
-              description: >
-                Vehicle width in meters.
-              example: 2.44
-            weight:
-              type: number
-              format: float
-              description: >
-                Vehicle weight in kilograms.
-              example: 36287
-            num_axles:
-              type: integer
-              format: int64
-              description: >
-                Describes vehicle properties in order to
-                restrict routing to allowable roads.
-              example: 5
-
-    # routing vehicle template
-    RoutingParameters:
-      type: object
-      description: >
-        Additional parameters specific to a vehicle to be used in
-        finding a solution to a routing problem.
-      required:
-        - shifts
-        - vehicle_id
-      properties:
+            The type of "vehicle" mode of transport.
         shifts:
           type: array
           items:
@@ -826,6 +843,79 @@ components:
           example: ["does not like Jim",
                     "bucket truck",
                     "Tamil only"]
+
+    # car template
+    RoutingCar:
+      allOf:
+        - $ref: '#/components/schemas/RoutingVehicle'
+    
+    # bicycle template
+    RoutingBicycle:
+      allOf:
+        - $ref: '#/components/schemas/RoutingVehicle'
+              
+    # pedestrian template
+    RoutingPedestrian:
+      allOf:
+        - $ref: '#/components/schemas/RoutingVehicle'
+    
+    # truck template
+    RoutingTruck:
+      allOf:
+        - $ref: '#/components/schemas/RoutingVehicle'
+        - type: object
+          description: >
+            Describes the vehicle and its attributes for estimating travel
+            times. The fastest response times will be with vehicle type car.
+          required:
+            - hazmat
+            - height
+            - length
+            - width
+            - weight
+            - num_axles
+          properties:
+            hazmat:
+              type: boolean
+              description: >
+                True if this vehicle is subject to hazmat
+                restrictions.
+              enum:
+                - true
+                - false
+              default: false
+              example: true
+            height:
+              type: number
+              format: float
+              description: >
+                Vehicle height in meters.
+              example: 4.27
+            length:
+              type: number
+              format: float
+              description: >
+                Vehicle length in meters.
+              example: 14.63
+            width:
+              type: number
+              format: float
+              description: >
+                Vehicle width in meters.
+              example: 2.44
+            weight:
+              type: number
+              format: float
+              description: >
+                Vehicle weight in kilograms.
+              example: 36287
+            num_axles:
+              type: integer
+              format: int64
+              description: >
+                Describes vehicle properties in order to
+                restrict routing to allowable roads.
+              example: 5
 
     # constraint template
     Constraint:
@@ -1327,10 +1417,7 @@ components:
         vehicles:
           type: array
           items:
-            allOf:
-              - $ref: '#/components/schemas/Vehicle'
-              - $ref: '#/components/schemas/RoutingParameters'
-              
+            $ref: '#/components/schemas/RoutingVehicle'
           minItems: 1
           maxItems: 7500
           uniqueItems: true
