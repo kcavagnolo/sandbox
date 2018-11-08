@@ -14,7 +14,7 @@ servers:
 info:
   version: 1.0.0
   title: MapAnything API
-  description: >
+  description: |
   
     # Introduction
     
