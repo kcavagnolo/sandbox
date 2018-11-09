@@ -14,7 +14,7 @@ servers:
 info:
   version: 1.0.0
   title: MapAnything API
-  description: |
+  description: >
   
     # Introduction
     
@@ -47,18 +47,6 @@ info:
     * Regenerate credentials periodically.
     * Automated detection of exposed keys using tools like [`git-secret`](link-gitsecret) or [`git-secrets`](link-gitsecrets) or [Docker Secrets](link-dockersecrets).
     
-    ## Backwards Compatibility
-    
-    Minor API updates and bug fixes are implemented continuously and preserve existing compatibility. Major updates that alter API behavior are released to a new URL leveraging versioning, e.g. `https://api.mapanything.io/{api-version}/` where `api-version` can be `v1`, `v2`, `v3` and so on. Likewise, changes of all sizes are noted in the Changelog (**TODO: add link**)
-    
-    Changes that are considered backwards compatible:
-    
-    * Changing a parameter to be optional
-    * Adding enumeration values
-    * Softening a parameter constraint
-    
-    When a legacy version of the API reaches its end-of-life, all users will be notified 30 days in-advance to ensure that applications can be updated to a newer API version (**TODO: is this in ToS?**).
-    
     ## Requests
     
     ### Methods
@@ -81,22 +69,24 @@ info:
     
     When a request is processed successfully, a response will be returned with a JSON object as the body. The JSON object contents will be specific to the endpoint and are described in detail below.
     
-    ### Status Codes
-    
     All responses include standard HTTP statuses consistent with [IETF standards](link-ietf). In the event an error occurs, the response will be a JSON with a top-level error code, error message, and other identifying information (details in the endpoint documentation).
     
-    ## Parameters
+    ## Backwards Compatibility
     
-    What are required?
+    Minor API updates and bug fixes are implemented continuously and preserve existing compatibility. Major updates that alter API behavior are released to a new URL leveraging versioning, e.g. `https://api.mapanything.io/{api-version}/` where `api-version` can be `v1`, `v2`, `v3` and so on. Likewise, changes of all sizes are noted in the Changelog (**TODO: add link**)
     
-    ## Code Samples
+    Changes that are considered backwards compatible:
     
-    Links to guides, tutorials, and quick start.
+    * Changing a parameter to be optional
+    * Adding enumeration values
+    * Softening a parameter constraint
+    
+    When a legacy version of the API reaches its end-of-life, all users will be notified 30 days in-advance to ensure that applications can be updated to a newer API version (**TODO: is this in ToS?**).
     
     ## Cross-Origin Resource Sharing
         
     The API features Cross-Origin Resource Sharing (CORS) implemented in compliance with  [W3C spec](https://www.w3.org/TR/cors/) that allows cross-domain communication from the browser. All responses have a wildcard same-origin which makes them completely public and accessible to everyone, including any code on any site.
-          
+    
     ## Documentation
     
     The MapAnything API is documented in [OpenAPI][link-openapi] format and the full spec is available on our public [GitHub account][link-magithub]. The spec relies on the [Yeoman generator for OpenAPI][link-oasgenerator] tool and [vendor extensions][link-oasvendors]. Documents are rendered using the open source [ReDoc][link-redoc] documentation framework. We encourage others to continue support of the OAS initiative to ensure harmonization among the universe of API's.
@@ -124,7 +114,7 @@ info:
      
     * **Usage Data**: Support for usage statistics in the response header.
 
-
+  
   termsOfService: https://mapanything.com/trust/terms-of-service
   contact:
     name: MapAnything API Support
