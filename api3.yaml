@@ -14,8 +14,6 @@ servers:
 info:
   version: 1.0.0
   title: MapAnything API
-  description:
-    $ref: /Users/kcavagnolo/mare/api-docs/dev-portal/frontmatter/summary.md
 
   termsOfService: https://mapanything.com/trust/terms-of-service
   contact:
@@ -37,16 +35,10 @@ externalDocs:
 # tag management
 tags:
   - name: Health
-    description:
-      $ref: /Users/kcavagnolo/mare/api-docs/dev-portal/frontmatter/health.md
 
   - name: Distance Matrix
-    description:
-      $ref: /Users/kcavagnolo/mare/api-docs/dev-portal/frontmatter/distance-matrix.md
 
   - name: Vehicle Routing
-    description:
-      $ref: /Users/kcavagnolo/mare/api-docs/dev-portal/frontmatter/routing.md
 
   #- name: Repair
   #  description:
