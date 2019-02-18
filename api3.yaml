@@ -13,19 +13,7 @@ servers:
 # general info about the API
 info:
   version: 1.0.0
-  title: MapAnything API
-
-  termsOfService: https://mapanything.com/trust/terms-of-service
-  contact:
-    name: MapAnything API Support
-    email: support@mapanything.com
-    url: https://mapanything.force.com/support
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
-  #x-logo:
-  #  url: #https://mapanything.com/application/themes/mapanything/img/ma-logo-blue.svg
-  #  altText: MapAnything Logo
+  title: An API
 
 # relative URLs to external documentation
 externalDocs:
@@ -39,10 +27,6 @@ tags:
   - name: Distance Matrix
 
   - name: Vehicle Routing
-
-  #- name: Repair
-  #  description:
-  #    $ref: /Users/kcavagnolo/mare/api-docs/dev-portal/frontmatter/repair.md
 
 # tag groups
 x-tagGroups:
