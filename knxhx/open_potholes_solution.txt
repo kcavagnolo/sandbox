@@ -1,0 +1,5468 @@
+{
+  "Solution": {
+    "num_visits_routed": 29,
+    "bounding_box": {
+      "min_long": -84.1451022,
+      "max_long": -83.85122,
+      "max_lat": 36.02863,
+      "min_lat": 35.8692719
+    },
+    "s3_output_bucket": "prod-us-east-1-mare-output-data",
+    "objective_function": 10974,
+    "orders_incomplete_visits": [],
+    "routes": [
+      {
+        "total_soft_break_time": 0,
+        "total_items_picked_up": [],
+        "route_start_location_id": " pyxl",
+        "floating_breaks": [],
+        "shift_end_time": "2019-03-02T17:00:00-04:00",
+        "polylines": [
+          "qeozEvce_OeA^rAnEnAxErAtExAnE_@PWLiBz@c@\\i@d@m@j@a@`@]b@uAnB[n@EhAEnA?d@@VP`@Fp@Jp@F\\V~APdABNHh@JhAbBm@LFFL@Ry@z@MRCTBRTd@DRATIL_@Xb@dAXbA~Ao@vAi@PZ^`B",
+          "a~nzEzng_O_@aBQ[wAh@_Bn@YcAc@eA^YHM@UESUe@CSBULSx@{@PSNUDQ@QaAb@cBl@Fp@D`A@JBpAC`BAd@IdAM~@Mr@Sx@Y`Ao@bBo@`B]jA[lAI`@Mp@ObAO|@i@rESjBEb@SbCG|@I~AIxBWxJGrBM`DQ~Ee@fNWnHO`BY`Bg@lBiAnD_CpH}@rCs@zBm@vBo@bCo@rCQv@SdAg@dCW~@q@|BOh@t@vAd@z@i@d@",
+          "impzEfwl_Oh@e@r@xAl@lANVvCdGnAfCh@~@p@bAZh@Tj@Rn@Pn@XhAlAjGZ~AVlAr@lDh@dCp@lCt@hCJ\\~@nCf@jAp@fA\\^`BxAb@^w@rA{EnJ{A~Bq@fA{BbDeAdBqBvCY`@YHSDuRdAM@gFXqBLE}@",
+          "g~pzEfhp_OD|@cHb@RxEJbCD~@RxEFxA@d@Bb@DbA@JLpBLtAN~ALrA@LL|@PpA\\`BXfAt@nCh@|Bb@`CJh@NnAFlA?h@?\\GtAOfAQx@St@e@pAs@fBkCjHqDjJ_AhCe@zA]rAa@jB_@jCSrCK`C?hCHdCNjB\\`DTpBXrDHhAHhBBbA@t@?xA?HAlA?vA?hF?^E|DEbAGnAIfA[jCQjAp@ThA\\EeHDq@@KN_@XYj@EN?",
+          "}gqzEhkv_OO?k@DYXO^AJEp@DdHBdHEpASpA]lA{BtGcB|ElEtH^n@h@p@d@`@rBxARRP\\Pl@R~@`@xBLd@JRt@hANVHVD\\@b@CfAALA`@A`@An@?~@DpAFtAJvBJjAJ~@L~@PpALx@Nt@Jb@LZR\\Zb@T`@Vh@j@tAVf@Vb@d@r@Zf@`@t@xApC`CdE\\h@^^`@XzAz@VRPRPXJTJh@Dj@@j@?`@Cj@CXE^U`BIj@U`AM^OVWXuAtASXM`@E`@Cn@@`@Jd@N`@NTz@nArBxChEfGdG|I~BhDTZRNTDVAj@Kn@GjAGp@CF?h@EdAGL|@Jb@`@|AJl@Dp@@j@@l@D|CB|@Br@Df@zAfIJj@Db@Ab@C`@E^K`@KZU\\WZyB`CiCnC{CfDwEdFyDhEq@v@]t@]vA_@`AYj@q@z@}@dAm@z@q@lAm@pAq@e@w@{@kAaC[e@{A}A[g@Oc@Ge@Eq@MmEBk@Je@Zu@fCyDtBrCiCzD",
+          "gmpzEjy~_OhC{DuBsCgCxD[t@Kd@Cj@LlEDp@Fd@Nb@Zf@zA|AZd@jA`Cv@z@p@d@l@qAp@mAl@{@|@eAp@{@Xk@^aA\\wA\\u@p@w@xDiEvEeFzCgDhCoCxBaCV[T]J[Ja@D_@Ba@@c@Ec@Kk@{AgI`BY\\ET@VFVRLTx@~AHWDUBUBw@DgBB]D_@Fc@Lg@La@Rk@nBoF\\{@^q@b@e@j@[VGt@KXj@zEjI\\n@",
+          "gbnzEpa}_O]o@{EkIYk@~AUt@Il@Ct@@x@RhCz@",
+          "}|mzEvu|_ObBh@HBvDlAd@HXATGROLSN[b@kAL]La@JQJEZ@`C?tBAnHCpGMhAAjAA|EEhEE~HIzAIxBGhJSjDMN@rABhB@nADu@`La@bGi@|GWfD[bEaA~L_@~EWvEo@xLGhAEv@ObBMx@Sv@M\\m@tA]n@}AtCWj@Wt@Sx@QzAEr@Av@B`AHlAL|@Nj@Rp@Xv@Vd@V^j@p@|BzB\\b@`@n@^v@Tp@Nl@Jh@Fp@F~@X?f@Ef@Gj@U~@i@hBeAz@Wf@K`@Ch@@j@D`BRxD^n@Fj@Jr@XPH`@RlGdDnBbAlCzAlC~AhAl@dA\\x@Ln@Bl@A~@Kj@Mv@[p@e@j@i@`@e@bBmCx@oAj@{@T]nB_Dt@aAj@i@t@]l@Sv@I`CAxBDnCDdA@^?d@?nBFrGBw@{D",
+          "ehgzErq``Ov@zDbEdTvCdOJd@Jb@X`AVv@tAbEa@NYZa@b@sAvAsDzDuAvAa@d@]\\i@n@A@a@d@sB~CaAfBI\\TOFK",
+          "}mgzEddc`O|@wA~AgC\\EJ?J@JFJLhAnE",
+          "gdgzEfdc`ORx@`@fBVnALt@b@dAL`A@FNdAd@nDj@dED^PnAVlBF\\ZbCBTnHjj@|@vGVlB`@tCpCtSJv@L~@TjB~AxLb@fDj@`EHh@TfBHh@Ff@r@jF|AhLbBbMfA`IjDfWZ`CVnBn@rEDvABl@@d@Hr@NrAZnClAhK`@jCr@lFv@hGx@dGv@vG~@xGF^n@`ED`A@p@Cj@Id@Wr@_@f@SPSNc@Lk@Fa@AUGYKYQWWSYMWIUEUEYA[@s@B_@H_@Ng@LWPUROTMvAs@|@UbAUj@S^Kh@O|@Yf@Oj@OfFyA`Co@tAa@`D}@hAYFCv@SjAOl@G\\Ad@@j@D|@P`Bl@`A\\`@L^HX@TATGZINGTGT?NDLFRRJb@Rh@t@jBvAnDjAnCnAzCbFxL`BzDdCdGj@tAd@fAN^|@vBdBdEZv@Nj@Nh@Hd@nArHdClOPbALl@DVR|@Rn@DNp@tB`FrOx@fC`AxCZ~@BHTp@`@rAPh@b@lA`@v@Vb@`@p@j@|@V`@bA|Az@tAr@hA^j@X`@\\^b@\\fG|ElCrBvB`BpDxC`A|@v@|@~AzBzEhH^j@b@z@N\\Rf@L^h@a@~AkAfBqAf@_@HEpA{@vA}@zCmBjDwBbJaGrA{@r@]zAe@pAk@l@Y^MZCXBh@JXe@f@m@d@a@f@Uj@Mp@Mp@IhCYlEg@zA]~Ai@pAq@hAq@xAw@|@]nAe@dAa@d@YTOl@i@",
+          "mv|yE`qq`Of@e@d@a@d@Yn@OnBYzB[vC_@jAWv@Wn@W|DuBr@]pAq@n@]v@a@`@Sr@]r@UnBe@xBW`BYp@KHJNDNEHKBSCSIKOEODMc@W}@Ko@OaBASCi@Cq@?s@@g@Ds@H{@J{@RmBx@sGLkAH_ABiAAkBA[MaCKuBYyDQkB_@mBiAoF}@yDUgAqA_Gk@}B_A{Cu@cC_@uAGUYqBMgBCsBB}AJkD@k@B}@XaSQUiEyFuCqDg@o@q@}@[e@gAaBgA{Aa@m@Ue@Qg@]oAi@uB}A}Fk@{BqA_FQm@i@cBw@iByC_G_B_Du@wAcAqBaAmBs@qAg@_AWm@Qe@Qi@GYGWG]uBuNG[kAaF]kAYu@s@uAkAsBe@w@a@m@{BmCy@cAgAeAEEs@k@aByAOM_BwAu@q@MKq@q@}@eAm@u@OQiA}AqBkCwAoBuA_CeAmBcAkBuEyI}BiEgAqBgDiHaEeImA}B}@cBaBgDU_@_AeBiGcL_A_BKSkLuTkA}BkCcFQ_@MYOc@Mg@Ge@Ei@?m@BeF@uB@_B@oBCuACa@Ci@e@NYHyBr@}E|AkBn@Wy@Q_@Ua@}DgGWa@_@m@oAiBKOS]Ka@Ea@AwA@u@?i@Eg@Ce@[oASi@Wk@Um@YaAe@eAm@eB_@mA[eASy@kAyEk@eCqA_FKg@iCaKqAqEo@yBk@cBq@gBs@aBSa@Wc@i@y@_BcCk@{@yFsIgBqCuCkEdCcAn@W~Ak@nDwAf@Qf@Mh@IxBUp@Iv@Mt@OfAWuAuB}AgCeC{Dw@kAo@}@m@{@g@u@c@q@mAqBa@o@e@s@qAkBwC_E[c@Yc@Sa@IYI]Ie@Ge@I{@m@oGI_AKgAIi@Me@Q]SYWUMIWKWGWCa@C}AAa@CWEWI_@SOMOQS_@Oa@K[K[o@uBi@iBqBsGaDiKIWeCcIv@Q",
+          "kudzEtsz_Ow@P{@wC[cAc@wAgAoD",
+          "g}dzEbez_Os@aCQ{@YkCOeBAu@iGCuFfAkCj@_@YiB{@eASu@KFiEFiE@aACw@MqACe@]_DSqBEc@",
+          "g_fzEzwx_OCOEo@GwAEa@UuA[uB[qCK}@UcAq@iBI_@Ae@HgC?{BCq@Cc@OoDKyBCaBEyJIqAIc@GYUaA_@iAeCkIiAiDy@eC_@cAoAmD{BkGGWoAiDeBsE[w@]eASw@Qe@M_@EQUkAs@gCMi@i@{A[s@Y]wFcIgBeCs@q@q@i@kCmB[S_D_B{@YgHkCe@Qo@Um@e@[]uA}AuA}AOOc@g@_@[o@c@wBuAc@_@UU_AiA}@w@g@c@o@i@]c@a@i@qBuCeA{AYk@eBgDS_@g@u@[]m@q@]YsD}CgA_Am@e@cDeCc@]}@y@_@c@Ya@q@}@sDqFWa@Ue@S[SKm@IO_AMq@GWm@yBu@kCo@}BqAoFmAgFeAcEq@gCe@eB]gAa@eA_@{@wAtAeChBqCyBWCM@OHg@ZaAz@SN{@d@aA\\eCbAcA^wAj@y@\\qCdAQFQo@",
+          "inlzE~{o_O_@sAc@aB[mAsBqHqAeFKWEQ}AkGyAaGaA{Dy@gD}@qDSy@g@oBWgAWuAu@mFs@yFUgCs@qIIs@Mm@Qi@K[i@sAO_@uCgH_BuD}C{GiFcLO]_BgDs@oAeAyACEo@o@g@Y{@Q}@EmA@c@De@PwB~Ai@eBc@mASc@Se@yA}CYq@_@w@y@cB[q@KS[k@a@u@c@g@We@[q@qAqCmCuFq@yAsAkCwA{AMMsBcCsBoCeC}CcBwBc@i@iCcDqCmDe@m@",
+          "wrpzEtmh_O{AqBZa@",
+          "wtpzE`ih_O[`@w@eAl@sFPqA^qCPiAJ_ABUDYBWHw@LcBX?PGZS`@_@d@o@rAcCR_@b@i@JK\\S`@Mp@IJCZCz@?lBLr@FCw@AkAPaAbC{GZ_AXu@Zi@r@@T?~AC|@EZEXG^SPMTCr@_A`AqAx@_Ah@g@f@Yt@[j@[l@Yv@_@`Ag@rAs@l@[~BmArAu@hAo@n@]RMV_@h@]`@WzCqBd@]f@]TQXO`BeAnIoF`EqCbAq@x@k@lAy@~@s@d@_@d@YVQf@Wp@[~Ak@t@UfDgAnBo@bDkArE_BlCaAfGwB`F{A|Aa@dIwBjBe@nA[~C^dBRRB\\HrFrA|A^vA^l@Vl@^f@d@nAlAh@n@d@p@V`@RVZPVH`@F^@j@CnEe@nBK`FM|AMl@MTM~BqA~AeA|CeBPK[q@",
+          "iuhzE~}c_OZp@QJ}CdB_BdA_CpAULm@L}ALaFLoBJoEd@k@B_@Aa@GWI[QSWWa@e@q@i@o@oAmAg@e@m@_@m@WwA_@}A_@sFsA]ISCeBS_D_@oAZkBd@eIvB}A`@aFzAgGvBmC`AsE~AcDjAoBn@gDfAu@T_Bj@q@Zg@VWPe@Xe@^_Ar@mAx@m@Cy@Iu@{@OOa@c@U_@a@cAuAcEaAmCm@\\{DzAuKbEoAf@QD_@NUJ}CpAoDtAaDxBeDfBcBl@"
+        ],
+        "itinerary": [
+          {
+            "time_to": "2019-03-02T07:04:37-05:00",
+            "time_from": "2019-03-02T07:00:00-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T07:14:37-05:00",
+            "time_from": "2019-03-02T07:04:37-05:00",
+            "action": "service order order_2"
+          },
+          {
+            "time_to": "2019-03-02T07:19:56-05:00",
+            "time_from": "2019-03-02T07:14:37-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T07:29:56-05:00",
+            "time_from": "2019-03-02T07:19:56-05:00",
+            "action": "service order order_26"
+          },
+          {
+            "time_to": "2019-03-02T07:33:29-05:00",
+            "time_from": "2019-03-02T07:29:56-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T07:43:29-05:00",
+            "time_from": "2019-03-02T07:33:29-05:00",
+            "action": "service order order_24"
+          },
+          {
+            "time_to": "2019-03-02T07:48:53-05:00",
+            "time_from": "2019-03-02T07:43:29-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T07:58:53-05:00",
+            "time_from": "2019-03-02T07:48:53-05:00",
+            "action": "service order order_22"
+          },
+          {
+            "time_to": "2019-03-02T08:08:47-05:00",
+            "time_from": "2019-03-02T07:58:53-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T08:18:47-05:00",
+            "time_from": "2019-03-02T08:08:47-05:00",
+            "action": "service order order_0"
+          },
+          {
+            "time_to": "2019-03-02T08:24:39-05:00",
+            "time_from": "2019-03-02T08:18:47-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T08:34:39-05:00",
+            "time_from": "2019-03-02T08:24:39-05:00",
+            "action": "service order order_14"
+          },
+          {
+            "time_to": "2019-03-02T08:35:44-05:00",
+            "time_from": "2019-03-02T08:34:39-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T08:45:44-05:00",
+            "time_from": "2019-03-02T08:35:44-05:00",
+            "action": "service order order_13"
+          },
+          {
+            "time_to": "2019-03-02T08:55:13-05:00",
+            "time_from": "2019-03-02T08:45:44-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T09:05:13-05:00",
+            "time_from": "2019-03-02T08:55:13-05:00",
+            "action": "service order order_27"
+          },
+          {
+            "time_to": "2019-03-02T09:08:24-05:00",
+            "time_from": "2019-03-02T09:05:13-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T09:18:24-05:00",
+            "time_from": "2019-03-02T09:08:24-05:00",
+            "action": "service order order_6"
+          },
+          {
+            "time_to": "2019-03-02T09:18:55-05:00",
+            "time_from": "2019-03-02T09:18:24-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T09:28:55-05:00",
+            "time_from": "2019-03-02T09:18:55-05:00",
+            "action": "service order order_5"
+          },
+          {
+            "time_to": "2019-03-02T09:41:53-05:00",
+            "time_from": "2019-03-02T09:28:55-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T09:51:53-05:00",
+            "time_from": "2019-03-02T09:41:53-05:00",
+            "action": "service order order_1"
+          },
+          {
+            "time_to": "2019-03-02T10:09:14-05:00",
+            "time_from": "2019-03-02T09:51:53-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T10:19:14-05:00",
+            "time_from": "2019-03-02T10:09:14-05:00",
+            "action": "service order order_3"
+          },
+          {
+            "time_to": "2019-03-02T10:19:54-05:00",
+            "time_from": "2019-03-02T10:19:14-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T10:29:54-05:00",
+            "time_from": "2019-03-02T10:19:54-05:00",
+            "action": "service order order_4"
+          },
+          {
+            "time_to": "2019-03-02T10:32:15-05:00",
+            "time_from": "2019-03-02T10:29:54-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T10:42:15-05:00",
+            "time_from": "2019-03-02T10:32:15-05:00",
+            "action": "service order order_12"
+          },
+          {
+            "time_to": "2019-03-02T10:51:16-05:00",
+            "time_from": "2019-03-02T10:42:15-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T11:01:16-05:00",
+            "time_from": "2019-03-02T10:51:16-05:00",
+            "action": "service order order_25"
+          },
+          {
+            "time_to": "2019-03-02T11:08:23-05:00",
+            "time_from": "2019-03-02T11:01:16-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T11:18:23-05:00",
+            "time_from": "2019-03-02T11:08:23-05:00",
+            "action": "service order order_19"
+          },
+          {
+            "time_to": "2019-03-02T11:18:38-05:00",
+            "time_from": "2019-03-02T11:18:23-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T11:28:38-05:00",
+            "time_from": "2019-03-02T11:18:38-05:00",
+            "action": "service order order_23"
+          },
+          {
+            "time_to": "2019-03-02T11:38:44-05:00",
+            "time_from": "2019-03-02T11:28:38-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T11:48:44-05:00",
+            "time_from": "2019-03-02T11:38:44-05:00",
+            "action": "service order order_17"
+          },
+          {
+            "time_to": "2019-03-02T11:57:45-05:00",
+            "time_from": "2019-03-02T11:48:44-05:00",
+            "action": "driving to arrival w./ no break"
+          }
+        ],
+        "route_end_time": "2019-03-02T11:57:45-05:00",
+        "route_travel_time": 7065,
+        "num_floating_breaks": 0,
+        "shift_id": "chris shift",
+        "shift_start_time": "2019-03-02T08:00:00-04:00",
+        "stops": [
+          {
+            "departure_time": "2019-03-02T07:00:00-05:00",
+            "distance_from_prev": 0,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 0,
+            "priority": -1,
+            "longitude": -83.917753,
+            "order_id": "NA",
+            "locked": false,
+            "service_start_time": "2019-03-02T07:00:00-05:00",
+            "latitude": 35.963871,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 0,
+            "abs_service_time_start": 1551528000,
+            "idle_time": 0,
+            "distance_to_next": 1396.8,
+            "travel_time_to_next": 277,
+            "arrival_time": "2019-03-02T07:00:00-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551528000,
+            "abs_departure_time": 1551528000,
+            "travel_time_to_next_no_traffic": 277,
+            "position_in_route": 0,
+            "location_id": " pyxl",
+            "travel_time_from_prev": 0
+          },
+          {
+            "departure_time": "2019-03-02T07:14:37-05:00",
+            "distance_from_prev": 1396.8,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 277,
+            "priority": 1,
+            "longitude": -83.9297,
+            "order_id": "order_2",
+            "locked": false,
+            "service_start_time": "2019-03-02T07:04:37-05:00",
+            "latitude": 35.96297,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551528277,
+            "idle_time": 0,
+            "distance_to_next": 2994.3,
+            "travel_time_to_next": 319,
+            "arrival_time": "2019-03-02T07:04:37-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551528277,
+            "abs_departure_time": 1551528877,
+            "travel_time_to_next_no_traffic": 312,
+            "position_in_route": 1,
+            "location_id": " 1315 Forest Ave SW Knoxville TN 37916 United States",
+            "travel_time_from_prev": 277
+          },
+          {
+            "departure_time": "2019-03-02T07:29:56-05:00",
+            "distance_from_prev": 2994.3,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 312,
+            "priority": 1,
+            "longitude": -83.9566,
+            "order_id": "order_26",
+            "locked": false,
+            "service_start_time": "2019-03-02T07:19:56-05:00",
+            "latitude": 35.9702399,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551529196,
+            "idle_time": 0,
+            "distance_to_next": 2287.9,
+            "travel_time_to_next": 213,
+            "arrival_time": "2019-03-02T07:19:56-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551529196,
+            "abs_departure_time": 1551529796,
+            "travel_time_to_next_no_traffic": 205,
+            "position_in_route": 2,
+            "location_id": " 2417 Keith Ave NW Knoxville TN 37921 United States",
+            "travel_time_from_prev": 319
+          },
+          {
+            "departure_time": "2019-03-02T07:43:29-05:00",
+            "distance_from_prev": 2287.9,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 205,
+            "priority": 1,
+            "longitude": -83.97457,
+            "order_id": "order_24",
+            "locked": false,
+            "service_start_time": "2019-03-02T07:33:29-05:00",
+            "latitude": 35.97283,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551530009,
+            "idle_time": 0,
+            "distance_to_next": 3560.4,
+            "travel_time_to_next": 324,
+            "arrival_time": "2019-03-02T07:33:29-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551530009,
+            "abs_departure_time": 1551530609,
+            "travel_time_to_next_no_traffic": 292,
+            "position_in_route": 3,
+            "location_id": " 2705 Sanderson Rd NW Knoxville TN 37921 United States",
+            "travel_time_from_prev": 213
+          },
+          {
+            "departure_time": "2019-03-02T07:58:53-05:00",
+            "distance_from_prev": 3560.4,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 292,
+            "priority": 1,
+            "longitude": -84.00543,
+            "order_id": "order_22",
+            "locked": false,
+            "service_start_time": "2019-03-02T07:48:53-05:00",
+            "latitude": 35.97455,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551530933,
+            "idle_time": 0,
+            "distance_to_next": 6358.3,
+            "travel_time_to_next": 594,
+            "arrival_time": "2019-03-02T07:48:53-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551530933,
+            "abs_departure_time": 1551531533,
+            "travel_time_to_next_no_traffic": 554,
+            "position_in_route": 4,
+            "location_id": " 3346 Dewine Rd Knoxville TN 37921 United States",
+            "travel_time_from_prev": 324
+          },
+          {
+            "departure_time": "2019-03-02T08:18:47-05:00",
+            "distance_from_prev": 6358.3,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 554,
+            "priority": 1,
+            "longitude": -84.0500703,
+            "order_id": "order_0",
+            "locked": false,
+            "service_start_time": "2019-03-02T08:08:47-05:00",
+            "latitude": 35.9699896,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551532127,
+            "idle_time": 0,
+            "distance_to_next": 3009,
+            "travel_time_to_next": 352,
+            "arrival_time": "2019-03-02T08:08:47-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551532127,
+            "abs_departure_time": 1551532727,
+            "travel_time_to_next_no_traffic": 324,
+            "position_in_route": 5,
+            "location_id": " 2812 Amherst Rd Knoxville TN 37921 USA",
+            "travel_time_from_prev": 594
+          },
+          {
+            "departure_time": "2019-03-02T08:34:39-05:00",
+            "distance_from_prev": 3009,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 324,
+            "priority": 1,
+            "longitude": -84.0399774,
+            "order_id": "order_14",
+            "locked": false,
+            "service_start_time": "2019-03-02T08:24:39-05:00",
+            "latitude": 35.9581656,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551533079,
+            "idle_time": 0,
+            "distance_to_next": 499.8,
+            "travel_time_to_next": 65,
+            "arrival_time": "2019-03-02T08:24:39-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551533079,
+            "abs_departure_time": 1551533679,
+            "travel_time_to_next_no_traffic": 52,
+            "position_in_route": 6,
+            "location_id": " 5732 Creekhead Dr NW Knoxville TN 37909 United States",
+            "travel_time_from_prev": 352
+          },
+          {
+            "departure_time": "2019-03-02T08:45:44-05:00",
+            "distance_from_prev": 499.8,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 52,
+            "priority": 1,
+            "longitude": -84.0373,
+            "order_id": "order_13",
+            "locked": false,
+            "service_start_time": "2019-03-02T08:35:44-05:00",
+            "latitude": 35.95718,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551533744,
+            "idle_time": 0,
+            "distance_to_next": 5554.8,
+            "travel_time_to_next": 569,
+            "arrival_time": "2019-03-02T08:35:44-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551533744,
+            "abs_departure_time": 1551534344,
+            "travel_time_to_next_no_traffic": 474,
+            "position_in_route": 7,
+            "location_id": " 1700 Helmbolt Rd NW Knoxville TN 37909 United States",
+            "travel_time_from_prev": 65
+          },
+          {
+            "departure_time": "2019-03-02T09:05:13-05:00",
+            "distance_from_prev": 5554.8,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 474,
+            "priority": 1,
+            "longitude": -84.05824,
+            "order_id": "order_27",
+            "locked": false,
+            "service_start_time": "2019-03-02T08:55:13-05:00",
+            "latitude": 35.92389,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551534913,
+            "idle_time": 0,
+            "distance_to_next": 1477.7,
+            "travel_time_to_next": 191,
+            "arrival_time": "2019-03-02T08:55:13-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551534913,
+            "abs_departure_time": 1551535513,
+            "travel_time_to_next_no_traffic": 162,
+            "position_in_route": 8,
+            "location_id": " 8373 Kingston Pike Knoxville TN 37919 United States",
+            "travel_time_from_prev": 569
+          },
+          {
+            "departure_time": "2019-03-02T09:18:24-05:00",
+            "distance_from_prev": 1477.7,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 162,
+            "priority": 1,
+            "longitude": -84.0713391,
+            "order_id": "order_6",
+            "locked": false,
+            "service_start_time": "2019-03-02T09:08:24-05:00",
+            "latitude": 35.9242003,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551535704,
+            "idle_time": 0,
+            "distance_to_next": 282.3,
+            "travel_time_to_next": 31,
+            "arrival_time": "2019-03-02T09:08:24-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551535704,
+            "abs_departure_time": 1551536304,
+            "travel_time_to_next_no_traffic": 25,
+            "position_in_route": 9,
+            "location_id": " 229 Bridgewater Rd NW Knoxville TN 37923 United States",
+            "travel_time_from_prev": 191
+          },
+          {
+            "departure_time": "2019-03-02T09:28:55-05:00",
+            "distance_from_prev": 282.3,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 25,
+            "priority": 1,
+            "longitude": -84.07164,
+            "order_id": "order_5",
+            "locked": false,
+            "service_start_time": "2019-03-02T09:18:55-05:00",
+            "latitude": 35.92351,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551536335,
+            "idle_time": 0,
+            "distance_to_next": 12211.7,
+            "travel_time_to_next": 778,
+            "arrival_time": "2019-03-02T09:18:55-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551536335,
+            "abs_departure_time": 1551536935,
+            "travel_time_to_next_no_traffic": 684,
+            "position_in_route": 10,
+            "location_id": " 205 Bridgewater Rd NW Knoxville TN 37923 United States",
+            "travel_time_from_prev": 31
+          },
+          {
+            "departure_time": "2019-03-02T09:51:53-05:00",
+            "distance_from_prev": 12211.7,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 684,
+            "priority": 1,
+            "longitude": -84.1451022,
+            "order_id": "order_1",
+            "locked": false,
+            "service_start_time": "2019-03-02T09:41:53-05:00",
+            "latitude": 35.8692719,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551537713,
+            "idle_time": 0,
+            "distance_to_next": 17692.3,
+            "travel_time_to_next": 1041,
+            "arrival_time": "2019-03-02T09:41:53-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551537713,
+            "abs_departure_time": 1551538313,
+            "travel_time_to_next_no_traffic": 940,
+            "position_in_route": 11,
+            "location_id": " 709 Concord Rd Knoxville TN 37934 United States",
+            "travel_time_from_prev": 778
+          },
+          {
+            "departure_time": "2019-03-02T10:19:14-05:00",
+            "distance_from_prev": 17692.3,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 940,
+            "priority": 1,
+            "longitude": -84.02737,
+            "order_id": "order_3",
+            "locked": false,
+            "service_start_time": "2019-03-02T10:09:14-05:00",
+            "latitude": 35.9102,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551539354,
+            "idle_time": 0,
+            "distance_to_next": 275.7,
+            "travel_time_to_next": 40,
+            "arrival_time": "2019-03-02T10:09:14-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551539354,
+            "abs_departure_time": 1551539954,
+            "travel_time_to_next_no_traffic": 34,
+            "position_in_route": 12,
+            "location_id": " 7612 Nubbin Ridge Dr SW Knoxville TN 37919 United States",
+            "travel_time_from_prev": 1041
+          },
+          {
+            "departure_time": "2019-03-02T10:29:54-05:00",
+            "distance_from_prev": 275.7,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 34,
+            "priority": 1,
+            "longitude": -84.02515,
+            "order_id": "order_4",
+            "locked": false,
+            "service_start_time": "2019-03-02T10:19:54-05:00",
+            "latitude": 35.91116,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551539994,
+            "idle_time": 0,
+            "distance_to_next": 1565.3,
+            "travel_time_to_next": 141,
+            "arrival_time": "2019-03-02T10:19:54-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551539994,
+            "abs_departure_time": 1551540594,
+            "travel_time_to_next_no_traffic": 110,
+            "position_in_route": 13,
+            "location_id": " 7508 Nubbin Ridge Dr SW Knoxville TN 37919 United States",
+            "travel_time_from_prev": 40
+          },
+          {
+            "departure_time": "2019-03-02T10:42:15-05:00",
+            "distance_from_prev": 1565.3,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 110,
+            "priority": 1,
+            "longitude": -84.01821,
+            "order_id": "order_12",
+            "locked": false,
+            "service_start_time": "2019-03-02T10:32:15-05:00",
+            "latitude": 35.91734,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551540735,
+            "idle_time": 0,
+            "distance_to_next": 6298.9,
+            "travel_time_to_next": 541,
+            "arrival_time": "2019-03-02T10:32:15-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551540735,
+            "abs_departure_time": 1551541335,
+            "travel_time_to_next_no_traffic": 452,
+            "position_in_route": 14,
+            "location_id": " 7211 Westland Dr SW Knoxville TN 37919 United States",
+            "travel_time_from_prev": 141
+          },
+          {
+            "departure_time": "2019-03-02T11:01:16-05:00",
+            "distance_from_prev": 6298.9,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 452,
+            "priority": 1,
+            "longitude": -83.97252,
+            "order_id": "order_25",
+            "locked": false,
+            "service_start_time": "2019-03-02T10:51:16-05:00",
+            "latitude": 35.94977,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551541876,
+            "idle_time": 0,
+            "distance_to_next": 4988.8,
+            "travel_time_to_next": 427,
+            "arrival_time": "2019-03-02T10:51:16-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551541876,
+            "abs_departure_time": 1551542476,
+            "travel_time_to_next_no_traffic": 351,
+            "position_in_route": 15,
+            "location_id": " 424 Tobler Ln NW Knoxville TN 37919 United States",
+            "travel_time_from_prev": 541
+          },
+          {
+            "departure_time": "2019-03-02T11:18:23-05:00",
+            "distance_from_prev": 4988.8,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 351,
+            "priority": 1,
+            "longitude": -83.9347,
+            "order_id": "order_19",
+            "locked": false,
+            "service_start_time": "2019-03-02T11:08:23-05:00",
+            "latitude": 35.97131,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551542903,
+            "idle_time": 0,
+            "distance_to_next": 94.4,
+            "travel_time_to_next": 15,
+            "arrival_time": "2019-03-02T11:08:23-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551542903,
+            "abs_departure_time": 1551543503,
+            "travel_time_to_next_no_traffic": 12,
+            "position_in_route": 16,
+            "location_id": " 1609 Boyd St NW Knoxville TN 37921 United States",
+            "travel_time_from_prev": 427
+          },
+          {
+            "departure_time": "2019-03-02T11:28:38-05:00",
+            "distance_from_prev": 94.4,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 12,
+            "priority": 1,
+            "longitude": -83.9336299,
+            "order_id": "order_23",
+            "locked": false,
+            "service_start_time": "2019-03-02T11:18:38-05:00",
+            "latitude": 35.97159,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551543518,
+            "idle_time": 0,
+            "distance_to_next": 6105.9,
+            "travel_time_to_next": 606,
+            "arrival_time": "2019-03-02T11:18:38-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551543518,
+            "abs_departure_time": 1551544118,
+            "travel_time_to_next_no_traffic": 492,
+            "position_in_route": 17,
+            "location_id": " 1006 University Ave Knoxville TN 37921 United States",
+            "travel_time_from_prev": 15
+          },
+          {
+            "departure_time": "2019-03-02T11:48:44-05:00",
+            "distance_from_prev": 6105.9,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 492,
+            "priority": 1,
+            "longitude": -83.91144,
+            "order_id": "order_17",
+            "locked": false,
+            "service_start_time": "2019-03-02T11:38:44-05:00",
+            "latitude": 35.93052,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551544724,
+            "idle_time": 0,
+            "distance_to_next": 4323.3,
+            "travel_time_to_next": 541,
+            "arrival_time": "2019-03-02T11:38:44-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551544724,
+            "abs_departure_time": 1551545324,
+            "travel_time_to_next_no_traffic": 408,
+            "position_in_route": 18,
+            "location_id": " 4500 Martin Mill Pike SW Knoxville TN 37920 United States",
+            "travel_time_from_prev": 606
+          },
+          {
+            "departure_time": "2019-03-02T11:57:45-05:00",
+            "distance_from_prev": 4323.3,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 408,
+            "priority": -1,
+            "longitude": -83.917753,
+            "order_id": "NA",
+            "locked": false,
+            "service_start_time": "2019-03-02T11:57:45-05:00",
+            "latitude": 35.963871,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 0,
+            "abs_service_time_start": 1551545865,
+            "idle_time": 0,
+            "distance_to_next": 0,
+            "travel_time_to_next": 0,
+            "arrival_time": "2019-03-02T11:57:45-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551545865,
+            "abs_departure_time": 1551545865,
+            "travel_time_to_next_no_traffic": 0,
+            "position_in_route": 19,
+            "location_id": " pyxl",
+            "travel_time_from_prev": 541
+          }
+        ],
+        "total_idle_time": 0,
+        "abs_route_end_time": 1551545865,
+        "slack_time": 14535,
+        "route_traffic_time": 905,
+        "breaks": [],
+        "total_break_time": 0,
+        "route_working_time": 17865,
+        "soft_breaks": [],
+        "num_breaks": 0,
+        "start_items": [],
+        "abs_route_start_time": 1551528000,
+        "route_start_time": "2019-03-02T07:00:00-05:00",
+        "route_id": "Vehicle:chris vehicle-Shift:chris shift",
+        "abs_shift_start_time": 1551528000,
+        "route_distance": 80977.59999999999,
+        "abs_shift_end_time": 1551560400,
+        "num_stops": 20,
+        "total_floating_break_time": 0,
+        "vehicle_id": "chris vehicle",
+        "max_weight_in_vehicle": 0,
+        "total_items_delivered": [],
+        "max_volume_in_vehicle": 0,
+        "directions": [
+          {
+            "duration": 17.3,
+            "maneuver": {
+              "location": [
+                -83.917559,
+                35.963929
+              ],
+              "bearing_after": 340,
+              "modifier": "left",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "qeozEvce_OeA^",
+            "distance": 41.6,
+            "mode": "driving",
+            "name": "S GAY ST SW"
+          },
+          {
+            "duration": 107.6,
+            "maneuver": {
+              "location": [
+                -83.91772,
+                35.96428
+              ],
+              "bearing_after": 243,
+              "modifier": "left",
+              "bearing_before": 338,
+              "type": "turn"
+            },
+            "geometry": "wgozEvde_OrAnEnAxErAtExAnE",
+            "distance": 425.6,
+            "mode": "driving",
+            "name": "W CLINCH AVE SW"
+          },
+          {
+            "duration": 8.2,
+            "maneuver": {
+              "location": [
+                -83.92196,
+                35.96259
+              ],
+              "bearing_after": 334,
+              "modifier": "right",
+              "bearing_before": 240,
+              "type": "turn"
+            },
+            "geometry": "e}nzEf_f_O_@PWLiBz@",
+            "distance": 99.2,
+            "mode": "driving",
+            "name": "HENLEY ST SW"
+          },
+          {
+            "duration": 25.2,
+            "maneuver": {
+              "location": [
+                -83.92242,
+                35.9634
+              ],
+              "bearing_after": 324,
+              "modifier": "slight left",
+              "bearing_before": 334,
+              "type": "fork"
+            },
+            "geometry": "gbozEbbf_Oc@\\i@d@m@j@a@`@]b@uAnB",
+            "distance": 202.5,
+            "mode": "driving",
+            "name": "HENLEY ST SW"
+          },
+          {
+            "duration": 14,
+            "maneuver": {
+              "location": [
+                -83.92389,
+                35.96477
+              ],
+              "bearing_after": 305,
+              "modifier": "straight",
+              "bearing_before": 312,
+              "type": "new name"
+            },
+            "geometry": "yjozEhkf_O[n@EhAEnA?d@@VP`@",
+            "distance": 142.5,
+            "mode": "driving",
+            "name": "TN-62"
+          },
+          {
+            "duration": 24.7,
+            "maneuver": {
+              "location": [
+                -83.92538,
+                35.96487
+              ],
+              "bearing_after": 258,
+              "modifier": "straight",
+              "bearing_before": 258,
+              "type": "new name"
+            },
+            "geometry": "mkozErtf_OFp@Jp@F\\V~APdABNHh@JhA",
+            "distance": 200.1,
+            "mode": "driving",
+            "name": "WESTERN AVE NW"
+          },
+          {
+            "duration": 7,
+            "maneuver": {
+              "location": [
+                -83.92752,
+                35.96439
+              ],
+              "bearing_after": 158,
+              "modifier": "left",
+              "bearing_before": 257,
+              "type": "turn"
+            },
+            "geometry": "mhozE~ag_ObBm@",
+            "distance": 59.3,
+            "mode": "driving",
+            "name": "11TH ST SW"
+          },
+          {
+            "duration": 30.1,
+            "maneuver": {
+              "location": [
+                -83.92729,
+                35.96389
+              ],
+              "bearing_after": 203,
+              "modifier": "sharp right",
+              "bearing_before": 158,
+              "type": "turn"
+            },
+            "geometry": "ieozEp`g_OLFFL@Ry@z@MRCTBRTd@DRATIL_@X",
+            "distance": 169.1,
+            "mode": "driving",
+            "name": "WORLD'S FAIR PARK DR SW"
+          },
+          {
+            "duration": 11.8,
+            "maneuver": {
+              "location": [
+                -83.92871,
+                35.96421
+              ],
+              "bearing_after": 236,
+              "modifier": "left",
+              "bearing_before": 326,
+              "type": "end of road"
+            },
+            "geometry": "igozElig_Ob@dAXbA",
+            "distance": 71.2,
+            "mode": "driving",
+            "name": "GRAND AVE SW"
+          },
+          {
+            "duration": 17.8,
+            "maneuver": {
+              "location": [
+                -83.9294,
+                35.9639
+              ],
+              "bearing_after": 157,
+              "modifier": "left",
+              "bearing_before": 244,
+              "type": "turn"
+            },
+            "geometry": "keozEvmg_O~Ao@vAi@",
+            "distance": 110.1,
+            "mode": "driving",
+            "name": "13TH ST SW"
+          },
+          {
+            "duration": 12.7,
+            "maneuver": {
+              "location": [
+                -83.92895,
+                35.96298
+              ],
+              "bearing_after": 230,
+              "modifier": "right",
+              "bearing_before": 157,
+              "type": "turn"
+            },
+            "geometry": "s_ozE|jg_OPZ^`B",
+            "distance": 63.6,
+            "mode": "driving",
+            "name": "FOREST AVE SW"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -83.929579,
+                35.962729
+              ],
+              "bearing_after": 0,
+              "modifier": "right",
+              "bearing_before": 248,
+              "type": "arrive"
+            },
+            "geometry": "a~nzEzng_O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "FOREST AVE SW"
+          },
+          {
+            "duration": 13.8,
+            "maneuver": {
+              "location": [
+                -83.929579,
+                35.962729
+              ],
+              "bearing_after": 68,
+              "modifier": "left",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "a~nzEzng_O_@aBQ[",
+            "distance": 63.6,
+            "mode": "driving",
+            "name": "FOREST AVE SW"
+          },
+          {
+            "duration": 14.7,
+            "maneuver": {
+              "location": [
+                -83.92895,
+                35.96298
+              ],
+              "bearing_after": 337,
+              "modifier": "left",
+              "bearing_before": 50,
+              "type": "turn"
+            },
+            "geometry": "s_ozE|jg_OwAh@_Bn@",
+            "distance": 110.1,
+            "mode": "driving",
+            "name": "13TH ST SW"
+          },
+          {
+            "duration": 9.6,
+            "maneuver": {
+              "location": [
+                -83.9294,
+                35.9639
+              ],
+              "bearing_after": 64,
+              "modifier": "right",
+              "bearing_before": 337,
+              "type": "end of road"
+            },
+            "geometry": "keozEvmg_OYcAc@eA",
+            "distance": 71.2,
+            "mode": "driving",
+            "name": "GRAND AVE SW"
+          },
+          {
+            "duration": 33.3,
+            "maneuver": {
+              "location": [
+                -83.92871,
+                35.96421
+              ],
+              "bearing_after": 146,
+              "modifier": "right",
+              "bearing_before": 56,
+              "type": "turn"
+            },
+            "geometry": "igozElig_O^YHM@UESUe@CSBULSx@{@PSNUDQ@Q",
+            "distance": 187.4,
+            "mode": "driving",
+            "name": "WORLD'S FAIR PARK DR SW"
+          },
+          {
+            "duration": 24.8,
+            "maneuver": {
+              "location": [
+                -83.92711,
+                35.96356
+              ],
+              "bearing_after": 336,
+              "modifier": "sharp left",
+              "bearing_before": 99,
+              "type": "turn"
+            },
+            "geometry": "gcozEl_g_OaAb@cBl@",
+            "distance": 99.5,
+            "mode": "driving",
+            "name": "11TH ST SW"
+          },
+          {
+            "duration": 184.3,
+            "maneuver": {
+              "location": [
+                -83.92752,
+                35.96439
+              ],
+              "bearing_after": 258,
+              "modifier": "left",
+              "bearing_before": 338,
+              "type": "turn"
+            },
+            "geometry": "mhozE~ag_OFp@D`A@JBpAC`BAd@IdAM~@Mr@Sx@Y`Ao@bBo@`B]jA[lAI`@Mp@ObAO|@i@rESjBEb@SbCG|@I~AIxBWxJGrBM`DQ~Ee@fNWnHO`BY`Bg@lBiAnD_CpH}@rCs@zBm@vBo@bCo@rCQv@",
+            "distance": 2445.8,
+            "mode": "driving",
+            "name": "WESTERN AVE NW"
+          },
+          {
+            "duration": 23.4,
+            "maneuver": {
+              "location": [
+                -83.95341,
+                35.96979
+              ],
+              "bearing_after": 288,
+              "modifier": "slight left",
+              "bearing_before": 291,
+              "type": "fork"
+            },
+            "geometry": "ejpzExcl_OSdAg@dCW~@q@|BOh@",
+            "distance": 213.5,
+            "mode": "driving",
+            "name": "WESTERN AVE NW"
+          },
+          {
+            "duration": 10.3,
+            "maneuver": {
+              "location": [
+                -83.95559,
+                35.97054
+              ],
+              "bearing_after": 232,
+              "modifier": "left",
+              "bearing_before": 293,
+              "type": "turn"
+            },
+            "geometry": "{npzElql_Ot@vAd@z@",
+            "distance": 84,
+            "mode": "driving",
+            "name": "KEITH AVE NW"
+          },
+          {
+            "duration": 4,
+            "maneuver": {
+              "location": [
+                -83.95633,
+                35.97008
+              ],
+              "bearing_after": 322,
+              "modifier": "right",
+              "bearing_before": 230,
+              "type": "turn"
+            },
+            "geometry": "_lpzE`vl_Oi@d@",
+            "distance": 28.8,
+            "mode": "driving",
+            "name": "TRUMAN AVE"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -83.956521,
+                35.970288
+              ],
+              "bearing_after": 0,
+              "modifier": "left",
+              "bearing_before": 323,
+              "type": "arrive"
+            },
+            "geometry": "impzEfwl_O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "TRUMAN AVE"
+          },
+          {
+            "duration": 6.4,
+            "maneuver": {
+              "location": [
+                -83.956521,
+                35.970288
+              ],
+              "bearing_after": 143,
+              "modifier": "right",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "impzEfwl_Oh@e@",
+            "distance": 28.8,
+            "mode": "driving",
+            "name": "TRUMAN AVE"
+          },
+          {
+            "duration": 113.3,
+            "maneuver": {
+              "location": [
+                -83.95633,
+                35.97008
+              ],
+              "bearing_after": 233,
+              "modifier": "right",
+              "bearing_before": 142,
+              "type": "turn"
+            },
+            "geometry": "_lpzE`vl_Or@xAl@lANVvCdGnAfCh@~@p@bAZh@Tj@Rn@Pn@XhAlAjGZ~AVlAr@lDh@dCp@lCt@hCJ\\~@nCf@jAp@fA\\^`BxAb@^",
+            "distance": 1324.3,
+            "mode": "driving",
+            "name": "KEITH AVE NW"
+          },
+          {
+            "duration": 88,
+            "maneuver": {
+              "location": [
+                -83.96875,
+                35.96403
+              ],
+              "bearing_after": 309,
+              "modifier": "right",
+              "bearing_before": 215,
+              "type": "turn"
+            },
+            "geometry": "efozEtco_Ow@rA{EnJ{A~Bq@fA{BbDeAdBqBvCY`@YHSDuRdAM@gFXqBL",
+            "distance": 1229.7,
+            "mode": "driving",
+            "name": "SANDERSON RD NW"
+          },
+          {
+            "duration": 4.9,
+            "maneuver": {
+              "location": [
+                -83.97491,
+                35.97297
+              ],
+              "bearing_after": 81,
+              "modifier": "right",
+              "bearing_before": 352,
+              "type": "turn"
+            },
+            "geometry": "a~pzEdjp_OE}@",
+            "distance": 28.4,
+            "mode": "driving",
+            "name": "CARNATION AVE"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -83.974597,
+                35.973002
+              ],
+              "bearing_after": 0,
+              "modifier": "right",
+              "bearing_before": 83,
+              "type": "arrive"
+            },
+            "geometry": "g~pzEfhp_O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "CARNATION AVE"
+          },
+          {
+            "duration": 9.1,
+            "maneuver": {
+              "location": [
+                -83.974597,
+                35.973002
+              ],
+              "bearing_after": 263,
+              "modifier": "left",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "g~pzEfhp_OD|@",
+            "distance": 28.4,
+            "mode": "driving",
+            "name": "CARNATION AVE"
+          },
+          {
+            "duration": 31.9,
+            "maneuver": {
+              "location": [
+                -83.97491,
+                35.97297
+              ],
+              "bearing_after": 352,
+              "modifier": "right",
+              "bearing_before": 261,
+              "type": "turn"
+            },
+            "geometry": "a~pzEdjp_OcHb@",
+            "distance": 163.2,
+            "mode": "driving",
+            "name": "SANDERSON RD NW"
+          },
+          {
+            "duration": 240.2,
+            "maneuver": {
+              "location": [
+                -83.97509,
+                35.97443
+              ],
+              "bearing_after": 262,
+              "modifier": "left",
+              "bearing_before": 352,
+              "type": "turn"
+            },
+            "geometry": "egqzEhkp_ORxEJbCD~@RxEFxA@d@Bb@DbA@JLpBLtAN~ALrA@LL|@PpA\\`BXfAt@nCh@|Bb@`CJh@NnAFlA?h@?\\GtAOfAQx@St@e@pAs@fBkCjHqDjJ_AhCe@zA]rAa@jB_@jCSrCK`C?hCHdCNjB\\`DTpBXrDHhAHhBBbA@t@?xA?HAlA?vA?hF?^E|DEbAGnAIfA[jCQjA",
+            "distance": 3066.4,
+            "mode": "driving",
+            "name": "WESTERN AVE NW"
+          },
+          {
+            "duration": 14.5,
+            "maneuver": {
+              "location": [
+                -84.00765,
+                35.97569
+              ],
+              "bearing_after": 198,
+              "modifier": "left",
+              "bearing_before": 285,
+              "type": "turn"
+            },
+            "geometry": "aoqzExvv_Op@ThA\\",
+            "distance": 72.8,
+            "mode": "driving",
+            "name": "MATLOCK DR NW"
+          },
+          {
+            "duration": 27.9,
+            "maneuver": {
+              "location": [
+                -84.00791,
+                35.97507
+              ],
+              "bearing_after": 87,
+              "modifier": "left",
+              "bearing_before": 196,
+              "type": "turn"
+            },
+            "geometry": "ekqzElxv_OEeHDq@@KN_@XYj@EN?",
+            "distance": 229.7,
+            "mode": "driving",
+            "name": "BALL CAMP PIKE"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -84.00581,
+                35.97455
+              ],
+              "bearing_after": 0,
+              "modifier": "left",
+              "bearing_before": 180,
+              "type": "arrive"
+            },
+            "geometry": "}gqzEhkv_O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "DEWINE RD"
+          },
+          {
+            "duration": 5.3,
+            "maneuver": {
+              "location": [
+                -84.00581,
+                35.97455
+              ],
+              "bearing_after": 0,
+              "modifier": "right",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "}gqzEhkv_OO?k@DYX",
+            "distance": 52.1,
+            "mode": "driving",
+            "name": "DEWINE RD"
+          },
+          {
+            "duration": 78.9,
+            "maneuver": {
+              "location": [
+                -84.00597,
+                35.97498
+              ],
+              "bearing_after": 300,
+              "modifier": "straight",
+              "bearing_before": 320,
+              "type": "new name"
+            },
+            "geometry": "sjqzEhlv_OO^AJEp@DdHBdHEpASpA]lA{BtGcB|E",
+            "distance": 681.6,
+            "mode": "driving",
+            "name": "BALL CAMP PIKE"
+          },
+          {
+            "duration": 234.9,
+            "maneuver": {
+              "location": [
+                -84.01309,
+                35.97645
+              ],
+              "bearing_after": 229,
+              "modifier": "left",
+              "bearing_before": 298,
+              "type": "turn"
+            },
+            "geometry": "ysqzExxw_OlEtH^n@h@p@d@`@rBxARRP\\Pl@R~@`@xBLd@JRt@hANVHVD\\@b@CfAALA`@A`@An@?~@DpAFtAJvBJjAJ~@L~@PpALx@Nt@Jb@LZR\\Zb@T`@Vh@j@tAVf@Vb@d@r@Zf@`@t@xApC`CdE\\h@^^`@XzAz@VRPRPXJTJh@Dj@@j@?`@Cj@CXE^U`BIj@U`AM^OVWXuAtASXM`@E`@Cn@@`@Jd@N`@NTz@nArBxChEfGdG|I~BhDTZRNTDVAj@Kn@GjAGp@CF?h@EdAG",
+            "distance": 3064.2,
+            "mode": "driving",
+            "name": "MCKAMEY RD"
+          },
+          {
+            "duration": 128.8,
+            "maneuver": {
+              "location": [
+                -84.03834,
+                35.96366
+              ],
+              "bearing_after": 253,
+              "modifier": "right",
+              "bearing_before": 174,
+              "type": "turn"
+            },
+            "geometry": "{cozErv|_OL|@Jb@`@|AJl@Dp@@j@@l@D|CB|@Br@Df@zAfIJj@Db@Ab@C`@E^K`@KZU\\WZyB`CiCnC{CfDwEdFyDhEq@v@]t@]vA_@`AYj@q@z@}@dAm@z@q@lAm@pA",
+            "distance": 1609.6,
+            "mode": "driving",
+            "name": "AMHERST RD NW"
+          },
+          {
+            "duration": 93.4,
+            "maneuver": {
+              "location": [
+                -84.0526,
+                35.96921
+              ],
+              "bearing_after": 30,
+              "modifier": "right",
+              "bearing_before": 303,
+              "type": "turn"
+            },
+            "geometry": "qfpzEvo_`Oq@e@w@{@kAaC[e@{A}A[g@Oc@Ge@Eq@MmEBk@Je@Zu@fCyD",
+            "distance": 591.3,
+            "mode": "driving",
+            "name": "OAKLEIGH TOWNSHIP DR"
+          },
+          {
+            "duration": 15.2,
+            "maneuver": {
+              "location": [
+                -84.04734,
+                35.97018
+              ],
+              "bearing_after": 225,
+              "modifier": "right",
+              "bearing_before": 130,
+              "type": "turn"
+            },
+            "geometry": "slpzEzn~_OtBrC",
+            "distance": 93.5,
+            "mode": "driving",
+            "name": "EAGLEWOOD LN"
+          },
+          {
+            "duration": 37.4,
+            "maneuver": {
+              "location": [
+                -84.04808,
+                35.96959
+              ],
+              "bearing_after": 312,
+              "modifier": "right",
+              "bearing_before": 225,
+              "type": "turn"
+            },
+            "geometry": "}hpzEns~_OiCzD",
+            "distance": 114.2,
+            "mode": "driving",
+            "name": "TIMBER GREEN LN"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -84.04902,
+                35.97028
+              ],
+              "bearing_after": 0,
+              "modifier": "left",
+              "bearing_before": 312,
+              "type": "arrive"
+            },
+            "geometry": "gmpzEjy~_O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "TIMBER GREEN LN"
+          },
+          {
+            "duration": 46,
+            "maneuver": {
+              "location": [
+                -84.04902,
+                35.97028
+              ],
+              "bearing_after": 132,
+              "modifier": "right",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "gmpzEjy~_OhC{D",
+            "distance": 114.2,
+            "mode": "driving",
+            "name": "TIMBER GREEN LN"
+          },
+          {
+            "duration": 23.4,
+            "maneuver": {
+              "location": [
+                -84.04808,
+                35.96959
+              ],
+              "bearing_after": 45,
+              "modifier": "left",
+              "bearing_before": 132,
+              "type": "turn"
+            },
+            "geometry": "}hpzEns~_OuBsC",
+            "distance": 93.5,
+            "mode": "driving",
+            "name": "EAGLEWOOD LN"
+          },
+          {
+            "duration": 87.6,
+            "maneuver": {
+              "location": [
+                -84.04734,
+                35.97018
+              ],
+              "bearing_after": 310,
+              "modifier": "left",
+              "bearing_before": 45,
+              "type": "turn"
+            },
+            "geometry": "slpzEzn~_OgCxD[t@Kd@Cj@LlEDp@Fd@Nb@Zf@zA|AZd@jA`Cv@z@p@d@",
+            "distance": 591.3,
+            "mode": "driving",
+            "name": "OAKLEIGH TOWNSHIP DR"
+          },
+          {
+            "duration": 100.6,
+            "maneuver": {
+              "location": [
+                -84.0526,
+                35.96921
+              ],
+              "bearing_after": 123,
+              "modifier": "left",
+              "bearing_before": 210,
+              "type": "end of road"
+            },
+            "geometry": "qfpzEvo_`Ol@qAp@mAl@{@|@eAp@{@Xk@^aA\\wA\\u@p@w@xDiEvEeFzCgDhCoCxBaCV[T]J[Ja@D_@Ba@@c@Ec@Kk@{AgI",
+            "distance": 1290.7,
+            "mode": "driving",
+            "name": "AMHERST RD NW"
+          },
+          {
+            "duration": 26.1,
+            "maneuver": {
+              "location": [
+                -84.04179,
+                35.96315
+              ],
+              "bearing_after": 167,
+              "modifier": "right",
+              "bearing_before": 70,
+              "type": "turn"
+            },
+            "geometry": "u`ozEdl}_O`BY\\ET@VFVRLTx@~A",
+            "distance": 181.4,
+            "mode": "driving",
+            "name": "PINEY GROVE CHURCH RD NW"
+          },
+          {
+            "duration": 38,
+            "maneuver": {
+              "location": [
+                -84.04237,
+                35.9618
+              ],
+              "bearing_after": 116,
+              "modifier": "left",
+              "bearing_before": 232,
+              "type": "turn"
+            },
+            "geometry": "gxnzExo}_OHWDUBUBw@DgBB]D_@Fc@Lg@La@Rk@nBoF\\{@^q@b@e@j@[VGt@K",
+            "distance": 493.1,
+            "mode": "driving",
+            "name": "HELMBOLT RD NW"
+          },
+          {
+            "duration": 30.3,
+            "maneuver": {
+              "location": [
+                -84.03797,
+                35.95966
+              ],
+              "bearing_after": 233,
+              "modifier": "right",
+              "bearing_before": 168,
+              "type": "turn"
+            },
+            "geometry": "{jnzEht|_OXj@zEjI\\n@",
+            "distance": 245,
+            "mode": "driving",
+            "name": "CREEKHEAD DR NW"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -84.040086,
+                35.958276
+              ],
+              "bearing_after": 0,
+              "modifier": "left",
+              "bearing_before": 231,
+              "type": "arrive"
+            },
+            "geometry": "gbnzEpa}_O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "CREEKHEAD DR NW"
+          },
+          {
+            "duration": 45.3,
+            "maneuver": {
+              "location": [
+                -84.040086,
+                35.958276
+              ],
+              "bearing_after": 51,
+              "modifier": "right",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "gbnzEpa}_O]o@{EkIYk@",
+            "distance": 245,
+            "mode": "driving",
+            "name": "CREEKHEAD DR NW"
+          },
+          {
+            "duration": 19.1,
+            "maneuver": {
+              "location": [
+                -84.03797,
+                35.95966
+              ],
+              "bearing_after": 168,
+              "modifier": "right",
+              "bearing_before": 53,
+              "type": "end of road"
+            },
+            "geometry": "{jnzEht|_O~AUt@Il@Ct@@x@RhCz@",
+            "distance": 255,
+            "mode": "driving",
+            "name": "HELMBOLT RD NW"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -84.038195,
+                35.957431
+              ],
+              "bearing_after": 0,
+              "modifier": "left",
+              "bearing_before": 199,
+              "type": "arrive"
+            },
+            "geometry": "}|mzEvu|_O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "HELMBOLT RD NW"
+          },
+          {
+            "duration": 30,
+            "maneuver": {
+              "location": [
+                -84.038195,
+                35.957431
+              ],
+              "bearing_after": 199,
+              "modifier": "left",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "}|mzEvu|_ObBh@HBvDlAd@HXATGROLSN[b@kAL]La@JQJE",
+            "distance": 352.6,
+            "mode": "driving",
+            "name": "HELMBOLT RD NW"
+          },
+          {
+            "duration": 143,
+            "maneuver": {
+              "location": [
+                -84.03768,
+                35.95484
+              ],
+              "bearing_after": 180,
+              "modifier": "slight right",
+              "bearing_before": 156,
+              "type": "new name"
+            },
+            "geometry": "wlmzEnr|_OZ@`C?tBAnHCpGMhAAjAA|EEhEE~HIzAIxBGhJSjDMN@rABhB@nAD",
+            "distance": 1548.3,
+            "mode": "driving",
+            "name": "FRANCIS RD NW"
+          },
+          {
+            "duration": 151.4,
+            "maneuver": {
+              "location": [
+                -84.03727,
+                35.94093
+              ],
+              "bearing_after": 278,
+              "modifier": "right",
+              "bearing_before": 182,
+              "type": "turn"
+            },
+            "geometry": "yujzE|o|_Ou@`La@bGi@|GWfD[bEaA~L_@~EWvEo@xLGhAEv@ObBMx@Sv@M\\m@tA]n@}AtCWj@Wt@Sx@QzAEr@Av@B`AHlAL|@Nj@Rp@Xv@Vd@V^j@p@|BzB\\b@`@n@^v@Tp@Nl@Jh@Fp@F~@",
+            "distance": 2256.4,
+            "mode": "driving",
+            "name": "MIDDLEBROOK PIKE NW"
+          },
+          {
+            "duration": 236.9,
+            "maneuver": {
+              "location": [
+                -84.06059,
+                35.94205
+              ],
+              "bearing_after": 180,
+              "modifier": "left",
+              "bearing_before": 260,
+              "type": "turn"
+            },
+            "geometry": "y|jzEtaa`OX?f@Ef@Gj@U~@i@hBeAz@Wf@K`@Ch@@j@D`BRxD^n@Fj@Jr@XPH`@RlGdDnBbAlCzAlC~AhAl@dA\\x@Ln@Bl@A~@Kj@Mv@[p@e@j@i@`@e@bBmCx@oAj@{@T]nB_Dt@aAj@i@t@]l@Sv@I`CAxBDnCDdA@^?d@?nBFrGB",
+            "distance": 2327.3,
+            "mode": "driving",
+            "name": "N GALLAHER VIEW RD NW"
+          },
+          {
+            "duration": 7.3,
+            "maneuver": {
+              "location": [
+                -84.05896,
+                35.92311
+              ],
+              "bearing_after": 68,
+              "modifier": "left",
+              "bearing_before": 180,
+              "type": "turn"
+            },
+            "geometry": "mfgzEnw``Ow@{D",
+            "distance": 90.5,
+            "mode": "driving",
+            "name": "KINGSTON PIKE"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -84.058015,
+                35.923387
+              ],
+              "bearing_after": 0,
+              "modifier": "left",
+              "bearing_before": 70,
+              "type": "arrive"
+            },
+            "geometry": "ehgzErq``O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "KINGSTON PIKE"
+          },
+          {
+            "duration": 91.1,
+            "maneuver": {
+              "location": [
+                -84.058015,
+                35.923387
+              ],
+              "bearing_after": 250,
+              "modifier": "right",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "ehgzErq``Ov@zDbEdTvCdOJd@Jb@X`AVv@tAbE",
+            "distance": 860.8,
+            "mode": "driving",
+            "name": "KINGSTON PIKE"
+          },
+          {
+            "duration": 98.2,
+            "maneuver": {
+              "location": [
+                -84.0669,
+                35.92057
+              ],
+              "bearing_after": 323,
+              "modifier": "right",
+              "bearing_before": 240,
+              "type": "turn"
+            },
+            "geometry": "qvfzEbib`Oa@NYZa@b@sAvAsDzDuAvAa@d@]\\i@n@A@a@d@sB~CaAfBI\\",
+            "distance": 595.4,
+            "mode": "driving",
+            "name": "BRIDGEWATER RD NW"
+          },
+          {
+            "duration": 1.6,
+            "maneuver": {
+              "location": [
+                -84.07137,
+                35.92446
+              ],
+              "bearing_after": 130,
+              "modifier": "uturn",
+              "bearing_before": 310,
+              "type": "continue"
+            },
+            "geometry": "{ngzE`ec`OTOFK",
+            "distance": 21.8,
+            "mode": "driving",
+            "name": "BRIDGEWATER RD NW"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -84.071226,
+                35.924305
+              ],
+              "bearing_after": 0,
+              "modifier": "right",
+              "bearing_before": 131,
+              "type": "arrive"
+            },
+            "geometry": "}mgzEddc`O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "BRIDGEWATER RD NW"
+          },
+          {
+            "duration": 13.5,
+            "maneuver": {
+              "location": [
+                -84.071226,
+                35.924305
+              ],
+              "bearing_after": 131,
+              "modifier": "right",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "}mgzEddc`O|@wA~AgC",
+            "distance": 133.1,
+            "mode": "driving",
+            "name": "BRIDGEWATER RD NW"
+          },
+          {
+            "duration": 17,
+            "maneuver": {
+              "location": [
+                -84.07011,
+                35.92352
+              ],
+              "bearing_after": 170,
+              "modifier": "right",
+              "bearing_before": 130,
+              "type": "turn"
+            },
+            "geometry": "_igzEd}b`O\\EJ?J@JFJLhAnE",
+            "distance": 149.1,
+            "mode": "driving",
+            "name": ""
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -84.071238,
+                35.922763
+              ],
+              "bearing_after": 0,
+              "modifier": "right",
+              "bearing_before": 246,
+              "type": "arrive"
+            },
+            "geometry": "gdgzEfdc`O",
+            "distance": 0,
+            "mode": "driving",
+            "name": ""
+          },
+          {
+            "duration": 9.5,
+            "maneuver": {
+              "location": [
+                -84.071238,
+                35.922763
+              ],
+              "bearing_after": 246,
+              "modifier": "right",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "gdgzEfdc`ORx@`@fBVnALt@b@dA",
+            "distance": 180.5,
+            "mode": "driving",
+            "name": ""
+          },
+          {
+            "duration": 144.2,
+            "maneuver": {
+              "location": [
+                -84.07307,
+                35.92212
+              ],
+              "bearing_after": 254,
+              "modifier": "slight left",
+              "bearing_before": 236,
+              "type": "merge"
+            },
+            "geometry": "g`gzEtoc`OL`A@FNdAd@nDj@dED^PnAVlBF\\ZbCBTnHjj@|@vGVlB`@tCpCtSJv@L~@TjB~AxLb@fDj@`EHh@TfBHh@Ff@r@jF|AhLbBbMfA`IjDfWZ`CVnBn@rE",
+            "distance": 3472.3,
+            "mode": "driving",
+            "name": "I-40"
+          },
+          {
+            "duration": 16.6,
+            "maneuver": {
+              "location": [
+                -84.11027,
+                35.91394
+              ],
+              "bearing_after": 264,
+              "modifier": "slight right",
+              "bearing_before": 253,
+              "type": "turn"
+            },
+            "geometry": "cmezEdxj`ODvABl@@d@Hr@NrAZnClAhK",
+            "distance": 390.1,
+            "mode": "driving",
+            "name": "376"
+          },
+          {
+            "duration": 33.9,
+            "maneuver": {
+              "location": [
+                -84.1145,
+                35.91322
+              ],
+              "bearing_after": 253,
+              "modifier": "slight left",
+              "bearing_before": 255,
+              "type": "fork"
+            },
+            "geometry": "shezErrk`O`@jCr@lFv@hGx@dGv@vG~@xGF^n@`E",
+            "distance": 791.3,
+            "mode": "driving",
+            "name": "376B"
+          },
+          {
+            "duration": 40.8,
+            "maneuver": {
+              "location": [
+                -84.12297,
+                35.91134
+              ],
+              "bearing_after": 262,
+              "modifier": "slight right",
+              "bearing_before": 251,
+              "type": "fork"
+            },
+            "geometry": "{|dzEpgm`OD`A@p@Cj@Id@Wr@_@f@SPSNc@Lk@Fa@AUGYKYQWWSYMWIUEUEYA[@s@B_@H_@Ng@LWPUROTMvAs@",
+            "distance": 554.7,
+            "mode": "driving",
+            "name": "376B"
+          },
+          {
+            "duration": 28.1,
+            "maneuver": {
+              "location": [
+                -84.12222,
+                35.91223
+              ],
+              "bearing_after": 163,
+              "modifier": "straight",
+              "bearing_before": 153,
+              "type": "new name"
+            },
+            "geometry": "mbezEzbm`O|@UbAUj@S^Kh@O|@Yf@Oj@OfFyA`Co@tAa@`D}@hAYFCv@S",
+            "distance": 664.6,
+            "mode": "driving",
+            "name": "I-140"
+          },
+          {
+            "duration": 41.8,
+            "maneuver": {
+              "location": [
+                -84.12005,
+                35.90652
+              ],
+              "bearing_after": 170,
+              "modifier": "slight right",
+              "bearing_before": 163,
+              "type": "turn"
+            },
+            "geometry": "w~czEhul`OjAOl@G\\Ad@@j@D|@P`Bl@`A\\`@L^HX@TATGZINGTGT?NDLFRR",
+            "distance": 424.8,
+            "mode": "driving",
+            "name": "1B"
+          },
+          {
+            "duration": 298.3,
+            "maneuver": {
+              "location": [
+                -84.12055,
+                35.90285
+              ],
+              "bearing_after": 247,
+              "modifier": "slight right",
+              "bearing_before": 219,
+              "type": "turn"
+            },
+            "geometry": "ygczElxl`OJb@Rh@t@jBvAnDjAnCnAzCbFxL`BzDdCdGj@tAd@fAN^|@vBdBdEZv@Nj@Nh@Hd@nArHdClOPbALl@DVR|@Rn@DNp@tB`FrOx@fC`AxCZ~@BHTp@`@rAPh@b@lA`@v@Vb@`@p@j@|@V`@bA|Az@tAr@hA^j@X`@\\^b@\\fG|ElCrBvB`BpDxC`A|@v@|@~AzBzEhH^j@b@z@N\\Rf@L^",
+            "distance": 3676,
+            "mode": "driving",
+            "name": "KINGSTON PIKE"
+          },
+          {
+            "duration": 106.2,
+            "maneuver": {
+              "location": [
+                -84.15346,
+                35.88442
+              ],
+              "bearing_after": 146,
+              "modifier": "left",
+              "bearing_before": 237,
+              "type": "turn"
+            },
+            "geometry": "st_zEbfs`Oh@a@~AkAfBqAf@_@HEpA{@vA}@zCmBjDwBbJaGrA{@r@]zAe@pAk@l@Y^MZCXBh@J",
+            "distance": 1032.3,
+            "mode": "driving",
+            "name": "CONCORD RD"
+          },
+          {
+            "duration": 58.6,
+            "maneuver": {
+              "location": [
+                -84.14826,
+                35.87627
+              ],
+              "bearing_after": 129,
+              "modifier": "left",
+              "bearing_before": 192,
+              "type": "end of road"
+            },
+            "geometry": "ua~yErer`OXe@f@m@d@a@f@Uj@Mp@Mp@IhCYlEg@zA]~Ai@pAq@hAq@xAw@|@]nAe@dAa@d@YTOl@i@",
+            "distance": 838.8,
+            "mode": "driving",
+            "name": "CONCORD RD"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -84.144969,
+                35.869353
+              ],
+              "bearing_after": 0,
+              "modifier": "right",
+              "bearing_before": 143,
+              "type": "arrive"
+            },
+            "geometry": "mv|yE`qq`O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "CONCORD RD"
+          },
+          {
+            "duration": 71.2,
+            "maneuver": {
+              "location": [
+                -84.144969,
+                35.869353
+              ],
+              "bearing_after": 143,
+              "modifier": "right",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "mv|yE`qq`Of@e@d@a@d@Yn@OnBYzB[vC_@jAWv@Wn@W|DuBr@]pAq@n@]v@a@`@Sr@]r@UnBe@xBW`BYp@K",
+            "distance": 997.4,
+            "mode": "driving",
+            "name": "CONCORD RD"
+          },
+          {
+            "duration": 7.1,
+            "maneuver": {
+              "location": [
+                -84.14144,
+                35.86095
+              ],
+              "bearing_after": 223,
+              "modifier": "right",
+              "bearing_before": 168,
+              "type": "end of road"
+            },
+            "geometry": "}a{yE~zp`OHJNDNEHKBSCSIKOEOD",
+            "distance": 79,
+            "mode": "driving",
+            "name": ""
+          },
+          {
+            "duration": 128.3,
+            "maneuver": {
+              "location": [
+                -84.14118,
+                35.8609
+              ],
+              "bearing_after": 63,
+              "modifier": "right",
+              "bearing_before": 341,
+              "type": "turn"
+            },
+            "geometry": "sa{yEjyp`OMc@W}@Ko@OaBASCi@Cq@?s@@g@Ds@H{@J{@RmBx@sGLkAH_ABiAAkBA[MaCKuBYyDQkB_@mBiAoF}@yDUgAqA_Gk@}B_A{Cu@cC_@uAGUYqBMgBCsBB}AJkD@k@B}@XaS",
+            "distance": 2163.8,
+            "mode": "driving",
+            "name": "NORTHSHORE DR SW"
+          },
+          {
+            "duration": 416.2,
+            "maneuver": {
+              "location": [
+                -84.11802,
+                35.86332
+              ],
+              "bearing_after": 45,
+              "modifier": "left",
+              "bearing_before": 92,
+              "type": "turn"
+            },
+            "geometry": "wp{yErhl`OQUiEyFuCqDg@o@q@}@[e@gAaBgA{Aa@m@Ue@Qg@]oAi@uB}A}Fk@{BqA_FQm@i@cBw@iByC_G_B_Du@wAcAqBaAmBs@qAg@_AWm@Qe@Qi@GYGWG]uBuNG[kAaF]kAYu@s@uAkAsBe@w@a@m@{BmCy@cAgAeAEEs@k@aByAOM_BwAu@q@MKq@q@}@eAm@u@OQiA}AqBkCwAoBuA_CeAmBcAkBuEyI}BiEgAqBgDiHaEeImA}B}@cBaBgDU_@_AeBiGcL_A_BKSkLuTkA}BkCcFQ_@MYOc@Mg@Ge@Ei@?m@BeF@uB@_B@oBCuACa@Ci@",
+            "distance": 5635.6,
+            "mode": "driving",
+            "name": "WESTLAND DR"
+          },
+          {
+            "duration": 25.7,
+            "maneuver": {
+              "location": [
+                -84.06763,
+                35.89138
+              ],
+              "bearing_after": 340,
+              "modifier": "left",
+              "bearing_before": 82,
+              "type": "end of road"
+            },
+            "geometry": "c`azEtmb`Oe@NYHyBr@}E|AkBn@",
+            "distance": 303.6,
+            "mode": "driving",
+            "name": "EBENEZER RD"
+          },
+          {
+            "duration": 151.7,
+            "maneuver": {
+              "location": [
+                -84.06873,
+                35.89396
+              ],
+              "bearing_after": 61,
+              "modifier": "right",
+              "bearing_before": 338,
+              "type": "turn"
+            },
+            "geometry": "gpazEptb`OWy@Q_@Ua@}DgGWa@_@m@oAiBKOS]Ka@Ea@AwA@u@?i@Eg@Ce@[oASi@Wk@Um@YaAe@eAm@eB_@mA[eASy@kAyEk@eCqA_FKg@iCaKqAqEo@yBk@cBq@gBs@aBSa@Wc@i@y@_BcCk@{@yFsIgBqCuCkE",
+            "distance": 2279.1,
+            "mode": "driving",
+            "name": "WESTLAND DR"
+          },
+          {
+            "duration": 62.3,
+            "maneuver": {
+              "location": [
+                -84.04747,
+                35.90442
+              ],
+              "bearing_after": 157,
+              "modifier": "right",
+              "bearing_before": 46,
+              "type": "turn"
+            },
+            "geometry": "sqczEto~_OdCcAn@W~Ak@nDwAf@Qf@Mh@IxBUp@Iv@Mt@OfAW",
+            "distance": 543.4,
+            "mode": "driving",
+            "name": "SANFORD DAY RD"
+          },
+          {
+            "duration": 169.5,
+            "maneuver": {
+              "location": [
+                -84.04571,
+                35.89977
+              ],
+              "bearing_after": 47,
+              "modifier": "left",
+              "bearing_before": 164,
+              "type": "end of road"
+            },
+            "geometry": "qtbzEtd~_OuAuB}AgCeC{Dw@kAo@}@m@{@g@u@c@q@mAqBa@o@e@s@qAkBwC_E[c@Yc@Sa@IYI]Ie@Ge@I{@m@oGI_AKgAIi@Me@Q]SYWUMIWKWGWCa@C}AAa@CWEWI_@SOMOQS_@Oa@K[K[o@uBi@iBqBsGaDiKIWeCcI",
+            "distance": 2098.2,
+            "mode": "driving",
+            "name": "NUBBIN RIDGE DR SW"
+          },
+          {
+            "duration": 8.2,
+            "maneuver": {
+              "location": [
+                -84.02772,
+                35.91042
+              ],
+              "bearing_after": 164,
+              "modifier": "right",
+              "bearing_before": 61,
+              "type": "turn"
+            },
+            "geometry": "cwdzEftz_Ov@Q",
+            "distance": 31.8,
+            "mode": "driving",
+            "name": "SENTRY LN"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -84.02763,
+                35.910144
+              ],
+              "bearing_after": 0,
+              "modifier": "left",
+              "bearing_before": 165,
+              "type": "arrive"
+            },
+            "geometry": "kudzEtsz_O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "SENTRY LN"
+          },
+          {
+            "duration": 11.5,
+            "maneuver": {
+              "location": [
+                -84.02763,
+                35.910144
+              ],
+              "bearing_after": 345,
+              "modifier": "right",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "kudzEtsz_Ow@P",
+            "distance": 31.8,
+            "mode": "driving",
+            "name": "SENTRY LN"
+          },
+          {
+            "duration": 27.9,
+            "maneuver": {
+              "location": [
+                -84.02772,
+                35.91042
+              ],
+              "bearing_after": 63,
+              "modifier": "right",
+              "bearing_before": 344,
+              "type": "turn"
+            },
+            "geometry": "cwdzEftz_O{@wC[cAc@wAgAoD",
+            "distance": 243.9,
+            "mode": "driving",
+            "name": "NUBBIN RIDGE DR SW"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -84.025297,
+                35.911398
+              ],
+              "bearing_after": 0,
+              "modifier": "right",
+              "bearing_before": 63,
+              "type": "arrive"
+            },
+            "geometry": "g}dzEbez_O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "NUBBIN RIDGE DR SW"
+          },
+          {
+            "duration": 29.4,
+            "maneuver": {
+              "location": [
+                -84.025297,
+                35.911398
+              ],
+              "bearing_after": 63,
+              "modifier": "right",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "g}dzEbez_Os@aCQ{@YkCOeBAu@",
+            "distance": 229.8,
+            "mode": "driving",
+            "name": "NUBBIN RIDGE DR SW"
+          },
+          {
+            "duration": 83.5,
+            "maneuver": {
+              "location": [
+                -84.02287,
+                35.91197
+              ],
+              "bearing_after": 0,
+              "modifier": "left",
+              "bearing_before": 87,
+              "type": "turn"
+            },
+            "geometry": "y`ezE|uy_OiGCuFfAkCj@_@YiB{@eASu@K",
+            "distance": 525.5,
+            "mode": "driving",
+            "name": "WESTMORELAND BLVD"
+          },
+          {
+            "duration": 28,
+            "maneuver": {
+              "location": [
+                -84.02284,
+                35.91654
+              ],
+              "bearing_after": 91,
+              "modifier": "right",
+              "bearing_before": 9,
+              "type": "end of road"
+            },
+            "geometry": "k}ezEvuy_OFiEFiE@aACw@MqACe@]_DSqBEc@",
+            "distance": 435.1,
+            "mode": "driving",
+            "name": "WESTLAND DR SW"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -84.018064,
+                35.916844
+              ],
+              "bearing_after": 0,
+              "modifier": "left",
+              "bearing_before": 77,
+              "type": "arrive"
+            },
+            "geometry": "g_fzEzwx_O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "WESTLAND DR SW"
+          },
+          {
+            "duration": 146.4,
+            "maneuver": {
+              "location": [
+                -84.018064,
+                35.916844
+              ],
+              "bearing_after": 77,
+              "modifier": "left",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "g_fzEzwx_OCOEo@GwAEa@UuA[uB[qCK}@UcAq@iBI_@Ae@HgC?{BCq@Cc@OoDKyBCaBEyJIqAIc@GYUaA_@iAeCkIiAiDy@eC_@cAoAmD{BkGGWoAiDeBsE[w@]eASw@Qe@M_@EQUkAs@gCMi@",
+            "distance": 2101.8,
+            "mode": "driving",
+            "name": "WESTLAND DR SW"
+          },
+          {
+            "duration": 17.6,
+            "maneuver": {
+              "location": [
+                -83.99645,
+                35.9229
+              ],
+              "bearing_after": 60,
+              "modifier": "straight",
+              "bearing_before": 67,
+              "type": "continue"
+            },
+            "geometry": "cegzExpt_Oi@{A",
+            "distance": 47.6,
+            "mode": "driving",
+            "name": "WESTLAND DR SW"
+          },
+          {
+            "duration": 186.6,
+            "maneuver": {
+              "location": [
+                -83.99599,
+                35.92311
+              ],
+              "bearing_after": 56,
+              "modifier": "straight",
+              "bearing_before": 60,
+              "type": "new name"
+            },
+            "geometry": "mfgzE|mt_O[s@Y]wFcIgBeCs@q@q@i@kCmB[S_D_B{@YgHkCe@Qo@Um@e@[]uA}AuA}AOOc@g@_@[o@c@wBuAc@_@UU_AiA}@w@g@c@o@i@]c@a@i@qBuCeA{AYk@eBgDS_@g@u@[]m@q@]YsD}CgA_Am@e@cDeCc@]}@y@_@c@Ya@q@}@sDqFWa@Ue@S[SKm@I",
+            "distance": 2567.8,
+            "mode": "driving",
+            "name": "LYONS VIEW PIKE SW"
+          },
+          {
+            "duration": 79.4,
+            "maneuver": {
+              "location": [
+                -83.97854,
+                35.94095
+              ],
+              "bearing_after": 71,
+              "modifier": "right",
+              "bearing_before": 9,
+              "type": "end of road"
+            },
+            "geometry": "}ujzEz`q_OO_AMq@GWm@yBu@kCo@}BqAoFmAgFeAcEq@gCe@eB]gAa@eA_@{@",
+            "distance": 809,
+            "mode": "driving",
+            "name": "KINGSTON PIKE SW"
+          },
+          {
+            "duration": 23,
+            "maneuver": {
+              "location": [
+                -83.97037,
+                35.94395
+              ],
+              "bearing_after": 320,
+              "modifier": "left",
+              "bearing_before": 56,
+              "type": "turn"
+            },
+            "geometry": "uhkzExmo_OwAtAeChB",
+            "distance": 150.9,
+            "mode": "driving",
+            "name": "FOREST GLEN DR NW"
+          },
+          {
+            "duration": 85.6,
+            "maneuver": {
+              "location": [
+                -83.97133,
+                35.94506
+              ],
+              "bearing_after": 33,
+              "modifier": "right",
+              "bearing_before": 326,
+              "type": "turn"
+            },
+            "geometry": "sokzExso_OqCyBWCM@OHg@ZaAz@SN{@d@aA\\eCbAcA^wAj@y@\\qCdAQF",
+            "distance": 596.8,
+            "mode": "driving",
+            "name": "TOBLER LN NW"
+          },
+          {
+            "duration": 2.1,
+            "maneuver": {
+              "location": [
+                -83.97288,
+                35.94988
+              ],
+              "bearing_after": 64,
+              "modifier": "right",
+              "bearing_before": 338,
+              "type": "end of road"
+            },
+            "geometry": "wmlzEn}o_OQo@",
+            "distance": 24.2,
+            "mode": "driving",
+            "name": "SUTHERLAND AVE NW"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -83.972637,
+                35.949972
+              ],
+              "bearing_after": 0,
+              "modifier": "right",
+              "bearing_before": 65,
+              "type": "arrive"
+            },
+            "geometry": "inlzE~{o_O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "SUTHERLAND AVE NW"
+          },
+          {
+            "duration": 249.1,
+            "maneuver": {
+              "location": [
+                -83.972637,
+                35.949972
+              ],
+              "bearing_after": 65,
+              "modifier": "right",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "inlzE~{o_O_@sAc@aB[mAsBqHqAeFKWEQ}AkGyAaGaA{Dy@gD}@qDSy@g@oBWgAWuAu@mFs@yFUgCs@qIIs@Mm@Qi@K[i@sAO_@uCgH_BuD}C{GiFcLO]_BgDs@oAeAyACEo@o@g@Y{@Q}@EmA@c@De@PwB~A",
+            "distance": 2830.6,
+            "mode": "driving",
+            "name": "SUTHERLAND AVE NW"
+          },
+          {
+            "duration": 88,
+            "maneuver": {
+              "location": [
+                -83.94762,
+                35.96217
+              ],
+              "bearing_after": 61,
+              "modifier": "right",
+              "bearing_before": 326,
+              "type": "turn"
+            },
+            "geometry": "qznzEr_k_Oi@eBc@mASc@Se@yA}CYq@_@w@y@cB[q@KS[k@a@u@c@g@We@[q@qAqCmCuFq@yAsAkC",
+            "distance": 846.1,
+            "mode": "driving",
+            "name": "MIDDLEBROOK PIKE NW"
+          },
+          {
+            "duration": 89.8,
+            "maneuver": {
+              "location": [
+                -83.93994,
+                35.96653
+              ],
+              "bearing_after": 39,
+              "modifier": "straight",
+              "bearing_before": 53,
+              "type": "new name"
+            },
+            "geometry": "yuozEroi_OwA{AMMsBcCsBoCeC}CcBwBc@i@iCcDqCmDe@m@",
+            "distance": 710,
+            "mode": "driving",
+            "name": "UNIVERSITY AVE"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -83.93451,
+                35.971157
+              ],
+              "bearing_after": 0,
+              "modifier": "left",
+              "bearing_before": 45,
+              "type": "arrive"
+            },
+            "geometry": "wrpzEtmh_O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "UNIVERSITY AVE"
+          },
+          {
+            "duration": 10,
+            "maneuver": {
+              "location": [
+                -83.93451,
+                35.971157
+              ],
+              "bearing_after": 45,
+              "modifier": "left",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "wrpzEtmh_O{AqB",
+            "distance": 72.7,
+            "mode": "driving",
+            "name": "UNIVERSITY AVE"
+          },
+          {
+            "duration": 4.9,
+            "maneuver": {
+              "location": [
+                -83.93394,
+                35.97162
+              ],
+              "bearing_after": 135,
+              "modifier": "right",
+              "bearing_before": 43,
+              "type": "turn"
+            },
+            "geometry": "supzEbjh_OZa@",
+            "distance": 21.9,
+            "mode": "driving",
+            "name": "CALLOWAY ST"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -83.93377,
+                35.971479
+              ],
+              "bearing_after": 0,
+              "modifier": "left",
+              "bearing_before": 136,
+              "type": "arrive"
+            },
+            "geometry": "wtpzE`ih_O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "CALLOWAY ST"
+          },
+          {
+            "duration": 7.6,
+            "maneuver": {
+              "location": [
+                -83.93377,
+                35.971479
+              ],
+              "bearing_after": 316,
+              "modifier": "right",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "wtpzE`ih_O[`@",
+            "distance": 21.9,
+            "mode": "driving",
+            "name": "CALLOWAY ST"
+          },
+          {
+            "duration": 6.9,
+            "maneuver": {
+              "location": [
+                -83.93394,
+                35.97162
+              ],
+              "bearing_after": 45,
+              "modifier": "right",
+              "bearing_before": 315,
+              "type": "turn"
+            },
+            "geometry": "supzEbjh_Ow@eA",
+            "distance": 44.3,
+            "mode": "driving",
+            "name": "UNIVERSITY AVE"
+          },
+          {
+            "duration": 40.6,
+            "maneuver": {
+              "location": [
+                -83.93359,
+                35.9719
+              ],
+              "bearing_after": 102,
+              "modifier": "right",
+              "bearing_before": 45,
+              "type": "turn"
+            },
+            "geometry": "kwpzE|gh_Ol@sFPqA^qCPiAJ_ABUDYBWHw@LcB",
+            "distance": 388.3,
+            "mode": "driving",
+            "name": "W 5TH AVE NW"
+          },
+          {
+            "duration": 46.2,
+            "maneuver": {
+              "location": [
+                -83.9294,
+                35.97108
+              ],
+              "bearing_after": 180,
+              "modifier": "right",
+              "bearing_before": 98,
+              "type": "turn"
+            },
+            "geometry": "grpzEvmg_OX?PGZS`@_@d@o@rAcCR_@b@i@JK\\S`@Mp@IJCZCz@?lBL",
+            "distance": 411.5,
+            "mode": "driving",
+            "name": "BLACKSTOCK AVE NW"
+          },
+          {
+            "duration": 68.3,
+            "maneuver": {
+              "location": [
+                -83.92758,
+                35.96798
+              ],
+              "bearing_after": 187,
+              "modifier": "left",
+              "bearing_before": 185,
+              "type": "turn"
+            },
+            "geometry": "{~ozEjbg_Or@FCw@AkAPaAbC{GZ_AXu@Zi@",
+            "distance": 352.9,
+            "mode": "driving",
+            "name": "OAK AVE NW"
+          },
+          {
+            "duration": 44.3,
+            "maneuver": {
+              "location": [
+                -83.92441,
+                35.96659
+              ],
+              "bearing_after": 181,
+              "modifier": "slight right",
+              "bearing_before": 129,
+              "type": "turn"
+            },
+            "geometry": "evozEpnf_Or@@T?~AC|@EZEXG^SPM",
+            "distance": 191.7,
+            "mode": "driving",
+            "name": "BROADWAY SW"
+          },
+          {
+            "duration": 126.3,
+            "maneuver": {
+              "location": [
+                -83.92413,
+                35.96491
+              ],
+              "bearing_after": 171,
+              "modifier": "straight",
+              "bearing_before": 147,
+              "type": "new name"
+            },
+            "geometry": "ukozExlf_OTCr@_A`AqAx@_Ah@g@f@Yt@[j@[l@Yv@_@`Ag@rAs@l@[~BmArAu@hAo@n@]RMV_@h@]`@WzCqBd@]f@]TQXO`BeAnIoF",
+            "distance": 1198.4,
+            "mode": "driving",
+            "name": "HENLEY ST SW"
+          },
+          {
+            "duration": 125.7,
+            "maneuver": {
+              "location": [
+                -83.91742,
+                35.95568
+              ],
+              "bearing_after": 147,
+              "modifier": "straight",
+              "bearing_before": 149,
+              "type": "new name"
+            },
+            "geometry": "_rmzEzbe_O`EqCbAq@x@k@lAy@~@s@d@_@d@YVQf@Wp@[~Ak@t@UfDgAnBo@bDkArE_BlCaAfGwB`F{A|Aa@dIwBjBe@nA[",
+            "distance": 1623.9,
+            "mode": "driving",
+            "name": "CHAPMAN HWY"
+          },
+          {
+            "duration": 130.9,
+            "maneuver": {
+              "location": [
+                -83.91075,
+                35.94219
+              ],
+              "bearing_after": 188,
+              "modifier": "slight right",
+              "bearing_before": 163,
+              "type": "turn"
+            },
+            "geometry": "u}jzEdyc_O~C^dBRRB\\HrFrA|A^vA^l@Vl@^f@d@nAlAh@n@d@p@V`@RVZPVH`@F^@j@CnEe@nBK`FM|AMl@MTM~BqA~AeA|CeBPK",
+            "distance": 1406.7,
+            "mode": "driving",
+            "name": "MARTIN MILL PIKE SW"
+          },
+          {
+            "duration": 8.4,
+            "maneuver": {
+              "location": [
+                -83.91177,
+                35.93047
+              ],
+              "bearing_after": 54,
+              "modifier": "left",
+              "bearing_before": 150,
+              "type": "turn"
+            },
+            "geometry": "mthzEp_d_O[q@",
+            "distance": 27.7,
+            "mode": "driving",
+            "name": "MCNABB AVE SW"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -83.911515,
+                35.93061
+              ],
+              "bearing_after": 0,
+              "modifier": "right",
+              "bearing_before": 56,
+              "type": "arrive"
+            },
+            "geometry": "iuhzE~}c_O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "MCNABB AVE SW"
+          },
+          {
+            "duration": 8.3,
+            "maneuver": {
+              "location": [
+                -83.911515,
+                35.93061
+              ],
+              "bearing_after": 236,
+              "modifier": "left",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "iuhzE~}c_OZp@",
+            "distance": 27.7,
+            "mode": "driving",
+            "name": "MCNABB AVE SW"
+          },
+          {
+            "duration": 170.9,
+            "maneuver": {
+              "location": [
+                -83.91177,
+                35.93047
+              ],
+              "bearing_after": 330,
+              "modifier": "right",
+              "bearing_before": 234,
+              "type": "turn"
+            },
+            "geometry": "mthzEp_d_OQJ}CdB_BdA_CpAULm@L}ALaFLoBJoEd@k@B_@Aa@GWI[QSWWa@e@q@i@o@oAmAg@e@m@_@m@WwA_@}A_@sFsA]ISCeBS_D_@",
+            "distance": 1406.7,
+            "mode": "driving",
+            "name": "MARTIN MILL PIKE SW"
+          },
+          {
+            "duration": 109.9,
+            "maneuver": {
+              "location": [
+                -83.91075,
+                35.94219
+              ],
+              "bearing_after": 343,
+              "modifier": "straight",
+              "bearing_before": 8,
+              "type": "turn"
+            },
+            "geometry": "u}jzEdyc_OoAZkBd@eIvB}A`@aFzAgGvBmC`AsE~AcDjAoBn@gDfAu@T_Bj@q@Zg@VWPe@Xe@^_Ar@mAx@",
+            "distance": 1415.7,
+            "mode": "driving",
+            "name": "CHAPMAN HWY"
+          },
+          {
+            "duration": 7,
+            "maneuver": {
+              "location": [
+                -83.91622,
+                35.95408
+              ],
+              "bearing_after": 2,
+              "modifier": "slight right",
+              "bearing_before": 327,
+              "type": "turn"
+            },
+            "geometry": "_hmzEj{d_Om@Cy@I",
+            "distance": 58.2,
+            "mode": "driving",
+            "name": ""
+          },
+          {
+            "duration": 48.2,
+            "maneuver": {
+              "location": [
+                -83.91615,
+                35.9546
+              ],
+              "bearing_after": 40,
+              "modifier": "straight",
+              "bearing_before": 7,
+              "type": "turn"
+            },
+            "geometry": "gkmzE|zd_Ou@{@OOa@c@U_@a@cAuAcEaAmC",
+            "distance": 305.7,
+            "mode": "driving",
+            "name": "E BLOUNT AVE"
+          },
+          {
+            "duration": 196.3,
+            "maneuver": {
+              "location": [
+                -83.9134,
+                35.95616
+              ],
+              "bearing_after": 331,
+              "modifier": "left",
+              "bearing_before": 59,
+              "type": "turn"
+            },
+            "geometry": "_umzEvid_Om@\\{DzAuKbEoAf@QD_@NUJ}CpAoDtAaDxBeDfBcBl@",
+            "distance": 943.5,
+            "mode": "driving",
+            "name": "S GAY ST SE"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -83.917559,
+                35.963929
+              ],
+              "bearing_after": 0,
+              "modifier": "left",
+              "bearing_before": 340,
+              "type": "arrive"
+            },
+            "geometry": "qeozEvce_O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "S GAY ST SW"
+          }
+        ],
+        "route_end_location_id": " pyxl",
+        "num_soft_breaks": 0,
+        "max_segment_length": 17692.3,
+        "max_num_items_in_vehicle": 0,
+        "max_segment_time": 1041
+      },
+      {
+        "total_soft_break_time": 0,
+        "total_items_picked_up": [],
+        "route_start_location_id": " pyxl",
+        "floating_breaks": [],
+        "shift_end_time": "2019-03-02T17:00:00-04:00",
+        "polylines": [
+          "qeozEvce_OeA^cDbBa@TwEtBiDjB]m@Y[]S]Oo@U_@Sc@]U[O[Ss@GSSS{Cz@qDjAgCaEiB_Dy@|@",
+          "wwpzEl`e_Ox@}@QY[m@]i@OYuC_FyBsDiBhBKJ{BfCsBlB]Ji@D?n@Eh@QpA[Ao@CsDSgL_@O~FG~AA`@Cf@?f@?d@A`BC|AvAF",
+          "ccrzE~re_OwAGG`FOtFEdFAtEMjFwApAaGbGPb@`AtB\\p@f@z@bDpG",
+          "ehrzEfrg_OcDqGg@{@i@h@cCjCiDfDyCfEiDvEQXqCzDkCtDmCpDiCnDcCbDSUi@q@",
+          "w{szE`zh_Oh@p@RT_FdH}B~CeClDiChD_ChDGHw@dAs@`Ak@x@[l@Qj@Ed@A`@CjBAbA?h@Af@EfIAh@Gp@I\\MXOPSNsCfB]Tu@d@oBhAoCvAo@l@[h@Qd@Oz@Il@[lDQrBS~AQp@]l@UVk@^o@Xa@Ni@Po@Vm@ZgAn@kAt@_B|@k@X_A`@aAXo@Nw@Lo@Bi@Ao@Ga@Ie@Ms@YgB{@aAa@m@Gc@?Y@O@kALi@DmAL_BJ[?i@hCAVHTf@r@`@|@fA|CgEvCsEvCoBpAUH]D{@Pu@^aNdJeFrD{BjBkD|CsCiFu@p@UR",
+          "g~xzEnym_OkBbB}@`Ae@z@{@pByFxMeDcCg@e@s@_Ai@y@e@o@YUWKYGc@Ik@Ae@KYO[Y[g@Uc@g@gASa@kAaCMWeAyBe@_Aq@uAmAkC{CmGs@wAqBcEyByEyDkHaDqG}C_HyFkLYm@e@_Ai@iAS]SWc@e@][a@i@Q]",
+          "c|{zEjak_OIOc@oAc@wAi@mBq@qBc@oAUs@g@_BMe@Qw@i@wE_@}Ak@eBO]Wi@Ys@Ss@Ke@Ea@Cm@Ag@GeBMeC_@mGGiAIiBKaBIm@Ga@a@eBSs@q@qCSy@e@uB_@gBVSjA}@LMRULSv@}AVk@^{@R_@L_@F]Be@@y@DeEhA_@~By@dC{@pG{BJExCeAfDkA~Ak@bA]v@YvCeA|By@dBw@tA}@`@h@NDH?LEnB{AbBq@hC{@nBm@|@YVQf@?f@E^GjCW`BOt@Gv@OREf@Gf@E|@I|@MzAU`AObCYLA^Gp@IbDCZP`Ch@TDdEp@`APz@P|@Xb@RNFvB~@DYv@sDBGJGN@z@\\",
+          "kcxzEnkf_OPHHJBTNLXF^ANCPWLE`BdA\\s@|AgDJWHSPW~BiBu@gBjDcCzAiABA",
+          "ukwzEpxe_OC@{AhAeB_E}AaDiDjCwC|BQP_@X_BoAo@_@kAe@u@OqAKk@?o@@oF\\aDRcANi@NkAh@sBlAKLKLgGjD[P_A\\SJaAAuAIYYWSe@Om@WWO_@Y]YY]c@s@oAiCa@sBMq@G[[uAo@_Dq@wDUiA_@mBk@wCq@aDSu@q@wCg@qB}@cDaAiDkAoDkCmHkEaLaEiKwI}TwFyNiByEq@mBq@mBqBoGo@gBuA{Dy@oBKUSi@_A_CcAuCk@gBc@kBYsBI{@E{@A{@?}@@{@D}@PwBZuBd@yCjC_QdBaLXwBj@}ENgCHkBRqHZuLXkKFyBDyAJsFH}BLcCP_CZ}Bd@yBj@uBRi@Tk@JYXu@`@u@`@q@h@w@fAwArAwAjDaDbCyBnAgAp@m@tAiAxAcAl@[n@_@l@Yt@WfBe@v@Op@Il@E|@GjBCxBJxALbGn@hFf@nALf@D`BF~AAXEbAKvAc@pAs@r@k@^]x@cAj@eA^kATaANeAZcBJoAFeBNwF@eFFm@Hy@l@yGTmCXcDNmBJqA\\_Ej@cIFgAb@qHl@cDTmA@GR{@^}A\\kAPm@\\_AN[PSXWb@IPBXTHV^hAz@tCpBzGdBzFNf@zAbFr@~BjAzDt@fCRE|Cc@jA_@`Bw@l@QZEv@ClD@`BAfFObCCtCQrCKG~AIjH",
+          "igvzEfex~NAb@ClCF|@Jd@PTZ\\xD~Dz@p@tAz@pAp@l@RfK`DfBl@dCx@z@LjBBl@Gl@S|@]lBmA`@[jAlGt@jErBzK\\jAh@lAxD`HjC|ExAzCvBbEbD~FdC`E~E`HbAjAdAlARTLVpChDrA~Al@t@`@v@`@`AzBvFfDnIfBrEz@rBpB~E^~@^x@`AdBd@~@^|@bAjC|FrOhJxVP`@N^v@hBxBzFjB~Ej@|AX`AqDnAo@ZcCv@uCfASRG\\EtACfADf@aA`@kAmFwAj@",
+          "cxqzEfd`_Oa@Py@V{An@bBjFp@tB`@jAj@tAhAk@nAk@`A]z@_@HEnC{AnAq@bBq@hG_C@j@Af@GfCAx@EvB?d@CjCAxEF~AHbCPxEJtCHbCD~@Fd@Jh@Nh@n@pBlB`GnCjIXz@Rv@Hf@Dr@@h@?`@ArAdAXTF|@Rt@LPBZN`@BnAF|@B`@\\LXPd@AbAF|@Nt@Vv@rBbF~@|Bj@rAbAfCzB~Fj@jAlAfCLXHRXt@Nd@HTJV^~@j@zAh@dBxA`FcBl@",
+          "qeozEvce_O??"
+        ],
+        "itinerary": [
+          {
+            "time_to": "2019-03-02T07:03:46-05:00",
+            "time_from": "2019-03-02T07:00:00-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T07:13:46-05:00",
+            "time_from": "2019-03-02T07:03:46-05:00",
+            "action": "service order order_18"
+          },
+          {
+            "time_to": "2019-03-02T07:17:05-05:00",
+            "time_from": "2019-03-02T07:13:46-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T07:27:05-05:00",
+            "time_from": "2019-03-02T07:17:05-05:00",
+            "action": "service order order_20"
+          },
+          {
+            "time_to": "2019-03-02T07:29:40-05:00",
+            "time_from": "2019-03-02T07:27:05-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T07:39:40-05:00",
+            "time_from": "2019-03-02T07:29:40-05:00",
+            "action": "service order order_15"
+          },
+          {
+            "time_to": "2019-03-02T07:42:42-05:00",
+            "time_from": "2019-03-02T07:39:40-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T07:52:42-05:00",
+            "time_from": "2019-03-02T07:42:42-05:00",
+            "action": "service order order_21"
+          },
+          {
+            "time_to": "2019-03-02T08:00:20-05:00",
+            "time_from": "2019-03-02T07:52:42-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T08:10:20-05:00",
+            "time_from": "2019-03-02T08:00:20-05:00",
+            "action": "service order order_8"
+          },
+          {
+            "time_to": "2019-03-02T08:13:50-05:00",
+            "time_from": "2019-03-02T08:10:20-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T08:23:50-05:00",
+            "time_from": "2019-03-02T08:13:50-05:00",
+            "action": "service order order_9"
+          },
+          {
+            "time_to": "2019-03-02T08:32:00-05:00",
+            "time_from": "2019-03-02T08:23:50-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T08:42:00-05:00",
+            "time_from": "2019-03-02T08:32:00-05:00",
+            "action": "service order order_10"
+          },
+          {
+            "time_to": "2019-03-02T08:44:19-05:00",
+            "time_from": "2019-03-02T08:42:00-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T08:54:19-05:00",
+            "time_from": "2019-03-02T08:44:19-05:00",
+            "action": "service order order_16"
+          },
+          {
+            "time_to": "2019-03-02T09:06:58-05:00",
+            "time_from": "2019-03-02T08:54:19-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T09:16:58-05:00",
+            "time_from": "2019-03-02T09:06:58-05:00",
+            "action": "service order order_11"
+          },
+          {
+            "time_to": "2019-03-02T09:26:40-05:00",
+            "time_from": "2019-03-02T09:16:58-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T09:36:40-05:00",
+            "time_from": "2019-03-02T09:26:40-05:00",
+            "action": "service order order_7"
+          },
+          {
+            "time_to": "2019-03-02T09:45:08-05:00",
+            "time_from": "2019-03-02T09:36:40-05:00",
+            "action": "driving to arrival w./ no break"
+          },
+          {
+            "time_to": "2019-03-02T09:55:08-05:00",
+            "time_from": "2019-03-02T09:45:08-05:00",
+            "action": "service order order_28"
+          },
+          {
+            "time_to": "2019-03-02T09:55:08-05:00",
+            "time_from": "2019-03-02T09:55:08-05:00",
+            "action": "driving to arrival w./ no break"
+          }
+        ],
+        "route_end_time": "2019-03-02T09:55:08-05:00",
+        "route_travel_time": 3908,
+        "num_floating_breaks": 0,
+        "shift_id": "ken shift",
+        "shift_start_time": "2019-03-02T08:00:00-04:00",
+        "stops": [
+          {
+            "departure_time": "2019-03-02T07:00:00-05:00",
+            "distance_from_prev": 0,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 0,
+            "priority": -1,
+            "longitude": -83.917753,
+            "order_id": "NA",
+            "locked": false,
+            "service_start_time": "2019-03-02T07:00:00-05:00",
+            "latitude": 35.963871,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 0,
+            "abs_service_time_start": 1551528000,
+            "idle_time": 0,
+            "distance_to_next": 1087.1,
+            "travel_time_to_next": 226,
+            "arrival_time": "2019-03-02T07:00:00-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551528000,
+            "abs_departure_time": 1551528000,
+            "travel_time_to_next_no_traffic": 226,
+            "position_in_route": 0,
+            "location_id": " pyxl",
+            "travel_time_from_prev": 0
+          },
+          {
+            "departure_time": "2019-03-02T07:13:46-05:00",
+            "distance_from_prev": 1087.1,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 226,
+            "priority": 1,
+            "longitude": -83.91689,
+            "order_id": "order_18",
+            "locked": false,
+            "service_start_time": "2019-03-02T07:03:46-05:00",
+            "latitude": 35.97205,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551528226,
+            "idle_time": 0,
+            "distance_to_next": 1479.5,
+            "travel_time_to_next": 199,
+            "arrival_time": "2019-03-02T07:03:46-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551528226,
+            "abs_departure_time": 1551528826,
+            "travel_time_to_next_no_traffic": 198,
+            "position_in_route": 1,
+            "location_id": " 301 E Jackson Ave SE Knoxville TN 37915 United States",
+            "travel_time_from_prev": 226
+          },
+          {
+            "departure_time": "2019-03-02T07:27:05-05:00",
+            "distance_from_prev": 1479.5,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 198,
+            "priority": 1,
+            "longitude": -83.9203,
+            "order_id": "order_20",
+            "locked": false,
+            "service_start_time": "2019-03-02T07:17:05-05:00",
+            "latitude": 35.97892,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551529025,
+            "idle_time": 0,
+            "distance_to_next": 1114.8,
+            "travel_time_to_next": 155,
+            "arrival_time": "2019-03-02T07:17:05-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551529025,
+            "abs_departure_time": 1551529625,
+            "travel_time_to_next_no_traffic": 155,
+            "position_in_route": 2,
+            "location_id": " 811 Eleanor St Knoxville TN 37917 United States",
+            "travel_time_from_prev": 199
+          },
+          {
+            "departure_time": "2019-03-02T07:39:40-05:00",
+            "distance_from_prev": 1114.8,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 155,
+            "priority": 1,
+            "longitude": -83.92998,
+            "order_id": "order_15",
+            "locked": false,
+            "service_start_time": "2019-03-02T07:29:40-05:00",
+            "latitude": 35.97955,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551529780,
+            "idle_time": 0,
+            "distance_to_next": 1316.7,
+            "travel_time_to_next": 182,
+            "arrival_time": "2019-03-02T07:29:40-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551529780,
+            "abs_departure_time": 1551530380,
+            "travel_time_to_next_no_traffic": 150,
+            "position_in_route": 3,
+            "location_id": " 142 W Baxter Ave Knoxville TN 37917 United States",
+            "travel_time_from_prev": 155
+          },
+          {
+            "departure_time": "2019-03-02T07:52:42-05:00",
+            "distance_from_prev": 1316.7,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 150,
+            "priority": 1,
+            "longitude": -83.9367,
+            "order_id": "order_21",
+            "locked": false,
+            "service_start_time": "2019-03-02T07:42:42-05:00",
+            "latitude": 35.98813,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551530562,
+            "idle_time": 0,
+            "distance_to_next": 4398.4,
+            "travel_time_to_next": 458,
+            "arrival_time": "2019-03-02T07:42:42-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551530562,
+            "abs_departure_time": 1551531162,
+            "travel_time_to_next_no_traffic": 408,
+            "position_in_route": 4,
+            "location_id": " 111 E Columbia Ave Knoxville TN 37917 United States",
+            "travel_time_from_prev": 182
+          },
+          {
+            "departure_time": "2019-03-02T08:10:20-05:00",
+            "distance_from_prev": 4398.4,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 408,
+            "priority": 1,
+            "longitude": -83.96233,
+            "order_id": "order_8",
+            "locked": false,
+            "service_start_time": "2019-03-02T08:00:20-05:00",
+            "latitude": 36.01376,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551531620,
+            "idle_time": 0,
+            "distance_to_next": 2646.3,
+            "travel_time_to_next": 210,
+            "arrival_time": "2019-03-02T08:00:20-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551531620,
+            "abs_departure_time": 1551532220,
+            "travel_time_to_next_no_traffic": 193,
+            "position_in_route": 5,
+            "location_id": " 4905 Rowan Rd Knoxville TN 37912 United States",
+            "travel_time_from_prev": 458
+          },
+          {
+            "departure_time": "2019-03-02T08:23:50-05:00",
+            "distance_from_prev": 2646.3,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 193,
+            "priority": 1,
+            "longitude": -83.94758,
+            "order_id": "order_9",
+            "locked": false,
+            "service_start_time": "2019-03-02T08:13:50-05:00",
+            "latitude": 36.02863,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551532430,
+            "idle_time": 0,
+            "distance_to_next": 4513.5,
+            "travel_time_to_next": 490,
+            "arrival_time": "2019-03-02T08:13:50-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551532430,
+            "abs_departure_time": 1551533030,
+            "travel_time_to_next_no_traffic": 393,
+            "position_in_route": 6,
+            "location_id": " 1802 Cedar Ln NE Knoxville TN 37918 United States",
+            "travel_time_from_prev": 210
+          },
+          {
+            "departure_time": "2019-03-02T08:42:00-05:00",
+            "distance_from_prev": 4513.5,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 393,
+            "priority": 1,
+            "longitude": -83.92392,
+            "order_id": "order_10",
+            "locked": false,
+            "service_start_time": "2019-03-02T08:32:00-05:00",
+            "latitude": 36.0096599,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551533520,
+            "idle_time": 0,
+            "distance_to_next": 642.7,
+            "travel_time_to_next": 139,
+            "arrival_time": "2019-03-02T08:32:00-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551533520,
+            "abs_departure_time": 1551534120,
+            "travel_time_to_next_no_traffic": 97,
+            "position_in_route": 7,
+            "location_id": " Topeka St Knoxville TN 37917 United States",
+            "travel_time_from_prev": 490
+          },
+          {
+            "departure_time": "2019-03-02T08:54:19-05:00",
+            "distance_from_prev": 642.7,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 97,
+            "priority": 1,
+            "longitude": -83.9205999,
+            "order_id": "order_16",
+            "locked": false,
+            "service_start_time": "2019-03-02T08:44:19-05:00",
+            "latitude": 36.00599,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551534259,
+            "idle_time": 0,
+            "distance_to_next": 12455.3,
+            "travel_time_to_next": 759,
+            "arrival_time": "2019-03-02T08:44:19-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551534259,
+            "abs_departure_time": 1551534859,
+            "travel_time_to_next_no_traffic": 703,
+            "position_in_route": 8,
+            "location_id": " 3338 Powers St NE Knoxville TN 37917 United States",
+            "travel_time_from_prev": 139
+          },
+          {
+            "departure_time": "2019-03-02T09:16:58-05:00",
+            "distance_from_prev": 12455.3,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 703,
+            "priority": 1,
+            "longitude": -83.85122,
+            "order_id": "order_11",
+            "locked": false,
+            "service_start_time": "2019-03-02T09:06:58-05:00",
+            "latitude": 36.00043,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551535618,
+            "idle_time": 0,
+            "distance_to_next": 5495.7,
+            "travel_time_to_next": 582,
+            "arrival_time": "2019-03-02T09:06:58-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551535618,
+            "abs_departure_time": 1551536218,
+            "travel_time_to_next_no_traffic": 511,
+            "position_in_route": 9,
+            "location_id": " 5001 Sunset Rd W Knoxville TN 37914 United States",
+            "travel_time_from_prev": 759
+          },
+          {
+            "departure_time": "2019-03-02T09:36:40-05:00",
+            "distance_from_prev": 5495.7,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 511,
+            "priority": 1,
+            "longitude": -83.89216,
+            "order_id": "order_7",
+            "locked": false,
+            "service_start_time": "2019-03-02T09:26:40-05:00",
+            "latitude": 35.9771,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551536800,
+            "idle_time": 0,
+            "distance_to_next": 3136.9,
+            "travel_time_to_next": 508,
+            "arrival_time": "2019-03-02T09:26:40-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551536800,
+            "abs_departure_time": 1551537400,
+            "travel_time_to_next_no_traffic": 384,
+            "position_in_route": 10,
+            "location_id": " 2324 Center Ave Knoxville TN 37915 United States",
+            "travel_time_from_prev": 582
+          },
+          {
+            "departure_time": "2019-03-02T09:55:08-05:00",
+            "distance_from_prev": 3136.9,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 384,
+            "priority": 1,
+            "longitude": -83.917753,
+            "order_id": "order_28",
+            "locked": false,
+            "service_start_time": "2019-03-02T09:45:08-05:00",
+            "latitude": 35.963871,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 600,
+            "abs_service_time_start": 1551537908,
+            "idle_time": 0,
+            "distance_to_next": 0,
+            "travel_time_to_next": 0,
+            "arrival_time": "2019-03-02T09:45:08-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551537908,
+            "abs_departure_time": 1551538508,
+            "travel_time_to_next_no_traffic": 0,
+            "position_in_route": 11,
+            "location_id": " pyxl",
+            "travel_time_from_prev": 508
+          },
+          {
+            "departure_time": "2019-03-02T09:55:08-05:00",
+            "distance_from_prev": 0,
+            "appointment": false,
+            "travel_time_from_prev_no_traffic": 0,
+            "priority": -1,
+            "longitude": -83.917753,
+            "order_id": "NA",
+            "locked": false,
+            "service_start_time": "2019-03-02T09:55:08-05:00",
+            "latitude": 35.963871,
+            "items_unloaded": [],
+            "items_picked_up": [],
+            "service_time": 0,
+            "abs_service_time_start": 1551538508,
+            "idle_time": 0,
+            "distance_to_next": 0,
+            "travel_time_to_next": 0,
+            "arrival_time": "2019-03-02T09:55:08-05:00",
+            "items_delivered": [],
+            "items_replenished": [],
+            "abs_arrival_time": 1551538508,
+            "abs_departure_time": 1551538508,
+            "travel_time_to_next_no_traffic": 0,
+            "position_in_route": 12,
+            "location_id": " pyxl",
+            "travel_time_from_prev": 0
+          }
+        ],
+        "total_idle_time": 0,
+        "abs_route_end_time": 1551538508,
+        "slack_time": 21892,
+        "route_traffic_time": 490,
+        "breaks": [],
+        "total_break_time": 0,
+        "route_working_time": 10508,
+        "soft_breaks": [],
+        "num_breaks": 0,
+        "start_items": [],
+        "abs_route_start_time": 1551528000,
+        "route_start_time": "2019-03-02T07:00:00-05:00",
+        "route_id": "Vehicle:ken vehicle-Shift:ken shift",
+        "abs_shift_start_time": 1551528000,
+        "route_distance": 38286.9,
+        "abs_shift_end_time": 1551560400,
+        "num_stops": 13,
+        "total_floating_break_time": 0,
+        "vehicle_id": "ken vehicle",
+        "max_weight_in_vehicle": 0,
+        "total_items_delivered": [],
+        "max_volume_in_vehicle": 0,
+        "directions": [
+          {
+            "duration": 95.6,
+            "maneuver": {
+              "location": [
+                -83.917559,
+                35.963929
+              ],
+              "bearing_after": 340,
+              "modifier": "left",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "qeozEvce_OeA^cDbBa@TwEtBiDjB",
+            "distance": 402.3,
+            "mode": "driving",
+            "name": "S GAY ST SW"
+          },
+          {
+            "duration": 44.4,
+            "maneuver": {
+              "location": [
+                -83.91946,
+                35.9672
+              ],
+              "bearing_after": 50,
+              "modifier": "right",
+              "bearing_before": 331,
+              "type": "turn"
+            },
+            "geometry": "_zozEroe_O]m@Y[]S]Oo@U_@Sc@]U[O[Ss@GSSS",
+            "distance": 238.7,
+            "mode": "driving",
+            "name": "W SUMMIT HILL DR SW"
+          },
+          {
+            "duration": 36.4,
+            "maneuver": {
+              "location": [
+                -83.91781,
+                35.96879
+              ],
+              "bearing_after": 341,
+              "modifier": "left",
+              "bearing_before": 66,
+              "type": "turn"
+            },
+            "geometry": "}cpzEhee_O{Cz@qDjA",
+            "distance": 195.6,
+            "mode": "driving",
+            "name": "S CENTRAL ST SW"
+          },
+          {
+            "duration": 39.6,
+            "maneuver": {
+              "location": [
+                -83.91849,
+                35.97046
+              ],
+              "bearing_after": 47,
+              "modifier": "right",
+              "bearing_before": 340,
+              "type": "turn"
+            },
+            "geometry": "knpzEpie_OgCaEiB_D",
+            "distance": 208.6,
+            "mode": "driving",
+            "name": "E JACKSON AVE SE"
+          },
+          {
+            "duration": 9.4,
+            "maneuver": {
+              "location": [
+                -83.91672,
+                35.97167
+              ],
+              "bearing_after": 317,
+              "modifier": "left",
+              "bearing_before": 50,
+              "type": "turn"
+            },
+            "geometry": "}upzEn~d_Oy@|@",
+            "distance": 41.9,
+            "mode": "driving",
+            "name": "MORGAN ST SE"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -83.917025,
+                35.971955
+              ],
+              "bearing_after": 0,
+              "modifier": "right",
+              "bearing_before": 319,
+              "type": "arrive"
+            },
+            "geometry": "wwpzEl`e_O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "MORGAN ST SE"
+          },
+          {
+            "duration": 14.7,
+            "maneuver": {
+              "location": [
+                -83.917025,
+                35.971955
+              ],
+              "bearing_after": 139,
+              "modifier": "left",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "wwpzEl`e_Ox@}@",
+            "distance": 41.9,
+            "mode": "driving",
+            "name": "MORGAN ST SE"
+          },
+          {
+            "duration": 38.3,
+            "maneuver": {
+              "location": [
+                -83.91672,
+                35.97167
+              ],
+              "bearing_after": 49,
+              "modifier": "left",
+              "bearing_before": 137,
+              "type": "turn"
+            },
+            "geometry": "}upzEn~d_OQY[m@]i@OYuC_FyBsD",
+            "distance": 317.7,
+            "mode": "driving",
+            "name": "E JACKSON AVE SE"
+          },
+          {
+            "duration": 53.1,
+            "maneuver": {
+              "location": [
+                -83.914,
+                35.97349
+              ],
+              "bearing_after": 320,
+              "modifier": "left",
+              "bearing_before": 49,
+              "type": "turn"
+            },
+            "geometry": "iaqzEnmd_OiBhBKJ{BfCsBlB]Ji@D",
+            "distance": 299,
+            "mode": "driving",
+            "name": "RANDOLPH ST"
+          },
+          {
+            "duration": 14.1,
+            "maneuver": {
+              "location": [
+                -83.91591,
+                35.97564
+              ],
+              "bearing_after": 270,
+              "modifier": "left",
+              "bearing_before": 352,
+              "type": "end of road"
+            },
+            "geometry": "wnqzElyd_O?n@Eh@QpA",
+            "distance": 79,
+            "mode": "driving",
+            "name": "E MAGNOLIA AVE NE"
+          },
+          {
+            "duration": 33.7,
+            "maneuver": {
+              "location": [
+                -83.91677,
+                35.97576
+              ],
+              "bearing_after": 4,
+              "modifier": "right",
+              "bearing_before": 284,
+              "type": "turn"
+            },
+            "geometry": "ooqzEx~d_O[Ao@CsDSgL_@",
+            "distance": 379.1,
+            "mode": "driving",
+            "name": "HALL OF FAME DR NE"
+          },
+          {
+            "duration": 35.7,
+            "maneuver": {
+              "location": [
+                -83.91648,
+                35.97916
+              ],
+              "bearing_after": 274,
+              "modifier": "left",
+              "bearing_before": 2,
+              "type": "turn"
+            },
+            "geometry": "wdrzE~|d_OO~FG~AA`@Cf@?f@?d@A`BC|A",
+            "distance": 314,
+            "mode": "driving",
+            "name": "GILL AVE NE"
+          },
+          {
+            "duration": 9.2,
+            "maneuver": {
+              "location": [
+                -83.91996,
+                35.97934
+              ],
+              "bearing_after": 182,
+              "modifier": "left",
+              "bearing_before": 272,
+              "type": "turn"
+            },
+            "geometry": "{erzEvre_OvAF",
+            "distance": 48.7,
+            "mode": "driving",
+            "name": "ELEANOR ST NE"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -83.919997,
+                35.978903
+              ],
+              "bearing_after": 0,
+              "modifier": "right",
+              "bearing_before": 184,
+              "type": "arrive"
+            },
+            "geometry": "ccrzE~re_O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "ELEANOR ST NE"
+          },
+          {
+            "duration": 18,
+            "maneuver": {
+              "location": [
+                -83.919997,
+                35.978903
+              ],
+              "bearing_after": 4,
+              "modifier": "left",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "ccrzE~re_OwAG",
+            "distance": 48.7,
+            "mode": "driving",
+            "name": "ELEANOR ST NE"
+          },
+          {
+            "duration": 64.3,
+            "maneuver": {
+              "location": [
+                -83.91996,
+                35.97934
+              ],
+              "bearing_after": 271,
+              "modifier": "left",
+              "bearing_before": 2,
+              "type": "turn"
+            },
+            "geometry": "{erzEvre_OG`FOtFEdFAtEMjF",
+            "distance": 519.2,
+            "mode": "driving",
+            "name": "GILL AVE NE"
+          },
+          {
+            "duration": 38.7,
+            "maneuver": {
+              "location": [
+                -83.92572,
+                35.97957
+              ],
+              "bearing_after": 322,
+              "modifier": "slight right",
+              "bearing_before": 272,
+              "type": "turn"
+            },
+            "geometry": "igrzEvvf_OwApAaGbG",
+            "distance": 246.4,
+            "mode": "driving",
+            "name": "ALEXANDER ST"
+          },
+          {
+            "duration": 33.7,
+            "maneuver": {
+              "location": [
+                -83.92743,
+                35.9813
+              ],
+              "bearing_after": 237,
+              "modifier": "left",
+              "bearing_before": 320,
+              "type": "turn"
+            },
+            "geometry": "crrzElag_OPb@`AtB\\p@f@z@bDpG",
+            "distance": 300.4,
+            "mode": "driving",
+            "name": "E BAXTER AVE NE"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -83.930122,
+                35.979705
+              ],
+              "bearing_after": 0,
+              "modifier": "left",
+              "bearing_before": 233,
+              "type": "arrive"
+            },
+            "geometry": "ehrzEfrg_O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "W BAXTER AVE NW"
+          },
+          {
+            "duration": 39.7,
+            "maneuver": {
+              "location": [
+                -83.930122,
+                35.979705
+              ],
+              "bearing_after": 53,
+              "modifier": "right",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "ehrzEfrg_OcDqGg@{@",
+            "distance": 188.8,
+            "mode": "driving",
+            "name": "W BAXTER AVE NW"
+          },
+          {
+            "duration": 136.4,
+            "maneuver": {
+              "location": [
+                -83.92845,
+                35.98073
+              ],
+              "bearing_after": 320,
+              "modifier": "left",
+              "bearing_before": 49,
+              "type": "turn"
+            },
+            "geometry": "qnrzExgg_Oi@h@cCjCiDfDyCfEiDvEQXqCzDkCtDmCpDiCnDcCbD",
+            "distance": 1080.2,
+            "mode": "driving",
+            "name": "N CENTRAL ST"
+          },
+          {
+            "duration": 5.1,
+            "maneuver": {
+              "location": [
+                -83.93685,
+                35.98765
+              ],
+              "bearing_after": 40,
+              "modifier": "right",
+              "bearing_before": 313,
+              "type": "turn"
+            },
+            "geometry": "yyszEh|h_OSUi@q@",
+            "distance": 47.7,
+            "mode": "driving",
+            "name": "E COLUMBIA AVE NE"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -83.936486,
+                35.987961
+              ],
+              "bearing_after": 0,
+              "modifier": "left",
+              "bearing_before": 44,
+              "type": "arrive"
+            },
+            "geometry": "w{szE`zh_O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "E COLUMBIA AVE NE"
+          },
+          {
+            "duration": 7.5,
+            "maneuver": {
+              "location": [
+                -83.936486,
+                35.987961
+              ],
+              "bearing_after": 224,
+              "modifier": "right",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "w{szE`zh_Oh@p@RT",
+            "distance": 47.7,
+            "mode": "driving",
+            "name": "E COLUMBIA AVE NE"
+          },
+          {
+            "duration": 145.6,
+            "maneuver": {
+              "location": [
+                -83.93685,
+                35.98765
+              ],
+              "bearing_after": 312,
+              "modifier": "right",
+              "bearing_before": 220,
+              "type": "turn"
+            },
+            "geometry": "yyszEh|h_O_FdH}B~CeClDiChD_ChDGHw@dAs@`Ak@x@[l@Qj@Ed@A`@CjBAbA?h@Af@EfIAh@Gp@I\\MXOPSNsCfB]Tu@d@",
+            "distance": 1320.1,
+            "mode": "driving",
+            "name": "N CENTRAL ST"
+          },
+          {
+            "duration": 95.8,
+            "maneuver": {
+              "location": [
+                -83.94818,
+                35.99405
+              ],
+              "bearing_after": 330,
+              "modifier": "straight",
+              "bearing_before": 329,
+              "type": "new name"
+            },
+            "geometry": "yauzEbck_OoBhAoCvAo@l@[h@Qd@Oz@Il@[lDQrBS~AQp@]l@UVk@^o@Xa@Ni@Po@Vm@ZgAn@kAt@_B|@k@X_A`@aAXo@Nw@Lo@Bi@Ao@Ga@Ie@Ms@YgB{@aAa@m@Gc@?Y@O@kAL",
+            "distance": 1376.5,
+            "mode": "driving",
+            "name": "BRUHIN ST NW"
+          },
+          {
+            "duration": 16.9,
+            "maneuver": {
+              "location": [
+                -83.9541,
+                36.00369
+              ],
+              "bearing_after": 352,
+              "modifier": "straight",
+              "bearing_before": 350,
+              "type": "new name"
+            },
+            "geometry": "a~vzEbhl_Oi@DmAL_BJ[?",
+            "distance": 136.6,
+            "mode": "driving",
+            "name": "BRUHIN RD NW"
+          },
+          {
+            "duration": 36.3,
+            "maneuver": {
+              "location": [
+                -83.95426,
+                36.00491
+              ],
+              "bearing_after": 289,
+              "modifier": "left",
+              "bearing_before": 0,
+              "type": "turn"
+            },
+            "geometry": "uewzEbil_Oi@hCAVHTf@r@`@|@fA|C",
+            "distance": 236.1,
+            "mode": "driving",
+            "name": "DURBIN DR NE"
+          },
+          {
+            "duration": 130.5,
+            "maneuver": {
+              "location": [
+                -83.95654,
+                36.00435
+              ],
+              "bearing_after": 327,
+              "modifier": "right",
+              "bearing_before": 240,
+              "type": "turn"
+            },
+            "geometry": "ebwzEjwl_OgEvCsEvCoBpAUH]D{@Pu@^aNdJeFrD{BjBkD|C",
+            "distance": 1104.5,
+            "mode": "driving",
+            "name": "COSTER RD NE"
+          },
+          {
+            "duration": 19.3,
+            "maneuver": {
+              "location": [
+                -83.96282,
+                36.01284
+              ],
+              "bearing_after": 50,
+              "modifier": "right",
+              "bearing_before": 322,
+              "type": "turn"
+            },
+            "geometry": "gwxzEr~m_OsCiF",
+            "distance": 133.6,
+            "mode": "driving",
+            "name": "HIGHLAND DR NE"
+          },
+          {
+            "duration": 5.5,
+            "maneuver": {
+              "location": [
+                -83.96165,
+                36.01358
+              ],
+              "bearing_after": 322,
+              "modifier": "left",
+              "bearing_before": 50,
+              "type": "turn"
+            },
+            "geometry": "{{xzEhwm_Ou@p@UR",
+            "distance": 52.7,
+            "mode": "driving",
+            "name": "ROWAN RD"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -83.962001,
+                36.013959
+              ],
+              "bearing_after": 0,
+              "modifier": "left",
+              "bearing_before": 323,
+              "type": "arrive"
+            },
+            "geometry": "g~xzEnym_O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "ROWAN RD"
+          },
+          {
+            "duration": 56.1,
+            "maneuver": {
+              "location": [
+                -83.962001,
+                36.013959
+              ],
+              "bearing_after": 323,
+              "modifier": "left",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "g~xzEnym_OkBbB}@`Ae@z@{@pByFxM",
+            "distance": 470.6,
+            "mode": "driving",
+            "name": "ROWAN RD"
+          },
+          {
+            "duration": 153.5,
+            "maneuver": {
+              "location": [
+                -83.96607,
+                36.01655
+              ],
+              "bearing_after": 32,
+              "modifier": "right",
+              "bearing_before": 302,
+              "type": "turn"
+            },
+            "geometry": "mnyzE|rn_OeDcCg@e@s@_Ai@y@e@o@YUWKYGc@Ik@Ae@KYO[Y[g@Uc@g@gASa@kAaCMWeAyBe@_Aq@uAmAkC{CmGs@wAqBcEyByEyDkHaDqG}C_HyFkLYm@e@_Ai@iAS]SWc@e@][a@i@Q]",
+            "distance": 2175.7,
+            "mode": "driving",
+            "name": "CEDAR LN NE"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -83.947904,
+                36.028979
+              ],
+              "bearing_after": 0,
+              "modifier": "right",
+              "bearing_before": 53,
+              "type": "arrive"
+            },
+            "geometry": "c|{zEjak_O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "CEDAR LN NE"
+          },
+          {
+            "duration": 109.8,
+            "maneuver": {
+              "location": [
+                -83.947904,
+                36.028979
+              ],
+              "bearing_after": 53,
+              "modifier": "right",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "c|{zEjak_OIOc@oAc@wAi@mBq@qBc@oAUs@g@_BMe@Qw@i@wE_@}Ak@eBO]Wi@Ys@Ss@Ke@Ea@Cm@Ag@GeBMeC_@mGGiAIiBKaBIm@Ga@a@eBSs@q@qCSy@e@uB_@gB",
+            "distance": 1408.7,
+            "mode": "driving",
+            "name": "CEDAR LN NE"
+          },
+          {
+            "duration": 63.6,
+            "maneuver": {
+              "location": [
+                -83.9333,
+                36.03312
+              ],
+              "bearing_after": 146,
+              "modifier": "right",
+              "bearing_before": 68,
+              "type": "turn"
+            },
+            "geometry": "_v|zEbfh_OVSjA}@LMRULSv@}AVk@^{@R_@L_@F]Be@@y@DeE",
+            "distance": 393.4,
+            "mode": "driving",
+            "name": "KNOX RD NE"
+          },
+          {
+            "duration": 126.4,
+            "maneuver": {
+              "location": [
+                -83.92968,
+                36.03155
+              ],
+              "bearing_after": 160,
+              "modifier": "right",
+              "bearing_before": 91,
+              "type": "turn"
+            },
+            "geometry": "el|zEnog_OhA_@~By@dC{@pG{BJExCeAfDkA~Ak@bA]v@YvCeA|By@dBw@tA}@",
+            "distance": 971.6,
+            "mode": "driving",
+            "name": "N BROADWAY NE"
+          },
+          {
+            "duration": 58.2,
+            "maneuver": {
+              "location": [
+                -83.92582,
+                36.0234
+              ],
+              "bearing_after": 223,
+              "modifier": "right",
+              "bearing_before": 149,
+              "type": "turn"
+            },
+            "geometry": "gyzzEjwf_O`@h@NDH?LEnB{AbBq@hC{@nBm@|@YVQ",
+            "distance": 383.6,
+            "mode": "driving",
+            "name": "OLD BROADWAY NE"
+          },
+          {
+            "duration": 67,
+            "maneuver": {
+              "location": [
+                -83.92457,
+                36.02029
+              ],
+              "bearing_after": 180,
+              "modifier": "slight right",
+              "bearing_before": 147,
+              "type": "continue"
+            },
+            "geometry": "yezzEpof_Of@?f@E^GjCW`BOt@Gv@OREf@Gf@E|@I|@MzAU`AObCYLA^Gp@IbDC",
+            "distance": 694,
+            "mode": "driving",
+            "name": "OLD BROADWAY NE"
+          },
+          {
+            "duration": 35.2,
+            "maneuver": {
+              "location": [
+                -83.92352,
+                36.01412
+              ],
+              "bearing_after": 206,
+              "modifier": "slight right",
+              "bearing_before": 178,
+              "type": "turn"
+            },
+            "geometry": "g_yzE~hf_OZP`Ch@TDdEp@`APz@P|@Xb@RNFvB~@",
+            "distance": 429.8,
+            "mode": "driving",
+            "name": "N BROADWAY NE"
+          },
+          {
+            "duration": 29.5,
+            "maneuver": {
+              "location": [
+                -83.92487,
+                36.01043
+              ],
+              "bearing_after": 109,
+              "modifier": "left",
+              "bearing_before": 202,
+              "type": "turn"
+            },
+            "geometry": "ehxzElqf_ODYv@sDBGJGN@z@\\",
+            "distance": 155.7,
+            "mode": "driving",
+            "name": "TOPEKA ST"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -83.923923,
+                36.009661
+              ],
+              "bearing_after": 0,
+              "type": "arrive",
+              "bearing_before": 202
+            },
+            "geometry": "kcxzEnkf_O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "TOPEKA ST"
+          },
+          {
+            "duration": 42.3,
+            "maneuver": {
+              "location": [
+                -83.923923,
+                36.009661
+              ],
+              "bearing_after": 203,
+              "type": "depart",
+              "bearing_before": 0
+            },
+            "geometry": "kcxzEnkf_OPHHJBTNLXF^ANCPWLE`BdA",
+            "distance": 167.5,
+            "mode": "driving",
+            "name": "TOPEKA ST"
+          },
+          {
+            "duration": 48.4,
+            "maneuver": {
+              "location": [
+                -83.92442,
+                36.0084
+              ],
+              "bearing_after": 125,
+              "modifier": "left",
+              "bearing_before": 209,
+              "type": "turn"
+            },
+            "geometry": "o{wzErnf_O\\s@|AgDJWHSPW~BiB",
+            "distance": 244.3,
+            "mode": "driving",
+            "name": "POWERS ST NE"
+          },
+          {
+            "duration": 11.2,
+            "maneuver": {
+              "location": [
+                -83.92245,
+                36.00694
+              ],
+              "bearing_after": 56,
+              "modifier": "left",
+              "bearing_before": 144,
+              "type": "end of road"
+            },
+            "geometry": "krwzEhbf_Ou@gB",
+            "distance": 55.6,
+            "mode": "driving",
+            "name": "EMORILAND BLVD NE"
+          },
+          {
+            "duration": 36.3,
+            "maneuver": {
+              "location": [
+                -83.92193,
+                36.00721
+              ],
+              "bearing_after": 147,
+              "modifier": "right",
+              "bearing_before": 56,
+              "type": "turn"
+            },
+            "geometry": "atwzE`_f_OjDcCzAiABA",
+            "distance": 175.6,
+            "mode": "driving",
+            "name": "POWERS ST NE"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -83.92089,
+                36.005874
+              ],
+              "bearing_after": 0,
+              "modifier": "left",
+              "bearing_before": 153,
+              "type": "arrive"
+            },
+            "geometry": "ukwzEpxe_O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "POWERS ST NE"
+          },
+          {
+            "duration": 15.3,
+            "maneuver": {
+              "location": [
+                -83.92089,
+                36.005874
+              ],
+              "bearing_after": 333,
+              "modifier": "right",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "ukwzEpxe_OC@{AhA",
+            "distance": 63,
+            "mode": "driving",
+            "name": "POWERS ST NE"
+          },
+          {
+            "duration": 21.9,
+            "maneuver": {
+              "location": [
+                -83.92127,
+                36.00635
+              ],
+              "bearing_after": 56,
+              "modifier": "right",
+              "bearing_before": 326,
+              "type": "turn"
+            },
+            "geometry": "unwzE|ze_OeB_E}AaD",
+            "distance": 193,
+            "mode": "driving",
+            "name": "FAIRMONT BLVD NE"
+          },
+          {
+            "duration": 36.5,
+            "maneuver": {
+              "location": [
+                -83.9195,
+                36.00733
+              ],
+              "bearing_after": 326,
+              "modifier": "left",
+              "bearing_before": 53,
+              "type": "turn"
+            },
+            "geometry": "ytwzEzoe_OiDjCwC|BQP_@X",
+            "distance": 249.5,
+            "mode": "driving",
+            "name": "CLEARVIEW ST"
+          },
+          {
+            "duration": 102.7,
+            "maneuver": {
+              "location": [
+                -83.92105,
+                36.00919
+              ],
+              "bearing_after": 33,
+              "modifier": "right",
+              "bearing_before": 326,
+              "type": "end of road"
+            },
+            "geometry": "m`xzEpye_O_BoAo@_@kAe@u@OqAKk@?o@@oF\\aDRcANi@NkAh@sBlAKLKLgGjD[P_A\\SJ",
+            "distance": 927.9,
+            "mode": "driving",
+            "name": "WALKER BLVD NE"
+          },
+          {
+            "duration": 11.3,
+            "maneuver": {
+              "location": [
+                -83.92248,
+                36.01695
+              ],
+              "bearing_after": 0,
+              "modifier": "slight right",
+              "bearing_before": 337,
+              "type": "turn"
+            },
+            "geometry": "}pyzEnbf_OaAAuAI",
+            "distance": 84.8,
+            "mode": "driving",
+            "name": "N BROADWAY NE"
+          },
+          {
+            "duration": 15.8,
+            "maneuver": {
+              "location": [
+                -83.92242,
+                36.01771
+              ],
+              "bearing_after": 37,
+              "modifier": "slight right",
+              "bearing_before": 4,
+              "type": "turn"
+            },
+            "geometry": "uuyzEbbf_OYYWSe@Om@WWO_@Y]YY]c@s@oAiC",
+            "distance": 268.6,
+            "mode": "driving",
+            "name": ""
+          },
+          {
+            "duration": 275.4,
+            "maneuver": {
+              "location": [
+                -83.92055,
+                36.01952
+              ],
+              "bearing_after": 68,
+              "modifier": "slight left",
+              "bearing_before": 53,
+              "type": "merge"
+            },
+            "geometry": "_azzElve_Oa@sBMq@G[[uAo@_Dq@wDUiA_@mBk@wCq@aDSu@q@wCg@qB}@cDaAiDkAoDkCmHkEaLaEiKwI}TwFyNiByEq@mBq@mBqBoGo@gBuA{Dy@oBKUSi@_A_CcAuCk@gBc@kBYsBI{@E{@A{@?}@@{@D}@PwBZuBd@yCjC_QdBaLXwBj@}ENgCHkBRqHZuLXkKFyBDyAJsFH}BLcCP_CZ}Bd@yBj@uBRi@Tk@JYXu@`@u@`@q@h@w@fAwArAwAjDaDbCyBnAgAp@m@tAiAxAcAl@[n@_@l@Yt@WfBe@v@Op@Il@E|@GjBCxBJxALbGn@hFf@nALf@D",
+            "distance": 6778.7,
+            "mode": "driving",
+            "name": "I-640"
+          },
+          {
+            "duration": 42.3,
+            "maneuver": {
+              "location": [
+                -83.86132,
+                36.01697
+              ],
+              "bearing_after": 182,
+              "modifier": "slight left",
+              "bearing_before": 187,
+              "type": "fork"
+            },
+            "geometry": "aqyzEfdz~N`BF~AAXEbAKvAc@pAs@r@k@^]x@cAj@eA^kATaANeAZcBJoAFeBNwF@eF",
+            "distance": 854.5,
+            "mode": "driving",
+            "name": ""
+          },
+          {
+            "duration": 33.3,
+            "maneuver": {
+              "location": [
+                -83.8549,
+                36.01307
+              ],
+              "bearing_after": 101,
+              "modifier": "slight left",
+              "bearing_before": 90,
+              "type": "merge"
+            },
+            "geometry": "uxxzEb|x~NFm@Hy@l@yGTmCXcDNmBJqA\\_Ej@cIFgAb@qH",
+            "distance": 812.8,
+            "mode": "driving",
+            "name": "I-40"
+          },
+          {
+            "duration": 36.3,
+            "maneuver": {
+              "location": [
+                -83.84601,
+                36.01178
+              ],
+              "bearing_after": 108,
+              "modifier": "slight right",
+              "bearing_before": 97,
+              "type": "turn"
+            },
+            "geometry": "spxzEpdw~Nl@cDTmA@GR{@^}A\\kAPm@\\_AN[PSXW",
+            "distance": 335.3,
+            "mode": "driving",
+            "name": "394"
+          },
+          {
+            "duration": 8.7,
+            "maneuver": {
+              "location": [
+                -83.8427,
+                36.01048
+              ],
+              "bearing_after": 165,
+              "modifier": "slight right",
+              "bearing_before": 142,
+              "type": "turn"
+            },
+            "geometry": "ohxzEzov~Nb@IPBXT",
+            "distance": 48.2,
+            "mode": "driving",
+            "name": ""
+          },
+          {
+            "duration": 60.3,
+            "maneuver": {
+              "location": [
+                -83.84278,
+                36.01008
+              ],
+              "bearing_after": 241,
+              "modifier": "straight",
+              "bearing_before": 213,
+              "type": "turn"
+            },
+            "geometry": "_fxzEjpv~NHV^hAz@tCpBzGdBzFNf@zAbFr@~BjAzDt@fC",
+            "distance": 756.4,
+            "mode": "driving",
+            "name": "ASHEVILLE HWY"
+          },
+          {
+            "duration": 78.3,
+            "maneuver": {
+              "location": [
+                -83.8503,
+                36.00704
+              ],
+              "bearing_after": 165,
+              "modifier": "left",
+              "bearing_before": 243,
+              "type": "turn"
+            },
+            "geometry": "_swzEj_x~NRE|Cc@jA_@`Bw@l@QZEv@ClD@`BAfFObCCtCQrCK",
+            "distance": 799.5,
+            "mode": "driving",
+            "name": "CHILHOWEE DR SE"
+          },
+          {
+            "duration": 20.7,
+            "maneuver": {
+              "location": [
+                -83.84926,
+                35.99996
+              ],
+              "bearing_after": 275,
+              "modifier": "right",
+              "bearing_before": 175,
+              "type": "turn"
+            },
+            "geometry": "wfvzEzxw~NG~AIjH",
+            "distance": 178.6,
+            "mode": "driving",
+            "name": "SUNSET RD W"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -83.851241,
+                36.000054
+              ],
+              "bearing_after": 0,
+              "modifier": "right",
+              "bearing_before": 273,
+              "type": "arrive"
+            },
+            "geometry": "igvzEfex~N",
+            "distance": 0,
+            "mode": "driving",
+            "name": "SUNSET RD W"
+          },
+          {
+            "duration": 124.5,
+            "maneuver": {
+              "location": [
+                -83.851241,
+                36.000054
+              ],
+              "bearing_after": 272,
+              "modifier": "right",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "igvzEfex~NAb@ClCF|@Jd@PTZ\\xD~Dz@p@tAz@pAp@l@RfK`DfBl@dCx@z@LjBBl@Gl@S|@]lBmA`@[",
+            "distance": 1116.8,
+            "mode": "driving",
+            "name": "SUNSET RD W"
+          },
+          {
+            "duration": 146.1,
+            "maneuver": {
+              "location": [
+                -83.85535,
+                35.99197
+              ],
+              "bearing_after": 250,
+              "modifier": "right",
+              "bearing_before": 146,
+              "type": "turn"
+            },
+            "geometry": "yttzE|~x~NjAlGt@jErBzK\\jAh@lAxD`HjC|ExAzCvBbEbD~FdC`E~E`HbAjAdAlARTLV",
+            "distance": 1565.4,
+            "mode": "driving",
+            "name": "MCDONALD RD SE"
+          },
+          {
+            "duration": 190.6,
+            "maneuver": {
+              "location": [
+                -83.86957,
+                35.98423
+              ],
+              "bearing_after": 222,
+              "modifier": "straight",
+              "bearing_before": 233,
+              "type": "new name"
+            },
+            "geometry": "mdszExw{~NpChDrA~Al@t@`@v@`@`AzBvFfDnIfBrEz@rBpB~E^~@^x@`AdBd@~@^|@bAjC|FrOhJxVP`@N^v@hBxBzFjB~Ej@|AX`A",
+            "distance": 2244.5,
+            "mode": "driving",
+            "name": "BROOKS AVE"
+          },
+          {
+            "duration": 69.1,
+            "maneuver": {
+              "location": [
+                -83.89042,
+                35.97329
+              ],
+              "bearing_after": 338,
+              "modifier": "right",
+              "bearing_before": 243,
+              "type": "turn"
+            },
+            "geometry": "a`qzEbz__OqDnAo@ZcCv@uCfASRG\\EtACfADf@",
+            "distance": 420.1,
+            "mode": "driving",
+            "name": "ADDISON ST SE"
+          },
+          {
+            "duration": 10.6,
+            "maneuver": {
+              "location": [
+                -83.89284,
+                35.97599
+              ],
+              "bearing_after": 336,
+              "modifier": "right",
+              "bearing_before": 258,
+              "type": "turn"
+            },
+            "geometry": "}pqzEfi`_OaA`@",
+            "distance": 39.8,
+            "mode": "driving",
+            "name": "SANDERS LN"
+          },
+          {
+            "duration": 29.8,
+            "maneuver": {
+              "location": [
+                -83.89301,
+                35.97632
+              ],
+              "bearing_after": 67,
+              "modifier": "right",
+              "bearing_before": 336,
+              "type": "turn"
+            },
+            "geometry": "_sqzEhj`_OkAmF",
+            "distance": 115.2,
+            "mode": "driving",
+            "name": "CITY VIEW AVE"
+          },
+          {
+            "duration": 10.6,
+            "maneuver": {
+              "location": [
+                -83.89182,
+                35.9767
+              ],
+              "bearing_after": 337,
+              "modifier": "left",
+              "bearing_before": 67,
+              "type": "turn"
+            },
+            "geometry": "kuqzEzb`_OwAj@",
+            "distance": 52.8,
+            "mode": "driving",
+            "name": "MOUNTWAY DR"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -83.892043,
+                35.977139
+              ],
+              "bearing_after": 0,
+              "modifier": "left",
+              "bearing_before": 338,
+              "type": "arrive"
+            },
+            "geometry": "cxqzEfd`_O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "MOUNTWAY DR"
+          },
+          {
+            "duration": 31.5,
+            "maneuver": {
+              "location": [
+                -83.892043,
+                35.977139
+              ],
+              "bearing_after": 338,
+              "modifier": "left",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "cxqzEfd`_Oa@Py@V{An@",
+            "distance": 110.1,
+            "mode": "driving",
+            "name": "MOUNTWAY DR"
+          },
+          {
+            "duration": 50.1,
+            "maneuver": {
+              "location": [
+                -83.89249,
+                35.97806
+              ],
+              "bearing_after": 241,
+              "modifier": "left",
+              "bearing_before": 336,
+              "type": "end of road"
+            },
+            "geometry": "{}qzE`g`_ObBjFp@tB`@jAj@tA",
+            "distance": 264.7,
+            "mode": "driving",
+            "name": "BETHEL AVE"
+          },
+          {
+            "duration": 20,
+            "maneuver": {
+              "location": [
+                -83.89507,
+                35.97692
+              ],
+              "bearing_after": 153,
+              "modifier": "left",
+              "bearing_before": 237,
+              "type": "turn"
+            },
+            "geometry": "wvqzEdw`_OhAk@nAk@`A]z@_@",
+            "distance": 169.8,
+            "mode": "driving",
+            "name": "MCCONNELL ST SE"
+          },
+          {
+            "duration": 43,
+            "maneuver": {
+              "location": [
+                -83.89432,
+                35.97552
+              ],
+              "bearing_after": 153,
+              "modifier": "straight",
+              "bearing_before": 156,
+              "type": "new name"
+            },
+            "geometry": "_nqzEnr`_OHEnC{AnAq@bBq@hG_C",
+            "distance": 364.9,
+            "mode": "driving",
+            "name": "WILDER PL"
+          },
+          {
+            "duration": 109.6,
+            "maneuver": {
+              "location": [
+                -83.89269,
+                35.97252
+              ],
+              "bearing_after": 265,
+              "modifier": "right",
+              "bearing_before": 157,
+              "type": "turn"
+            },
+            "geometry": "g{pzEhh`_O@j@Af@GfCAx@EvB?d@CjCAxEF~AHbCPxEJtCHbCD~@Fd@Jh@Nh@n@pBlB`GnCjIXz@Rv@Hf@Dr@@h@?`@ArA",
+            "distance": 1306,
+            "mode": "driving",
+            "name": "DANDRIDGE AVE SE"
+          },
+          {
+            "duration": 29.8,
+            "maneuver": {
+              "location": [
+                -83.90659,
+                35.97031
+              ],
+              "bearing_after": 195,
+              "modifier": "left",
+              "bearing_before": 271,
+              "type": "turn"
+            },
+            "geometry": "mmpzEd_c_OdAXTF|@Rt@LPBZN`@BnAF|@B",
+            "distance": 245.2,
+            "mode": "driving",
+            "name": "E HILL AVE SE"
+          },
+          {
+            "duration": 80.6,
+            "maneuver": {
+              "location": [
+                -83.90711,
+                35.96816
+              ],
+              "bearing_after": 215,
+              "modifier": "right",
+              "bearing_before": 182,
+              "type": "turn"
+            },
+            "geometry": "_`pzElbc_O`@\\LXPd@AbAF|@Nt@Vv@rBbF~@|Bj@rAbAfCzB~F",
+            "distance": 609.9,
+            "mode": "driving",
+            "name": "HOWARD BAKER JR AVE SE"
+          },
+          {
+            "duration": 121.8,
+            "maneuver": {
+              "location": [
+                -83.91293,
+                35.96552
+              ],
+              "bearing_after": 233,
+              "modifier": "straight",
+              "bearing_before": 239,
+              "type": "new name"
+            },
+            "geometry": "ooozExfd_Oj@jAlAfCLXHRXt@Nd@HTJV^~@j@zAh@dBxA`F",
+            "distance": 460.2,
+            "mode": "driving",
+            "name": "E CHURCH AVE SE"
+          },
+          {
+            "duration": 21.4,
+            "maneuver": {
+              "location": [
+                -83.91733,
+                35.96343
+              ],
+              "bearing_after": 338,
+              "modifier": "right",
+              "bearing_before": 243,
+              "type": "turn"
+            },
+            "geometry": "mbozEhbe_OcBl@",
+            "distance": 59.2,
+            "mode": "driving",
+            "name": "S GAY ST SW"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -83.917559,
+                35.963929
+              ],
+              "bearing_after": 0,
+              "modifier": "left",
+              "bearing_before": 340,
+              "type": "arrive"
+            },
+            "geometry": "qeozEvce_O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "S GAY ST SW"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -83.917559,
+                35.963929
+              ],
+              "bearing_after": 339,
+              "modifier": "straight",
+              "bearing_before": 0,
+              "type": "depart"
+            },
+            "geometry": "qeozEvce_O??",
+            "distance": 0,
+            "mode": "driving",
+            "name": "S GAY ST SW"
+          },
+          {
+            "duration": 0,
+            "maneuver": {
+              "location": [
+                -83.917559,
+                35.963929
+              ],
+              "bearing_after": 0,
+              "modifier": "straight",
+              "bearing_before": 339,
+              "type": "arrive"
+            },
+            "geometry": "qeozEvce_O",
+            "distance": 0,
+            "mode": "driving",
+            "name": "S GAY ST SW"
+          }
+        ],
+        "route_end_location_id": " pyxl",
+        "num_soft_breaks": 0,
+        "max_segment_length": 12455.3,
+        "max_num_items_in_vehicle": 0,
+        "max_segment_time": 759
+      }
+    ],
+    "num_orders_routed": 29,
+    "total_distance": 119264.5,
+    "s3_input_bucket": "prod-us-east-1-mare-input-data",
+    "solve_time": 6.089,
+    "constraints": [
+      {
+        "constraint_name": "Travel time test",
+        "constraint_type": "Travel_Time",
+        "penalties": [
+          [
+            0,
+            10974
+          ]
+        ],
+        "constraint_id": "",
+        "penalty_per_violation": 1
+      }
+    ],
+    "total_travel_time": 10973,
+    "s3_output_file": "/2019-03-02/output-mare-us-east-1-routing-11-1551543556.394542-985.json",
+    "s3_input_file": "/2019-03-02/input-mare-us-east-1-routing-11-1551543556.394542-985.json",
+    "total_traffic_time": 1395,
+    "orders": [
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -84.0500703,
+        "order_id": "order_0",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551532127
+        ],
+        "arrival_times": [
+          "2019-03-02T08:08:47-05:00"
+        ],
+        "latitude": 35.9699896,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 2812 Amherst Rd Knoxville TN 37921 USA"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -84.1451022,
+        "order_id": "order_1",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551537713
+        ],
+        "arrival_times": [
+          "2019-03-02T09:41:53-05:00"
+        ],
+        "latitude": 35.8692719,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 709 Concord Rd Knoxville TN 37934 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -83.9297,
+        "order_id": "order_2",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551528277
+        ],
+        "arrival_times": [
+          "2019-03-02T07:04:37-05:00"
+        ],
+        "latitude": 35.96297,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 1315 Forest Ave SW Knoxville TN 37916 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -84.02737,
+        "order_id": "order_3",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551539354
+        ],
+        "arrival_times": [
+          "2019-03-02T10:09:14-05:00"
+        ],
+        "latitude": 35.9102,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 7612 Nubbin Ridge Dr SW Knoxville TN 37919 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -84.02515,
+        "order_id": "order_4",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551539994
+        ],
+        "arrival_times": [
+          "2019-03-02T10:19:54-05:00"
+        ],
+        "latitude": 35.91116,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 7508 Nubbin Ridge Dr SW Knoxville TN 37919 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -84.07164,
+        "order_id": "order_5",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551536335
+        ],
+        "arrival_times": [
+          "2019-03-02T09:18:55-05:00"
+        ],
+        "latitude": 35.92351,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 205 Bridgewater Rd NW Knoxville TN 37923 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -84.0713391,
+        "order_id": "order_6",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551535704
+        ],
+        "arrival_times": [
+          "2019-03-02T09:08:24-05:00"
+        ],
+        "latitude": 35.9242003,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 229 Bridgewater Rd NW Knoxville TN 37923 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -83.89216,
+        "order_id": "order_7",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551536800
+        ],
+        "arrival_times": [
+          "2019-03-02T09:26:40-05:00"
+        ],
+        "latitude": 35.9771,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 2324 Center Ave Knoxville TN 37915 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -83.96233,
+        "order_id": "order_8",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551531620
+        ],
+        "arrival_times": [
+          "2019-03-02T08:00:20-05:00"
+        ],
+        "latitude": 36.01376,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 4905 Rowan Rd Knoxville TN 37912 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -83.94758,
+        "order_id": "order_9",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551532430
+        ],
+        "arrival_times": [
+          "2019-03-02T08:13:50-05:00"
+        ],
+        "latitude": 36.02863,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 1802 Cedar Ln NE Knoxville TN 37918 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -83.92392,
+        "order_id": "order_10",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551533520
+        ],
+        "arrival_times": [
+          "2019-03-02T08:32:00-05:00"
+        ],
+        "latitude": 36.0096599,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " Topeka St Knoxville TN 37917 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -83.85122,
+        "order_id": "order_11",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551535618
+        ],
+        "arrival_times": [
+          "2019-03-02T09:06:58-05:00"
+        ],
+        "latitude": 36.00043,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 5001 Sunset Rd W Knoxville TN 37914 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -84.01821,
+        "order_id": "order_12",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551540735
+        ],
+        "arrival_times": [
+          "2019-03-02T10:32:15-05:00"
+        ],
+        "latitude": 35.91734,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 7211 Westland Dr SW Knoxville TN 37919 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -84.0373,
+        "order_id": "order_13",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551533744
+        ],
+        "arrival_times": [
+          "2019-03-02T08:35:44-05:00"
+        ],
+        "latitude": 35.95718,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 1700 Helmbolt Rd NW Knoxville TN 37909 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -84.0399774,
+        "order_id": "order_14",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551533079
+        ],
+        "arrival_times": [
+          "2019-03-02T08:24:39-05:00"
+        ],
+        "latitude": 35.9581656,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 5732 Creekhead Dr NW Knoxville TN 37909 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -83.92998,
+        "order_id": "order_15",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551529780
+        ],
+        "arrival_times": [
+          "2019-03-02T07:29:40-05:00"
+        ],
+        "latitude": 35.97955,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 142 W Baxter Ave Knoxville TN 37917 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -83.9205999,
+        "order_id": "order_16",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551534259
+        ],
+        "arrival_times": [
+          "2019-03-02T08:44:19-05:00"
+        ],
+        "latitude": 36.00599,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 3338 Powers St NE Knoxville TN 37917 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -83.91144,
+        "order_id": "order_17",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551544724
+        ],
+        "arrival_times": [
+          "2019-03-02T11:38:44-05:00"
+        ],
+        "latitude": 35.93052,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 4500 Martin Mill Pike SW Knoxville TN 37920 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -83.91689,
+        "order_id": "order_18",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551528226
+        ],
+        "arrival_times": [
+          "2019-03-02T07:03:46-05:00"
+        ],
+        "latitude": 35.97205,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 301 E Jackson Ave SE Knoxville TN 37915 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -83.9347,
+        "order_id": "order_19",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551542903
+        ],
+        "arrival_times": [
+          "2019-03-02T11:08:23-05:00"
+        ],
+        "latitude": 35.97131,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 1609 Boyd St NW Knoxville TN 37921 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -83.9203,
+        "order_id": "order_20",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551529025
+        ],
+        "arrival_times": [
+          "2019-03-02T07:17:05-05:00"
+        ],
+        "latitude": 35.97892,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 811 Eleanor St Knoxville TN 37917 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -83.9367,
+        "order_id": "order_21",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551530562
+        ],
+        "arrival_times": [
+          "2019-03-02T07:42:42-05:00"
+        ],
+        "latitude": 35.98813,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 111 E Columbia Ave Knoxville TN 37917 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -84.00543,
+        "order_id": "order_22",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551530933
+        ],
+        "arrival_times": [
+          "2019-03-02T07:48:53-05:00"
+        ],
+        "latitude": 35.97455,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 3346 Dewine Rd Knoxville TN 37921 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -83.9336299,
+        "order_id": "order_23",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551543518
+        ],
+        "arrival_times": [
+          "2019-03-02T11:18:38-05:00"
+        ],
+        "latitude": 35.97159,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 1006 University Ave Knoxville TN 37921 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -83.97457,
+        "order_id": "order_24",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551530009
+        ],
+        "arrival_times": [
+          "2019-03-02T07:33:29-05:00"
+        ],
+        "latitude": 35.97283,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 2705 Sanderson Rd NW Knoxville TN 37921 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -83.97252,
+        "order_id": "order_25",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551541876
+        ],
+        "arrival_times": [
+          "2019-03-02T10:51:16-05:00"
+        ],
+        "latitude": 35.94977,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 424 Tobler Ln NW Knoxville TN 37919 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -83.9566,
+        "order_id": "order_26",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551529196
+        ],
+        "arrival_times": [
+          "2019-03-02T07:19:56-05:00"
+        ],
+        "latitude": 35.9702399,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 2417 Keith Ave NW Knoxville TN 37921 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -84.05824,
+        "order_id": "order_27",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551534913
+        ],
+        "arrival_times": [
+          "2019-03-02T08:55:13-05:00"
+        ],
+        "latitude": 35.92389,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " 8373 Kingston Pike Knoxville TN 37919 United States"
+      },
+      {
+        "visit_gap": [],
+        "priority": 1,
+        "longitude": -83.917753,
+        "order_id": "order_28",
+        "num_visits": 1,
+        "abs_arrival_times": [
+          1551537908
+        ],
+        "arrival_times": [
+          "2019-03-02T09:45:08-05:00"
+        ],
+        "latitude": 35.963871,
+        "min_visits": 1,
+        "visit_gap_days": [],
+        "max_visits": 1,
+        "location_id": " pyxl"
+      }
+    ]
+  },
+  "JobStatus": "Completed",
+  "JobId": "mare-us-east-1-routing-11-1551543556.394542-985",
+  "JobMessage": {
+    "mare_version": "v3777-26-gee0f847",
+    "comment": "MARE job succeeded"
+  }
+}
