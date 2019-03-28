@@ -1,0 +1,450 @@
+openapi: 3.0.0
+info:
+  version: '0.1'
+  title: 'MARE Credits REST API'
+  license:
+    name: Apache2.0
+servers:
+# Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/lagellege/maam-credits-api/0.1
+  - url: http://localhost:9180/v1
+paths:
+  /health:
+    get:
+      summary: Return Status of Credits Service
+      tags:
+        - health
+      responses:
+        '200':
+          description: Return type and status of credit service
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Base2xxResponse'
+                  - type: object
+                    title: Health
+                    required:
+                      - data
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/Health'
+  /credits/matrix:
+    post:
+      summary: Evaluate credits for matrix based payload
+      operationId: evaluateMatrixCredits
+      tags:
+        - credits
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:  
+              $ref: '#/components/schemas/MatrixRequest'
+      responses:
+        '200':
+          description: Calculated Credit Requirements
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Base2xxResponse'
+                  - type: object
+                    title: Credits
+                    required:
+                      - data
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/Credits'
+  /credits/routing:
+    post:
+      summary: Evaluate credits for routing based payload
+      operationId: evaluateRoutingCredits
+      tags:
+        - credits
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:  
+              $ref: '#/components/schemas/RoutingRequest'
+      responses:
+        '200':
+          description: Calculated Credit Requirements
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Base2xxResponse'
+                  - type: object
+                    title: Credits
+                    required:
+                      - data
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/Credits'
+
+  /config/matrix:
+    post:
+      summary: Update credit config for matrix in general
+      operationId: updateMatrixConfig
+      tags:
+        - config
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:  
+              $ref: '#/components/schemas/MatrixConfigRequest'
+      responses:
+        '200':
+          description: Successfully Updated Config
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Base2xxResponse'
+                  - type: object
+                    title: Config
+                    required:
+                      - data
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/ConfigResult'
+    get:
+      summary: Get config for matrix 
+      tags:
+        - config
+      responses:
+        '200':
+          description: Get services for the matrix config
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Base2xxResponse'
+                  - type: object
+                    title: Config
+                    required:
+                      - data
+                    properties:
+                      data:
+                        type: object
+                        items:
+                          $ref: "#/components/schemas/MatrixConfigRequest"
+  /config/routing:
+    post:
+      summary: Update credit config for routing in general
+      operationId: updateRoutingConfig
+      tags:
+        - config
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:  
+              $ref: '#/components/schemas/RoutingConfigRequest'
+      responses:
+        '200':
+          description: Successfully Updated Routing Config
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Base2xxResponse'
+                  - type: object
+                    title: Config
+                    required:
+                      - data
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/ConfigResult'
+    get:
+      summary: Get config for routing 
+      tags:
+        - config
+      responses:
+        '200':
+          description: Get services for the routing config
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Base2xxResponse'
+                  - type: object
+                    title: Config
+                    required:
+                      - data
+                    properties:
+                      data:
+                        type: object
+                        items:
+                          $ref: "#/components/schemas/ConfigResult"
+
+  
+components:
+  parameters:
+    apiKey:
+      name: serviceId
+      in: path
+      required: true
+      description: The id of the consumer
+      schema:
+        type: string
+    serviceName:
+      name: serviceName
+      in: path
+      required: true
+      description: The name of the service 
+      schema:
+        type: string
+  schemas:
+    Health:
+      title: Health
+      type: object
+      required:
+        - status
+        - code
+      properties:
+        status:
+          type: string
+        code:
+          type: integer
+          format: int32
+    Locations:
+      title: Locations
+      type: object
+      required:
+        - location_id
+        - latitude
+        - longitude
+      properties:
+        location_id:
+          type: string
+        latitude:
+          type: number
+          format: float
+        longitude:
+          type: number
+          format: float
+    Orders:
+      title: Orders
+      type: object
+      required:
+        - location_id
+        - order_id
+      properties:
+        location_id:
+          type: string
+        order_id:
+          type: string
+    Credits:
+      title: Credits
+      type: object
+      required:
+        - request_type
+        - num_credits
+        - num_locations
+        - num_orders
+      properties:
+        request_type:
+          type: string
+        num_credits:
+          type: integer
+          format: int32
+        num_locations:
+          type: integer
+          format: int32
+        num_orders:
+          type: integer
+          format: int32
+    MatrixRequest:
+      title: MatrixRequest
+      type: object
+      required:
+        - locations
+      properties:
+        locations:
+          type: array
+          items:
+            $ref: "#/components/schemas/Locations"
+    RoutingRequest:
+      title: RoutingRequest
+      type: object
+      required:
+        - orders
+        - locations
+      properties:
+        orders:
+          type: array
+          items:
+            $ref: "#/components/schemas/Orders"
+        locations:
+          type: array
+          items:
+            $ref: "#/components/schemas/Locations"
+    ConfigResult:
+      title: ConfigResult
+      type: object
+      required:
+        - type
+        - s3_location
+      properties:
+        type:
+          type: string
+        s3_location:
+          type: string
+    SumArray:
+      title: SumArray
+      type: object
+      required:
+        - units
+        - coefficient
+      properties:
+        units:
+          type: string
+        coefficient:
+          type: integer
+          format: int32
+    ProductArray:
+      title: ProductArray
+      type: object
+      required:
+        - units
+        - coefficient
+      properties:
+        units:
+          type: string
+        coefficient:
+          type: integer
+          format: int32
+    Formula:
+      title: Formula
+      type: object
+      required:
+        - SumArray
+        - ProductArray
+      properties:
+        SumArray:
+          type: array
+          items:
+            $ref: "#/components/schemas/SumArray"
+        ProductArray:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductArray"
+    MatrixConfigRequest:
+      title: MatrixConfigRequest
+      type: object
+      required:
+        - Formula
+      properties:
+        Formula:
+          type: array
+          items:
+            $ref: "#/components/schemas/Formula"
+    RoutingConfigRequest:
+      title: RoutingConfigRequest
+      type: object
+      required:
+        - Formula
+      properties:
+        Formula:
+          type: array
+          items:
+            $ref: "#/components/schemas/Formula"
+    BaseResponse:
+      title: Base response to include required fields
+      type: object
+      required:
+        - api_version
+        - request_id
+        - method
+        - status
+        - code
+      properties:
+        api_version: 
+          description: Version of the API being used
+          type: string
+          example: 1.0
+        request_id:
+          description: Unique platform supplied identifier for the request/response (regardless of whether the response is a success or an error). This is useful for correlating service logs with individual responses received by a client.
+          type: string
+          example: eebaf5e1919745a4855e0d80b70638ec
+        status:
+          description: Status of the request. For a 201, the status will be `"ok"` and clients should expect that the `data` property will contain a JSON object complete with a URI to download results specific to the endpoint.
+          type: string
+          example: ok
+        code:
+          description: Top-level HTTP-like code representing the state of service upon response.
+          type: integer
+          format: int32
+          example: 200
+        context:
+          description: Echo of `context` value set by client request. Useful for correlating responses with requests.
+          type: string
+          example: "my-request-2018-11-15T15:53:00+05:00"
+        method:
+          description: Operation performed on the request
+          type: string
+          example: "method.post"
+    Base2xxResponse:
+      allOf:
+        - $ref: '#/components/schemas/BaseResponse'
+        - type: object
+          title: Base response to include required fields
+          properties:
+            job_id:
+              description: Unique service supplied identifier for a launched job. This is useful for correlating server logs with individual responses received by a client.
+              type: string
+              example: 2891ed0d1b474d1cb38f0ccff352ce13
+            message:
+              description: Status message associated with a request and related to the HTTP-like `code`. The intent of `message` is to surface a human-readable message for debugging, auditing, or informational purposes and does not replace the contents of `error` when errors are encountered.
+              type: string
+              example:  The request has been fulfilled and resulted in a new resource being created.
+            info:
+              description: Acknowledgements and copyright information for use in third party applications.
+              type: object
+              required:
+                - copyrights
+                - acknowledgements
+                - licenses
+              properties:
+                copyrights:
+                  type: array
+                  items: 
+                    type: string
+                  minItems: 1
+                  uniqueItems: true
+                acknowledgements:
+                  type: array
+                  items: 
+                    type: string
+                  minItems: 1
+                  uniqueItems: true
+                licenses:
+                  type: array
+                  items: 
+                    type: string
+                  minItems: 1
+                  uniqueItems: true
+    Error:
+      allOf:
+        - $ref: '#/components/schemas/BaseResponse'
+        - type: object
+          required:
+            - error
+          properties:
+            error:
+              type: object
+              title: Error in maam credis api
+              required:
+              - code
+              - message
+              properties:
+                code:
+                  type: integer
+                  format: int32
+                message:
+                  type: string
