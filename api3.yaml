@@ -11,11 +11,6 @@ info:
   version: 1.4.0
   title: Optimization API
 
-# relative URLs to external documentation
-externalDocs:
-  url: https://developer.mapanything.com/
-  description: Visit the MapAnything Developer Portal
-
 # tag management
 tags:
   - name: Distance Matrix
@@ -28,7 +23,6 @@ x-tagGroups:
     tags:
       - Distance Matrix
       - Vehicle Routing
-      - Route Repair
 
 # paths in the API
 paths:
@@ -2591,8 +2585,6 @@ components:
       operationId: postRouting
       parameters:
         jobId: $response.body#/jobid
-
-  #callbacks:
 
 # security
 security:
