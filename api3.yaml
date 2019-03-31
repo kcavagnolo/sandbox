@@ -5,15 +5,11 @@ openapi: 3.0.0
 servers:
   - url: https://public-api.mapanything.io/mare/v1
     description: Production server
-  - url: http://api.devmare.com/v1
-    description: Development server
-  - url: http://api.devmare.com/sandbox
-    description: Sandbox server
-
+  
 # general info about the API
 info:
-  version: 1.0.0
-  title: An API
+  version: 1.4.0
+  title: Optimization API
 
 # relative URLs to external documentation
 externalDocs:
@@ -22,8 +18,6 @@ externalDocs:
 
 # tag management
 tags:
-  - name: Health
-
   - name: Distance Matrix
 
   - name: Vehicle Routing
@@ -35,42 +29,9 @@ x-tagGroups:
       - Distance Matrix
       - Vehicle Routing
       - Route Repair
-  - name: Tools
-    tags:
-      - Tokens
-      - Health
-      - Analytics
 
 # paths in the API
 paths:
-
-  ###################
-  # admin endpoints #
-  ###################
-
-  # service health
-  /health:
-    get:
-      summary: Service health check
-      description: >
-        Some general information on the API and state of the service
-      operationId: getHealth
-      responses:
-        200:
-          description: Service health
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/200Response'
-        default:
-          description: >
-            Unexpected error(s)
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-      tags:
-        - Health
 
   #############################
   # distance matrix endpoints #
@@ -290,50 +251,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
       tags:
         - Vehicle Routing
-
-  ####################
-  # repair endpoints #
-  ####################
-  #
-  # # routing repair job submission endpoint
-  # /repair:
-  #   post:
-  #     summary: Accepts a Repair Job and Returns Job Status (May include payload?)
-  #     operationId: postRepair
-  #     responses:
-  #       201:
-  #         description: Repair Async Job submitted successfully.
-  #     tags:
-  #       - Repair
-  #     requestBody:
-  #       $ref: '#/components/requestBodies/Repair_Job_JSON'
-  #
-  # # routing repair job request endpoint
-  # /repair/{jobId}:
-  #   parameters:
-  #     - name: jobId
-  #       in: path
-  #       required: true
-  #       schema:
-  #         type: string
-  #   delete:
-  #     summary: Abort or Cancel a Job
-  #     operationId: deleteRepairById
-  #     responses:
-  #       204:
-  #         description: Job successfully deleted.
-  #       404:
-  #         description: Job not found.
-  #     tags:
-  #       - Repair
-  #   get:
-  #     summary: Returns the status of the job
-  #     operationId: getRepairById
-  #     responses:
-  #       404:
-  #         description: Job not found.
-  #     tags:
-  #       - Repair
 
 # components
 components:
